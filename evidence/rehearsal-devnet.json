@@ -1,0 +1,539 @@
+{
+  "schemaVersion": 1,
+  "runId": "20261106202033937-6917b1f8",
+  "startedAt": "2026-11-06T20:20:33.938Z",
+  "updatedAt": "2026-11-06T20:23:04.645Z",
+  "stage": "passed",
+  "cluster": "devnet",
+  "rpcUrl": "https://api.devnet.solana.com",
+  "programId": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+  "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+  "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+  "buyer": "5pRqFSXF2rCMYrKfkzJfp5h5KZYfJbS7tWnDGWY74fAc",
+  "secondWallet": "3JVLYWPXpCLmi6BwouuCa91T8gJjfvnXzbQQQqu5qSwe",
+  "amount": "5000000",
+  "decimals": 6,
+  "token": "Mock USDC (test tokens only)",
+  "scope": "Real-chain HTTP product rehearsal with a child worker, persisted PNG/WebP, signed download, process restart, and API-offline direct refund. This script does not prove browser wallet UX or constitute a demo recording.",
+  "dataDir": ".local/rehearsal-devnet-20261106202033937-6917b1f8",
+  "workerBaseUrl": "http://127.0.0.1:18787",
+  "processes": [
+    {
+      "generation": 1,
+      "startedAt": "2026-11-06T20:20:39.365Z",
+      "port": 18787,
+      "logFile": ".local/rehearsal-devnet-20261106202033937-6917b1f8/worker-1.log",
+      "orderLifetimeSeconds": 300,
+      "pid": 18442,
+      "stopRequestedAt": "2026-11-06T20:21:21.350Z",
+      "exit": {
+        "at": "2026-11-06T20:21:21.365Z",
+        "code": 0,
+        "signal": null,
+        "observed": true
+      }
+    },
+    {
+      "generation": 2,
+      "startedAt": "2026-11-06T20:21:21.454Z",
+      "port": 18787,
+      "logFile": ".local/rehearsal-devnet-20261106202033937-6917b1f8/worker-2.log",
+      "orderLifetimeSeconds": 75,
+      "pid": 19481,
+      "stopRequestedAt": "2026-11-06T20:21:48.054Z",
+      "exit": {
+        "at": "2026-11-06T20:21:48.061Z",
+        "code": 0,
+        "signal": null,
+        "observed": true
+      }
+    }
+  ],
+  "http": [
+    {
+      "at": "2026-11-06T20:20:39.366Z",
+      "stage": "network-and-funding-preflight-passed",
+      "method": "GET",
+      "path": "/health",
+      "networkError": "ECONNREFUSED"
+    },
+    {
+      "at": "2026-11-06T20:20:39.619Z",
+      "stage": "network-and-funding-preflight-passed",
+      "method": "GET",
+      "path": "/health",
+      "networkError": "ECONNREFUSED"
+    },
+    {
+      "at": "2026-11-06T20:20:39.871Z",
+      "stage": "network-and-funding-preflight-passed",
+      "method": "GET",
+      "path": "/health",
+      "networkError": "ECONNREFUSED"
+    },
+    {
+      "at": "2026-11-06T20:20:40.122Z",
+      "stage": "network-and-funding-preflight-passed",
+      "method": "GET",
+      "path": "/health",
+      "status": 200
+    },
+    {
+      "at": "2026-11-06T20:20:40.127Z",
+      "stage": "network-and-funding-preflight-passed",
+      "method": "GET",
+      "path": "/api/config",
+      "status": 200
+    },
+    {
+      "at": "2026-11-06T20:20:40.129Z",
+      "stage": "worker-1-ready",
+      "method": "POST",
+      "path": "/api/orders",
+      "status": 201
+    },
+    {
+      "at": "2026-11-06T20:20:54.817Z",
+      "stage": "normal-funded",
+      "method": "POST",
+      "path": "/api/orders/ae2f63a70ba4bff6cf6d4f80e9e3bba792f1a8b7120dad639dfaf7ba10b56499/funded",
+      "status": 200
+    },
+    {
+      "at": "2026-11-06T20:20:55.659Z",
+      "stage": "normal-funded",
+      "method": "GET",
+      "path": "/api/orders/ae2f63a70ba4bff6cf6d4f80e9e3bba792f1a8b7120dad639dfaf7ba10b56499",
+      "status": 200
+    },
+    {
+      "at": "2026-11-06T20:21:00.165Z",
+      "stage": "release-pre-approval-storage",
+      "method": "GET",
+      "path": "/api/orders/ae2f63a70ba4bff6cf6d4f80e9e3bba792f1a8b7120dad639dfaf7ba10b56499/preview",
+      "status": 200
+    },
+    {
+      "at": "2026-11-06T20:21:01.972Z",
+      "stage": "release-pre-approval-storage",
+      "method": "POST",
+      "path": "/api/orders/ae2f63a70ba4bff6cf6d4f80e9e3bba792f1a8b7120dad639dfaf7ba10b56499/challenge",
+      "status": 403
+    },
+    {
+      "at": "2026-11-06T20:21:03.203Z",
+      "stage": "release-pre-approval-storage",
+      "method": "POST",
+      "path": "/api/orders/ae2f63a70ba4bff6cf6d4f80e9e3bba792f1a8b7120dad639dfaf7ba10b56499/download",
+      "status": 403
+    },
+    {
+      "at": "2026-11-06T20:21:16.000Z",
+      "stage": "normal-released",
+      "method": "POST",
+      "path": "/api/orders/ae2f63a70ba4bff6cf6d4f80e9e3bba792f1a8b7120dad639dfaf7ba10b56499/challenge",
+      "status": 403
+    },
+    {
+      "at": "2026-11-06T20:21:16.003Z",
+      "stage": "normal-released",
+      "method": "POST",
+      "path": "/api/orders/ae2f63a70ba4bff6cf6d4f80e9e3bba792f1a8b7120dad639dfaf7ba10b56499/challenge",
+      "status": 200
+    },
+    {
+      "at": "2026-11-06T20:21:16.913Z",
+      "stage": "normal-released",
+      "method": "POST",
+      "path": "/api/orders/ae2f63a70ba4bff6cf6d4f80e9e3bba792f1a8b7120dad639dfaf7ba10b56499/download",
+      "status": 401
+    },
+    {
+      "at": "2026-11-06T20:21:18.411Z",
+      "stage": "normal-released",
+      "method": "POST",
+      "path": "/api/orders/ae2f63a70ba4bff6cf6d4f80e9e3bba792f1a8b7120dad639dfaf7ba10b56499/download",
+      "status": 403
+    },
+    {
+      "at": "2026-11-06T20:21:18.414Z",
+      "stage": "normal-released",
+      "method": "POST",
+      "path": "/api/orders/ae2f63a70ba4bff6cf6d4f80e9e3bba792f1a8b7120dad639dfaf7ba10b56499/download",
+      "status": 200
+    },
+    {
+      "at": "2026-11-06T20:21:19.849Z",
+      "stage": "normal-released",
+      "method": "POST",
+      "path": "/api/orders/ae2f63a70ba4bff6cf6d4f80e9e3bba792f1a8b7120dad639dfaf7ba10b56499/download",
+      "status": 401
+    },
+    {
+      "at": "2026-11-06T20:21:21.452Z",
+      "stage": "release-download-verified",
+      "method": "GET",
+      "path": "/health",
+      "networkError": "ECONNREFUSED"
+    },
+    {
+      "at": "2026-11-06T20:21:21.455Z",
+      "stage": "release-worker-stopped",
+      "method": "GET",
+      "path": "/health",
+      "networkError": "ECONNREFUSED"
+    },
+    {
+      "at": "2026-11-06T20:21:21.706Z",
+      "stage": "release-worker-stopped",
+      "method": "GET",
+      "path": "/health",
+      "networkError": "ECONNREFUSED"
+    },
+    {
+      "at": "2026-11-06T20:21:21.958Z",
+      "stage": "release-worker-stopped",
+      "method": "GET",
+      "path": "/health",
+      "networkError": "ECONNREFUSED"
+    },
+    {
+      "at": "2026-11-06T20:21:22.211Z",
+      "stage": "release-worker-stopped",
+      "method": "GET",
+      "path": "/health",
+      "networkError": "ECONNREFUSED"
+    },
+    {
+      "at": "2026-11-06T20:21:22.461Z",
+      "stage": "release-worker-stopped",
+      "method": "GET",
+      "path": "/health",
+      "networkError": "ECONNREFUSED"
+    },
+    {
+      "at": "2026-11-06T20:21:22.714Z",
+      "stage": "release-worker-stopped",
+      "method": "GET",
+      "path": "/health",
+      "networkError": "ECONNREFUSED"
+    },
+    {
+      "at": "2026-11-06T20:21:22.965Z",
+      "stage": "release-worker-stopped",
+      "method": "GET",
+      "path": "/health",
+      "status": 200
+    },
+    {
+      "at": "2026-11-06T20:21:22.972Z",
+      "stage": "release-worker-stopped",
+      "method": "GET",
+      "path": "/api/config",
+      "status": 200
+    },
+    {
+      "at": "2026-11-06T20:21:22.975Z",
+      "stage": "worker-2-ready",
+      "method": "GET",
+      "path": "/api/orders/ae2f63a70ba4bff6cf6d4f80e9e3bba792f1a8b7120dad639dfaf7ba10b56499",
+      "status": 200
+    },
+    {
+      "at": "2026-11-06T20:21:24.377Z",
+      "stage": "worker-2-ready",
+      "method": "GET",
+      "path": "/api/orders?buyer=5pRqFSXF2rCMYrKfkzJfp5h5KZYfJbS7tWnDGWY74fAc",
+      "status": 200
+    },
+    {
+      "at": "2026-11-06T20:21:25.960Z",
+      "stage": "worker-2-ready",
+      "method": "POST",
+      "path": "/api/orders/ae2f63a70ba4bff6cf6d4f80e9e3bba792f1a8b7120dad639dfaf7ba10b56499/download",
+      "status": 401
+    },
+    {
+      "at": "2026-11-06T20:21:27.387Z",
+      "stage": "worker-2-ready",
+      "method": "POST",
+      "path": "/api/orders/ae2f63a70ba4bff6cf6d4f80e9e3bba792f1a8b7120dad639dfaf7ba10b56499/challenge",
+      "status": 200
+    },
+    {
+      "at": "2026-11-06T20:21:28.970Z",
+      "stage": "worker-2-ready",
+      "method": "POST",
+      "path": "/api/orders/ae2f63a70ba4bff6cf6d4f80e9e3bba792f1a8b7120dad639dfaf7ba10b56499/download",
+      "status": 200
+    },
+    {
+      "at": "2026-11-06T20:21:30.390Z",
+      "stage": "release-restart-recovery-verified",
+      "method": "POST",
+      "path": "/api/orders",
+      "status": 201
+    },
+    {
+      "at": "2026-11-06T20:21:45.563Z",
+      "stage": "stall-funded",
+      "method": "POST",
+      "path": "/api/orders/de5ea74fcdf1182c3b933175c7732543c587f6fe394f589f8f337c1c1f8a14c2/funded",
+      "status": 200
+    },
+    {
+      "at": "2026-11-06T20:21:46.410Z",
+      "stage": "stall-funded",
+      "method": "GET",
+      "path": "/api/orders/de5ea74fcdf1182c3b933175c7732543c587f6fe394f589f8f337c1c1f8a14c2",
+      "status": 200
+    },
+    {
+      "at": "2026-11-06T20:21:48.156Z",
+      "stage": "refund-stopping-merchant-api",
+      "method": "GET",
+      "path": "/health",
+      "networkError": "ECONNREFUSED"
+    },
+    {
+      "at": "2026-11-06T20:22:46.617Z",
+      "stage": "refund-api-offline-awaiting-chain-expiry",
+      "method": "GET",
+      "path": "/health",
+      "networkError": "ECONNREFUSED"
+    },
+    {
+      "at": "2026-11-06T20:23:04.643Z",
+      "stage": "stall-refunded",
+      "method": "GET",
+      "path": "/health",
+      "networkError": "ECONNREFUSED"
+    }
+  ],
+  "passed": true,
+  "genesis": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+  "release": {
+    "order": {
+      "jobId": "ae2f63a70ba4bff6cf6d4f80e9e3bba792f1a8b7120dad639dfaf7ba10b56499",
+      "jobAddress": "BdtgdrdM2ZdurrPbE7tTLKx4t2otMjRBLQc61vvH2NeN",
+      "buyer": "5pRqFSXF2rCMYrKfkzJfp5h5KZYfJbS7tWnDGWY74fAc",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "amount": "5000000",
+      "expiresAt": 1793996739,
+      "mode": "normal",
+      "status": "quoted"
+    },
+    "jobAddress": "BdtgdrdM2ZdurrPbE7tTLKx4t2otMjRBLQc61vvH2NeN",
+    "vault": "CmZvHUKomqFMNTemeuxTf21HdbngvGhxUQHgb5m9LDob",
+    "recoveryLink": "/recover?job=BdtgdrdM2ZdurrPbE7tTLKx4t2otMjRBLQc61vvH2NeN",
+    "before": {
+      "buyer": "90000000",
+      "merchant": "10000000",
+      "vault": "0"
+    },
+    "states": [
+      {
+        "at": "2026-11-06T20:20:54.815Z",
+        "state": "Funded"
+      },
+      {
+        "at": "2026-11-06T20:21:09.241Z",
+        "state": "Released"
+      }
+    ],
+    "buyerNativeLamports": {
+      "before": 91191760,
+      "note": "Lamports are recorded separately from SPL token units. Native changes include account rent plus fees; token deltas exclude both.",
+      "afterFund": 88260680,
+      "afterSettlement": 88255680,
+      "rentAndOtherCostsExcludingFees": 2926080
+    },
+    "fundingAttempted": true,
+    "fund": {
+      "signature": "45VtBrdB32xLBrXF9YFjfStd3UK5rkeyBQ81qXZEretiJDJtaQePRBYaNjv6f64eFQFNrRuoPGBWGVPcuFAgiiZ6",
+      "explorer": "https://explorer.solana.com/tx/45VtBrdB32xLBrXF9YFjfStd3UK5rkeyBQ81qXZEretiJDJtaQePRBYaNjv6f64eFQFNrRuoPGBWGVPcuFAgiiZ6?cluster=devnet"
+    },
+    "afterFund": {
+      "buyer": "85000000",
+      "merchant": "10000000",
+      "vault": "5000000"
+    },
+    "preApprovalStorage": {
+      "checkedAt": "2026-11-06T20:21:01.972Z",
+      "state": "Funded",
+      "resultPersistedBeforeApproval": true,
+      "inputSha256": "a6d05bc8dff2f19a87889013f8c5c9d08978b4322a643db3c3f2bc6df23a5038",
+      "resultSha256": "570a9e4da29395c355f4f0bb47e74f1653d3a964821a136606be9bf37c07fd5a",
+      "resultBytes": 11872,
+      "resultFileMtime": "2026-11-06T20:20:57.292Z",
+      "resultMatchesDurableManifest": true,
+      "previewSha256": "2aa5a261fe9012919aaddadbf42dc18713a00a9d342f8b5ea491933b795c234b",
+      "previewBytes": 20098,
+      "previewWidth": 640,
+      "previewHeight": 444,
+      "previewDiffersFromOriginal": true,
+      "watermarkCaptionPixelRgb": [
+        19,
+        39,
+        55
+      ]
+    },
+    "privateAccess": {
+      "preReleaseChallenge": 403,
+      "preReleaseDownload": 403,
+      "wrongBuyerChallenge": 403,
+      "wrongWalletSignature": 401,
+      "wrongBuyerDownload": 403,
+      "originalBuyerDownload": 200,
+      "replayDenied": 401,
+      "resultSha256": "570a9e4da29395c355f4f0bb47e74f1653d3a964821a136606be9bf37c07fd5a"
+    },
+    "settlementAttempted": true,
+    "settle": {
+      "signature": "5zgQth6Zb12RyonNE3dafjVeLUXLhpPc3cex3mKZTKKXmJZD6W6BKVsVw43KA6rdD47vy9qGNVxTju5VETdZ4cEs",
+      "explorer": "https://explorer.solana.com/tx/5zgQth6Zb12RyonNE3dafjVeLUXLhpPc3cex3mKZTKKXmJZD6W6BKVsVw43KA6rdD47vy9qGNVxTju5VETdZ4cEs?cluster=devnet"
+    },
+    "after": {
+      "buyer": "85000000",
+      "merchant": "15000000",
+      "vault": "0"
+    },
+    "feesLamports": {
+      "fund": 5000,
+      "settlement": 5000
+    },
+    "restartRecovery": {
+      "firstPid": 18442,
+      "restartedPid": 19481,
+      "stopped": {
+        "at": "2026-11-06T20:21:21.453Z",
+        "pid": 18442,
+        "exit": {
+          "at": "2026-11-06T20:21:21.365Z",
+          "code": 0,
+          "signal": null,
+          "observed": true
+        },
+        "healthError": "ECONNREFUSED"
+      },
+      "sameDataDir": ".local/rehearsal-devnet-20261106202033937-6917b1f8",
+      "chainState": "Released",
+      "workerStatus": "released",
+      "consumedChallengeRejectedAfterRestart": 401,
+      "freshChallengeDownload": 200,
+      "resultSha256": "570a9e4da29395c355f4f0bb47e74f1653d3a964821a136606be9bf37c07fd5a",
+      "identicalBytes": true
+    }
+  },
+  "refund": {
+    "order": {
+      "jobId": "de5ea74fcdf1182c3b933175c7732543c587f6fe394f589f8f337c1c1f8a14c2",
+      "jobAddress": "4kuhut8e61WvKjGjY5xpDUhkeKL2quAeuqtnaSvpGRuB",
+      "buyer": "5pRqFSXF2rCMYrKfkzJfp5h5KZYfJbS7tWnDGWY74fAc",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "amount": "5000000",
+      "expiresAt": 1793996565,
+      "mode": "stall",
+      "status": "quoted"
+    },
+    "jobAddress": "4kuhut8e61WvKjGjY5xpDUhkeKL2quAeuqtnaSvpGRuB",
+    "vault": "6sb4TYKzyTC1yaA4FYZuHDZ9SmtWBsvEbcZofk9uWWy4",
+    "recoveryLink": "/recover?job=4kuhut8e61WvKjGjY5xpDUhkeKL2quAeuqtnaSvpGRuB",
+    "before": {
+      "buyer": "85000000",
+      "merchant": "15000000",
+      "vault": "0"
+    },
+    "states": [
+      {
+        "at": "2026-11-06T20:21:45.559Z",
+        "state": "Funded"
+      },
+      {
+        "at": "2026-11-06T20:22:57.884Z",
+        "state": "Refunded"
+      }
+    ],
+    "buyerNativeLamports": {
+      "before": 88255680,
+      "note": "Lamports are recorded separately from SPL token units. Native changes include account rent plus fees; token deltas exclude both.",
+      "afterFund": 85324600,
+      "afterSettlement": 85319600,
+      "rentAndOtherCostsExcludingFees": 2926080
+    },
+    "fundingAttempted": true,
+    "fund": {
+      "signature": "6hMzFKJh95p8DtYbPKQegcnshE5GPpS6xKrai8hAHxYECJ488rSMYmJRXEtAJVnLk6fYNXQynPy23aKPZdkKPz3",
+      "explorer": "https://explorer.solana.com/tx/6hMzFKJh95p8DtYbPKQegcnshE5GPpS6xKrai8hAHxYECJ488rSMYmJRXEtAJVnLk6fYNXQynPy23aKPZdkKPz3?cluster=devnet"
+    },
+    "afterFund": {
+      "buyer": "80000000",
+      "merchant": "15000000",
+      "vault": "5000000"
+    },
+    "apiOffline": {
+      "beforeDeadline": {
+        "at": "2026-11-06T20:21:48.157Z",
+        "pid": 19481,
+        "exit": {
+          "at": "2026-11-06T20:21:48.061Z",
+          "code": 0,
+          "signal": null,
+          "observed": true
+        },
+        "healthError": "ECONNREFUSED"
+      },
+      "deterministicStall": true,
+      "noPersistedResult": true,
+      "refundClient": "@holdfast/chain buildRefundTransaction + direct RPC",
+      "usesMerchantApi": false,
+      "atDeadline": {
+        "at": "2026-11-06T20:22:46.619Z",
+        "pid": 19481,
+        "exit": {
+          "at": "2026-11-06T20:21:48.061Z",
+          "code": 0,
+          "signal": null,
+          "observed": true
+        },
+        "healthError": "ECONNREFUSED"
+      },
+      "beforeRefund": {
+        "buyer": "80000000",
+        "merchant": "15000000",
+        "vault": "5000000"
+      },
+      "observedFundedAtDeadline": true,
+      "afterRefund": {
+        "at": "2026-11-06T20:23:04.644Z",
+        "pid": 19481,
+        "exit": {
+          "at": "2026-11-06T20:21:48.061Z",
+          "code": 0,
+          "signal": null,
+          "observed": true
+        },
+        "healthError": "ECONNREFUSED"
+      },
+      "merchantHttpRequestsDuringRefund": 0,
+      "finalizedState": "Refunded"
+    },
+    "settlementAttempted": true,
+    "settle": {
+      "signature": "3jru968AFykeUbwFY3uFEqzhw8J4mUdXX75YBaUucWoDkPGZrvL5pvf7NWbCAqpyQeQmLypEfmQ3MJFo88R4cJb4",
+      "explorer": "https://explorer.solana.com/tx/3jru968AFykeUbwFY3uFEqzhw8J4mUdXX75YBaUucWoDkPGZrvL5pvf7NWbCAqpyQeQmLypEfmQ3MJFo88R4cJb4?cluster=devnet"
+    },
+    "after": {
+      "buyer": "85000000",
+      "merchant": "15000000",
+      "vault": "0"
+    },
+    "feesLamports": {
+      "fund": 5000,
+      "settlement": 5000
+    }
+  },
+  "finishedAt": "2026-11-06T20:23:04.645Z"
+}

@@ -4,12 +4,12 @@
 
 vite v7.1.7 building for production...
 transforming...
-✓ 276 modules transformed.
+✓ 277 modules transformed.
 rendering chunks...
 computing gzip size...
 dist/index.html                   0.75 kB │ gzip:   0.41 kB
 dist/assets/index-BsNWfFl2.css   19.27 kB │ gzip:   4.99 kB
-dist/assets/index-DolEtf35.js    34.27 kB │ gzip:  11.42 kB
+dist/assets/index-q5uRmYhH.js    34.27 kB │ gzip:  11.42 kB
 dist/assets/react-CKuFtPIV.js   185.71 kB │ gzip:  58.38 kB
-dist/assets/solana-BESAUwrY.js  435.18 kB │ gzip: 124.35 kB
-✓ built in 899ms
+dist/assets/solana-DU3r0_1B.js  436.55 kB │ gzip: 125.06 kB
+✓ built in 858ms

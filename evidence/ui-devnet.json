@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "runId": "20261106202348996-917292",
+  "startedAt": "2026-11-06T20:23:48.997Z",
+  "cluster": "devnet",
+  "rpcUrl": "https://api.devnet.solana.com",
+  "programId": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+  "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+  "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+  "buyer": "5pRqFSXF2rCMYrKfkzJfp5h5KZYfJbS7tWnDGWY74fAc",
+  "amount": "5000000",
+  "decimals": 6,
+  "token": "Mock USDC, test tokens only",
+  "scope": "Real browser UI and real chain transactions. A disposable wallet provider is injected only by this Node harness; this does not verify the Phantom browser extension.",
+  "privateKeysInBrowser": false,
+  "workerDataDir": ".local/ui-devnet-20261106202348996-917292/worker",
+  "workerOrigin": "http://127.0.0.1:18788",
+  "webOrigin": "http://127.0.0.1:15173",
+  "processes": [
+    {
+      "name": "worker-1",
+      "startedAt": "2026-11-06T20:23:49.830Z",
+      "logFile": ".local/ui-devnet-20261106202348996-917292/worker-1.log",
+      "pid": 23315,
+      "stopRequestedAt": "2026-11-06T20:26:01.308Z",
+      "exit": {
+        "at": "2026-11-06T20:26:03.054Z",
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "name": "vite",
+      "startedAt": "2026-11-06T20:23:50.547Z",
+      "logFile": ".local/ui-devnet-20261106202348996-917292/vite.log",
+      "pid": 23337,
+      "stopRequestedAt": "2026-11-06T20:28:27.788Z",
+      "exit": {
+        "at": "2026-11-06T20:28:27.794Z",
+        "code": 143,
+        "signal": null
+      }
+    },
+    {
+      "name": "worker-2",
+      "startedAt": "2026-11-06T20:26:03.064Z",
+      "logFile": ".local/ui-devnet-20261106202348996-917292/worker-2.log",
+      "pid": 26783,
+      "stopRequestedAt": "2026-11-06T20:27:43.890Z",
+      "exit": {
+        "at": "2026-11-06T20:27:46.313Z",
+        "code": 0,
+        "signal": null
+      }
+    }
+  ],
+  "artifacts": {
+    "screenshots": [
+      "evidence/screenshots/ui-devnet-desktop-start.png",
+      "evidence/screenshots/ui-devnet-desktop-preview.png",
+      "evidence/screenshots/ui-devnet-mobile-preview.png",
+      "evidence/screenshots/ui-devnet-desktop-released.png",
+      "evidence/screenshots/ui-devnet-desktop-stalled.png",
+      "evidence/screenshots/ui-devnet-desktop-recovery-waiting.png",
+      "evidence/screenshots/ui-devnet-desktop-refunded.png",
+      "evidence/screenshots/ui-devnet-mobile-refunded.png"
+    ],
+    "videos": [
+      "evidence/ui-devnet-checkout.webm",
+      "evidence/ui-devnet-recovery.webm"
+    ]
+  },
+  "signedTransactions": [
+    {
+      "at": "2026-11-06T20:24:28.386Z",
+      "programs": [
+        "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+        "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+        "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY"
+      ]
+    },
+    {
+      "at": "2026-11-06T20:25:33.937Z",
+      "programs": [
+        "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY"
+      ]
+    },
+    {
+      "at": "2026-11-06T20:27:16.338Z",
+      "programs": [
+        "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+        "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+        "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY"
+      ]
+    },
+    {
+      "at": "2026-11-06T20:28:07.891Z",
+      "programs": [
+        "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+        "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY"
+      ]
+    }
+  ],
+  "pageErrors": [],
+  "merchantRequestsOnRecovery": [],
+  "passed": true,
+  "stage": "passed",
+  "genesis": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+  "release": {
+    "order": {
+      "jobId": "24a027d6ab89157061f25db7c81b356cd4998a010597cd38c62f0d5321cf5cb8",
+      "jobAddress": "EFj9HvA8Z3pqhC8ixmr943V9xJpxx4RYVWKtTm6UFPst",
+      "buyer": "5pRqFSXF2rCMYrKfkzJfp5h5KZYfJbS7tWnDGWY74fAc",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "amount": "5000000",
+      "expiresAt": 1793996813,
+      "mode": "normal",
+      "status": "quoted"
+    },
+    "vault": "GMDdU5YL4WWHXkqnpLVPcjiWsWqmguNv8YY5WWiE4BqV",
+    "before": {
+      "buyer": "85000000",
+      "merchant": "15000000",
+      "vault": "0"
+    },
+    "fundedJob": {
+      "address": "EFj9HvA8Z3pqhC8ixmr943V9xJpxx4RYVWKtTm6UFPst",
+      "buyer": "5pRqFSXF2rCMYrKfkzJfp5h5KZYfJbS7tWnDGWY74fAc",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "jobId": "24a027d6ab89157061f25db7c81b356cd4998a010597cd38c62f0d5321cf5cb8",
+      "amount": "5000000",
+      "expiresAt": 1793996813,
+      "state": "Funded",
+      "vault": "GMDdU5YL4WWHXkqnpLVPcjiWsWqmguNv8YY5WWiE4BqV"
+    },
+    "afterFund": {
+      "buyer": "80000000",
+      "merchant": "15000000",
+      "vault": "5000000"
+    },
+    "fund": {
+      "signature": "5w4vU1SWMpFb9QVzLLKybvosBrqmk6YKuYBs5yvfHCs5enwXuN88qu4oVZtFSdHZdWBkyKoSEn8SNLk6ZutmrKdL",
+      "explorer": "https://explorer.solana.com/tx/5w4vU1SWMpFb9QVzLLKybvosBrqmk6YKuYBs5yvfHCs5enwXuN88qu4oVZtFSdHZdWBkyKoSEn8SNLk6ZutmrKdL?cluster=devnet"
+    },
+    "resultPersistedBeforeApproval": {
+      "bytes": 8574,
+      "sha256": "5e66b34d132c93b27d7894eaef0d95e98b6b9c242bd83a6a9ddb5c1147e41240",
+      "onchainState": "Funded"
+    },
+    "settlement": {
+      "signature": "2KoexF5XBk6g66r1rHvSTh9XW71hTycDB5ngYGiwPh4FwaBvpZch5XkHhWbgzpPLQgq8kgJPxWT5en3mDHcBUMoJ",
+      "explorer": "https://explorer.solana.com/tx/2KoexF5XBk6g66r1rHvSTh9XW71hTycDB5ngYGiwPh4FwaBvpZch5XkHhWbgzpPLQgq8kgJPxWT5en3mDHcBUMoJ?cluster=devnet"
+    },
+    "settledJob": {
+      "address": "EFj9HvA8Z3pqhC8ixmr943V9xJpxx4RYVWKtTm6UFPst",
+      "buyer": "5pRqFSXF2rCMYrKfkzJfp5h5KZYfJbS7tWnDGWY74fAc",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "jobId": "24a027d6ab89157061f25db7c81b356cd4998a010597cd38c62f0d5321cf5cb8",
+      "amount": "5000000",
+      "expiresAt": 1793996813,
+      "state": "Released",
+      "vault": "GMDdU5YL4WWHXkqnpLVPcjiWsWqmguNv8YY5WWiE4BqV"
+    },
+    "after": {
+      "buyer": "80000000",
+      "merchant": "20000000",
+      "vault": "0"
+    },
+    "firstDownload": {
+      "bytes": 8574,
+      "sha256": "5e66b34d132c93b27d7894eaef0d95e98b6b9c242bd83a6a9ddb5c1147e41240",
+      "savedLocally": ".local/ui-devnet-20261106202348996-917292/download-1.webp"
+    },
+    "backendRestart": {
+      "before": {
+        "at": "2026-11-06T20:26:03.064Z",
+        "pid": 23315,
+        "exit": {
+          "at": "2026-11-06T20:26:03.054Z",
+          "code": 0,
+          "signal": null
+        },
+        "health": "ECONNREFUSED"
+      }
+    },
+    "reloadDownload": {
+      "bytes": 8574,
+      "sha256": "5e66b34d132c93b27d7894eaef0d95e98b6b9c242bd83a6a9ddb5c1147e41240",
+      "savedLocally": ".local/ui-devnet-20261106202348996-917292/download-2.webp",
+      "identicalBytes": true,
+      "restartedWorkerPid": 26783,
+      "sameDataDir": true
+    }
+  },
+  "updatedAt": "2026-11-06T20:28:28.139Z",
+  "refund": {
+    "order": {
+      "jobId": "51e32bbccb2a4b21b39eee157f1ab080dd36b344675e2ce1fd813c6f9c52aeb9",
+      "jobAddress": "AE5DnSy54biJo5wpBU5yUVpKsMwkNxEhHcHnBueRGr6x",
+      "buyer": "5pRqFSXF2rCMYrKfkzJfp5h5KZYfJbS7tWnDGWY74fAc",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "amount": "5000000",
+      "expiresAt": 1793996862,
+      "mode": "stall",
+      "status": "quoted"
+    },
+    "vault": "FTucABRBC1qKawv51C3o69wdoBkTpf1XEtKwsmL6HppB",
+    "before": {
+      "buyer": "80000000",
+      "merchant": "20000000",
+      "vault": "0"
+    },
+    "fundedJob": {
+      "address": "AE5DnSy54biJo5wpBU5yUVpKsMwkNxEhHcHnBueRGr6x",
+      "buyer": "5pRqFSXF2rCMYrKfkzJfp5h5KZYfJbS7tWnDGWY74fAc",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "jobId": "51e32bbccb2a4b21b39eee157f1ab080dd36b344675e2ce1fd813c6f9c52aeb9",
+      "amount": "5000000",
+      "expiresAt": 1793996862,
+      "state": "Funded",
+      "vault": "FTucABRBC1qKawv51C3o69wdoBkTpf1XEtKwsmL6HppB"
+    },
+    "afterFund": {
+      "buyer": "75000000",
+      "merchant": "20000000",
+      "vault": "5000000"
+    },
+    "fund": {
+      "signature": "4TS5e87Kc2Zs2kLypwxpkYHpMXDnHuYv5JxFUp2GyYALxo5n47ousvCJtBqv1TDD8Zmmf5ZbtRDqajErEJpcy2kF",
+      "explorer": "https://explorer.solana.com/tx/4TS5e87Kc2Zs2kLypwxpkYHpMXDnHuYv5JxFUp2GyYALxo5n47ousvCJtBqv1TDD8Zmmf5ZbtRDqajErEJpcy2kF?cluster=devnet"
+    },
+    "recoveryLink": "/recover?job=AE5DnSy54biJo5wpBU5yUVpKsMwkNxEhHcHnBueRGr6x",
+    "apiOfflineBeforeRecovery": {
+      "at": "2026-11-06T20:27:46.368Z",
+      "pid": 26783,
+      "exit": {
+        "at": "2026-11-06T20:27:46.313Z",
+        "code": 0,
+        "signal": null
+      },
+      "health": "ECONNREFUSED"
+    },
+    "refundButtonInitiallyDisabled": false,
+    "apiOfflineAtRefund": {
+      "at": "2026-11-06T20:27:58.664Z",
+      "pid": 26783,
+      "exit": {
+        "at": "2026-11-06T20:27:46.313Z",
+        "code": 0,
+        "signal": null
+      },
+      "health": "ECONNREFUSED"
+    },
+    "settlement": {
+      "signature": "Yf3vqNYDdueKTapA9T8TPSANAWJxmSuydXsEPNJKDh3MVaz1h9NdmSnPMWdzLvWt86Kx9a7NWxh3pTrnXhTg9Ah",
+      "explorer": "https://explorer.solana.com/tx/Yf3vqNYDdueKTapA9T8TPSANAWJxmSuydXsEPNJKDh3MVaz1h9NdmSnPMWdzLvWt86Kx9a7NWxh3pTrnXhTg9Ah?cluster=devnet"
+    },
+    "settledJob": {
+      "address": "AE5DnSy54biJo5wpBU5yUVpKsMwkNxEhHcHnBueRGr6x",
+      "buyer": "5pRqFSXF2rCMYrKfkzJfp5h5KZYfJbS7tWnDGWY74fAc",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "jobId": "51e32bbccb2a4b21b39eee157f1ab080dd36b344675e2ce1fd813c6f9c52aeb9",
+      "amount": "5000000",
+      "expiresAt": 1793996862,
+      "state": "Refunded",
+      "vault": "FTucABRBC1qKawv51C3o69wdoBkTpf1XEtKwsmL6HppB"
+    },
+    "after": {
+      "buyer": "80000000",
+      "merchant": "20000000",
+      "vault": "0"
+    },
+    "apiOfflineAfterRefund": {
+      "at": "2026-11-06T20:28:27.141Z",
+      "pid": 26783,
+      "exit": {
+        "at": "2026-11-06T20:27:46.313Z",
+        "code": 0,
+        "signal": null
+      },
+      "health": "ECONNREFUSED"
+    },
+    "merchantRequestsOnRecovery": 0
+  },
+  "finishedAt": "2026-11-06T20:28:27.564Z"
+}

@@ -1,0 +1,92 @@
+{
+  "at": "2026-11-06T20:16:36.048Z",
+  "cluster": "devnet",
+  "programId": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+  "scope": "Live chain client release and expiry refund; full product/offline process proof is in rehearsal evidence.",
+  "token": "Mock USDC",
+  "decimals": 6,
+  "amount": "5000000",
+  "buyer": "5pRqFSXF2rCMYrKfkzJfp5h5KZYfJbS7tWnDGWY74fAc",
+  "genesis": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+  "release": {
+    "jobId": "1641fe46239da5ca7747246a8ddaee2adab396814082e83c6c1aeaec0aedb456",
+    "jobAddress": "BXVAGomEzy69LsyjLE7xL2BEqN8NFJcFuKFXBGBEWs9Z",
+    "vault": "3MRbjJs6EH24995YM78nJr5KRKwoBKgUiZ24wUiZUTUZ",
+    "expiresAt": 1793996496,
+    "before": {
+      "buyer": "95000000",
+      "merchant": "5000000",
+      "vault": "0"
+    },
+    "afterFund": {
+      "buyer": "90000000",
+      "merchant": "5000000",
+      "vault": "5000000"
+    },
+    "fund": {
+      "signature": "2btuc7Fo4QjdBECuXnLAJQWQvYXkXCELVNTmtFrtPN7nP5zUMX8Z5f91Pg9XZj2xVohfcYeEjMqy5gYihEc7GBbR",
+      "explorer": "https://explorer.solana.com/tx/2btuc7Fo4QjdBECuXnLAJQWQvYXkXCELVNTmtFrtPN7nP5zUMX8Z5f91Pg9XZj2xVohfcYeEjMqy5gYihEc7GBbR?cluster=devnet"
+    },
+    "state": "Released",
+    "recoveryLink": "/recover?job=BXVAGomEzy69LsyjLE7xL2BEqN8NFJcFuKFXBGBEWs9Z",
+    "settle": {
+      "signature": "29qUKZpLPoT9eAQGgjeHPph5BeiuWVEfsunm2QoSqTYDBZT78yqGaKbV5LcKAAw3eNJhGiD3qADXtM9VW3uAW8ie",
+      "explorer": "https://explorer.solana.com/tx/29qUKZpLPoT9eAQGgjeHPph5BeiuWVEfsunm2QoSqTYDBZT78yqGaKbV5LcKAAw3eNJhGiD3qADXtM9VW3uAW8ie?cluster=devnet"
+    },
+    "after": {
+      "buyer": "90000000",
+      "merchant": "10000000",
+      "vault": "0"
+    },
+    "feesLamports": {
+      "fund": 5000,
+      "settlement": 5000
+    },
+    "buyerNativeLamports": {
+      "before": 97063920,
+      "after": 94127840,
+      "note": "SOL includes transaction fees and account rent; SPL token balances above exclude both."
+    }
+  },
+  "refund": {
+    "jobId": "295b0ee1e565af9da2c7a2b3407802b69643f41d0ad877bdd318b00bb9df78ad",
+    "jobAddress": "nVNcbihHTqLLafw8Jq877fcc4gQXahZevQt5ZrLyjkT",
+    "vault": "DHYA8DvTWYcUZbKdSfe9WVH9E2emqp58ZYNT4ztsqi1K",
+    "expiresAt": 1793996298,
+    "before": {
+      "buyer": "90000000",
+      "merchant": "10000000",
+      "vault": "0"
+    },
+    "afterFund": {
+      "buyer": "85000000",
+      "merchant": "10000000",
+      "vault": "5000000"
+    },
+    "fund": {
+      "signature": "5XAVPuESzMFYjnDMGshrq1RttA7kkgdcisRuQviDPSUkTbGXMHPmFMjrvfn1Hx1xW9UqKezG8qekA1bCboM8gN3Y",
+      "explorer": "https://explorer.solana.com/tx/5XAVPuESzMFYjnDMGshrq1RttA7kkgdcisRuQviDPSUkTbGXMHPmFMjrvfn1Hx1xW9UqKezG8qekA1bCboM8gN3Y?cluster=devnet"
+    },
+    "state": "Refunded",
+    "recoveryLink": "/recover?job=nVNcbihHTqLLafw8Jq877fcc4gQXahZevQt5ZrLyjkT",
+    "settle": {
+      "signature": "33wqpkNW2ggGLf1Fm5bsEiUbzP6c1rkxYhBxygH1RD5PbwX8PPnbL6yw7QhQbzHxS8JUwtr1EST2VwFNVzMYpYf3",
+      "explorer": "https://explorer.solana.com/tx/33wqpkNW2ggGLf1Fm5bsEiUbzP6c1rkxYhBxygH1RD5PbwX8PPnbL6yw7QhQbzHxS8JUwtr1EST2VwFNVzMYpYf3?cluster=devnet"
+    },
+    "after": {
+      "buyer": "90000000",
+      "merchant": "10000000",
+      "vault": "0"
+    },
+    "feesLamports": {
+      "fund": 5000,
+      "settlement": 5000
+    },
+    "buyerNativeLamports": {
+      "before": 94127840,
+      "after": 91191760,
+      "note": "SOL includes transaction fees and account rent; SPL token balances above exclude both."
+    }
+  },
+  "passed": true
+}

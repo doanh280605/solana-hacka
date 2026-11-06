@@ -1,0 +1,34 @@
+{
+  "observedAt": "2026-11-06T20:32:48.511Z",
+  "genesis": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+  "scope": "Historical first verifier attempt; release succeeded, then RPC429 stopped the script before funding its refund job. The canonical verifier later passed both paths with fresh jobs.",
+  "passed": false,
+  "releaseSucceeded": true,
+  "refundFunded": false,
+  "job": {
+    "address": "57pPmSWegv1rBw9dLuyYUjYWynj5a5eqC2Amp3bANucX",
+    "buyer": "5pRqFSXF2rCMYrKfkzJfp5h5KZYfJbS7tWnDGWY74fAc",
+    "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+    "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+    "jobId": "a252478d624d69061063db909bc5de84a61589f47b70458cf305aa4bf1a3c5f0",
+    "amount": "5000000",
+    "expiresAt": 1793996221,
+    "state": "Released",
+    "vault": "CW7QpNFsR99LbJuvym9B4rSFSfw4HGHhShY8ZmmyVRPt"
+  },
+  "transactions": [
+    {
+      "signature": "TZtA5QcLLVdPzVqJVPk5q11bJFaq3xCxBEoj5fLrqjC4bNnZj7WYwCokgN1PVfaPurJ53Wu7g8fFWpwftYqDWz7",
+      "explorer": "https://explorer.solana.com/tx/TZtA5QcLLVdPzVqJVPk5q11bJFaq3xCxBEoj5fLrqjC4bNnZj7WYwCokgN1PVfaPurJ53Wu7g8fFWpwftYqDWz7?cluster=devnet",
+      "finalized": true,
+      "feeLamports": 5000
+    },
+    {
+      "signature": "2rUmwkGToMbU9Jp19h7PtFoRQcRd963cdZhZqiohP5Pf2STYVj7bsNYEMjSr8UFL5kCuK2d83XXFzr9tT2ee9Jy3",
+      "explorer": "https://explorer.solana.com/tx/2rUmwkGToMbU9Jp19h7PtFoRQcRd963cdZhZqiohP5Pf2STYVj7bsNYEMjSr8UFL5kCuK2d83XXFzr9tT2ee9Jy3?cluster=devnet",
+      "finalized": true,
+      "feeLamports": 5000
+    }
+  ],
+  "note": "This extra terminal release explains the initial five-token merchant balance in the canonical verifier. It is not a stranded deposit or a substitute for the passing two-path verification."
+}

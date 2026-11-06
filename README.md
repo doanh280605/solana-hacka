@@ -4,11 +4,15 @@ Refundable stablecoin checkout for one automated job: PNG to WebP. A buyer depos
 
 The program enforces payment rules. File processing and delivery depend on merchant storage. Mock USDC is a disposable six-decimal SPL token, not real USDC.
 
+Verified on Devnet: [release](https://explorer.solana.com/tx/2KoexF5XBk6g66r1rHvSTh9XW71hTycDB5ngYGiwPh4FwaBvpZch5XkHhWbgzpPLQgq8kgJPxWT5en3mDHcBUMoJ?cluster=devnet) and [API-offline refund](https://explorer.solana.com/tx/Yf3vqNYDdueKTapA9T8TPSANAWJxmSuydXsEPNJKDh3MVaz1h9NdmSnPMWdzLvWt86Kx9a7NWxh3pTrnXhTg9Ah?cluster=devnet). [Full evidence](docs/STATUS.md) and [113.92-second demo](evidence/demo-devnet-draft.mp4).
+
 ## Setup
 
 Use Node **22.21.1**, npm **10.9.4**, and an installed Rust host toolchain (tested with **1.95.0**). The repository pins Anchor **0.31.1**, Solana **2.1.0**, platform tools **v1.56**, and npm/Cargo lockfiles. The SBF compiler uses Rust **1.89.0-dev**. Anchor's generated IDL is checked in and refreshed after each build.
 
 ```sh
+git clone https://github.com/doanh280605/solana-hacka.git
+cd solana-hacka
 nvm use
 npm run setup
 npm run doctor
@@ -95,7 +99,21 @@ The officially linked proof-of-work faucet also cannot fund this deployment at t
 
 The assigned program address in this workspace is `7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY`. An assigned address alone does not prove a Devnet deployment. Consult the evidence files below. Set `REDEPLOY_PROGRAM=1` to deliberately deploy a changed binary to an existing program; otherwise deployment verifies and reuses the existing bytecode.
 
+If an upload stops at the public RPC's rate limit, inspect the existing buffer before retrying. These commands use the disposable deployer explicitly:
+
+```sh
+.tools/solana/solana-release/bin/solana --url https://api.devnet.solana.com --keypair .local/keys/deployer.json program show --buffers
+npm run status:devnet -- --buffer EXISTING_BUFFER_PUBLIC_ADDRESS
+npm run deploy:devnet -- --buffer EXISTING_BUFFER_PUBLIC_ADDRESS
+```
+
+The resume path checks the buffer's owner, authority, exact length and existing bytes against the compiled artifact. It writes only missing chunks at a limited rate, verifies the complete onchain buffer, and finalizes the original program address. It never allocates a second buffer. Keep the same build and disposable keys when resuming.
+
+The shared client spaces public Devnet RPC requests, respects bounded server cooldowns, and retries the same request bytes after a 429. It never signs a replacement transaction during an RPC retry. Long cooldowns fail promptly; inspect any recorded transaction signature before submitting again. The public endpoint has [documented rate limits](https://solana.com/docs/references/clusters).
+
 ## Verification and evidence
+
+For another merchant, start with the [small wallet-client example](packages/chain/README.md). It reuses this program and keeps funding, approval and direct refund as separate buyer actions.
 
 | Command | What it proves |
 | --- | --- |

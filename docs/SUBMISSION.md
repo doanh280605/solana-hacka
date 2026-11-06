@@ -10,6 +10,8 @@ Track: DeFi, for refundable stablecoin payments. Best Beginner is conditional: t
 
 **Name:** Holdfast
 
+**Source:** [github.com/doanh280605/solana-hacka](https://github.com/doanh280605/solana-hacka), public repository; default branch `main`.
+
 **Tagline:** Pay for digital work with a way to get your money back.
 
 **Problem:** A small automated merchant can charge a buyer and then fail to deliver. A refund promise is weak when the merchant's server is offline.
@@ -22,7 +24,7 @@ Track: DeFi, for refundable stablecoin payments. Best Beginner is conditional: t
 
 **Trust and limitations:** The program secures payment rules; conversion and delivery still depend on the merchant and durable storage. The demo token has a disposable mint authority and no monetary value. The deployed program remains upgradeable by the disposable deployment wallet. This is a hackathon prototype, not an audited production payment system. Job/vault rent is retained to preserve replay protection; accidental extra vault tokens remain locked. Use one worker process per storage directory.
 
-**Evidence:** Paste the actual Devnet program address and release/refund explorer links from `evidence/deployment-devnet.json`, `evidence/verify-devnet.json` and `evidence/rehearsal-devnet.json` only after they exist and pass. Local runs and fixture tests do not prove Devnet deployment. Use browser evidence to describe the tested wallet accurately.
+**Evidence:** [Deployed program](https://explorer.solana.com/address/7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY?cluster=devnet), [browser payment release](https://explorer.solana.com/tx/2KoexF5XBk6g66r1rHvSTh9XW71hTycDB5ngYGiwPh4FwaBvpZch5XkHhWbgzpPLQgq8kgJPxWT5en3mDHcBUMoJ?cluster=devnet), [browser API-offline refund](https://explorer.solana.com/tx/Yf3vqNYDdueKTapA9T8TPSANAWJxmSuydXsEPNJKDh3MVaz1h9NdmSnPMWdzLvWt86Kx9a7NWxh3pTrnXhTg9Ah?cluster=devnet). All three Devnet rehearsals pass, including real PNG conversion, persisted original, signed private download, restart/reload recovery and exact five-token settlement. [Full status and balance evidence](STATUS.md). The browser uses an injected disposable test wallet; the Phantom extension was not manually verified.
 
 **Learning / challenges:** Learned PDA-controlled SPL token custody, atomic settlement, finalized chain reconciliation, independent expiry recovery, and signed digital delivery. The build required aligning the Anchor compiler, SBF toolchain, generated IDL and TypeScript ABI. Edit this paragraph with the participant's own learning experience before submission.
 
@@ -33,8 +35,8 @@ Track: DeFi, for refundable stablecoin payments. Best Beginner is conditional: t
 The [MLH standard rules](https://github.com/MLH/mlh-policies/blob/main/standard-hackathon-rules.md) allow AI assistance with disclosure. Their digital-event section requests a public demo video no longer than two minutes, beginning with the hackathon name; code and video must remain public for prize eligibility. Event-specific organizer instructions take precedence.
 
 1. Confirm registration and team details in your MLH account; inspect the actual logged-in submission fields.
-2. Confirm Devnet evidence, replace any draft evidence placeholders, and review the short demo script.
-3. Record or edit the final <=2 minute narrated demo, opening with “This is Holdfast for the Solana Hackathon.” Rehearsal capture is raw evidence and may need editing.
-4. Publish the repository and final video through your accounts, after checking for secrets. The agent does not change visibility or submit for you.
+2. Review the verified Devnet links above, the short demo script, and the [113.92-second captioned Devnet recording](../evidence/demo-devnet-draft.mp4). The recording is silent and discloses its injected wallet and accelerated checkout.
+3. Review/edit the final <=2 minute demo. The prepared recording already opens with the hackathon name; add personal narration if desired. Keep its Devnet, mock-token and test-wallet disclosures.
+4. Source publication is done: the user authorized the push to the public repository linked above. Publish the final video through the participant's account. Final MLH submission remains the participant's action.
 5. Submit initial entry by Sunday 7:00 a.m. Pacific and final updates by 8:45 a.m.; verify the portal marks the entry submitted.
 6. Confirm Best Beginner eligibility with organizers if entering that track.

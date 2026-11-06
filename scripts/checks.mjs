@@ -41,6 +41,8 @@ const digest = async path => createHash('sha256').update(await readFile(resolve(
 const report = { startedAt, finishedAt: new Date().toISOString(), passed: checks.every(c => c.exitCode === 0), checks,
   programSourceSha256: await digest('programs/checkout/src/lib.rs'),
   workerServiceSha256: await digest('apps/worker/src/service.ts'),
+  chainClientSha256: await digest('packages/chain/src/index.ts'),
+  rpcTransportSha256: await digest('packages/chain/src/rpc.ts'),
   npmLockSha256: await digest('package-lock.json'),
   note: 'These checks do not establish deployment or live token movement. Consult program TAP and per-cluster rehearsal evidence.' };
 await writeFile(resolve(directory, 'checks.json'), JSON.stringify(report, null, 2) + '\n');

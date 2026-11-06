@@ -25,6 +25,9 @@ async function runPath(path: 'release' | 'refund') {
   const expiresAt = await fetchChainTime(connection) + (path === 'release' ? 300 : 75);
   const before = await balances(connection, config, buyer.publicKey, vault);
   const nativeBefore = await connection.getBalance(buyer.publicKey, 'finalized');
+  report[path] = { jobId, jobAddress: jobAddress.toBase58(), vault: vault.toBase58(), expiresAt, before,
+    phase: 'fund-prepared', recoveryLink: `/recover?job=${jobAddress.toBase58()}` };
+  await checkpoint();
   const funded = await send(connection, await buildFundTransaction(connection, config, { buyer: buyer.publicKey, jobId, expiresAt }), [buyer]);
   const afterFund = await balances(connection, config, buyer.publicKey, vault);
   const job = await requireJob(connection, config, jobAddress);

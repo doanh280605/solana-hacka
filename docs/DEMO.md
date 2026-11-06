@@ -1,5 +1,7 @@
 # Two-minute demo script
 
+The [113.92-second recorded Devnet draft](../evidence/demo-devnet-draft.mp4) now shows both paths. It is silent, labels the injected test wallet and mock token, and discloses 3.80x checkout playback. [Manifest and proof captions](../evidence/demo-devnet-draft.json). Use the script below for optional personal narration.
+
 Use the cluster with passing evidence. A Devnet claim requires the real Devnet program and transaction links. The normal manual deadline is 120 seconds; rehearse the expiry timing before recording, or use a 90-second demo quote and start the stalled job before the first shot. Do not hide which network or wallet the recording uses.
 
 | Time | Say | Show |

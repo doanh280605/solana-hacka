@@ -1,0 +1,97 @@
+{
+  "createdAt": "2026-11-06T20:29:14.544Z",
+  "artifact": "evidence/demo-devnet-draft.mp4",
+  "cluster": "devnet",
+  "evidence": "evidence/ui-devnet.json",
+  "evidenceRun": "20261106202348996-917292",
+  "genesis": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+  "sources": [
+    {
+      "path": "evidence/ui-devnet-checkout.webm",
+      "bytes": 14770690,
+      "sha256": "4bf6dcead66275f52e44e029b5d387f65536241c7b82a93349045ff77cb9fc25"
+    },
+    {
+      "path": "evidence/ui-devnet-recovery.webm",
+      "bytes": 2379111,
+      "sha256": "ef82e27daabb7a932e3d2d449b1ec77ed8fc10d2ff73005a7ee9eeed5d1c0161"
+    },
+    {
+      "path": "evidence/screenshots/ui-devnet-desktop-refunded.png",
+      "bytes": 157931,
+      "sha256": "82bd17b75456feb714b4e637a961ae3cd04c9cea62d590f692b1dbc8ace04550"
+    }
+  ],
+  "sourceDurationsSeconds": [
+    243.24,
+    40.92
+  ],
+  "playback": {
+    "checkoutSpeed": 3.800625,
+    "recoverySpeed": 1,
+    "expectedDurationSeconds": 113.92
+  },
+  "captions": {
+    "checkout": "1/2 Original saved before approval | Preview, release, download, reconnect | Playback 3.80x",
+    "recovery": "2/2 API PID 26783 exited | ECONNREFUSED | 0 merchant requests",
+    "originalSavedBeforeApproval": true,
+    "api": {
+      "pid": 26783,
+      "observedExitAt": "2026-11-06T20:27:46.313Z",
+      "health": "ECONNREFUSED",
+      "merchantRequestsOnRecovery": 0
+    }
+  },
+  "titleSeconds": 4,
+  "finalStateStillSeconds": 5,
+  "media": {
+    "width": 1440,
+    "height": 1120,
+    "durationSeconds": 113.92,
+    "codec": "H.264",
+    "audio": false,
+    "bytes": 6094716,
+    "sha256": "d03f66c1f34fe75e2db6730695e9745a5938eb7fb963551a92a8237e6b33c45e"
+  },
+  "labels": [
+    "Solana Hackathon",
+    "DEVNET | Injected disposable test wallet | Mock USDC | Silent draft",
+    "Actual Solana Devnet transactions. Test tokens have no real dollar value."
+  ],
+  "scope": "Silent devnet rehearsal draft using the matching actual browser recordings and an injected disposable wallet. This does not verify the Phantom extension and is not a public submission.",
+  "visualVerification": {
+    "inspectedAt": "2026-11-06T20:31:29.005Z",
+    "frames": [
+      {
+        "path": "evidence/screenshots/demo-devnet-title.png",
+        "atSeconds": 1,
+        "shows": "Solana Hackathon opening, real Devnet and test-wallet/mock-token disclosures"
+      },
+      {
+        "path": "evidence/screenshots/demo-devnet-success.png",
+        "atSeconds": 33,
+        "shows": "Persisted watermarked preview before approval and evidence-derived storage caption"
+      },
+      {
+        "path": "evidence/screenshots/demo-devnet-released.png",
+        "atSeconds": 40,
+        "shows": "Released job, merchant custody, buyer 80, vault 0, merchant 20"
+      },
+      {
+        "path": "evidence/screenshots/demo-devnet-api-proof.png",
+        "atSeconds": 90,
+        "shows": "Actual API PID 26783 exit/refusal/zero-request caption and refund transaction in progress"
+      },
+      {
+        "path": "evidence/screenshots/demo-devnet-final.png",
+        "atSeconds": 111,
+        "shows": "Actual Refunded job and buyer 80, vault 0, merchant 20"
+      }
+    ],
+    "notes": [
+      "Labels are readable within the banner. Final screenshot matches the validated actual Devnet evidence.",
+      "The raw recordings retain unused gray padding at the bottom and brief RPC-refresh states; no terminal footage was fabricated.",
+      "Silent draft. Checkout is disclosed at 3.80x playback; recovery remains at 1x."
+    ]
+  }
+}

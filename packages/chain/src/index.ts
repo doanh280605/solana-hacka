@@ -10,6 +10,7 @@ import {
 } from '@solana/spl-token';
 import { Buffer } from 'buffer';
 import rawIdl from '../idl/checkout.json' with { type: 'json' };
+import { createRpcFetch } from './rpc.js';
 
 export { Connection, PublicKey, Transaction, TransactionInstruction, TOKEN_PROGRAM_ID };
 export type { AccountMeta };
@@ -64,7 +65,10 @@ export function validateConfig(config: PublicConfig): PublicConfig {
 }
 export function getConnection(config: PublicConfig): Connection {
   validateConfig(config);
-  return new Connection(config.rpcUrl, { commitment: 'finalized', confirmTransactionInitialTimeout: 60_000 });
+  return new Connection(config.rpcUrl, {
+    commitment: 'finalized', confirmTransactionInitialTimeout: 60_000,
+    fetch: createRpcFetch(config.rpcUrl), disableRetryOnRateLimit: true,
+  });
 }
 export function jobIdBytes(jobId: string): Buffer {
   if (!/^[0-9a-f]{64}$/.test(jobId)) throw new Error('Job ID must be 64 lowercase hexadecimal characters.');

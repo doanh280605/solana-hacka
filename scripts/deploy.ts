@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import { Connection, Keypair, PublicKey, SystemProgram, Transaction, LAMPORTS_PER_SOL } from '@solana/web3.js';
 import { createMint, getMint, getOrCreateAssociatedTokenAccount, mintTo } from '@solana/spl-token';
 import { getConnection, deriveConfigAddress, instruction, meta } from '@holdfast/chain';
+import { resumeProgramBuffer } from './deploy-buffer.js';
 import {
   ROOT, clusterArg, loadConfig, loadKey, assertNetwork, send, ensureSol, writeEvidence, txEvidence,
 } from './common.js';
@@ -17,6 +18,10 @@ const programKey = await loadKey('program');
 const mintKey = await loadKey('mint');
 const buyer = await loadKey('buyer');
 const attacker = await loadKey('attacker');
+const bufferIndex = process.argv.indexOf('--buffer');
+const bufferValue = bufferIndex >= 0 ? process.argv[bufferIndex + 1] : undefined;
+if (bufferIndex >= 0 && (!bufferValue || bufferValue.startsWith('--'))) throw new Error('--buffer requires the existing public buffer address.');
+const resumeBuffer = bufferValue ? new PublicKey(bufferValue) : undefined;
 
 try {
   const genesis = await assertNetwork(connection, config);
@@ -24,15 +29,22 @@ try {
   const binaryFile = await stat(binaryPath);
   const programRent = await connection.getMinimumBalanceForRentExemption(binaryFile.size + 45);
   const existingProgram = await connection.getAccountInfo(programKey.publicKey, 'finalized');
-  const minimumSol = existingProgram?.executable ? 0.25 : (programRent * 2) / LAMPORTS_PER_SOL + 0.25;
+  const minimumSol = existingProgram?.executable ? 0.25 : (programRent * (resumeBuffer ? 1 : 2)) / LAMPORTS_PER_SOL + 0.25;
   console.log(`Deployment wallet ${deployer.publicKey.toBase58()} requires approximately ${minimumSol.toFixed(3)} test SOL.`);
   await ensureSol(connection, deployer.publicKey, minimumSol, cluster);
   let deploymentOutput = 'Existing executable deployment retained.';
+  let bufferRecovery: Awaited<ReturnType<typeof resumeProgramBuffer>> | undefined;
   if (!existingProgram?.executable || process.env.REDEPLOY_PROGRAM === '1') {
+    if (resumeBuffer) {
+      bufferRecovery = await resumeProgramBuffer({ rpcUrl: config.rpcUrl, cluster,
+        address: resumeBuffer, authority: deployer, artifactPath: binaryPath });
+    }
     deploymentOutput = await new Promise<string>((resolveResult, reject) => {
       const binary = resolve(ROOT, '.tools/solana/solana-release/bin/solana');
       const args = ['--url', config.rpcUrl, '--keypair', resolve(ROOT, '.local/keys/deployer.json'), '--output', 'json',
-        'program', 'deploy', binaryPath, '--program-id', resolve(ROOT, '.local/keys/program.json'),
+        // With a fully verified existing buffer, omit the program filepath.
+        // Official CLI reads/verifies that buffer and sends no bulk writes.
+        'program', 'deploy', ...(resumeBuffer ? ['--buffer', resumeBuffer.toBase58()] : [binaryPath]), '--program-id', resolve(ROOT, '.local/keys/program.json'),
         '--upgrade-authority', resolve(ROOT, '.local/keys/deployer.json'), '--max-len', String(binaryFile.size), '--use-rpc'];
       const child = spawn(binary, args, { cwd: ROOT, env: process.env, stdio: ['ignore', 'pipe', 'pipe'] });
       let output = '';
@@ -100,12 +112,15 @@ try {
     at: new Date().toISOString(), cluster, genesis, programId: config.programId, configAddress: configAddress.toBase58(),
     mint: config.mint, mintLabel: 'Mock USDC (six decimals; test tokens only)', merchant: config.merchant,
     executable: true, binarySha256, onchainArtifactMatch: true, deploymentOutput,
+    bufferRecovery,
     initialize: initializeSignature ? txEvidence(config, initializeSignature) : storedConfig ? 'Already initialized' : 'Deferred for live initializer security tests',
   });
   await rm(resolve(ROOT, `evidence/deployment-${cluster}-blocked.json`), { force: true });
   console.log(`Deployed ${config.programId} to ${cluster}; mock mint ${config.mint}.${deferInitialize && !storedConfig ? ' Config initialization deferred for tests.' : ''}`);
 } catch (error) {
   await writeEvidence(`deployment-${cluster}-blocked`, { at: new Date().toISOString(), cluster, programId: config.programId,
-    deployer: deployer.publicKey.toBase58(), error: String(error), nextAction: `Fund disposable deployer with test SOL via https://faucet.solana.com if required, then run npm run deploy:${cluster === 'localnet' ? 'local' : 'devnet'}.` });
+    deployer: deployer.publicKey.toBase58(), error: String(error), resumeBuffer: resumeBuffer?.toBase58(),
+    nextAction: resumeBuffer ? `Resume the same buffer: npx tsx scripts/deploy.ts ${cluster} --buffer ${resumeBuffer.toBase58()}`
+      : `Inspect existing loader buffers before retrying. Fund the disposable deployer with test SOL if required; use --buffer PUBLIC_ADDRESS to resume without allocating another buffer.` });
   throw error;
 }

@@ -36,15 +36,15 @@ warning: use of deprecated method `anchor_lang::prelude::AccountInfo::<'a>::real
 
 warning: `checkout` (lib) generated 3 warnings
 warning: `checkout` (lib test) generated 3 warnings (3 duplicates)
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.31s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.36s
      Running unittests src/lib.rs (target/debug/deps/checkout-b45b90eda80d20a0)
 
 running 5 tests
 test test_id ... ok
 test tests::expiry_has_no_gap_or_overlap_between_approval_and_refund ... ok
 test tests::quote_requires_positive_amount_and_bounded_future_deadline ... ok
-test tests::every_terminal_action_is_irreversible_at_every_time_boundary ... ok
 test tests::job_layout_matches_shared_decoder_and_account_allocation ... ok
+test tests::every_terminal_action_is_irreversible_at_every_time_boundary ... ok
 
 test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 

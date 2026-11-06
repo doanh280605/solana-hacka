@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-11-06T19:19:47.268Z",
-  "finishedAt": "2026-11-06T19:19:56.130Z",
+  "startedAt": "2026-11-06T20:24:00.575Z",
+  "finishedAt": "2026-11-06T20:24:07.918Z",
   "passed": true,
   "checks": [
     {
@@ -13,7 +13,7 @@
         "tsconfig.json"
       ],
       "exitCode": 0,
-      "elapsedMs": 955,
+      "elapsedMs": 907,
       "log": "evidence/typecheck-root.txt"
     },
     {
@@ -26,7 +26,7 @@
         "packages/chain/tsconfig.json"
       ],
       "exitCode": 0,
-      "elapsedMs": 384,
+      "elapsedMs": 399,
       "log": "evidence/typecheck-chain.txt"
     },
     {
@@ -39,7 +39,7 @@
         "apps/worker/tsconfig.json"
       ],
       "exitCode": 0,
-      "elapsedMs": 714,
+      "elapsedMs": 663,
       "log": "evidence/typecheck-worker.txt"
     },
     {
@@ -52,7 +52,7 @@
         "apps/web/tsconfig.json"
       ],
       "exitCode": 0,
-      "elapsedMs": 693,
+      "elapsedMs": 660,
       "log": "evidence/typecheck-web.txt"
     },
     {
@@ -63,13 +63,15 @@
         "tsx",
         "--test",
         "packages/chain/test/chain.test.ts",
+        "packages/chain/test/example.test.ts",
+        "packages/chain/test/rpc.test.ts",
         "apps/worker/test/chain.test.ts",
         "apps/worker/test/persistence.test.ts",
         "apps/worker/test/security.test.ts",
         "apps/worker/test/worker.test.ts"
       ],
       "exitCode": 0,
-      "elapsedMs": 2761,
+      "elapsedMs": 2064,
       "log": "evidence/unit-tests.txt"
     },
     {
@@ -80,7 +82,7 @@
         "host-tests"
       ],
       "exitCode": 0,
-      "elapsedMs": 850,
+      "elapsedMs": 885,
       "log": "evidence/rust-tests.txt"
     },
     {
@@ -93,7 +95,7 @@
         "@holdfast/web"
       ],
       "exitCode": 0,
-      "elapsedMs": 2475,
+      "elapsedMs": 1746,
       "log": "evidence/web-build.txt"
     },
     {
@@ -105,12 +107,14 @@
         "--check"
       ],
       "exitCode": 0,
-      "elapsedMs": 28,
+      "elapsedMs": 16,
       "log": "evidence/git-whitespace.txt"
     }
   ],
   "programSourceSha256": "fe3ddae0bdd00c96359a2f19e5c599d186f9c79759bbb2efe86ca1d4c6fecade",
   "workerServiceSha256": "bcb6d15482d05aa5f4dca4391996dd2c9dae7ff98964860494421969da9d25bc",
+  "chainClientSha256": "c1f8faaf8de3bc4fc7954b204cd85b925eb623056807d133b6c92627361c9876",
+  "rpcTransportSha256": "f780d3f97bb45f4cededbd5a324008954e2d330ba8b4026cee1aa184d2c2b096",
   "npmLockSha256": "a624977c2f94a13e7d9e92684aa4a17c37727b5306ff32420ae2943ba7637c7d",
   "note": "These checks do not establish deployment or live token movement. Consult program TAP and per-cluster rehearsal evidence."
 }
