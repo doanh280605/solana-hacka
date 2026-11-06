@@ -36,6 +36,8 @@ The address is **deployed locally; Devnet deployment is not yet verified**. Loca
 
 The Devnet RPC works, but its airdrop endpoint returns **410: faucet closed**. The disposable deployer still had **0 SOL** in the latest [live Devnet observation](../evidence/devnet-status.json). [Deployment attempt and error](../evidence/deployment-devnet-blocked.json). No Devnet release/refund signatures exist yet.
 
+The officially linked proof-of-work faucet was source-reviewed and checked against live Devnet accounts. Claims require 10,000 lamports upfront; no pool has a profitable full reward. One partial pool could net only 239,760 lamports after receipt rent and fees, far below deployment funding. A fee-only seed would therefore not resolve this blocker. [Source, balances and unsigned simulation](../evidence/funding-pow.json). No miner was installed or started and no claim was sent. Recheck with `npx tsx scripts/pow-fund.mjs`.
+
 Fund **`C7WiJfYa9epa1Bdt92txtWXVtHFErQXN23CE2Fyiz4SW` with 5 Devnet test SOL** at [faucet.solana.com](https://faucet.solana.com), or transfer existing Devnet test SOL to that address. Do not send mainnet SOL or share a wallet secret. The current initial-deployment estimate is about 4.1 test SOL.
 
 Success signal: `npm run status:devnet` reports `fundingReady: true`. The lead can then continue without another approval:

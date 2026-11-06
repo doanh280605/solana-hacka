@@ -91,6 +91,8 @@ npm run fund:wallet -- devnet YOUR_BROWSER_WALLET_PUBLIC_KEY
 
 Fund the printed disposable deployer address with **5 test SOL** for the current build (the latest deployment estimate is about 4.1). `deploy` prints its current requirement, verifies Devnet's genesis hash, waits for finalized deployment, checks onchain bytecode against the compiled artifact, and writes public `.env` and `apps/web/.env.local` settings. Restart/rebuild the frontend and restart the worker after switching clusters. Each cluster uses its own storage directory. Optional `DEVNET_RPC_URL` selects another Devnet endpoint; its genesis is checked before sending.
 
+The officially linked proof-of-work faucet also cannot fund this deployment at the recorded check: claims require an upfront fee, no full-reward pool is profitable, and the only positive partial payout nets about 0.00024 SOL. [Funding evidence](evidence/funding-pow.json). Recheck balances and pool feasibility with `npm run status:devnet` and `npx tsx scripts/pow-fund.mjs`; the latter only reads public accounts and simulates an unsigned transaction, without mining or sending.
+
 The assigned program address in this workspace is `7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY`. An assigned address alone does not prove a Devnet deployment. Consult the evidence files below. Set `REDEPLOY_PROGRAM=1` to deliberately deploy a changed binary to an existing program; otherwise deployment verifies and reuses the existing bytecode.
 
 ## Verification and evidence
