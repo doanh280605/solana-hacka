@@ -1,0 +1,60 @@
+{
+  "at": "2026-11-06T18:15:35.932Z",
+  "checks": [
+    {
+      "name": "Node",
+      "ok": true,
+      "detail": "v22.21.1 (pin 22.21.1)"
+    },
+    {
+      "name": "Rust",
+      "ok": true,
+      "detail": "rustc 1.95.0 (59807616e 2026-04-14)"
+    },
+    {
+      "name": "Solana",
+      "ok": true,
+      "detail": "solana-cli 2.1.0 (src:c1080de4; feat:3176011155, client:Agave)"
+    },
+    {
+      "name": "Anchor",
+      "ok": true,
+      "detail": "anchor-cli 0.31.1"
+    },
+    {
+      "name": "npm dependencies",
+      "ok": true,
+      "detail": "npm ci/install required if missing"
+    },
+    {
+      "name": "npm lockfile",
+      "ok": true,
+      "detail": "required before claiming reproducibility"
+    },
+    {
+      "name": "DNS api.github.com",
+      "ok": true,
+      "detail": "172.182.252.137"
+    },
+    {
+      "name": "DNS index.crates.io",
+      "ok": true,
+      "detail": "2a04:4e42:2f::649, 151.101.202.137"
+    },
+    {
+      "name": "DNS registry.npmjs.org",
+      "ok": true,
+      "detail": "2606:4700::6810:122, 2606:4700::6810:22, 2606:4700::6810:b22, 2606:4700::6810:922, 2606:4700::6810:222, 2606:4700::6810:422, 2606:4700::6810:a22, 2606:4700::6810:522, 2606:4700::6810:722, 2606:4700::6810:622, 2606:4700::6810:822, 2606:4700::6810:322, 104.16.3.34, 104.16.4.34, 104.16.2.34, 104.16.7.34, 104.16.5.34, 104.16.0.34, 104.16.11.34, 104.16.9.34, 104.16.8.34, 104.16.10.34, 104.16.1.34, 104.16.6.34"
+    },
+    {
+      "name": "DNS api.devnet.solana.com",
+      "ok": true,
+      "detail": "208.115.212.49"
+    },
+    {
+      "name": "Devnet RPC",
+      "ok": true,
+      "detail": "{\"jsonrpc\":\"2.0\",\"result\":\"EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG\",\"id\":1}"
+    }
+  ]
+}

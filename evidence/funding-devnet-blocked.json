@@ -1,0 +1,6 @@
+{
+  "at": "2026-11-06T18:21:33.622Z",
+  "wallet": "C7WiJfYa9epa1Bdt92txtWXVtHFErQXN23CE2Fyiz4SW",
+  "error": "Error: 410 Gone:  {\"jsonrpc\":\"2.0\",\"error\":{\"code\": 410, \"message\":\"The RPC faucet is closed on this cluster. Request test SOL at https://faucet.solana.com\"}, \"id\": \"2b87b77f-3049-42c8-9424-982db4ae7ae4\" } \r\n",
+  "action": "Use https://faucet.solana.com to fund C7WiJfYa9epa1Bdt92txtWXVtHFErQXN23CE2Fyiz4SW on Devnet; success is a positive balance in the deployment wallet."
+}

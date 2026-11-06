@@ -1,0 +1,116 @@
+{
+  "startedAt": "2026-11-06T19:19:47.268Z",
+  "finishedAt": "2026-11-06T19:19:56.130Z",
+  "passed": true,
+  "checks": [
+    {
+      "name": "typecheck-root",
+      "command": [
+        "/Users/Doanh/.nvm/versions/node/v22.21.1/bin/node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit",
+        "-p",
+        "tsconfig.json"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 955,
+      "log": "evidence/typecheck-root.txt"
+    },
+    {
+      "name": "typecheck-chain",
+      "command": [
+        "/Users/Doanh/.nvm/versions/node/v22.21.1/bin/node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit",
+        "-p",
+        "packages/chain/tsconfig.json"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 384,
+      "log": "evidence/typecheck-chain.txt"
+    },
+    {
+      "name": "typecheck-worker",
+      "command": [
+        "/Users/Doanh/.nvm/versions/node/v22.21.1/bin/node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit",
+        "-p",
+        "apps/worker/tsconfig.json"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 714,
+      "log": "evidence/typecheck-worker.txt"
+    },
+    {
+      "name": "typecheck-web",
+      "command": [
+        "/Users/Doanh/.nvm/versions/node/v22.21.1/bin/node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit",
+        "-p",
+        "apps/web/tsconfig.json"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 693,
+      "log": "evidence/typecheck-web.txt"
+    },
+    {
+      "name": "unit-tests",
+      "command": [
+        "/Users/Doanh/.nvm/versions/node/v22.21.1/bin/node",
+        "--import",
+        "tsx",
+        "--test",
+        "packages/chain/test/chain.test.ts",
+        "apps/worker/test/chain.test.ts",
+        "apps/worker/test/persistence.test.ts",
+        "apps/worker/test/security.test.ts",
+        "apps/worker/test/worker.test.ts"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 2761,
+      "log": "evidence/unit-tests.txt"
+    },
+    {
+      "name": "rust-tests",
+      "command": [
+        "/Users/Doanh/.nvm/versions/node/v22.21.1/bin/node",
+        "scripts/program-tooling.mjs",
+        "host-tests"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 850,
+      "log": "evidence/rust-tests.txt"
+    },
+    {
+      "name": "web-build",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "@holdfast/web"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 2475,
+      "log": "evidence/web-build.txt"
+    },
+    {
+      "name": "git-whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 28,
+      "log": "evidence/git-whitespace.txt"
+    }
+  ],
+  "programSourceSha256": "fe3ddae0bdd00c96359a2f19e5c599d186f9c79759bbb2efe86ca1d4c6fecade",
+  "workerServiceSha256": "bcb6d15482d05aa5f4dca4391996dd2c9dae7ff98964860494421969da9d25bc",
+  "npmLockSha256": "a624977c2f94a13e7d9e92684aa4a17c37727b5306ff32420ae2943ba7637c7d",
+  "note": "These checks do not establish deployment or live token movement. Consult program TAP and per-cluster rehearsal evidence."
+}

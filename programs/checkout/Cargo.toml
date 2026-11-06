@@ -1,0 +1,28 @@
+[package]
+name = "checkout"
+version = "0.1.0"
+description = "Buyer-approved legacy SPL-token escrow with deadline refunds"
+edition = "2021"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "checkout"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+anchor-debug = ["anchor-lang/anchor-debug", "anchor-spl/anchor-debug"]
+custom-heap = []
+custom-panic = []
+
+[dependencies]
+anchor-lang = "=0.31.1"
+# Anchor 0.31.1's `token::init` macro references token_interface/token_2022
+# internally even for legacy accounts. Account<TokenAccount>, Account<Mint>
+# and Program<Token> still reject Token-2022 at every instruction boundary.
+anchor-spl = { version = "=0.31.1", default-features = false, features = ["token", "associated_token", "token_2022"] }

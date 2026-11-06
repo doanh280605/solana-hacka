@@ -1,0 +1,22 @@
+[toolchain]
+anchor_version = "0.31.1"
+solana_version = "2.1.0"
+
+[features]
+# Clients supply every account explicitly. Disable the 0.31.x IDL seed
+# resolver, whose token-string parser fails with recent proc-macro versions.
+resolution = false
+skip-lint = false
+
+[programs.localnet]
+checkout = "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY"
+
+[programs.devnet]
+checkout = "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY"
+
+[provider]
+cluster = "Localnet"
+wallet = ".local/keys/deployer.json"
+
+[scripts]
+test = "npx tsx --test programs/checkout/tests/checkout.test.ts"

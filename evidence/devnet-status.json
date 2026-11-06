@@ -1,0 +1,13 @@
+{
+  "at": "2026-11-06T19:20:41.195Z",
+  "genesis": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+  "finalizedSlot": 519402312,
+  "programId": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+  "executable": false,
+  "deployer": "C7WiJfYa9epa1Bdt92txtWXVtHFErQXN23CE2Fyiz4SW",
+  "deployerLamports": 0,
+  "estimatedRequiredLamports": 4084109680,
+  "fundingReady": false,
+  "nextAction": "Fund C7WiJfYa9epa1Bdt92txtWXVtHFErQXN23CE2Fyiz4SW with 5 Devnet test SOL at https://faucet.solana.com.",
+  "note": "Read-only network/funding observation; not proof of release or refund."
+}

@@ -1,0 +1,45 @@
+{
+  "name": "holdfast-checkout",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=22.21.1 <23"
+  },
+  "packageManager": "npm@10.9.4",
+  "scripts": {
+    "doctor": "node scripts/doctor.mjs",
+    "check": "node scripts/checks.mjs",
+    "keys": "node scripts/keys.mjs",
+    "fund:wallet": "tsx scripts/fund-wallet.ts",
+    "setup": "node scripts/setup.mjs",
+    "build:program": "node scripts/build-program.mjs",
+    "validator": "node scripts/validator.mjs",
+    "deploy:local": "tsx scripts/deploy.ts localnet",
+    "deploy:devnet": "tsx scripts/deploy.ts devnet",
+    "status:devnet": "tsx scripts/devnet-status.ts",
+    "dev:worker": "node --env-file=.env --import tsx apps/worker/src/index.ts",
+    "dev:web": "npm run dev --workspace @holdfast/web",
+    "build": "npm run build --workspace @holdfast/web",
+    "typecheck": "tsc --noEmit -p tsconfig.json && npm run typecheck --workspaces --if-present",
+    "test": "node --import tsx --test packages/chain/test/*.test.ts apps/worker/test/*.test.ts",
+    "test:program": "node --import tsx --test programs/checkout/tests/checkout.test.ts",
+    "test:review": "node --import tsx --test programs/checkout/tests/review.test.ts",
+    "test:rust": "node scripts/program-tooling.mjs host-tests",
+    "verify:local": "tsx scripts/verify.ts localnet",
+    "verify:devnet": "tsx scripts/verify.ts devnet",
+    "rehearse:local": "tsx scripts/rehearse.ts localnet",
+    "rehearse:devnet": "tsx scripts/rehearse.ts devnet"
+  },
+  "devDependencies": {
+    "@types/bn.js": "5.2.0",
+    "@types/node": "22.18.6",
+    "playwright-core": "1.56.1",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3"
+  }
+}

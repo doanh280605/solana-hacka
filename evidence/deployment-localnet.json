@@ -1,0 +1,15 @@
+{
+  "at": "2026-11-06T19:02:31.549Z",
+  "cluster": "localnet",
+  "genesis": "SnGPvUDh3LsTJWSEx8UJAmQLX11u2EmewbJq4vovvBW",
+  "programId": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+  "configAddress": "ARLoYWnSHF5jnQzCZRZXZ8AtJyfK5BxikMC1xKeBk6h8",
+  "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+  "mintLabel": "Mock USDC (six decimals; test tokens only)",
+  "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+  "executable": true,
+  "binarySha256": "b187779fb9d59c03ed25703d293906cca2612d83ef5896e47c585ef24e0da350",
+  "onchainArtifactMatch": true,
+  "deploymentOutput": "Existing executable deployment retained.",
+  "initialize": "Deferred for live initializer security tests"
+}

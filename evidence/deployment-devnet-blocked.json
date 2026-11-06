@@ -1,0 +1,8 @@
+{
+  "at": "2026-11-06T19:05:50.652Z",
+  "cluster": "devnet",
+  "programId": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+  "deployer": "C7WiJfYa9epa1Bdt92txtWXVtHFErQXN23CE2Fyiz4SW",
+  "error": "Error: 410 Gone:  {\"jsonrpc\":\"2.0\",\"error\":{\"code\": 410, \"message\":\"The RPC faucet is closed on this cluster. Request test SOL at https://faucet.solana.com\"}, \"id\": \"872c56e2-c0cd-401b-867a-8da4ee85689a\" } \r\n",
+  "nextAction": "Fund disposable deployer with test SOL via https://faucet.solana.com if required, then run npm run deploy:devnet."
+}

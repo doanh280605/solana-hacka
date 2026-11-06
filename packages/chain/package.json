@@ -1,0 +1,15 @@
+{
+  "name": "@holdfast/chain",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts", "./idl": "./idl/checkout.json" },
+  "scripts": { "typecheck": "tsc --noEmit -p tsconfig.json" },
+  "dependencies": {
+    "@coral-xyz/anchor": "0.31.1",
+    "@solana/web3.js": "1.98.4",
+    "@solana/spl-token": "0.4.14",
+    "buffer": "6.0.3",
+    "bn.js": "5.2.2"
+  }
+}

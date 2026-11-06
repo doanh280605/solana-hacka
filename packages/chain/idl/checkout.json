@@ -1,0 +1,385 @@
+{
+  "address": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+  "metadata": {
+    "name": "checkout",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Buyer-approved legacy SPL-token escrow with deadline refunds"
+  },
+  "instructions": [
+    {
+      "name": "approve",
+      "discriminator": [
+        69,
+        74,
+        217,
+        36,
+        115,
+        117,
+        97,
+        76
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "signer": true
+        },
+        {
+          "name": "job",
+          "writable": true
+        },
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "merchant_token",
+          "writable": true
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "fund",
+      "discriminator": [
+        218,
+        188,
+        111,
+        221,
+        152,
+        113,
+        174,
+        7
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "merchant",
+          "docs": [
+            "below must exist and have this key as its token authority."
+          ]
+        },
+        {
+          "name": "config"
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "buyer_token",
+          "writable": true
+        },
+        {
+          "name": "merchant_token"
+        },
+        {
+          "name": "job",
+          "writable": true
+        },
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "job_id",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "expires_at",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "initialize",
+      "docs": [
+        "A deployment authority fixes the sole supported legacy SPL mint once.",
+        "There is deliberately no update or close instruction for this config."
+      ],
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "config",
+          "writable": true
+        },
+        {
+          "name": "program"
+        },
+        {
+          "name": "program_data"
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "refund",
+      "discriminator": [
+        2,
+        96,
+        183,
+        251,
+        63,
+        208,
+        46,
+        46
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "signer": true
+        },
+        {
+          "name": "job",
+          "writable": true
+        },
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "buyer_token",
+          "writable": true
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Config",
+      "discriminator": [
+        155,
+        12,
+        170,
+        224,
+        30,
+        250,
+        204,
+        130
+      ]
+    },
+    {
+      "name": "Job",
+      "discriminator": [
+        75,
+        124,
+        80,
+        203,
+        161,
+        180,
+        202,
+        80
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidAmount",
+      "msg": "Amount must be positive"
+    },
+    {
+      "code": 6001,
+      "name": "InvalidDeadline",
+      "msg": "Deadline must be in the future and at most 24 hours away"
+    },
+    {
+      "code": 6002,
+      "name": "UnauthorizedBuyer",
+      "msg": "Only the original buyer may settle this job"
+    },
+    {
+      "code": 6003,
+      "name": "NotFunded",
+      "msg": "The job is already settled"
+    },
+    {
+      "code": 6004,
+      "name": "ApprovalExpired",
+      "msg": "Approval must occur before the deadline"
+    },
+    {
+      "code": 6005,
+      "name": "RefundTooEarly",
+      "msg": "Refund is available at or after the deadline"
+    },
+    {
+      "code": 6006,
+      "name": "WrongMint",
+      "msg": "Mint does not match the configured or recorded legacy SPL mint"
+    },
+    {
+      "code": 6007,
+      "name": "WrongDestination",
+      "msg": "Expected the recorded recipient's canonical legacy SPL token account"
+    },
+    {
+      "code": 6008,
+      "name": "InvalidMintDecimals",
+      "msg": "The configured mock stablecoin must have six decimals"
+    },
+    {
+      "code": 6009,
+      "name": "UnauthorizedInitializer",
+      "msg": "Only this program's upgrade authority may initialize config"
+    },
+    {
+      "code": 6010,
+      "name": "InvalidProgramData",
+      "msg": "ProgramData must belong to this executable upgradeable program"
+    },
+    {
+      "code": 6011,
+      "name": "UnsafeVault",
+      "msg": "A vault must not have a delegate or alternate close authority"
+    }
+  ],
+  "types": [
+    {
+      "name": "Config",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Job",
+      "docs": [
+        "Never closed: terminal records permanently consume a buyer/job-ID pair."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "buyer",
+            "type": "pubkey"
+          },
+          {
+            "name": "merchant",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "job_id",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "expires_at",
+            "type": "i64"
+          },
+          {
+            "name": "state",
+            "type": {
+              "defined": {
+                "name": "JobState"
+              }
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "vault_bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "JobState",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Funded"
+          },
+          {
+            "name": "Released"
+          },
+          {
+            "name": "Refunded"
+          }
+        ]
+      }
+    }
+  ]
+}

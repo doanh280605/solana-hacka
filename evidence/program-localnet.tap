@@ -1,0 +1,118 @@
+TAP version 13
+# bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+# Subtest: live checkout: balances, binding, replay protection, consent and expiry
+    # Subtest: initializer cannot be front-run by a signer who is not the upgrade authority
+    ok 1 - initializer cannot be front-run by a signer who is not the upgrade authority
+      ---
+      duration_ms: 9.820291
+      type: 'test'
+      ...
+    # Subtest: initializer rejects wrong decimals
+    ok 2 - initializer rejects wrong decimals
+      ---
+      duration_ms: 5.446042
+      type: 'test'
+      ...
+    # Subtest: initializer rejects substituted ProgramData
+    ok 3 - initializer rejects substituted ProgramData
+      ---
+      duration_ms: 6.62225
+      type: 'test'
+      ...
+    # Subtest: configuration cannot be initialized twice or switched to another mint
+    ok 4 - configuration cannot be initialized twice or switched to another mint
+      ---
+      duration_ms: 8.904792
+      type: 'test'
+      ...
+    # Subtest: fund rejects zero amount, expired deadline and deadline beyond 24h atomically
+    ok 5 - fund rejects zero amount, expired deadline and deadline beyond 24h atomically
+      ---
+      duration_ms: 23.297542
+      type: 'test'
+      ...
+    # Subtest: a failed token CPI rolls back the new job and vault as well as balances
+    ok 6 - a failed token CPI rolls back the new job and vault as well as balances
+      ---
+      duration_ms: 10.024708
+      type: 'test'
+      ...
+    # Subtest: fund rejects wrong mint, wrong token program and correct-owner non-ATA destinations
+    ok 7 - fund rejects wrong mint, wrong token program and correct-owner non-ATA destinations
+      ---
+      duration_ms: 28.968583
+      type: 'test'
+      ...
+    # Subtest: fund atomically records the quote and escrows exactly five mock USDC
+    ok 8 - fund atomically records the quote and escrows exactly five mock USDC
+      ---
+      duration_ms: 402.29925
+      type: 'test'
+      ...
+    # Subtest: funded job rejects duplicate funding, wrong signer, early refund, wrong mint and wrong merchant
+    ok 9 - funded job rejects duplicate funding, wrong signer, early refund, wrong mint and wrong merchant
+      ---
+      duration_ms: 51.650459
+      type: 'test'
+      ...
+    # Subtest: vault address cannot be substituted and another wallet cannot move vault tokens
+    ok 10 - vault address cannot be substituted and another wallet cannot move vault tokens
+      ---
+      duration_ms: 421.627958
+      type: 'test'
+      ...
+    # Subtest: approval releases exactly the recorded amount, retaining any unsolicited surplus
+    ok 11 - approval releases exactly the recorded amount, retaining any unsolicited surplus
+      ---
+      duration_ms: 917.732875
+      type: 'test'
+      ...
+    # Subtest: released record survives and prevents repeat approval, competing refund and funding replay
+    ok 12 - released record survives and prevents repeat approval, competing refund and funding replay
+      ---
+      duration_ms: 24.999167
+      type: 'test'
+      ...
+    # Subtest: second funded job rejects early refund without changing balances or state
+    ok 13 - second funded job rejects early refund without changing balances or state
+      ---
+      duration_ms: 7.640917
+      type: 'test'
+      ...
+    # Subtest: expired funded job rejects approval and refund to substituted buyer or token account
+    ok 14 - expired funded job rejects approval and refund to substituted buyer or token account
+      ---
+      duration_ms: 9071.447917
+      type: 'test'
+      ...
+    # Subtest: buyer refunds exactly the deposit after chain deadline without any merchant service
+    ok 15 - buyer refunds exactly the deposit after chain deadline without any merchant service
+      ---
+      duration_ms: 209.106125
+      type: 'test'
+      ...
+    # Subtest: refunded record prevents repeated refund, competing approval and reinitialization
+    ok 16 - refunded record prevents repeated refund, competing approval and reinitialization
+      ---
+      duration_ms: 22.340875
+      type: 'test'
+      ...
+    1..16
+ok 1 - live checkout: balances, binding, replay protection, consent and expiry
+  ---
+  duration_ms: 17776.399334
+  type: 'test'
+  ...
+# {"stage":"funded","job":"4YiCpVzBFFxnAbzdjTJTgED9TV7UspyfzbnRPAqHtRaX","balances":{"buyer":"95000000","merchant":"0","vault":"5000000"}}
+# {"stage":"released","job":"4YiCpVzBFFxnAbzdjTJTgED9TV7UspyfzbnRPAqHtRaX","balances":{"buyer":"94999993","merchant":"5000000","vault":"7"}}
+# {"stage":"refunded","job":"J1yCAn6YugX6y8NrcbXFnvoa3dCnqbhQNG437xzeTjgv","balances":{"buyer":"94999993","merchant":"5000000","vault":"0"}}
+# {"program":"7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY","mint":"4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C","signatures":{"initialize":"3AqAHNhnKPo5tDf1gHHkq7WevzjVTH3kCJG6tVUc3LyeLV2UVvNmFriunPpuEDNDbbhB2jQDa1BaryoWfa7nXDyn","fundRelease":"36tZhFAvbHgJZrHHuwMGfxH7tUQNxgC3nfeUp5ieAMdYRNW4qLGcEimhsByDcN1iFdhxkEvXS8Mcy2FuJmugwcQD","approve":"JJmFgvsupFZERij8GrL9DStZep8TGcxT99EHaPthLHxVFPjhKhyHiXVcmAaHQqMeQEdKb8953rqU1zzmMn2fZBV","fundRefund":"4rJ2LHR4GWNYnGGixbqukEqTrbUHXJ93oKPHyv25bPgshuqDaB4ViMvf7XKYwBCL78Cm23ERwu1DFJi5rVeNxgP","refund":"4ptmyJgnxU4VjYpk5cpXZxcNXVa9WeUGpQghBzKbKTasDPjHZeB44PwWgc2F1n89jzwAJaRkYzhKQwLkChD6N7CW"},"note":"Token balances exclude SOL transaction fees and rent"}
+1..1
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 18682.246291

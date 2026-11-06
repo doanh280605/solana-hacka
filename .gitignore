@@ -1,0 +1,15 @@
+node_modules/
+target/
+.tools/
+.local/
+.env
+.env.local
+.env.*.local
+apps/web/dist/
+*.log
+.DS_Store
+!config/*.example.json
+evidence/*-progress.json
+evidence/*-20*.json
+evidence/ui-smoke-*
+evidence/screenshots/ui-smoke-*

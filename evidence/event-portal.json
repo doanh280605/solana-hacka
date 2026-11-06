@@ -1,0 +1,21 @@
+{
+  "verifiedAt": "2026-11-06T19:01:35.589Z",
+  "portalUrl": "https://www.mlh.com/events/solana-hackathon",
+  "submissionsOpen": true,
+  "submissionDeadline": "Nov 8, 1:00 PM EST",
+  "submissionEndsAt": "2026-11-08T18:00:00Z",
+  "submissionPath": "/events/solana-hackathon/submissions/new",
+  "viewerCanSubmit": false,
+  "currentUserPresent": false,
+  "shortDescriptionLimit": 160,
+  "event": {
+    "id": "01a0ce54-d5d4-a695-4377-b821fcd52659",
+    "slug": "solana-hackathon",
+    "name": "Solana Hackathon",
+    "status": "in_progress",
+    "startsAt": "2026-11-06T17:00:00Z",
+    "endsAt": "2026-11-08T18:00:00Z",
+    "websiteUrl": "https://events.mlh.io/events/15200-solana-hackathon",
+    "schedule": "Fri, Nov 6 · 12:00 PM – Sun, Nov 8 · 1:00 PM EST"
+  }
+}

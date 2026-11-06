@@ -1,0 +1,18 @@
+[workspace]
+members = ["programs/checkout"]
+resolver = "2"
+
+# Solana CLI 2.1.0's bundled Rust 1.79 cannot compile current resolved crates.
+# Keep the CLI/Anchor pair and select an explicit SBF Rust 1.89 toolchain.
+[workspace.metadata.solana]
+tools-version = "v1.56"
+
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1
+
+[profile.release.build-override]
+opt-level = 3
+incremental = false
+codegen-units = 1

@@ -1,0 +1,13 @@
+{
+  "at": "2026-11-06T19:23:35.018Z",
+  "validator": {
+    "pid": 67661,
+    "verifiedCommand": "solana-test-validator --ledger /Users/Doanh/Documents/Projects/solana-hacka/.local/ledger --bind-address 127.0.0.1 --rpc-port 8899",
+    "signal": "SIGTERM",
+    "pidAbsentAfterSignal": true,
+    "sessionExitCode": 0,
+    "persistentLedgerRetained": true
+  },
+  "uiApi": "Owned child exits recorded in evidence/ui-localnet.json and evidence/rehearsal-localnet.json; frontend agent probed its test ports as ECONNREFUSED.",
+  "privateFiles": ".local/keys and private rehearsal storage ignored by git"
+}

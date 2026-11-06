@@ -1,0 +1,8 @@
+{
+  "at": "2026-11-06T19:19:47.695Z",
+  "command": "npm ci --ignore-scripts --offline --cache .local/npm-cache",
+  "exitCode": 0,
+  "npmLockSha256": "a624977c2f94a13e7d9e92684aa4a17c37727b5306ff32420ae2943ba7637c7d",
+  "packagesAdded": 173,
+  "note": "Clean install succeeded from pinned lock and local registry cache; follow-up checks are recorded separately. Native optional bigint bindings use their supported JavaScript fallback."
+}

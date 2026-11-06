@@ -1,0 +1,11 @@
+{
+  "builtAt": "2026-11-06T19:00:02.920Z",
+  "programId": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+  "anchor": "0.31.1",
+  "solana": "2.1.0",
+  "platformTools": "v1.56",
+  "idlSource": "anchor idl build",
+  "binarySha256": "b187779fb9d59c03ed25703d293906cca2612d83ef5896e47c585ef24e0da350",
+  "sourceSha256": "fe3ddae0bdd00c96359a2f19e5c599d186f9c79759bbb2efe86ca1d4c6fecade",
+  "cargoLockSha256": "4222b585d2341a34168cb7ba06607aca76fd365cba0e70b0b2a2591344c8a4b1"
+}
