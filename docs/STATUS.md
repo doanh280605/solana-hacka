@@ -1,6 +1,6 @@
 # Execution status
 
-Updated November 6, 2026. **Local gates pass. Devnet is blocked on test SOL. The full goal remains active.**
+Updated November 6, 2026. **Local gates pass. The goal is blocked on Devnet test SOL; core Devnet evidence remains outstanding.**
 
 ## Done
 
