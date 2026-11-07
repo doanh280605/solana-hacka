@@ -9,7 +9,7 @@ rendering chunks...
 computing gzip size...
 dist/index.html                   0.82 kB │ gzip:   0.43 kB
 dist/assets/index-Dw9Ip2qC.css   38.37 kB │ gzip:   8.24 kB
-dist/assets/index-pPGPvded.js    76.73 kB │ gzip:  24.59 kB
+dist/assets/index-ginkKqV1.js    76.73 kB │ gzip:  24.58 kB
 dist/assets/react-Bo3Ei6Pf.js   184.62 kB │ gzip:  58.18 kB
 dist/assets/solana-BD0MfaLc.js  401.09 kB │ gzip: 115.54 kB
-✓ built in 809ms
+✓ built in 790ms

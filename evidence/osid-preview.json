@@ -1,0 +1,64 @@
+{
+  "at": "2026-11-07T00:26:44.576Z",
+  "passed": true,
+  "aiMode": "fixture",
+  "cluster": "devnet",
+  "wallet": "No wallet injected in managed-preview smoke; no token movement.",
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "heading": "Approve the work.\nThen release\nthe payment.",
+      "desktopAndMobileOverflow": false
+    },
+    {
+      "path": "/demo",
+      "status": 200,
+      "heading": "Take a look.\nThen take the lead.",
+      "desktopAndMobileOverflow": false
+    },
+    {
+      "path": "/app",
+      "status": 200,
+      "heading": "Make a little\nmore of it.",
+      "desktopAndMobileOverflow": false
+    },
+    {
+      "path": "/recover?job=4r5egHtAkGXrjfjrDh4VjpgNwWoxPWWh53qbG1DWBhkD",
+      "status": 200,
+      "heading": "Your deposit.\nYour way back.",
+      "desktopAndMobileOverflow": false
+    }
+  ],
+  "health": {
+    "ok": true
+  },
+  "service": {
+    "service": "product-listing-pack",
+    "aiMode": "fixture",
+    "liveConfigured": false,
+    "rehearsalStallEnabled": false
+  },
+  "errors": [],
+  "recoveryMerchantRequests": [],
+  "managed": {
+    "at": "2026-11-07T00:25:44.257Z",
+    "aiMode": "fixture",
+    "web": {
+      "pid": 63428,
+      "entry": "/Users/Doanh/Documents/Projects/solana-hacka/node_modules/vite/bin/vite.js",
+      "url": "http://localhost:5173/"
+    },
+    "worker": {
+      "pid": 63373,
+      "entry": "/Users/Doanh/Documents/Projects/solana-hacka/apps/worker/src/index.ts",
+      "url": "http://localhost:8787/health"
+    },
+    "logs": [
+      "/Users/Doanh/Documents/Projects/solana-hacka/.local/osid-preview-worker.log",
+      "/Users/Doanh/Documents/Projects/solana-hacka/.local/osid-preview-web.log"
+    ]
+  },
+  "stopCommand": "npx tsx scripts/preview.ts stop",
+  "note": "Separate Devnet browser evidence covers money actions and actual API-offline recovery. Live AI is unverified without OPENAI_API_KEY."
+}

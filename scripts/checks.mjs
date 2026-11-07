@@ -48,6 +48,7 @@ const sourcePaths = [
   'apps/worker/src/v2-service.ts', 'apps/worker/src/v2-store.ts', 'apps/worker/src/v2-types.ts',
   'apps/web/src/Workspace.tsx', 'apps/web/src/Recovery.tsx', 'apps/web/src/commitments.ts', 'apps/web/src/bundle.ts',
   'apps/web/src/previews.ts', 'apps/web/src/bytes.ts',
+  'apps/web/vite.config.ts', 'apps/web/dev-security.ts', 'apps/web/test/dev-server-security.test.ts',
   'apps/web/src/App.tsx', 'apps/web/src/api.ts', 'apps/web/src/config.ts', 'apps/web/src/session.ts', 'apps/web/src/wallet.ts',
   'scripts/deploy.ts', 'scripts/deploy-buffer.ts', 'scripts/preview.ts', 'scripts/runtime.mjs',
   'scripts/osid-runtime.ts', 'scripts/osid-rehearse.ts', 'scripts/osid-ui-rehearse.ts', 'scripts/osid-demo-video.ts',

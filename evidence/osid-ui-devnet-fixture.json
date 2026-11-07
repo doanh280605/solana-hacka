@@ -1,0 +1,774 @@
+{
+  "schemaVersion": 2,
+  "runId": "20261107001838352-256543",
+  "startedAt": "2026-11-07T00:18:38.353Z",
+  "config": {
+    "rpcUrl": "https://api.devnet.solana.com",
+    "programId": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+    "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+    "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+    "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+    "decimals": 6,
+    "amount": "5000000",
+    "cluster": "devnet"
+  },
+  "aiMode": "fixture",
+  "wallet": "Disposable injected test-wallet harness. Phantom extension not verified.",
+  "privateKeysInBrowser": false,
+  "scope": "V2 browser quote/fund/review/approve/private download/reload; API-offline direct refund.",
+  "screenshots": [
+    "evidence/screenshots/osid-ui-devnet-fixture-landing-desktop.png",
+    "evidence/screenshots/osid-ui-devnet-fixture-landing-mobile.png",
+    "evidence/screenshots/osid-ui-devnet-fixture-demo-desktop.png",
+    "evidence/screenshots/osid-ui-devnet-fixture-workspace-empty.png",
+    "evidence/screenshots/osid-ui-devnet-fixture-agreement.png",
+    "evidence/screenshots/osid-ui-devnet-fixture-review-desktop.png",
+    "evidence/screenshots/osid-ui-devnet-fixture-review-mobile.png",
+    "evidence/screenshots/osid-ui-devnet-fixture-released.png",
+    "evidence/screenshots/osid-ui-devnet-fixture-recovery-before.png",
+    "evidence/screenshots/osid-ui-devnet-fixture-refunded-desktop.png",
+    "evidence/screenshots/osid-ui-devnet-fixture-refunded-mobile.png"
+  ],
+  "videos": [
+    "evidence/osid-ui-devnet-fixture-workspace.webm",
+    "evidence/osid-ui-devnet-fixture-recovery.webm"
+  ],
+  "errors": [],
+  "recoveryRequests": [],
+  "signedTransactions": [
+    {
+      "at": "2026-11-07T00:19:37.042Z",
+      "signature": "63bsXrAdmBUstZsDSZhc6fyJt52UxL1n3uiX17npMP4txy3oFV23CJZNrgNRyiDgdgVc2t4bHwJkyFhx4NJ5KhE8",
+      "explorer": "https://explorer.solana.com/tx/63bsXrAdmBUstZsDSZhc6fyJt52UxL1n3uiX17npMP4txy3oFV23CJZNrgNRyiDgdgVc2t4bHwJkyFhx4NJ5KhE8?cluster=devnet",
+      "programs": [
+        "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+        "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+        "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY"
+      ]
+    },
+    {
+      "at": "2026-11-07T00:21:06.053Z",
+      "signature": "PxHM6mSurVdFtX71Uh9Mtpbh3DRtrcVrTZSWQi5DeUntdKxk81xfKcgGjdMTgpXPAebjiw8HVD1bDLPiMtpLdHP",
+      "explorer": "https://explorer.solana.com/tx/PxHM6mSurVdFtX71Uh9Mtpbh3DRtrcVrTZSWQi5DeUntdKxk81xfKcgGjdMTgpXPAebjiw8HVD1bDLPiMtpLdHP?cluster=devnet",
+      "programs": [
+        "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY"
+      ]
+    },
+    {
+      "at": "2026-11-07T00:23:41.639Z",
+      "signature": "26bA3DUNHFd4CLttdSP8VigJuRtU5DetwBPrbzW5pUNpPwjXzn8y717NxYrXk2GCaNqsmmerCPgBC8DezGKY9Jc7",
+      "explorer": "https://explorer.solana.com/tx/26bA3DUNHFd4CLttdSP8VigJuRtU5DetwBPrbzW5pUNpPwjXzn8y717NxYrXk2GCaNqsmmerCPgBC8DezGKY9Jc7?cluster=devnet",
+      "programs": [
+        "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+        "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+        "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY"
+      ]
+    },
+    {
+      "at": "2026-11-07T00:24:53.404Z",
+      "signature": "26F8zsnmsTqLgjRzR5nPCJnRZz7VmGpTJvYEjDzk1UQLHDG6D69oUjCeMJxaYo3GFKu5WEz6SNxTru3AmaUZkS3s",
+      "explorer": "https://explorer.solana.com/tx/26F8zsnmsTqLgjRzR5nPCJnRZz7VmGpTJvYEjDzk1UQLHDG6D69oUjCeMJxaYo3GFKu5WEz6SNxTru3AmaUZkS3s?cluster=devnet",
+      "programs": [
+        "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+        "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY"
+      ]
+    }
+  ],
+  "signedMessages": [
+    {
+      "at": "2026-11-07T00:18:48.199Z",
+      "purpose": "login"
+    },
+    {
+      "at": "2026-11-07T00:21:36.164Z",
+      "purpose": "download"
+    },
+    {
+      "at": "2026-11-07T00:22:28.830Z",
+      "purpose": "download"
+    }
+  ],
+  "processes": [
+    {
+      "name": "worker",
+      "pid": 53624,
+      "startedAt": "2026-11-07T00:18:38.646Z",
+      "logFile": ".local/osid-ui-devnet-20261107001838352-256543/worker.log",
+      "stopRequestedAt": "2026-11-07T00:21:42.166Z",
+      "exit": {
+        "at": "2026-11-07T00:21:45.809Z",
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "name": "vite",
+      "pid": 53672,
+      "startedAt": "2026-11-07T00:18:40.767Z",
+      "logFile": ".local/osid-ui-devnet-20261107001838352-256543/vite.log",
+      "stopRequestedAt": "2026-11-07T00:25:12.288Z",
+      "exit": {
+        "at": "2026-11-07T00:25:12.293Z",
+        "code": 143,
+        "signal": null
+      }
+    },
+    {
+      "name": "worker",
+      "pid": 57907,
+      "startedAt": "2026-11-07T00:21:46.380Z",
+      "logFile": ".local/osid-ui-devnet-20261107001838352-256543/worker.log",
+      "stopRequestedAt": "2026-11-07T00:22:31.885Z",
+      "exit": {
+        "at": "2026-11-07T00:22:35.561Z",
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "name": "worker",
+      "pid": 59014,
+      "startedAt": "2026-11-07T00:22:36.094Z",
+      "logFile": ".local/osid-ui-devnet-20261107001838352-256543/worker.log",
+      "stopRequestedAt": "2026-11-07T00:23:55.865Z",
+      "exit": {
+        "at": "2026-11-07T00:23:55.873Z",
+        "code": 0,
+        "signal": null
+      }
+    }
+  ],
+  "passed": true,
+  "genesis": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+  "stage": "complete",
+  "release": {
+    "quote": {
+      "version": 2,
+      "jobId": "73c9b8ad30f853bc46e6ea29730c427c96d5ae31a503d0dc22e75582ddb51e64",
+      "jobAddress": "C1znz7aJWDBhCMfKAYkzfLTPqCgWf4iSgx6tWv6JqQVa",
+      "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "amount": "5000000",
+      "expiresAt": 1794012528,
+      "quoteExpiresAt": 1794011328,
+      "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+      "specHash": "cfc88043c99c7619b78240831688062090f15481fc287a5c9f312819e4ca1388",
+      "termsHash": "217902d5808f666308ae4ec688a3858fc9896d900dcad625943ea3b41c14727d",
+      "specification": {
+        "schemaVersion": 2,
+        "service": "product-listing-pack",
+        "brief": "Morning candle. Cedar and amber scent. 250 g amber glass jar with black lid and cream Morning label. Preserve the exact product and label. Set it in a clean warm studio. Do not invent product facts, prices, burn time, certifications or safety claims.",
+        "productFacts": [
+          "Morning candle. Cedar and amber scent. 250 g amber glass jar with black lid and cream Morning label. Preserve the exact product and label. Set it in a clean warm studio. Do not inv"
+        ],
+        "imageDirection": "Fixture only: neutral studio background with original product preserved",
+        "deliverables": {
+          "hero": {
+            "width": 1600,
+            "height": 1600,
+            "format": "webp"
+          },
+          "social": [
+            {
+              "name": "square",
+              "width": 1080,
+              "height": 1080,
+              "format": "webp"
+            },
+            {
+              "name": "portrait",
+              "width": 1080,
+              "height": 1350,
+              "format": "webp"
+            },
+            {
+              "name": "story",
+              "width": 1080,
+              "height": 1920,
+              "format": "webp"
+            }
+          ],
+          "copy": {
+            "titleMax": 80,
+            "descriptionMax": 1200,
+            "bulletCount": 5,
+            "bulletMax": 180
+          }
+        },
+        "acceptanceChecks": [
+          "Four WebP images at the agreed dimensions",
+          "Title 1–80 characters; description 1–1200 characters",
+          "Exactly five nonempty bullets, each at most 180 characters",
+          "Six payload files with SHA-256 hashes in a versioned manifest",
+          "Validation report and manifest included in the downloadable ZIP"
+        ],
+        "limitations": [
+          "Automated checks verify dimensions, fields and artifact bytes; they do not prove aesthetic quality or factual correctness.",
+          "Review product identity, text, and every image before approving payment.",
+          "Files depend on service storage availability. Refunds require an explicit buyer transaction after the deadline."
+        ]
+      },
+      "aiMode": "fixture",
+      "mode": "normal",
+      "status": "quoted",
+      "attempts": [
+        {
+          "id": "8f8b61de4d4ad48d6eefa91b2601db04",
+          "stage": "specification",
+          "startedAt": 1794010728,
+          "state": "completed",
+          "provider": "fixture",
+          "completedAt": 1794010728,
+          "requestId": "fixture-8f8b61de4d4ad48d6eefa91b2601db04"
+        }
+      ]
+    },
+    "before": {
+      "buyer": "100000000",
+      "merchant": "20000000",
+      "vault": "0"
+    },
+    "afterFund": {
+      "buyer": "95000000",
+      "merchant": "20000000",
+      "vault": "5000000"
+    },
+    "fundedJob": {
+      "address": "C1znz7aJWDBhCMfKAYkzfLTPqCgWf4iSgx6tWv6JqQVa",
+      "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "jobId": "73c9b8ad30f853bc46e6ea29730c427c96d5ae31a503d0dc22e75582ddb51e64",
+      "amount": "5000000",
+      "expiresAt": 1794012528,
+      "state": "Funded",
+      "vault": "HcF4hkBBrLXkktNxGw5xKGyxKFXxhocdNBEVrJYF8LMn",
+      "version": 2,
+      "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+      "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+      "specHash": "cfc88043c99c7619b78240831688062090f15481fc287a5c9f312819e4ca1388",
+      "termsHash": "217902d5808f666308ae4ec688a3858fc9896d900dcad625943ea3b41c14727d",
+      "resultHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "quoteExpiresAt": 1794011328,
+      "submittedAt": 0
+    },
+    "submittedJob": {
+      "address": "C1znz7aJWDBhCMfKAYkzfLTPqCgWf4iSgx6tWv6JqQVa",
+      "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "jobId": "73c9b8ad30f853bc46e6ea29730c427c96d5ae31a503d0dc22e75582ddb51e64",
+      "amount": "5000000",
+      "expiresAt": 1794012528,
+      "state": "Submitted",
+      "vault": "HcF4hkBBrLXkktNxGw5xKGyxKFXxhocdNBEVrJYF8LMn",
+      "version": 2,
+      "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+      "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+      "specHash": "cfc88043c99c7619b78240831688062090f15481fc287a5c9f312819e4ca1388",
+      "termsHash": "217902d5808f666308ae4ec688a3858fc9896d900dcad625943ea3b41c14727d",
+      "resultHash": "f36cd09ebf165ed0e67d9c0ee75644635bf0853fce1a8619a0ef22a9b7b5dbad",
+      "quoteExpiresAt": 1794011328,
+      "submittedAt": 1794010798
+    },
+    "submitted": {
+      "version": 2,
+      "jobId": "73c9b8ad30f853bc46e6ea29730c427c96d5ae31a503d0dc22e75582ddb51e64",
+      "jobAddress": "C1znz7aJWDBhCMfKAYkzfLTPqCgWf4iSgx6tWv6JqQVa",
+      "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "amount": "5000000",
+      "expiresAt": 1794012528,
+      "quoteExpiresAt": 1794011328,
+      "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+      "specHash": "cfc88043c99c7619b78240831688062090f15481fc287a5c9f312819e4ca1388",
+      "termsHash": "217902d5808f666308ae4ec688a3858fc9896d900dcad625943ea3b41c14727d",
+      "specification": {
+        "schemaVersion": 2,
+        "service": "product-listing-pack",
+        "brief": "Morning candle. Cedar and amber scent. 250 g amber glass jar with black lid and cream Morning label. Preserve the exact product and label. Set it in a clean warm studio. Do not invent product facts, prices, burn time, certifications or safety claims.",
+        "productFacts": [
+          "Morning candle. Cedar and amber scent. 250 g amber glass jar with black lid and cream Morning label. Preserve the exact product and label. Set it in a clean warm studio. Do not inv"
+        ],
+        "imageDirection": "Fixture only: neutral studio background with original product preserved",
+        "deliverables": {
+          "hero": {
+            "width": 1600,
+            "height": 1600,
+            "format": "webp"
+          },
+          "social": [
+            {
+              "name": "square",
+              "width": 1080,
+              "height": 1080,
+              "format": "webp"
+            },
+            {
+              "name": "portrait",
+              "width": 1080,
+              "height": 1350,
+              "format": "webp"
+            },
+            {
+              "name": "story",
+              "width": 1080,
+              "height": 1920,
+              "format": "webp"
+            }
+          ],
+          "copy": {
+            "titleMax": 80,
+            "descriptionMax": 1200,
+            "bulletCount": 5,
+            "bulletMax": 180
+          }
+        },
+        "acceptanceChecks": [
+          "Four WebP images at the agreed dimensions",
+          "Title 1–80 characters; description 1–1200 characters",
+          "Exactly five nonempty bullets, each at most 180 characters",
+          "Six payload files with SHA-256 hashes in a versioned manifest",
+          "Validation report and manifest included in the downloadable ZIP"
+        ],
+        "limitations": [
+          "Automated checks verify dimensions, fields and artifact bytes; they do not prove aesthetic quality or factual correctness.",
+          "Review product identity, text, and every image before approving payment.",
+          "Files depend on service storage availability. Refunds require an explicit buyer transaction after the deadline."
+        ]
+      },
+      "aiMode": "fixture",
+      "mode": "normal",
+      "status": "ready",
+      "resultHash": "f36cd09ebf165ed0e67d9c0ee75644635bf0853fce1a8619a0ef22a9b7b5dbad",
+      "manifest": {
+        "schemaVersion": 2,
+        "jobId": "73c9b8ad30f853bc46e6ea29730c427c96d5ae31a503d0dc22e75582ddb51e64",
+        "jobAddress": "C1znz7aJWDBhCMfKAYkzfLTPqCgWf4iSgx6tWv6JqQVa",
+        "termsHash": "217902d5808f666308ae4ec688a3858fc9896d900dcad625943ea3b41c14727d",
+        "specHash": "cfc88043c99c7619b78240831688062090f15481fc287a5c9f312819e4ca1388",
+        "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+        "artifacts": [
+          {
+            "path": "hero.webp",
+            "mediaType": "image/webp",
+            "size": 150568,
+            "sha256": "645985dece292a37f715a17f5d299dedf3271ae6ac93c6626ebe10d17bd42c67"
+          },
+          {
+            "path": "listing.json",
+            "mediaType": "application/json",
+            "size": 573,
+            "sha256": "c3f5e724e79aa094198c91296daff2bdf14fe8761eeb2fffc14640dc02c006f7"
+          },
+          {
+            "path": "social-portrait.webp",
+            "mediaType": "image/webp",
+            "size": 93848,
+            "sha256": "2f3fdfd07496314c0ef205625628c81a410c5d22120473bf139d0459d70bcba9"
+          },
+          {
+            "path": "social-square.webp",
+            "mediaType": "image/webp",
+            "size": 94646,
+            "sha256": "247909f9061ecb4ad7153c5826b7fd0438176176e8ce4697424a165a8654b0e4"
+          },
+          {
+            "path": "social-story.webp",
+            "mediaType": "image/webp",
+            "size": 95118,
+            "sha256": "75c5d8b615e5722d01fe2a60a8e91f9ebfaa17d0f2801cfc14097e81f6d50e18"
+          },
+          {
+            "path": "validation.json",
+            "mediaType": "application/json",
+            "size": 1013,
+            "sha256": "f9ab314fa9552470af9419fe17201e64294a1209e8c25222e2f036d8a59d851b"
+          }
+        ],
+        "previews": [
+          {
+            "path": "preview-hero.webp",
+            "sourcePath": "hero.webp",
+            "sha256": "3514a0a2bc529535560bc2cb76ab629250499e8d37a3cd75973920d67c1d5bd5",
+            "bytes": 28060,
+            "width": 560,
+            "height": 560,
+            "mimeType": "image/webp"
+          },
+          {
+            "path": "preview-portrait.webp",
+            "sourcePath": "social-portrait.webp",
+            "sha256": "09ff1605144c3abb90f350ce3ec36cc77118e6a75244687cf1eab1f08f907a0b",
+            "bytes": 31932,
+            "width": 544,
+            "height": 680,
+            "mimeType": "image/webp"
+          },
+          {
+            "path": "preview-square.webp",
+            "sourcePath": "social-square.webp",
+            "sha256": "77340ec7191eddfe7c6d1d37a3e2b7fc2017ae7aaefd020a43ed9d2d9580d896",
+            "bytes": 28514,
+            "width": 560,
+            "height": 560,
+            "mimeType": "image/webp"
+          },
+          {
+            "path": "preview-story.webp",
+            "sourcePath": "social-story.webp",
+            "sha256": "b82ec4282465b4b08f5e450666613cfe356661f4f1319d94274dc1c852c263de",
+            "bytes": 21926,
+            "width": 382,
+            "height": 680,
+            "mimeType": "image/webp"
+          }
+        ]
+      },
+      "validation": {
+        "schemaVersion": 2,
+        "passed": true,
+        "checks": [
+          {
+            "name": "hero.webp",
+            "passed": true,
+            "detail": "1600 × 1600 WebP required"
+          },
+          {
+            "name": "social-square.webp",
+            "passed": true,
+            "detail": "1080 × 1080 WebP required"
+          },
+          {
+            "name": "social-portrait.webp",
+            "passed": true,
+            "detail": "1080 × 1350 WebP required"
+          },
+          {
+            "name": "social-story.webp",
+            "passed": true,
+            "detail": "1080 × 1920 WebP required"
+          },
+          {
+            "name": "Listing fields and limits",
+            "passed": true,
+            "detail": "Nonempty title, description, and five bullets within agreed limits; no new detected numeric/certification claims"
+          },
+          {
+            "name": "Payload completeness",
+            "passed": true,
+            "detail": "Four image exports and listing.json exist; validation.json is added after these checks"
+          }
+        ],
+        "limitations": [
+          "Automated checks verify dimensions, fields and artifact bytes; they do not prove aesthetic quality or factual correctness.",
+          "Review product identity, text, and every image before approving payment.",
+          "Files depend on service storage availability. Refunds require an explicit buyer transaction after the deadline."
+        ]
+      },
+      "listing": {
+        "title": "Product listing preview",
+        "description": "Morning candle. Cedar and amber scent. 250 g amber glass jar with black lid and cream Morning label. Preserve the exact product and label. Set it in a clean warm studio. Do not inv",
+        "bullets": [
+          "Morning candle. Cedar and amber scent. 250 g amber glass jar with black lid and cream Morning label. Preserve the exact product and label. Set it in a clean warm studio. Do not inv",
+          "See the supplied product photograph",
+          "Review the image before purchase",
+          "Details reflect the seller brief",
+          "Fixture copy for development review"
+        ]
+      },
+      "previews": [
+        {
+          "name": "hero",
+          "width": 560,
+          "height": 560,
+          "url": "/api/v2/orders/73c9b8ad30f853bc46e6ea29730c427c96d5ae31a503d0dc22e75582ddb51e64/preview/hero"
+        },
+        {
+          "name": "portrait",
+          "width": 544,
+          "height": 680,
+          "url": "/api/v2/orders/73c9b8ad30f853bc46e6ea29730c427c96d5ae31a503d0dc22e75582ddb51e64/preview/portrait"
+        },
+        {
+          "name": "square",
+          "width": 560,
+          "height": 560,
+          "url": "/api/v2/orders/73c9b8ad30f853bc46e6ea29730c427c96d5ae31a503d0dc22e75582ddb51e64/preview/square"
+        },
+        {
+          "name": "story",
+          "width": 382,
+          "height": 680,
+          "url": "/api/v2/orders/73c9b8ad30f853bc46e6ea29730c427c96d5ae31a503d0dc22e75582ddb51e64/preview/story"
+        }
+      ],
+      "submissionSignature": "4fMCrqD338pfVPVpMQ67JqwMPn5ry4h44nCdsSYu8ULeCjwLcCXhuBrWTbYuaKuMrK373szhBFUwJaB8Tvxn6fsh",
+      "attempts": [
+        {
+          "id": "8f8b61de4d4ad48d6eefa91b2601db04",
+          "stage": "specification",
+          "startedAt": 1794010728,
+          "state": "completed",
+          "provider": "fixture",
+          "completedAt": 1794010728,
+          "requestId": "fixture-8f8b61de4d4ad48d6eefa91b2601db04"
+        },
+        {
+          "id": "a15e7576956796dee7cffe4745a40f1e",
+          "stage": "listing",
+          "startedAt": 1794010793,
+          "state": "completed",
+          "provider": "fixture",
+          "completedAt": 1794010793,
+          "requestId": "fixture-a15e7576956796dee7cffe4745a40f1e"
+        },
+        {
+          "id": "f29852e28978a6a293bdaea126b6ca92",
+          "stage": "image",
+          "startedAt": 1794010793,
+          "state": "completed",
+          "provider": "fixture",
+          "completedAt": 1794010793,
+          "requestId": "fixture-f29852e28978a6a293bdaea126b6ca92"
+        }
+      ]
+    },
+    "releasedJob": {
+      "address": "C1znz7aJWDBhCMfKAYkzfLTPqCgWf4iSgx6tWv6JqQVa",
+      "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "jobId": "73c9b8ad30f853bc46e6ea29730c427c96d5ae31a503d0dc22e75582ddb51e64",
+      "amount": "5000000",
+      "expiresAt": 1794012528,
+      "state": "Released",
+      "vault": "HcF4hkBBrLXkktNxGw5xKGyxKFXxhocdNBEVrJYF8LMn",
+      "version": 2,
+      "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+      "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+      "specHash": "cfc88043c99c7619b78240831688062090f15481fc287a5c9f312819e4ca1388",
+      "termsHash": "217902d5808f666308ae4ec688a3858fc9896d900dcad625943ea3b41c14727d",
+      "resultHash": "f36cd09ebf165ed0e67d9c0ee75644635bf0853fce1a8619a0ef22a9b7b5dbad",
+      "quoteExpiresAt": 1794011328,
+      "submittedAt": 1794010798
+    },
+    "download": {
+      "sha256": "4b0ec383c81f51f0c3c85f872cd003b47e3362c9054a375db618bee7ebb4a3d4",
+      "bytes": 438609,
+      "manifestHash": "f36cd09ebf165ed0e67d9c0ee75644635bf0853fce1a8619a0ef22a9b7b5dbad",
+      "files": [
+        "hero.webp",
+        "listing.json",
+        "manifest.json",
+        "social-portrait.webp",
+        "social-square.webp",
+        "social-story.webp",
+        "validation.json"
+      ],
+      "artifactHashesVerified": true,
+      "dimensionsVerified": true,
+      "copyLimitsVerified": true,
+      "validationPassed": true,
+      "path": ".local/osid-ui-devnet-20261107001838352-256543/bundle-first.zip"
+    },
+    "after": {
+      "buyer": "95000000",
+      "merchant": "25000000",
+      "vault": "0"
+    },
+    "reloadDownload": {
+      "sha256": "4b0ec383c81f51f0c3c85f872cd003b47e3362c9054a375db618bee7ebb4a3d4",
+      "bytes": 438609,
+      "manifestHash": "f36cd09ebf165ed0e67d9c0ee75644635bf0853fce1a8619a0ef22a9b7b5dbad",
+      "files": [
+        "hero.webp",
+        "listing.json",
+        "manifest.json",
+        "social-portrait.webp",
+        "social-square.webp",
+        "social-story.webp",
+        "validation.json"
+      ],
+      "artifactHashesVerified": true,
+      "dimensionsVerified": true,
+      "copyLimitsVerified": true,
+      "validationPassed": true,
+      "path": ".local/osid-ui-devnet-20261107001838352-256543/bundle-reloaded.zip"
+    }
+  },
+  "refund": {
+    "quote": {
+      "version": 2,
+      "jobId": "900238f27c9ffec6826d6bd4af3bb51df9d44bb16c9556adebb5b2f775d6be6d",
+      "jobAddress": "4r5egHtAkGXrjfjrDh4VjpgNwWoxPWWh53qbG1DWBhkD",
+      "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "amount": "5000000",
+      "expiresAt": 1794011081,
+      "quoteExpiresAt": 1794011076,
+      "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+      "specHash": "cfc88043c99c7619b78240831688062090f15481fc287a5c9f312819e4ca1388",
+      "termsHash": "b36258c779562510c102d2ff3eff197d8fea5de3069c531c63adba5649984105",
+      "specification": {
+        "schemaVersion": 2,
+        "service": "product-listing-pack",
+        "brief": "Morning candle. Cedar and amber scent. 250 g amber glass jar with black lid and cream Morning label. Preserve the exact product and label. Set it in a clean warm studio. Do not invent product facts, prices, burn time, certifications or safety claims.",
+        "productFacts": [
+          "Morning candle. Cedar and amber scent. 250 g amber glass jar with black lid and cream Morning label. Preserve the exact product and label. Set it in a clean warm studio. Do not inv"
+        ],
+        "imageDirection": "Fixture only: neutral studio background with original product preserved",
+        "deliverables": {
+          "hero": {
+            "width": 1600,
+            "height": 1600,
+            "format": "webp"
+          },
+          "social": [
+            {
+              "name": "square",
+              "width": 1080,
+              "height": 1080,
+              "format": "webp"
+            },
+            {
+              "name": "portrait",
+              "width": 1080,
+              "height": 1350,
+              "format": "webp"
+            },
+            {
+              "name": "story",
+              "width": 1080,
+              "height": 1920,
+              "format": "webp"
+            }
+          ],
+          "copy": {
+            "titleMax": 80,
+            "descriptionMax": 1200,
+            "bulletCount": 5,
+            "bulletMax": 180
+          }
+        },
+        "acceptanceChecks": [
+          "Four WebP images at the agreed dimensions",
+          "Title 1–80 characters; description 1–1200 characters",
+          "Exactly five nonempty bullets, each at most 180 characters",
+          "Six payload files with SHA-256 hashes in a versioned manifest",
+          "Validation report and manifest included in the downloadable ZIP"
+        ],
+        "limitations": [
+          "Automated checks verify dimensions, fields and artifact bytes; they do not prove aesthetic quality or factual correctness.",
+          "Review product identity, text, and every image before approving payment.",
+          "Files depend on service storage availability. Refunds require an explicit buyer transaction after the deadline."
+        ]
+      },
+      "aiMode": "fixture",
+      "mode": "stall",
+      "status": "quoted",
+      "attempts": [
+        {
+          "id": "7441753e062213a78bd6c8ff7c2503a8",
+          "stage": "specification",
+          "startedAt": 1794010961,
+          "state": "completed",
+          "provider": "fixture",
+          "completedAt": 1794010961,
+          "requestId": "fixture-7441753e062213a78bd6c8ff7c2503a8"
+        }
+      ]
+    },
+    "before": {
+      "buyer": "95000000",
+      "merchant": "25000000",
+      "vault": "0"
+    },
+    "afterFund": {
+      "buyer": "90000000",
+      "merchant": "25000000",
+      "vault": "5000000"
+    },
+    "fundedJob": {
+      "address": "4r5egHtAkGXrjfjrDh4VjpgNwWoxPWWh53qbG1DWBhkD",
+      "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "jobId": "900238f27c9ffec6826d6bd4af3bb51df9d44bb16c9556adebb5b2f775d6be6d",
+      "amount": "5000000",
+      "expiresAt": 1794011081,
+      "state": "Funded",
+      "vault": "AQgSHNNZVHWQ4syHjcBtHrbgizHgs4JYxgZ6pKgK1xwh",
+      "version": 2,
+      "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+      "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+      "specHash": "cfc88043c99c7619b78240831688062090f15481fc287a5c9f312819e4ca1388",
+      "termsHash": "b36258c779562510c102d2ff3eff197d8fea5de3069c531c63adba5649984105",
+      "resultHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "quoteExpiresAt": 1794011076,
+      "submittedAt": 0
+    },
+    "apiOfflineBefore": {
+      "at": "2026-11-07T00:23:56.567Z",
+      "pid": 59014,
+      "exit": {
+        "at": "2026-11-07T00:23:55.873Z",
+        "code": 0,
+        "signal": null
+      },
+      "health": "ECONNREFUSED"
+    },
+    "apiOfflineAtDeadline": {
+      "at": "2026-11-07T00:24:48.692Z",
+      "pid": 59014,
+      "exit": {
+        "at": "2026-11-07T00:23:55.873Z",
+        "code": 0,
+        "signal": null
+      },
+      "health": "ECONNREFUSED"
+    },
+    "refundedJob": {
+      "address": "4r5egHtAkGXrjfjrDh4VjpgNwWoxPWWh53qbG1DWBhkD",
+      "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "jobId": "900238f27c9ffec6826d6bd4af3bb51df9d44bb16c9556adebb5b2f775d6be6d",
+      "amount": "5000000",
+      "expiresAt": 1794011081,
+      "state": "Refunded",
+      "vault": "AQgSHNNZVHWQ4syHjcBtHrbgizHgs4JYxgZ6pKgK1xwh",
+      "version": 2,
+      "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+      "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+      "specHash": "cfc88043c99c7619b78240831688062090f15481fc287a5c9f312819e4ca1388",
+      "termsHash": "b36258c779562510c102d2ff3eff197d8fea5de3069c531c63adba5649984105",
+      "resultHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "quoteExpiresAt": 1794011076,
+      "submittedAt": 0
+    },
+    "after": {
+      "buyer": "95000000",
+      "merchant": "25000000",
+      "vault": "0"
+    },
+    "apiOfflineAfter": {
+      "at": "2026-11-07T00:25:11.643Z",
+      "pid": 59014,
+      "exit": {
+        "at": "2026-11-07T00:23:55.873Z",
+        "code": 0,
+        "signal": null
+      },
+      "health": "ECONNREFUSED"
+    },
+    "merchantRequests": 0
+  },
+  "finishedAt": "2026-11-07T00:25:11.643Z"
+}

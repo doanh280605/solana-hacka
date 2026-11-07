@@ -8,6 +8,8 @@ The pack contains one AI-edited 1600 × 1600 hero, social exports at 1080 × 108
 
 This is a Devnet prototype using a disposable six-decimal SPL mock token. It has no real USDC value. Hashes bind agreed terms and artifact bytes; they do not prove subjective AI quality, factual correctness or permanent file availability.
 
+Current verification: 76 unit, 10 Rust and 39 actual local-program tests pass; new Devnet release/refund and independent review pass using explicitly labeled fixture AI. **Live AI verification remains blocked by a missing provider key.** The running development preview is http://localhost:5173/ (fixture mode); [status](docs/STATUS.md) records exact URLs, evidence, PIDs/logs and stop instructions.
+
 ## Start
 
 Pinned baseline tools: Node 22.21.1, npm 10.9.4, Anchor 0.31.1, Solana CLI 2.1.0, platform tools v1.56; tested host Rust 1.95.0. Existing toolchains and lockfiles remain in use.
@@ -62,7 +64,11 @@ For a managed preview:
 npx tsx scripts/preview.ts start
 ```
 
-Use `start --fixture` explicitly for a development preview without live credentials. Stop only its verified recorded processes with `npx tsx scripts/preview.ts stop`. Alternatively start the two product processes separately:
+Use `start --fixture` explicitly for a development preview without live credentials. Stop only its verified recorded processes with `npx tsx scripts/preview.ts stop`.
+
+The development server serves only browser sources, the shared client and their dependencies. Private runtime files, inputs, keypairs and environment files are denied, including public-directory symlink aliases. Keep worker data outside `apps/web/public`; the worker has no public artifact directory.
+
+Alternatively start the two product processes separately:
 
 ```sh
 npm run dev:worker

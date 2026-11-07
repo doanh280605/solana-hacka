@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-11-07T00:00:17.530Z",
-  "finishedAt": "2026-11-07T00:00:32.617Z",
+  "startedAt": "2026-11-07T00:17:30.172Z",
+  "finishedAt": "2026-11-07T00:17:44.993Z",
   "passed": true,
   "checks": [
     {
@@ -13,7 +13,7 @@
         "tsconfig.json"
       ],
       "exitCode": 0,
-      "elapsedMs": 1201,
+      "elapsedMs": 1147,
       "log": "evidence/osid-typecheck-root.txt"
     },
     {
@@ -26,7 +26,7 @@
         "packages/chain/tsconfig.json"
       ],
       "exitCode": 0,
-      "elapsedMs": 563,
+      "elapsedMs": 528,
       "log": "evidence/osid-typecheck-chain.txt"
     },
     {
@@ -39,7 +39,7 @@
         "apps/worker/tsconfig.json"
       ],
       "exitCode": 0,
-      "elapsedMs": 840,
+      "elapsedMs": 834,
       "log": "evidence/osid-typecheck-worker.txt"
     },
     {
@@ -52,7 +52,7 @@
         "apps/web/tsconfig.json"
       ],
       "exitCode": 0,
-      "elapsedMs": 881,
+      "elapsedMs": 890,
       "log": "evidence/osid-typecheck-web.txt"
     },
     {
@@ -75,10 +75,11 @@
         "apps/worker/test/v2-auth.test.ts",
         "apps/worker/test/v2-service.test.ts",
         "apps/worker/test/worker.test.ts",
+        "apps/web/test/dev-server-security.test.ts",
         "apps/web/test/previews.test.ts"
       ],
       "exitCode": 0,
-      "elapsedMs": 8565,
+      "elapsedMs": 8571,
       "log": "evidence/osid-unit-tests.txt"
     },
     {
@@ -89,7 +90,7 @@
         "host-tests"
       ],
       "exitCode": 0,
-      "elapsedMs": 920,
+      "elapsedMs": 816,
       "log": "evidence/osid-rust-tests.txt"
     },
     {
@@ -102,7 +103,7 @@
         "@holdfast/web"
       ],
       "exitCode": 0,
-      "elapsedMs": 2058,
+      "elapsedMs": 2005,
       "log": "evidence/osid-web-build.txt"
     },
     {
@@ -113,7 +114,7 @@
         "--check"
       ],
       "exitCode": 0,
-      "elapsedMs": 20,
+      "elapsedMs": 19,
       "log": "evidence/osid-git-whitespace.txt"
     },
     {
@@ -125,7 +126,7 @@
         "--check"
       ],
       "exitCode": 0,
-      "elapsedMs": 35,
+      "elapsedMs": 7,
       "log": "evidence/osid-git-staged-whitespace.txt"
     }
   ],
@@ -151,6 +152,9 @@
     "apps/web/src/bundle.ts": "85d6060475b183bfc87663562b288c1f6861a7648a93a81cdbb4c2d239615d25",
     "apps/web/src/previews.ts": "0c0f376aebf690ae13d393b00ded92f400180a2df7e40692b96d5e9677550285",
     "apps/web/src/bytes.ts": "4518e3770c7e7e679fb8d27785186e3c4b81abf4838a226ec0695b35a6ba1744",
+    "apps/web/vite.config.ts": "8d8240f658d9087b9a36e7feeefce77ab38ce3eedb7c4cbd73f3298b75dd8290",
+    "apps/web/dev-security.ts": "4ebec298ddb2a21d583af70c0ab2d626b3bdcfce9bbb86ece0148a4f761ed14b",
+    "apps/web/test/dev-server-security.test.ts": "338d92633dfcd0b5cbfa3211f247ad86c17cd13e08cf9906f6ab6059d71ad0cb",
     "apps/web/src/App.tsx": "3892004dc9f5b1b6bd6008133b1acf351b9ca17e4d0b457f54ef8539eb11c6f7",
     "apps/web/src/api.ts": "b4acc80a318c83a65b84a6f668de14848b5263c77338e760f2cdc789398da840",
     "apps/web/src/config.ts": "72a78fd94576800503b6b76560a10797163b59c430ce9f7b16979030d00cfea3",
@@ -161,7 +165,7 @@
     "scripts/preview.ts": "eb7b05934fe8fa1bf0687349be42743cb874a802b17fcd790ab704b7c77216d7",
     "scripts/runtime.mjs": "dd9f4e6daa7e1f00cad5a5106955a95ffa15bd314506d322de527a94827fac45",
     "scripts/osid-runtime.ts": "d4dedab2de36b22436ab263afc7600127594368b732d90776a48f1dd240f9131",
-    "scripts/osid-rehearse.ts": "bb9c7c391dcfde5eabe0dbec993135bd71feaf191b78a0471878472c0f370f3b",
+    "scripts/osid-rehearse.ts": "af808c6bf52d165727c09af1f07b13d33847bcc7c393cc57cf125e1c6f609abe",
     "scripts/osid-ui-rehearse.ts": "c6a3e4801eea71964c3b4350288df87bad1c5ac8c77cf4ebeb1b50fbdeaa4d26",
     "scripts/osid-demo-video.ts": "90a936884e297b9ac6fa0dfac6790d5605f38f5ce3c62ca0914ddf85d4fb6dd7",
     "package-lock.json": "3d5a93c33cd510bdac35107745b95b411f7f050bdac4cdfdbeb435d1b26215f2"

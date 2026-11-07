@@ -44,3 +44,5 @@ Files are private to the OS user and never served statically. Delivery requires 
 ## Credential discovery observation
 
 At initial inspection on November 6, 2026 no runtime provider credential was configured. Stripe Projects CLI was available/authenticated, but there was no initialized project and its OpenAI catalog search returned no service. No provisioning or paid terms were accepted. The user was asked once to configure an existing key; live verification must remain outstanding until successful runtime evidence exists.
+
+Official documentation was rechecked during integration on November 6 Pacific (November 7 UTC): the [GPT-4.1 Mini model page](https://developers.openai.com/api/docs/models/gpt-4.1-mini) lists Responses, image inputs and structured outputs; the [Image Edits reference](https://developers.openai.com/api/reference/resources/images/methods/edit) lists `gpt-image-1.5`, high input fidelity and base64 image output. Background retrieval follows the linked official guide. These schema checks do not verify account access, model behavior or successful runtime generation. The optional OpenAI platform-key tool was not available in this session.

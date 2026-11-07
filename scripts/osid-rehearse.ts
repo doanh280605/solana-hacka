@@ -106,4 +106,8 @@ try {
 } catch (error) {
   report.error = error instanceof Error ? error.message : String(error); report.finishedAt = new Date().toISOString();
   await writeEvidence(`${evidenceName}-blocked`, report); console.error(report.error); process.exitCode = 1;
-} finally { await stopProcess(worker); }
+} finally {
+  try { await stopProcess(worker); }
+  catch(error) { report.passed=false;report.cleanupError=error instanceof Error?error.message:String(error);process.exitCode=1; }
+  await writeEvidence(`${evidenceName}${report.passed?'':'-blocked'}`, report);
+}

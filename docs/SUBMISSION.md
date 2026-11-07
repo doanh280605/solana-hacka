@@ -26,6 +26,8 @@
 
 Use [current status](STATUS.md), [completion audit](COMPLETION-AUDIT.md), [independent review](OSID-REVIEW.md) and the new `evidence/osid-*` records for actual results. Files without the osid prefix and the [V1 submission](HOLDFAST-V1-SUBMISSION.md) are historical; they do not establish V2 or live AI. [Demo script](DEMO.md).
 
+Verified V2 evidence now includes 76 unit / 10 Rust / 39 actual local-program tests; exact Devnet approval/release and API-stopped refund; committed previews and identical verified downloads after restart/reload; desktop/mobile captures and a [108-second labeled Devnet fixture walkthrough](../evidence/osid-demo-devnet-fixture.webm). This demonstrates Devnet escrow/application delivery using fixture AI and an injected wallet. The required real AI lifecycle is still blocked by the missing credential.
+
 Mock USDC has no monetary value. This is an upgradeable, unaudited Devnet prototype. Hashes bind agreement and artifact bytes; they do not prove subjective quality, factual accuracy or cryptographic fair exchange. Files depend on storage availability. There is no arbitration, automatic refund, provider bond, autonomous spending or general marketplace. Run one worker per storage directory. Program/vault rent and accidental surplus remain locked. Phantom-extension behavior is unverified when evidence uses the injected test wallet.
 
 ## AI-use disclosure

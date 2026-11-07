@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 2,
+  "at": "2026-11-07T00:26:01.579Z",
+  "source": "evidence/osid-ui-devnet-fixture.json",
+  "video": "evidence/osid-demo-devnet-fixture.webm",
+  "seconds": 108,
+  "format": "VP8 WebM,1280x720,20fps,silent",
+  "presentation": "Captioned still-frame walkthrough of actual browser captures, not a continuous real-time recording.",
+  "aiMode": "fixture",
+  "wallet": "Disposable injected test-wallet harness. Phantom extension not verified.",
+  "sha256": "00a40ac89554b0b03f60b29becc55f4c437bcd3630a5f1d04752af94c7f253b0",
+  "bytes": 4678807,
+  "scenes": [
+    {
+      "seconds": 12,
+      "title": "Approve the work.",
+      "subtitle": "Then release the payment.",
+      "body": "A product-listing service for small sellers. One photo, a clear agreement, and the buyer’s final say.",
+      "image": "evidence/screenshots/osid-ui-devnet-fixture-landing-desktop.png",
+      "offset": 0,
+      "sourceSha256": "034bc6959d0f96ff8e09b02a037c48bc8efb3e672b70989ffc154aac55ae5b74"
+    },
+    {
+      "seconds": 12,
+      "title": "A useful sample, clearly labeled.",
+      "subtitle": "No wallet. No live transactions.",
+      "body": "The walkthrough shows the brief, fixed specification, previews, validation and sample receipt. Synthetic sample artwork is disclosed.",
+      "image": "evidence/screenshots/osid-ui-devnet-fixture-demo-desktop.png",
+      "offset": 250,
+      "sourceSha256": "1a4b34e6dcc23096be2cb24b9260b92aa01c73a87c82a4082965f965553e52ae"
+    },
+    {
+      "seconds": 14,
+      "title": "Agree before depositing.",
+      "subtitle": "5 mock USDC. Explicit deliverables.",
+      "body": "One 1600² hero. Three social formats. Title, description and five bullets. A validation report, manifest and private ZIP. Quote and refund deadlines are separate.",
+      "image": "evidence/screenshots/osid-ui-devnet-fixture-agreement.png",
+      "offset": 520,
+      "sourceSha256": "4ae171631a5e6eb6356a1d37984964ef1f69da12e609fbe25235597a5c8d9bd8"
+    },
+    {
+      "seconds": 16,
+      "title": "Review the actual submitted pack.",
+      "subtitle": "Four previews bound to the receipt.",
+      "body": "This recorded order uses deterministic fixture generation. It proves the escrow and delivery flow, not runtime AI.",
+      "image": "evidence/screenshots/osid-ui-devnet-fixture-review-desktop.png",
+      "offset": 780,
+      "sourceSha256": "3d27db8a91f585153a0da85d0dc273bc42c71bdf3845fd8eb7e58bea2445619c"
+    },
+    {
+      "seconds": 12,
+      "title": "Checks support your judgment.",
+      "subtitle": "They do not prove quality or truth.",
+      "body": "Dimensions, file counts, copy limits and SHA-256 hashes are checked. Review product identity, aesthetics and every claim before approving.",
+      "image": "evidence/screenshots/osid-ui-devnet-fixture-review-desktop.png",
+      "offset": 1800,
+      "sourceSha256": "3d27db8a91f585153a0da85d0dc273bc42c71bdf3845fd8eb7e58bea2445619c"
+    },
+    {
+      "seconds": 12,
+      "title": "Only the buyer releases payment.",
+      "subtitle": "Download the exact committed files.",
+      "body": "A separate transaction releases exactly five tokens. A different one-use signature authorizes the private ZIP. Reload and worker restart preserve access.",
+      "image": "evidence/screenshots/osid-ui-devnet-fixture-released.png",
+      "offset": 2360,
+      "sourceSha256": "1bcdbd331591a6a6850f8b37b6f22e6d7dd88c178b9930583f7ac16ebe865732"
+    },
+    {
+      "seconds": 12,
+      "title": "Then stop the merchant API.",
+      "subtitle": "Recovery still talks directly to Solana.",
+      "body": "Recorded worker PID 59014 exited. Health probe: ECONNREFUSED. Merchant requests from the recovery page: 0. Original buyer signs the refund.",
+      "image": "evidence/screenshots/osid-ui-devnet-fixture-recovery-before.png",
+      "offset": 300,
+      "sourceSha256": "59ac4d7b977962ee52ed8aa3fca4cfd57017a5961e63f1d9aac776dbb490ebbc"
+    },
+    {
+      "seconds": 10,
+      "title": "The deposit comes back.",
+      "subtitle": "Exact amount. Finalized Refunded state.",
+      "body": "A separate expired order returns 5,000,000 token units to its original buyer. Merchant balance is unchanged. Refunds require a buyer transaction.",
+      "image": "evidence/screenshots/osid-ui-devnet-fixture-refunded-desktop.png",
+      "offset": 370,
+      "sourceSha256": "a26072d765d5e1a281a08800d18dc006bfc581cf2d9541330d90839ff372b5bf"
+    },
+    {
+      "seconds": 8,
+      "title": "AI creates. The buyer decides.",
+      "subtitle": "Solana enforces the payment rules.",
+      "body": "Live AI verification remains pending a configured provider key. Hashes bind agreement and bytes. Storage availability still matters. Upgradeable, unaudited prototype; no real USDC value.",
+      "image": "evidence/screenshots/osid-ui-devnet-fixture-landing-desktop.png",
+      "offset": 0,
+      "sourceSha256": "034bc6959d0f96ff8e09b02a037c48bc8efb3e672b70989ffc154aac55ae5b74"
+    }
+  ],
+  "scope": "Draft artifact only. No video published or hackathon entry submitted."
+}

@@ -36,19 +36,19 @@ warning: use of deprecated method `anchor_lang::prelude::AccountInfo::<'a>::real
 
 warning: `checkout` (lib) generated 3 warnings
 warning: `checkout` (lib test) generated 3 warnings (3 duplicates)
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.36s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.33s
      Running unittests src/lib.rs (/private/tmp/osid-protocol-host-target/debug/deps/checkout-b45b90eda80d20a0)
 
 running 10 tests
 test test_id ... ok
+test tests::quote_requires_positive_amount_and_bounded_future_deadline ... ok
 test tests::v2_account_layout_is_fixed_and_cannot_reinterpret_v1 ... ok
 test tests::job_layout_matches_shared_decoder_and_account_allocation ... ok
-test tests::quote_requires_positive_amount_and_bounded_future_deadline ... ok
-test tests::v2_requires_one_nonzero_submission_then_exact_result_approval ... ok
 test tests::expiry_has_no_gap_or_overlap_between_approval_and_refund ... ok
 test tests::v2_quote_validity_is_distinct_from_execution_deadline ... ok
-test tests::every_terminal_action_is_irreversible_at_every_time_boundary ... ok
+test tests::v2_requires_one_nonzero_submission_then_exact_result_approval ... ok
 test tests::v2_both_pending_states_refund_at_exact_expiry_and_terminals_stay_terminal ... ok
+test tests::every_terminal_action_is_irreversible_at_every_time_boundary ... ok
 test tests::v2_terms_commitment_matches_cross_language_vector_and_binds_every_field ... ok
 
 test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
