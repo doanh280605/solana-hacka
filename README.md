@@ -8,7 +8,7 @@ The pack contains one AI-edited 1600 × 1600 hero, social exports at 1080 × 108
 
 This is a Devnet prototype using a disposable six-decimal SPL mock token. It has no real USDC value. Hashes bind agreed terms and artifact bytes; they do not prove subjective AI quality, factual correctness or permanent file availability.
 
-Current verification: 76 unit, 10 Rust and 39 actual local-program tests pass; new Devnet release/refund and independent review pass using explicitly labeled fixture AI. **Live AI verification remains blocked by a missing provider key.** The running development preview is http://localhost:5173/ (fixture mode); [status](docs/STATUS.md) records exact URLs, evidence, PIDs/logs and stop instructions.
+Current verification: **90 unit, 10 Rust and 39 actual local-program tests pass**, with typechecks, production build, Devnet settlement/recovery and independent review. Runtime AI has produced real specifications, edited images and copy. **A successful live AI approval/download remains unverified** after RPC interruptions and large host/execution delays. All five funded live attempts were refunded; an uncertain image attempt is preserved without regeneration. Credentials are configured. The managed preview is http://localhost:5173/ in live mode on Devnet; [status](docs/STATUS.md) records evidence, current limitations and process instructions.
 
 ## Start
 
@@ -92,7 +92,7 @@ npm run fund:wallet -- localnet YOUR_WALLET_PUBLIC_KEY
 
 Upload a PNG/JPEG/WebP of at most 5 MiB and 4096 × 4096 pixels, enter a 20–2000-character brief, review the exact quote/specification, then fund. Quote validity is 10 minutes; the separate execution/refund deadline is 30 minutes after quoting. Funding, payment approval, download authorization and refunds are separate wallet confirmations.
 
-The worker persists the entire pack before submitting its manifest hash. Preview readiness requires the durable pack and finalized chain submission to agree. Approval binds the exact frozen result hash and releases exactly 5,000,000 token base units to the recorded merchant. A download requires finalized release and a separate expiring single-use buyer signature.
+Live copy uses complete agreed fact phrases; conservative guards preserve measurement subjects and reject unsupported wording. They can reject valid paraphrases and cannot prove truth. The worker persists the entire pack before submitting its manifest hash. Preview readiness requires the durable pack and finalized chain submission to agree. Approval binds the exact frozen result hash and releases exactly 5,000,000 token base units to the recorded merchant. A download requires finalized release and a separate expiring single-use buyer signature.
 
 Stop each foreground process with Ctrl-C in its own terminal. Do not kill generic Node processes. A managed preview, when started by the agent, records exact owned PIDs/logs in `.local/osid-preview.json`; use its documented stop command. The validator ledger persists; no command above resets it.
 
@@ -121,7 +121,7 @@ npx tsx scripts/osid-rehearse.ts localnet --fixture
 npx tsx scripts/osid-ui-rehearse.ts localnet --fixture
 ```
 
-Remove `--fixture` for required real runtime AI verification. Rehearsals use isolated private storage and unique jobs. They start/stop only their own API processes; the local validator must already be running. The HTTP rehearsal verifies full bundle contents independently, buyer/session/download replay protections, exact token deltas and an API-offline refund. The browser rehearsal records desktop/mobile behavior and direct recovery with zero merchant requests. Its disposable injected wallet is a test harness, not a Phantom extension test.
+Remove `--fixture` for real runtime AI verification. Use `--review-gate` for the live browser run so an operator inspects the exact submitted pack before the disposable buyer signs approval. Rehearsals use isolated private storage and unique jobs. They start/stop only their own API processes; the local validator must already be running. The HTTP rehearsal verifies full bundle contents independently, buyer/session/download replay protections, exact token deltas and an API-offline refund. The browser rehearsal records desktop/mobile behavior and direct recovery with zero merchant requests. Its disposable injected wallet is a test harness, not a Phantom extension test.
 
 The serial program-test wrapper supplies the configured existing mock mint; direct suites remain available for isolated fresh-mint tests. If this macOS iCloud workspace evicts generated Cargo cache files, keep the repository downloaded and rerun host checks with a local cache outside iCloud, for example `CARGO_TARGET_DIR=/private/tmp/osid-host-target npm run check:osid`. This changes build storage, not the program source. The current verified local validator uses `.local/ledger-osid-v2`; it cloned the public Devnet mint with `--clone-devnet-mint` because a legacy private mint key had been evicted. Do not reset historical ledgers or replace existing keys.
 
@@ -138,6 +138,8 @@ Use only disposable Devnet SOL. Scripts verify the cluster genesis, program iden
 
 Program: `7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY`.
 Mock mint: `4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C`.
+
+Keep the computer awake and online throughout a live rehearsal. Chain deadlines continue while a local host is suspended. Never extend an existing job or repeat an uncertain chargeable image request to conceal a failed run.
 
 An interrupted upload must reuse its existing loader buffer. Inspect buffers before retrying and resume with `--buffer PUBLIC_BUFFER_ADDRESS`; never allocate repeated buffers blindly. [Historical deployment runbook](docs/HOLDFAST-V1.md) describes exact resume commands. No mainnet funds, production publish, default-branch merge or hackathon submission is part of these scripts.
 

@@ -2,6 +2,8 @@
 
 osid uses an application server adapter, not an assistant tool, for live work. The official integration references are [Responses structured outputs](https://developers.openai.com/api/docs/guides/structured-outputs), [background responses](https://developers.openai.com/api/docs/guides/background), and [Image Edits](https://developers.openai.com/api/reference/resources/images/methods/edit). Models are configurable; defaults are `gpt-4.1-mini` and `gpt-image-1.5`.
 
+The current [official image guide](https://developers.openai.com/api/docs/guides/image-prompting) schedules `gpt-image-1.5` retirement for December 1, 2026. Revalidate a replacement model and identity preservation before operating beyond that date. This verification keeps its explicitly configured model; it never silently migrates a paid request.
+
 Put an existing funded API credential in the ignored root `.env`, never in browser variables, committed files, screenshots or logs:
 
 ```dotenv
@@ -21,6 +23,12 @@ The account must have permission to use the selected text and image models and e
 Before funding, the text model interprets the seller's brief into exact source facts and a proposed image direction. Fixed service deliverables, copy limits, acceptance checks and limitations become a versioned specification. The quote commits its hash plus the original upload hash, parties, mint, amount, quote validity and execution deadline. The buyer sees these terms before signing funding.
 
 After independently verified finalized funding, the model generates listing title, description and five bullets grounded in seller facts. The image model edits the actual uploaded product image, preserving its shape, label, packaging, count and color, while changing the setting/light/composition. Fixed social formats derive from that AI-edited image. Provider prompts prohibit invented prices, specifications, certifications and unsupported claims. The buyer must still review the work: prompts and deterministic guards cannot prove truth or visual identity preservation.
+
+Live listing requests contain only the agreed `productFacts` and copy limits; the raw brief, photo and image direction are excluded. The model assembles complete approved fact phrases into a title, description and five bullets. A conservative live-only guard rejects new content words, changed phrase associations and numeric clauses that differ from an entire approved measurement fact. Benefit checks also retain negations, conditions and qualifiers. This can reject reasonable paraphrases; it is a bounded grounding rule, not a semantic truth detector. Historical committed delivery is verified against its original manifest bytes, without applying a newer editorial policy to frozen results.
+
+An exact-fact worked example aligns the prompt with this grammar. Listing requests set temperature 0 only for the configured GPT-4.1 Mini alias or dated snapshots; other configured models omit that option. Low temperature does not guarantee compliance, so every live output still passes the unchanged guard and buyer review. A live test also demonstrated safe rejection of factually grounded connecting prose before an image request or submission; this conservative false positive is recorded separately from actual unsupported claims.
+
+During live verification, buyer review rejected two real packs before release: one invented durability/freshness benefits; another reassigned a jar quantity to wax weight and copied photographic directions into listing copy. Those immutable jobs and provider attempts remain recorded separately. Corrected generation uses a new quote/job, never a hidden replacement of a submitted result.
 
 ## Limits and deadlines
 
@@ -43,6 +51,6 @@ Files are private to the OS user and never served statically. Delivery requires 
 
 ## Credential discovery observation
 
-At initial inspection on November 6, 2026 no runtime provider credential was configured. Stripe Projects CLI was available/authenticated, but there was no initialized project and its OpenAI catalog search returned no service. No provisioning or paid terms were accepted. The user was asked once to configure an existing key; live verification must remain outstanding until successful runtime evidence exists.
+At initial inspection on November 6, 2026 no runtime provider credential was configured. Stripe Projects CLI was available/authenticated, but there was no initialized project and its OpenAI catalog search returned no service. No provisioning or paid terms were accepted. The user then configured an existing credential in ignored `.env`. A read-only models request confirmed access to the configured models; [sanitized access evidence](../evidence/osid-provider-access.json). Access alone does not establish successful end-to-end delivery; the current result is recorded in [STATUS.md](STATUS.md).
 
 Official documentation was rechecked during integration on November 6 Pacific (November 7 UTC): the [GPT-4.1 Mini model page](https://developers.openai.com/api/docs/models/gpt-4.1-mini) lists Responses, image inputs and structured outputs; the [Image Edits reference](https://developers.openai.com/api/reference/resources/images/methods/edit) lists `gpt-image-1.5`, high input fidelity and base64 image output. Background retrieval follows the linked official guide. These schema checks do not verify account access, model behavior or successful runtime generation. The optional OpenAI platform-key tool was not available in this session.

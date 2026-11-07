@@ -1,18 +1,18 @@
 # osid completion audit
 
-The user's osid request defines this scope. [Checklist](OSID-IMPLEMENTATION.md), [status/evidence/preview](STATUS.md), [independent review](OSID-REVIEW.md). **Core completion is blocked by the unverified live AI lifecycle.**
+The user's osid request defines scope. **Core completion remains blocked by an unverified live AI quote-to-approved-download lifecycle, not by missing credentials.** [Status/evidence](STATUS.md), [implementation handoff](OSID-IMPLEMENTATION.md), [independent review](OSID-REVIEW.md).
 
 | Criterion | Actual disposition |
 | --- | --- |
-| Landing, sample, sign-in, workspace | Implemented; local/Devnet browser money flows and desktop/mobile captures pass. |
-| Real AI quote-to-download | Runtime integration implemented; failure/restart behavior tested. Live key absent; actual live quote returns 503 before funding. **Not complete.** |
-| Versioned terms/artifact commitments | Actual V2 submission and client/worker/browser checks pass, including frozen preview bytes. |
-| Exact buyer-approved release | Local and Devnet receipts pass exact 5,000,000-unit settlement. |
-| Independent timeout recovery | Local program covers Funded/Submitted; local/Devnet browser refund succeeds with API exited before expiry and zero recovery merchant requests. |
-| Checks and independent review | 76 unit, 10 Rust, 39 actual local-program tests pass; all TypeScript checks/build pass; all nine aggregate gates pass; material review findings resolved. |
-| New Devnet proof | Finalized upgrade bytecode matches; new release/refund, verified repeated downloads and desktop/mobile evidence pass. Fixture AI and injected wallet are explicit. |
-| Documentation/disclosure | Setup, environment examples, schemas/architecture, provider recovery, current limits, demo, evidence and submission/AI-use draft updated. |
-| Branch commit/push | `integration/osid-v2`; initial implementation 19bc484 pushed normally; final hardening/evidence/handoff stays on this branch. Compare local HEAD with remote using the status instructions. |
-| Working preview | http://localhost:5173/ with /demo, /app, /recover; fixture AI on Devnet. All four routes pass desktop/mobile smoke. Managed process/log/stop details are in status and `.local/osid-preview.json`. |
+| Landing, sample, sign-in, workspace | Implemented; desktop/mobile captures and local/Devnet browser fixture flows pass. |
+| Real AI quote-to-download | Real spec/copy/image edits and accepted complete output verified; no live buyer release/download completed after RPC/execution interruptions. **Pending uninterrupted run.** |
+| Versioned terms/artifact commitments | V2 chain, worker/client/browser checks pass; actual live Submitted results bind frozen terms and bytes. |
+| Exact buyer-approved release | Local and Devnet fixture receipts pass exact 5,000,000-unit settlement. No live-AI release is claimed. |
+| Independent timeout recovery | Program covers Funded/Submitted and equality; browser refunds with API exited before expiry and zero recovery requests; all five funded live attempts separately refunded exactly with APIs stopped. |
+| Checks and review |90 unit,10 Rust,39 actual local-program tests; four typechecks/build/all nine aggregate gates pass. Material source findings resolved. Latest cleanup-only CLI extension passes root typecheck. |
+| New Devnet evidence | Exact deployment bytes, V2 fixture release/download/refund, real provider submissions and Funded/Submitted refunds. Fixture and injected-wallet limits explicit. |
+| Documentation/disclosure | Setup, environment, schemas, architecture, provider attempts/reconciliation, current limits, evidence, demo and submission/AI-use draft updated honestly. |
+| Branch commit/push | Feature branch `integration/osid-v2`, normal push; final handoff gives actual revision. V1 fallback preserved. No default-branch merge or force push. |
+| Working preview | Managed live-configured Devnet preview at localhost:5173, /demo, /app, /recover; localhost:8787 health. Eight current desktop/mobile route checks pass, with no page errors, overflow or recovery merchant requests. Exact owned process/log/stop details in status and `.local/osid-preview.json`. |
 
-Fixture content and historical V1 records cannot close the live-AI gate. Browser testing does not establish Phantom-extension behavior. Storage availability, upgrade authority and unaudited code remain explicit limits. The [V1 completion audit](HOLDFAST-V1-COMPLETION-AUDIT.md) remains unchanged. No mainnet spending, production publishing, default-branch merge, force push or hackathon submission occurred.
+Credentials are server-side. Buyer keys and upgrade authority never enter the worker. Fixture content and historical V1 records cannot close the live gate. Browser tests do not establish Phantom-extension behavior. Ordinary storage is not permanence or cryptographic fair exchange. No mainnet spend, production publishing or hackathon submission occurred. The V1 audit remains [unchanged](HOLDFAST-V1-COMPLETION-AUDIT.md).

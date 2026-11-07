@@ -2,26 +2,42 @@ import assert from 'node:assert/strict';
 import { randomBytes } from 'node:crypto';
 import { access, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { relative, resolve } from 'node:path';
+import { setTimeout as delay } from 'node:timers/promises';
 import type { Browser, BrowserContext, Page, Video } from 'playwright-core';
-import { PublicKey, Transaction, deriveVaultAddress, getConnection } from '@holdfast/chain';
+import { PublicKey, Transaction, deriveVaultAddress, fetchChainTime, getConnection } from '@holdfast/chain';
 import { ROOT, assertNetwork, balances, clusterArg, loadConfig, loadKey, requireJob, txEvidence, writeEvidence } from './common.js';
 import { base58 } from './keys.mjs';
 import { assertOffline, hash, health, portUnused, sampleInput, signMessage, startProcess, startWorker, stopProcess, until, verifyBundle, type OrderV2, type OwnedProcess } from './osid-runtime.js';
 
 // Only public keys and signature callbacks enter the isolated test browser.
 const cluster = clusterArg(), fixture = process.argv.includes('--fixture'), smoke = process.argv.includes('--smoke');
+const reviewGate = process.argv.includes('--review-gate');
+const resumeId = process.argv.find(value => value.startsWith('--resume='))?.slice('--resume='.length);
+assert(!resumeId || /^[0-9]{17}-[0-9a-f]{6}$/.test(resumeId), 'Resume requires an exact recorded run ID');
+const previous = resumeId ? JSON.parse(await readFile(resolve(ROOT, 'evidence', `osid-ui-${cluster}${fixture ? '-fixture' : ''}-blocked.json`), 'utf8')) : undefined;
+const executionSeconds = Number(process.env.OSID_UI_EXECUTION_SECONDS ?? 1800);
+assert(Number.isSafeInteger(executionSeconds) && executionSeconds >= 900 && executionSeconds <= 3600, 'Browser rehearsal execution window must be 900–3600 seconds');
 const config = await loadConfig(cluster); assert(config.provider);
 const connection = getConnection(config), buyer = await loadKey('osidbuyer');
-const runId = `${new Date().toISOString().replace(/[^0-9]/g, '')}-${randomBytes(3).toString('hex')}`;
+const runId = resumeId ?? `${new Date().toISOString().replace(/[^0-9]/g, '')}-${randomBytes(3).toString('hex')}`;
+if (previous) {
+  assert.equal(previous.runId, runId); assert.equal(previous.passed, false); assert.deepEqual(previous.config, config);
+  assert.equal(previous.aiMode, fixture ? 'fixture' : 'live'); assert.equal(previous.signedTransactions.length, 1, 'Resume only before any approval signature');
+  assert.equal(previous.operatorReview?.state, 'accepted', 'Resume only an exact already reviewed submission');
+  assert(previous.processes.every((value: { exit?: unknown }) => value.exit), 'Previous owned servers must have exited');
+}
 const directory = resolve(ROOT, `.local/osid-ui-${cluster}-${runId}`);
 const webPort = Number(process.env.OSID_UI_WEB_PORT ?? 15175), workerPort = Number(process.env.OSID_UI_WORKER_PORT ?? 18790);
 const webOrigin = `http://127.0.0.1:${webPort}`, workerOrigin = `http://127.0.0.1:${workerPort}`;
 const evidenceName = `osid-ui-${cluster}${fixture ? '-fixture' : ''}${smoke ? '-smoke' : ''}`;
-const screenshots: string[] = [], videos: string[] = [], errors: string[] = [], recoveryRequests: string[] = [], signedTransactions: unknown[] = [], signedMessages: unknown[] = [], processes: unknown[] = [];
+const screenshots: string[] = previous?.screenshots ?? [], videos: string[] = [], errors: string[] = [], recoveryRequests: string[] = [], signedTransactions: unknown[] = previous?.signedTransactions ?? [], signedMessages: unknown[] = previous?.signedMessages ?? [], processes: unknown[] = previous?.processes ?? [];
 const report: Record<string, unknown> = { schemaVersion: 2, runId, startedAt: new Date().toISOString(), config, aiMode: fixture ? 'fixture' : 'live',
+  reviewGateEnabled: reviewGate,
+  executionSeconds,
   wallet: 'Disposable injected test-wallet harness. Phantom extension not verified.', privateKeysInBrowser: false,
   scope: smoke ? 'Desktop/mobile page rendering only; no token movement.' : 'V2 browser quote/fund/review/approve/private download/reload; API-offline direct refund.',
-  screenshots, videos, errors, recoveryRequests, signedTransactions, signedMessages, processes, passed: false };
+  screenshots, videos, errors, recoveryRequests, signedTransactions, signedMessages, processes, passed: false,
+  ...(previous ? { startedAt: previous.startedAt, resumedAt: new Date().toISOString(), resumption: { reason: previous.error, originalStage: previous.stage, previousReport: 'evidence/osid-live-ui-rpc-interruption.json', generationRepeated: false, fundingRepeated: false } } : {}) };
 let browser: Browser | undefined, context: BrowserContext | undefined, worker: OwnedProcess | undefined, web: OwnedProcess | undefined;
 const videoPages: { page: Page; video: Video | null; name: string }[] = [];
 async function checkpoint(stage: string) { report.stage = stage; await writeEvidence(`${evidenceName}-progress`, report); console.log(`${evidenceName}: ${stage}`); }
@@ -34,7 +50,7 @@ async function screenshot(page: Page, name: string) {
     await Promise.all(Array.from(document.images).map(img => img.decode().catch(() => {})));
     await new Promise<void>(accept => requestAnimationFrame(() => requestAnimationFrame(() => accept())));
   });
-  await page.screenshot({ path, fullPage: true, animations: 'disabled' }); screenshots.push(relative(ROOT, path));
+  await page.screenshot({ path, fullPage: true, animations: 'disabled' }); if (!screenshots.includes(relative(ROOT,path))) screenshots.push(relative(ROOT, path));
   const size = await page.evaluate(() => ({ viewport: innerWidth, content: document.documentElement.scrollWidth }));
   assert(size.content <= size.viewport, `Horizontal overflow ${name}: ${JSON.stringify(size)}`);
 }
@@ -96,8 +112,9 @@ async function quote(value: Page, mode: 'normal' | 'stall', path: string): Promi
 async function fund(value: Page, order: OrderV2) {
   const vault = deriveVaultAddress(config, order.jobAddress), before = await balances(connection, config, buyer.publicKey, vault);
   await value.locator('#accept-specification').check(); const button = value.getByRole('button', { name: 'Fund 5 mock USDC', exact: true });
-  await until('fund button enabled', () => button.isEnabled()); await button.click();
-  const job = await until('finalized funded job', async () => { const found = await requireJob(connection, config, order.jobAddress).catch(() => null); return found && ['Funded','Submitted'].includes(found.state) ? found : false; });
+  await until('fund button enabled', () => button.isEnabled()); const signaturesBefore=signedTransactions.length; await button.click();
+  await until('explicit buyer funding signature',async()=>signedTransactions.length>signaturesBefore);
+  const job = await until('finalized funded job', async () => { if(cluster==='devnet')await delay(3000);const found = await requireJob(connection, config, order.jobAddress).catch(() => null); return found && ['Funded','Submitted'].includes(found.state) ? found : false; });
   const afterFund = await balances(connection, config, buyer.publicKey, vault);
   assert.equal(BigInt(before.buyer)-BigInt(afterFund.buyer),BigInt(config.amount)); assert.equal(before.merchant,afterFund.merchant); assert.equal(afterFund.vault,config.amount);
   return { before, afterFund, fundedJob: job };
@@ -108,11 +125,37 @@ async function download(value: Page, name: string, order: OrderV2) {
   const result = await pending, path = resolve(directory, name); await result.saveAs(path); const bytes = await readFile(path);
   assert(order.manifest && order.resultHash); return { ...await verifyBundle(bytes, order.manifest, order.resultHash), path: relative(ROOT,path) };
 }
+async function reviewSubmitted(order: OrderV2) {
+  if (!reviewGate) return;
+  // This optional test-runner checkpoint lets the operator inspect real output
+  // before the disposable buyer approves. It is outside the customer UI flow.
+  const path = resolve(directory, 'review-decision.json');
+  const binding = { runId, jobAddress: order.jobAddress, resultHash: order.resultHash };
+  report.operatorReview = { ...binding, path: relative(ROOT, path), state: 'awaiting-review' };
+  await checkpoint('submitted-awaiting-review');
+  const decision = await until('operator review of exact submitted result', async () => {
+    let value: { runId?: string; jobAddress?: string; resultHash?: string; approved?: boolean; reviewer?: string; notes?: string };
+    try { value = JSON.parse(await readFile(path, 'utf8')); }
+    catch (error) { if ((error as NodeJS.ErrnoException).code === 'ENOENT') return false; throw error; }
+    assert.equal(value.runId, binding.runId, 'Review belongs to another run');
+    assert.equal(value.jobAddress, binding.jobAddress, 'Review belongs to another job');
+    assert.equal(value.resultHash, binding.resultHash, 'Review belongs to another submitted result');
+    if (value.approved !== true) {
+      report.operatorReview = { ...binding, path: relative(ROOT, path), state: 'rejected', decision: value, rejectedAt: new Date().toISOString() };
+      throw new Error('Operator rejected this submitted result; payment remains unreleased');
+    }
+    assert(typeof value.reviewer === 'string' && value.reviewer.trim(), 'Review must identify its operator');
+    return value;
+  }, Math.min(900_000, Math.max(1, order.expiresAt * 1000 - Date.now() - 60_000)));
+  report.operatorReview = { ...binding, path: relative(ROOT, path), state: 'accepted', decision, acceptedAt: new Date().toISOString() };
+  await checkpoint('submitted-review-accepted');
+}
 
 try {
   await mkdir(directory, { recursive:true, mode:0o700 }); await mkdir(resolve(ROOT,'evidence/screenshots'),{recursive:true});
   report.genesis = await assertNetwork(connection, config); await portUnused(webPort);
-  worker = await startWorker(config,directory,workerPort,webOrigin,fixture); processes.push(worker.record);
+  if (previous) assert(await fetchChainTime(connection)<previous.release.quote.expiresAt,'Recorded job expired; refund it instead of attempting resumed approval');
+  worker = await startWorker(config,directory,workerPort,webOrigin,fixture,executionSeconds); processes.push(worker.record);
   web = await startProcess('vite',[resolve(ROOT,'node_modules/vite/bin/vite.js'),'--host','127.0.0.1','--port',String(webPort),'--strictPort'],{
     PATH:process.env.PATH,TMPDIR:process.env.TMPDIR,VITE_RPC_URL:config.rpcUrl,VITE_PROGRAM_ID:config.programId,VITE_MINT:config.mint,
     VITE_MERCHANT:config.merchant,VITE_PROVIDER:config.provider,VITE_CLUSTER:cluster,VITE_WORKER_URL:workerOrigin,
@@ -128,19 +171,35 @@ try {
   await main.goto(`${webOrigin}/app`,{waitUntil:'networkidle'}); await screenshot(main,'workspace-empty');
   await checkpoint('pages-rendered');
   if (!smoke) {
-    await login(main); await checkpoint('wallet-authenticated'); const path=resolve(directory,'input.png'); await writeFile(path,await sampleInput());
-    const order=await quote(main,'normal',path); const release:Record<string,unknown>={quote:order};report.release=release; await screenshot(main,'agreement'); await checkpoint('quote-visible-before-funding');
-    Object.assign(release,await fund(main,order)); await checkpoint('funded-via-wallet');
-    await main.locator('#approve-review').waitFor({state:'visible',timeout:fixture?240_000:900_000});
+    await login(main); await checkpoint('wallet-authenticated'); const path=resolve(directory,'input.png');
+    if (previous) assert.equal(hash(await readFile(path)),previous.release.quote.inputHash,'Retained source photo changed');
+    else await writeFile(path,await sampleInput());
+    const order:OrderV2=previous?.release.quote ?? await quote(main,'normal',path);
+    const release:Record<string,unknown>=previous?.release ?? {quote:order};report.release=release;
+    if (previous) {
+      const frozen = await requireJob(connection,config,order.jobAddress); assert.equal(frozen.state,'Submitted');
+      assert.equal(frozen.resultHash,previous.operatorReview.resultHash); assert.equal(frozen.address,previous.operatorReview.jobAddress);
+      await checkpoint('resumed-reviewed-submission-without-regeneration');
+    } else {
+      await screenshot(main,'agreement'); await checkpoint('quote-visible-before-funding');
+      Object.assign(release,await fund(main,order)); await checkpoint('funded-via-wallet');
+    }
+    await Promise.race([
+      main.locator('#approve-review').waitFor({state:'visible',timeout:fixture?240_000:900_000}),
+      main.getByRole('heading',{name:'Generation needs attention',exact:true}).waitFor({state:'visible',timeout:fixture?240_000:900_000})
+        .then(async()=>{throw new Error(`Generation failed before approval: ${await main.locator('.generation-panel').innerText().catch(()=> 'Inspect the preserved private order and provider attempt')}`);}),
+    ]);
     const ready=await main.evaluate(async (url:string)=>{const r=await fetch(url,{credentials:'include'});return r.json();},`${workerOrigin}/api/v2/orders/${order.jobId}`) as OrderV2;
     assert(ready.resultHash&&ready.manifest&&ready.validation?.passed); const submitted=await requireJob(connection,config,order.jobAddress);assert.equal(submitted.state,'Submitted');assert.equal(submitted.resultHash,ready.resultHash);release.submittedJob=submitted;release.submitted=ready;
     await main.locator('.private-preview img').last().waitFor();await screenshot(main,'review-desktop');await main.setViewportSize({width:390,height:844});await screenshot(main,'review-mobile');await main.setViewportSize({width:1440,height:1000});
+    await reviewSubmitted(ready);
     await main.locator('#approve-review').check();const approve=main.getByRole('button',{name:'Approve & release 5 mock USDC',exact:true});await until('approval enabled',()=>approve.isEnabled());await approve.click();
-    const released=await until('finalized release',async()=>{const found=await requireJob(connection,config,order.jobAddress);return found.state==='Released'?found:false;});release.releasedJob=released;
+    await until('explicit buyer approval signature',async()=>signedTransactions.length===2);
+    const released=await until('finalized release',async()=>{if(cluster==='devnet')await delay(3000);const found=await requireJob(connection,config,order.jobAddress);return found.state==='Released'?found:false;});release.releasedJob=released;
     await main.getByRole('button',{name:'Sign & download bundle',exact:true}).waitFor();release.download=await download(main,'bundle-first.zip',ready);await screenshot(main,'released');
     const after=await balances(connection,config,buyer.publicKey,new PublicKey(released.vault));const afterFund=release.afterFund as Awaited<ReturnType<typeof balances>>;
     assert.equal(after.buyer,afterFund.buyer);assert.equal(BigInt(after.merchant)-BigInt(afterFund.merchant),BigInt(config.amount));assert.equal(after.vault,'0');release.after=after;
-    await stopProcess(worker);worker=await startWorker(config,directory,workerPort,webOrigin,fixture);processes.push(worker.record);
+    await stopProcess(worker);worker=await startWorker(config,directory,workerPort,webOrigin,fixture,executionSeconds);processes.push(worker.record);
     await main.reload({waitUntil:'networkidle'});await main.getByRole('button',{name:'Sign & download bundle',exact:true}).waitFor();release.reloadDownload=await download(main,'bundle-reloaded.zip',ready);
     assert.equal((release.download as {sha256:string}).sha256,(release.reloadDownload as {sha256:string}).sha256);await checkpoint('download-and-reload-verified');
     await stopProcess(worker);worker=await startWorker(config,directory,workerPort,webOrigin,fixture,cluster==='devnet'?120:65);processes.push(worker.record);
@@ -149,7 +208,8 @@ try {
     const recovery=await page('recovery',true);await recovery.goto(`${webOrigin}/recover?job=${refundQuote.jobAddress}`,{waitUntil:'networkidle'});await recovery.getByRole('heading',{name:/Your deposit/}).waitFor();
     await screenshot(recovery,'recovery-before');const refundButton=recovery.getByRole('button',{name:'Refund 5.00 mock USDC',exact:true});await until('refund available after deadline',async()=>await refundButton.count()>0&&await refundButton.isEnabled(),240_000);
     refund.apiOfflineAtDeadline=await assertOffline(worker,workerOrigin);await refundButton.click();
-    const refunded=await until('finalized refund',async()=>{const found=await requireJob(connection,config,refundQuote.jobAddress);return found.state==='Refunded'?found:false;});refund.refundedJob=refunded;
+    await until('explicit original buyer refund signature',async()=>signedTransactions.length===4);
+    const refunded=await until('finalized refund',async()=>{if(cluster==='devnet')await delay(3000);const found=await requireJob(connection,config,refundQuote.jobAddress);return found.state==='Refunded'?found:false;});refund.refundedJob=refunded;
     await recovery.getByText('Refund complete. No merchant action was required.',{exact:true}).waitFor();await screenshot(recovery,'refunded-desktop');await recovery.setViewportSize({width:390,height:844});await screenshot(recovery,'refunded-mobile');
     const refundAfter=await balances(connection,config,buyer.publicKey,new PublicKey(refunded.vault));const before=refund.before as Awaited<ReturnType<typeof balances>>;assert.equal(refundAfter.buyer,before.buyer);assert.equal(refundAfter.merchant,before.merchant);assert.equal(refundAfter.vault,'0');refund.after=refundAfter;refund.apiOfflineAfter=await assertOffline(worker,workerOrigin);
     assert.equal(recoveryRequests.length,0);assert.equal(signedTransactions.length,4);refund.merchantRequests=0;

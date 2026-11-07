@@ -1,0 +1,475 @@
+{
+  "schemaVersion": 2,
+  "at": "2026-11-07T01:02:22.853Z",
+  "runId": "20261107005555055-00905c",
+  "aiMode": "live",
+  "disposition": "Rejected before buyer approval; payment not released. Submitted bytes remain frozen; original buyer can refund at deadline.",
+  "job": {
+    "address": "7KUDStkddspWoBLWq3HSbuQ1k9tBZHGCpTjPmAYbGh1M",
+    "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+    "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+    "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+    "jobId": "62a32d65a33fe8efe5b7311cbaecd0951abbd539763406a582b2030b8cf3ef27",
+    "amount": "5000000",
+    "expiresAt": 1794014777,
+    "state": "Submitted",
+    "vault": "SjvjAdLhQ4JUVpeoAh5demTpc6jEsoaJT5WKWDP5cKS",
+    "version": 2,
+    "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+    "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+    "specHash": "e797e0334727908930613c8d1d283a6316bfb8aa553407ca714bb77dc54a35bc",
+    "termsHash": "efa73d8e41d4e967d0f2de3f9b58e53b3cdbcee4c56335f247d5af830aa525fa",
+    "resultHash": "ad13ca8e16365931d91a538683171365ac920ee03f647b9c634b385d73db7054",
+    "quoteExpiresAt": 1794013577,
+    "submittedAt": 1794013064
+  },
+  "quote": {
+    "version": 2,
+    "jobId": "62a32d65a33fe8efe5b7311cbaecd0951abbd539763406a582b2030b8cf3ef27",
+    "jobAddress": "7KUDStkddspWoBLWq3HSbuQ1k9tBZHGCpTjPmAYbGh1M",
+    "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+    "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+    "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+    "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+    "amount": "5000000",
+    "expiresAt": 1794014777,
+    "quoteExpiresAt": 1794013577,
+    "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+    "specHash": "e797e0334727908930613c8d1d283a6316bfb8aa553407ca714bb77dc54a35bc",
+    "termsHash": "efa73d8e41d4e967d0f2de3f9b58e53b3cdbcee4c56335f247d5af830aa525fa",
+    "specification": {
+      "schemaVersion": 2,
+      "service": "product-listing-pack",
+      "brief": "Morning candle. Cedar and amber scent. 250 g amber glass jar with black lid and cream Morning label. Preserve the exact product and label. Set it in a clean warm studio. Do not invent product facts, prices, burn time, certifications or safety claims.",
+      "productFacts": [
+        "Morning candle",
+        "Cedar and amber scent",
+        "250 g amber glass jar",
+        "black lid",
+        "cream Morning label"
+      ],
+      "imageDirection": "Set the 250 g amber glass jar candle with black lid and cream Morning label upright in a clean warm studio environment with soft, warm lighting that enhances the amber glass color and preserves the exact product, label, and proportions without any added text or changes.",
+      "deliverables": {
+        "hero": {
+          "width": 1600,
+          "height": 1600,
+          "format": "webp"
+        },
+        "social": [
+          {
+            "name": "square",
+            "width": 1080,
+            "height": 1080,
+            "format": "webp"
+          },
+          {
+            "name": "portrait",
+            "width": 1080,
+            "height": 1350,
+            "format": "webp"
+          },
+          {
+            "name": "story",
+            "width": 1080,
+            "height": 1920,
+            "format": "webp"
+          }
+        ],
+        "copy": {
+          "titleMax": 80,
+          "descriptionMax": 1200,
+          "bulletCount": 5,
+          "bulletMax": 180
+        }
+      },
+      "acceptanceChecks": [
+        "Four WebP images at the agreed dimensions",
+        "Title 1–80 characters; description 1–1200 characters",
+        "Exactly five nonempty bullets, each at most 180 characters",
+        "Six payload files with SHA-256 hashes in a versioned manifest",
+        "Validation report and manifest included in the downloadable ZIP"
+      ],
+      "limitations": [
+        "Automated checks verify dimensions, fields and artifact bytes; they do not prove aesthetic quality or factual correctness.",
+        "Review product identity, text, and every image before approving payment.",
+        "Files depend on service storage availability. Refunds require an explicit buyer transaction after the deadline."
+      ]
+    },
+    "aiMode": "live",
+    "mode": "normal",
+    "status": "quoted",
+    "attempts": [
+      {
+        "id": "4b91cd815ef8b56bca21acc071ab6b47",
+        "stage": "specification",
+        "startedAt": 1794012971,
+        "state": "completed",
+        "provider": "openai",
+        "completedAt": 1794012977,
+        "requestId": "req_b38d2b9dfef843d9bc682c37d9a7756c",
+        "providerId": "resp_0d091b7c1d773284006aee772c505087d09ed01d6c93fc56ff"
+      }
+    ]
+  },
+  "submitted": {
+    "version": 2,
+    "jobId": "62a32d65a33fe8efe5b7311cbaecd0951abbd539763406a582b2030b8cf3ef27",
+    "jobAddress": "7KUDStkddspWoBLWq3HSbuQ1k9tBZHGCpTjPmAYbGh1M",
+    "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+    "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+    "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+    "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+    "amount": "5000000",
+    "expiresAt": 1794014777,
+    "quoteExpiresAt": 1794013577,
+    "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+    "specHash": "e797e0334727908930613c8d1d283a6316bfb8aa553407ca714bb77dc54a35bc",
+    "termsHash": "efa73d8e41d4e967d0f2de3f9b58e53b3cdbcee4c56335f247d5af830aa525fa",
+    "specification": {
+      "schemaVersion": 2,
+      "service": "product-listing-pack",
+      "brief": "Morning candle. Cedar and amber scent. 250 g amber glass jar with black lid and cream Morning label. Preserve the exact product and label. Set it in a clean warm studio. Do not invent product facts, prices, burn time, certifications or safety claims.",
+      "productFacts": [
+        "Morning candle",
+        "Cedar and amber scent",
+        "250 g amber glass jar",
+        "black lid",
+        "cream Morning label"
+      ],
+      "imageDirection": "Set the 250 g amber glass jar candle with black lid and cream Morning label upright in a clean warm studio environment with soft, warm lighting that enhances the amber glass color and preserves the exact product, label, and proportions without any added text or changes.",
+      "deliverables": {
+        "hero": {
+          "width": 1600,
+          "height": 1600,
+          "format": "webp"
+        },
+        "social": [
+          {
+            "name": "square",
+            "width": 1080,
+            "height": 1080,
+            "format": "webp"
+          },
+          {
+            "name": "portrait",
+            "width": 1080,
+            "height": 1350,
+            "format": "webp"
+          },
+          {
+            "name": "story",
+            "width": 1080,
+            "height": 1920,
+            "format": "webp"
+          }
+        ],
+        "copy": {
+          "titleMax": 80,
+          "descriptionMax": 1200,
+          "bulletCount": 5,
+          "bulletMax": 180
+        }
+      },
+      "acceptanceChecks": [
+        "Four WebP images at the agreed dimensions",
+        "Title 1–80 characters; description 1–1200 characters",
+        "Exactly five nonempty bullets, each at most 180 characters",
+        "Six payload files with SHA-256 hashes in a versioned manifest",
+        "Validation report and manifest included in the downloadable ZIP"
+      ],
+      "limitations": [
+        "Automated checks verify dimensions, fields and artifact bytes; they do not prove aesthetic quality or factual correctness.",
+        "Review product identity, text, and every image before approving payment.",
+        "Files depend on service storage availability. Refunds require an explicit buyer transaction after the deadline."
+      ]
+    },
+    "aiMode": "live",
+    "mode": "normal",
+    "status": "ready",
+    "resultHash": "ad13ca8e16365931d91a538683171365ac920ee03f647b9c634b385d73db7054",
+    "manifest": {
+      "schemaVersion": 2,
+      "jobId": "62a32d65a33fe8efe5b7311cbaecd0951abbd539763406a582b2030b8cf3ef27",
+      "jobAddress": "7KUDStkddspWoBLWq3HSbuQ1k9tBZHGCpTjPmAYbGh1M",
+      "termsHash": "efa73d8e41d4e967d0f2de3f9b58e53b3cdbcee4c56335f247d5af830aa525fa",
+      "specHash": "e797e0334727908930613c8d1d283a6316bfb8aa553407ca714bb77dc54a35bc",
+      "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+      "artifacts": [
+        {
+          "path": "hero.webp",
+          "mediaType": "image/webp",
+          "size": 91694,
+          "sha256": "7b0a2257ebcd7da8a6c1271f235b5f04e3d22b0951aff553842bdd5c7eef09cf"
+        },
+        {
+          "path": "listing.json",
+          "mediaType": "application/json",
+          "size": 811,
+          "sha256": "04f83563aa56f5ec0cfb348a4d7d26886a0a6da9ea5b65cbdb69c9290703b64f"
+        },
+        {
+          "path": "social-portrait.webp",
+          "mediaType": "image/webp",
+          "size": 55708,
+          "sha256": "5c2cc6be066a8222e11d98c169aa7d573bf5f1509b44aae5e5586b4954e00dd6"
+        },
+        {
+          "path": "social-square.webp",
+          "mediaType": "image/webp",
+          "size": 55340,
+          "sha256": "48e1ec41719a0605ac0718467a36a9cc671bef2ad44a7531370b3692c6cd1ad2"
+        },
+        {
+          "path": "social-story.webp",
+          "mediaType": "image/webp",
+          "size": 57328,
+          "sha256": "70bc228ff658666bcfeeba523c7355092108a81d8ef7347c29fbd670c07e27a4"
+        },
+        {
+          "path": "validation.json",
+          "mediaType": "application/json",
+          "size": 1013,
+          "sha256": "f9ab314fa9552470af9419fe17201e64294a1209e8c25222e2f036d8a59d851b"
+        }
+      ],
+      "previews": [
+        {
+          "path": "preview-hero.webp",
+          "sourcePath": "hero.webp",
+          "sha256": "81972d6f5257794c12df3ac14bb2480a8359a483bbedb0c66a029262ceca0239",
+          "bytes": 27058,
+          "width": 560,
+          "height": 560,
+          "mimeType": "image/webp"
+        },
+        {
+          "path": "preview-portrait.webp",
+          "sourcePath": "social-portrait.webp",
+          "sha256": "c99cbbc142fa631ca37a7e29446fe1a44ae79415263f0ccf8cbd96058c56228d",
+          "bytes": 31042,
+          "width": 544,
+          "height": 680,
+          "mimeType": "image/webp"
+        },
+        {
+          "path": "preview-square.webp",
+          "sourcePath": "social-square.webp",
+          "sha256": "98b886af96ce7a4f32734541dc07dcf8e7c74d11408469df18fd655d3129b210",
+          "bytes": 27022,
+          "width": 560,
+          "height": 560,
+          "mimeType": "image/webp"
+        },
+        {
+          "path": "preview-story.webp",
+          "sourcePath": "social-story.webp",
+          "sha256": "2147f96d02b47f94512a354727a83d87144b53bae46b5236b4537f77da9cccfa",
+          "bytes": 21856,
+          "width": 382,
+          "height": 680,
+          "mimeType": "image/webp"
+        }
+      ]
+    },
+    "validation": {
+      "schemaVersion": 2,
+      "passed": true,
+      "checks": [
+        {
+          "name": "hero.webp",
+          "passed": true,
+          "detail": "1600 × 1600 WebP required"
+        },
+        {
+          "name": "social-square.webp",
+          "passed": true,
+          "detail": "1080 × 1080 WebP required"
+        },
+        {
+          "name": "social-portrait.webp",
+          "passed": true,
+          "detail": "1080 × 1350 WebP required"
+        },
+        {
+          "name": "social-story.webp",
+          "passed": true,
+          "detail": "1080 × 1920 WebP required"
+        },
+        {
+          "name": "Listing fields and limits",
+          "passed": true,
+          "detail": "Nonempty title, description, and five bullets within agreed limits; no new detected numeric/certification claims"
+        },
+        {
+          "name": "Payload completeness",
+          "passed": true,
+          "detail": "Four image exports and listing.json exist; validation.json is added after these checks"
+        }
+      ],
+      "limitations": [
+        "Automated checks verify dimensions, fields and artifact bytes; they do not prove aesthetic quality or factual correctness.",
+        "Review product identity, text, and every image before approving payment.",
+        "Files depend on service storage availability. Refunds require an explicit buyer transaction after the deadline."
+      ]
+    },
+    "listing": {
+      "title": "Morning Candle with Cedar and Amber Scent in 250g Amber Glass Jar",
+      "description": "The Morning candle offers a soothing cedar and amber fragrance, housed in a sturdy 250 g amber glass jar. Its elegant black lid ensures the candle remains fresh, while the cream 'Morning' label provides a refined touch. Perfectly photographed in a clean and warm studio environment with soft lighting, this candle adds a cozy and inviting atmosphere to any space.",
+      "bullets": [
+        "Scented with warm cedar and rich amber for a cozy ambiance.",
+        "Encased in a 250 g amber glass jar that complements any decor.",
+        "Features a sleek black lid to keep the candle fresh when not in use.",
+        "Adorned with a cream label marked 'Morning' for easy identification.",
+        "Presented upright in a clean, warm studio setting with soft lighting. "
+      ]
+    },
+    "previews": [
+      {
+        "name": "hero",
+        "width": 560,
+        "height": 560,
+        "url": "/api/v2/orders/62a32d65a33fe8efe5b7311cbaecd0951abbd539763406a582b2030b8cf3ef27/preview/hero"
+      },
+      {
+        "name": "portrait",
+        "width": 544,
+        "height": 680,
+        "url": "/api/v2/orders/62a32d65a33fe8efe5b7311cbaecd0951abbd539763406a582b2030b8cf3ef27/preview/portrait"
+      },
+      {
+        "name": "square",
+        "width": 560,
+        "height": 560,
+        "url": "/api/v2/orders/62a32d65a33fe8efe5b7311cbaecd0951abbd539763406a582b2030b8cf3ef27/preview/square"
+      },
+      {
+        "name": "story",
+        "width": 382,
+        "height": 680,
+        "url": "/api/v2/orders/62a32d65a33fe8efe5b7311cbaecd0951abbd539763406a582b2030b8cf3ef27/preview/story"
+      }
+    ],
+    "submissionSignature": "4nJPmEynieVBLXdekrHbJuNuwSxrcZEttBJX2thfbXA9RSx7pLW46ZGZLpuFsLM7VndavGyqJ13bEme1LKuMUnMt",
+    "attempts": [
+      {
+        "id": "4b91cd815ef8b56bca21acc071ab6b47",
+        "stage": "specification",
+        "startedAt": 1794012971,
+        "state": "completed",
+        "provider": "openai",
+        "completedAt": 1794012977,
+        "requestId": "req_b38d2b9dfef843d9bc682c37d9a7756c",
+        "providerId": "resp_0d091b7c1d773284006aee772c505087d09ed01d6c93fc56ff"
+      },
+      {
+        "id": "f1a6a2b3e9fff9bd5ef990dd71bab9df",
+        "stage": "listing",
+        "startedAt": 1794013040,
+        "state": "completed",
+        "provider": "openai",
+        "completedAt": 1794013044,
+        "requestId": "req_e9c98e297f754953864cc4ce47c68623",
+        "providerId": "resp_0c50453b95c885a9006aee7770831c87d0a2ea8113d6175f35"
+      },
+      {
+        "id": "7e06ad1aded498bf11c910770f34eae3",
+        "stage": "image",
+        "startedAt": 1794013044,
+        "state": "completed",
+        "provider": "openai",
+        "completedAt": 1794013056,
+        "requestId": "req_e5c5cecd8f0e45029e7b56b676d2c5ab"
+      }
+    ]
+  },
+  "operatorDecision": {
+    "runId": "20261107005555055-00905c",
+    "jobAddress": "7KUDStkddspWoBLWq3HSbuQ1k9tBZHGCpTjPmAYbGh1M",
+    "resultHash": "ad13ca8e16365931d91a538683171365ac920ee03f647b9c634b385d73db7054",
+    "approved": false,
+    "reviewer": "Integration lead and independent reviewer",
+    "notes": "Reject unsupported sturdiness and freshness-preservation claims absent from seller facts. Do not release payment or mutate this frozen result."
+  },
+  "reason": "Unsupported sturdiness and freshness-preservation claims absent from supplied seller facts.",
+  "validationPassedButSemanticReviewRejected": true,
+  "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+  "aiImageHash": "025f21237071c565bf031ce1bf83cc6c2dab314aee39c7dc2a6f974a155ff6d9",
+  "attempts": [
+    {
+      "id": "4b91cd815ef8b56bca21acc071ab6b47",
+      "stage": "specification",
+      "startedAt": 1794012971,
+      "state": "completed",
+      "provider": "openai",
+      "requestId": "req_b38d2b9dfef843d9bc682c37d9a7756c",
+      "providerId": "resp_0d091b7c1d773284006aee772c505087d09ed01d6c93fc56ff",
+      "completedAt": 1794012977
+    },
+    {
+      "id": "f1a6a2b3e9fff9bd5ef990dd71bab9df",
+      "stage": "listing",
+      "startedAt": 1794013040,
+      "state": "completed",
+      "provider": "openai",
+      "requestId": "req_e9c98e297f754953864cc4ce47c68623",
+      "providerId": "resp_0c50453b95c885a9006aee7770831c87d0a2ea8113d6175f35",
+      "completedAt": 1794013044
+    },
+    {
+      "id": "7e06ad1aded498bf11c910770f34eae3",
+      "stage": "image",
+      "startedAt": 1794013044,
+      "state": "completed",
+      "provider": "openai",
+      "requestId": "req_e5c5cecd8f0e45029e7b56b676d2c5ab",
+      "completedAt": 1794013056
+    }
+  ],
+  "submissionSignature": "4nJPmEynieVBLXdekrHbJuNuwSxrcZEttBJX2thfbXA9RSx7pLW46ZGZLpuFsLM7VndavGyqJ13bEme1LKuMUnMt",
+  "buyerTransactions": [
+    {
+      "at": "2026-11-07T00:57:04.918Z",
+      "signature": "45gY3dNunnmWcJaCSCzpoAQ3Es3CQB7e5QcpVbEXB1NHU1ra8Y9v1UJu6g2QuqP2ibecs264jqquUS4dATW62ijg",
+      "explorer": "https://explorer.solana.com/tx/45gY3dNunnmWcJaCSCzpoAQ3Es3CQB7e5QcpVbEXB1NHU1ra8Y9v1UJu6g2QuqP2ibecs264jqquUS4dATW62ijg?cluster=devnet",
+      "programs": [
+        "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+        "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+        "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY"
+      ]
+    }
+  ],
+  "processes": [
+    {
+      "name": "worker",
+      "pid": 6758,
+      "startedAt": "2026-11-07T00:55:57.011Z",
+      "logFile": ".local/osid-ui-devnet-20261107005555055-00905c/worker.log",
+      "stopRequestedAt": "2026-11-07T01:01:06.192Z",
+      "exit": {
+        "at": "2026-11-07T01:01:06.202Z",
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "name": "vite",
+      "pid": 6843,
+      "startedAt": "2026-11-07T00:56:00.524Z",
+      "logFile": ".local/osid-ui-devnet-20261107005555055-00905c/vite.log",
+      "stopRequestedAt": "2026-11-07T01:01:06.894Z",
+      "exit": {
+        "at": "2026-11-07T01:01:06.902Z",
+        "code": 143,
+        "signal": null
+      }
+    }
+  ],
+  "screenshots": {
+    "review-desktop": "evidence/screenshots/osid-live-rejected-review-desktop.png",
+    "review-mobile": "evidence/screenshots/osid-live-rejected-review-mobile.png"
+  },
+  "sourceReportSha256": "8a16b102cf82798e7d8a508b48725f8a247356c2e3f2d3091022d70b1047fe67",
+  "rawDiagnosticsDirectory": ".local/osid-rejected-evidence/20261107005555055-00905c",
+  "note": "Actual OpenAI generation and measurable integrity passed; no buyer release or authorized private download is claimed. A corrected result requires a new job.",
+  "sourceChecks": "evidence/osid-live-rejected-source.json"
+}

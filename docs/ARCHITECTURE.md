@@ -44,6 +44,8 @@ There is no provider payout, result replacement, withdrawal, arbitration or auto
 
 The manifest lists six payloads; `manifest.json` is the seventh ZIP entry and excludes its own hash to avoid a cycle. A separately persisted bundle hash verifies ZIP bytes. File count, image dimensions, copy lengths, required fields and every payload hash are checked. Deterministic validation does not certify aesthetics, fact accuracy or third-party rights.
 
+The live copy stage receives only agreed product facts and copy limits. It selects and arranges complete source phrases; a conservative guard preserves attributes, measurement subjects and qualifiers and excludes scene-description vocabulary. Invalid output fails before the image request or submission. This guard can reject otherwise valid prose and does not replace buyer review. Previously submitted packs retain their original bytes and delivery rules; a later policy never silently rewrites a result.
+
 Login, download signing and token transactions use separate authorization flows. Nonces/sessions/challenge consumption persist through restart. Credentialed CORS uses exact allowed origins; authenticated mutations also require Origin and CSRF. An application session alone never releases funds or downloads originals.
 
 `/recover` mounts its own direct-RPC client from compiled trusted settings. It does not load application auth or merchant APIs, supports both versions, derives canonical destinations from recorded chain fields and requires the original buyer's transaction. An API outage does not alter chain eligibility. Frontend and RPC access still need to be available.

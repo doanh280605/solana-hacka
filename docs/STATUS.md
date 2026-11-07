@@ -1,50 +1,60 @@
 # osid execution status
 
-Updated November 7, 2026, 00:27 UTC (November 6 Pacific). Branch `integration/osid-v2`, based on verified Holdfast V1 commit `eca59b5`. **The core goal remains incomplete: real runtime AI verification needs the missing provider credential.** Fixture content does not count as live AI.
+Updated November 07, 2026, 19:55 UTC. Branch `integration/osid-v2`, based on verified Holdfast V1 `eca59b5`.
 
-## Implemented
+**Core goal incomplete: the live AI quote-to-approved-download gate has not passed.** Credentials are configured. Real runtime specification, listing and image-edit requests are verified, and one complete pack passed content/integrity review. RPC interruption prevented its approval before signing, then its immutable deadline passed. Later host/execution delays expired an unfunded quote and left a separate image attempt uncertain. The user was asked to keep the Mac awake, lid open and online for an uninterrupted ten minutes before another paid attempt. No fixture is counted as live AI.
 
-- osid landing page, labeled no-wallet sample, signed wallet sessions, integrated listing workspace, buyer review/approval, private ZIP delivery and independent V1/V2 recovery.
-- Server-side OpenAI adapter for structured specification interpretation, source-image editing and grounded listing copy. Bounded requests, durable attempts/provider IDs, safe GET reconciliation and no blind chargeable regeneration.
-- Fixed pack: 1600×1600 hero; 1080×1080, 1080×1350 and 1080×1920 social exports; title 80 / description 1200 / five bullets 180; validation, canonical manifest and ZIP. All payloads and four review previews are committed.
-- Additive V2 escrow with immutable terms/input/specification/result commitments, dedicated provider submission, buyer-only exact-result approval, exact settlement and refunds from both pending states. V1 layouts/instructions remain unchanged.
+## Implemented and checked
 
-## Verified
-
-| Gate | Actual result/evidence |
+| Gate | Actual evidence |
 | --- | --- |
-| Aggregate | All nine gates pass: 76 worker/client/web unit tests, 10 Rust tests, four TypeScript checks, production Vite build and whitespace checks. [Saved report](../evidence/osid-checks.json). |
-| Actual local program | 39 passed: 17 V1, 11 V2, 11 independent cases. [Serialized report](../evidence/osid-program-localnet.json). |
-| SBF/IDL | 467120-byte artifact, SHA-256 `b59f0a228e24782e869316201faf17c4e39a7111082065fc42a51d418122e2a0`; checked/generated IDL match; local and Devnet executable bytes independently match. |
-| Local HTTP | Fixture quote/fund/submit/approve/private ZIP; committed previews; login/download replay and other-wallet rejection; persisted sessions/output after restart; actual API-stopped refund. [Report](../evidence/osid-rehearsal-localnet-fixture.json). |
-| Local browser | Exact token movement, identical verified downloads after restart/reload, desktop/mobile captures and API-stopped refund with zero recovery merchant requests. [Report](../evidence/osid-ui-localnet-fixture.json). |
-| Devnet upgrade | Correct genesis, finalized upgrade, full artifact hash, immutable config and V1 terminal compatibility independently verified. [Deployment](../evidence/osid-deployment-devnet.json). |
-| Devnet browser | Real V2 funding/provider submission/approval, exact 5,000,000-unit release, manifest-verified 438,609-byte ZIP, identical download after restart/reload. Separate original-buyer timeout refund with API process exited before expiry; connection refused before/at/after; recovery trace empty. [Fixture report](../evidence/osid-ui-devnet-fixture.json). |
-| Independent review | Authorization, commitments, exact settlement, recovery, AI attempts, authentication, storage, ZIP/preview integrity, dependency exposure, browser/process handling and Vite private-file boundaries reviewed; material findings resolved. [Report](OSID-REVIEW.md). |
-| Managed preview | All four routes passed desktop/mobile Chrome smoke; no page errors or recovery merchant requests. [Report](../evidence/osid-preview.json). |
+| Product | osid landing, clearly labeled no-wallet sample, signed wallet sessions, integrated workspace, exact-result buyer approval, verified private ZIP and independent V1/V2 recovery. |
+| Pack | 1600×1600 hero; social exports at 1080×1080, 1080×1350 and 1080×1920; title 80 / description 1200 / five bullets 180; validation, manifest and seven-file ZIP. Four review previews are separately committed. |
+| Checks | All nine aggregate gates pass: 90 unit,10 Rust, four typechecks, production build and whitespace. [Report](../evidence/osid-checks.json). Latest cleanup-only CLI extensions also passed root typecheck; [source/check provenance](../evidence/osid-final-source.json). |
+| Actual local program | 39 passed:17 V1,11 V2,11 independent cases. [Report](../evidence/osid-program-localnet.json). Program source is unchanged since these checks. |
+| Deployment | Devnet finalized upgrade, exact 467120-byte executable SHA-256 `b59f0a228e24782e869316201faf17c4e39a7111082065fc42a51d418122e2a0`, correct genesis/config, unchanged V1 layouts/terminal decoding. [Deployment](../evidence/osid-deployment-devnet.json). |
+| Local application | Full HTTP/browser fixture purchase, exact settlement, private verified repeated download, auth/download replay and other-wallet denial, restart persistence, actual API-stopped refund. [HTTP](../evidence/osid-rehearsal-localnet-fixture.json), [browser](../evidence/osid-ui-localnet-fixture.json). |
+| Devnet application | V2 fixture fund/submit/approve, exact 5,000,000-unit merchant release, identical438,609-byte manifest-verified ZIP after restart/reload; separate refund with API exited before expiry, connection refused before/at/after, zero recovery merchant requests. [Fixture browser report](../evidence/osid-ui-devnet-fixture.json). |
+| Runtime AI | Actual OpenAI interpretation/copy/source-image edits with persisted request/response identifiers; no fixture fallback. [Provider access](../evidence/osid-provider-access.json), [accepted result and RPC interruption](../evidence/osid-live-ui-rpc-interruption.json), [expiry](../evidence/osid-live-ui-rpc-expired.json). No live Released/download success claimed. |
+| Independent review | Authorization, settlement, recovery, AI attempts, auth, storage, complete ZIP/preview binding, dependencies, process handling, Vite private-file boundary and actual live content reviewed. Material code findings resolved; required live lifecycle remains pending. [Review](OSID-REVIEW.md). |
 
-Devnet Released job: `C1znz7aJWDBhCMfKAYkzfLTPqCgWf4iSgx6tWv6JqQVa`. Refunded job: `4r5egHtAkGXrjfjrDh4VjpgNwWoxPWWh53qbG1DWBhkD`. [Approval receipt](https://explorer.solana.com/tx/PxHM6mSurVdFtX71Uh9Mtpbh3DRtrcVrTZSWQi5DeUntdKxk81xfKcgGjdMTgpXPAebjiw8HVD1bDLPiMtpLdHP?cluster=devnet), [refund receipt](https://explorer.solana.com/tx/26F8zsnmsTqLgjRzR5nPCJnRZz7VmGpTJvYEjDzk1UQLHDG6D69oUjCeMJxaYo3GFKu5WEz6SNxTru3AmaUZkS3s?cluster=devnet). The new result manifest hash is `f36cd09ebf165ed0e67d9c0ee75644635bf0853fce1a8619a0ef22a9b7b5dbad`.
+Browser money actions used a disposable injected test-wallet harness. **Actual Phantom extension behavior is unverified.** Agent/operator content review is not external human quality attestation. Hashes bind terms and bytes, not subjective quality or truth.
 
-Browser money actions used a disposable injected test wallet; **an actual Phantom extension was not verified**. Provider unit HTTP is mocked; application rehearsals explicitly use fixture generation. The [108-second Devnet walkthrough](../evidence/osid-demo-devnet-fixture.webm) is a silent captioned screenshot presentation of verified captures, with [source hashes/captions](../evidence/osid-demo-devnet-fixture.json). Raw browser videos and desktop/mobile PNGs are retained. Nothing was published.
+## Live attempts and reconciled deposits
 
-## Working preview
+| Attempt | Outcome | Refund evidence |
+| --- | --- | --- |
+| First real pack | Image identity/integrity passed; review rejected invented durability/freshness benefits. Frozen Submitted result retained. [Record](../evidence/osid-live-ai-rejected.json). | [Original-buyer Submitted refund](../evidence/osid-live-rejected-refund.json). |
+| Second real pack | Review rejected invented wax net weight and photographic-direction leakage. Frozen Submitted result retained. [Record](../evidence/osid-live-ai-rejected-2.json). | [Submitted refund](../evidence/osid-live-rejected-refund-2.json). |
+| Third | Conservative grammar/measurement-clause false positive on factual connecting prose; failed before image/submission. [Record](../evidence/osid-live-ai-rejected-3.json). | [Funded refund](../evidence/osid-live-rejected-refund-3.json); post-read failure reconciled using its original finalized signature, no replacement transaction. |
+| Fourth | Exact fact copy, product identity, all artifacts/previews and231,796-byte stored ZIP accepted. RPC cooldown blocked approval before signing; deadline subsequently passed. | [Expired Submitted refund](../evidence/osid-live-interrupted-refund.json). |
+| Fifth | Quote expired during observed execution delay before any recorded funding signature. No funded purchase or result claimed. [Record](../evidence/osid-live-unfunded-expired.json). | None required by the recorded run. |
+| Sixth | Live spec/copy completed; image completion uncertain with no result/artifacts. Attempt retained, no blind regeneration. [Record](../evidence/osid-live-ai-uncertain.json). | [Funded refund](../evidence/osid-live-uncertain-refund.json). |
+
+**All five funded live attempts are Refunded, with exact 5,000,000-unit buyer returns and unchanged merchant balances.** Deterministic validation did not authorize unsupported content. New live copy requests exclude the raw brief/photo/image direction; exact fact phrases and whole measurement subjects are checked. A worked example and model-scoped temperature 0 align generation with this conservative grammar. Historical frozen delivery verifies original bytes without applying a later editorial policy.
+
+Actual accepted-but-expired pack: [desktop](../evidence/screenshots/osid-live-accepted-expired-review-desktop.png), [mobile](../evidence/screenshots/osid-live-accepted-expired-review-mobile.png). These are actual runtime AI previews, not proof of release/download. [Observed host-delay record](../evidence/osid-host-delay.json). The exact cause of wall-clock gaps is unproven; temporary sleep assertions did not establish uninterrupted execution.
+
+## Local preview
 
 - Landing: http://localhost:5173/
 - Labeled sample: http://localhost:5173/demo
 - Workspace: http://localhost:5173/app
 - Independent recovery: http://localhost:5173/recover
-- Worker health: http://localhost:8787/health
+- Worker: http://localhost:8787/health
 
-Current preview is **fixture AI on Devnet**. Web PID 63428; worker PID 63373. Exact entries/logs are in ignored `.local/osid-preview.json`; logs are `.local/osid-preview-web.log` and `.local/osid-preview-worker.log`. Stop only these verified processes with `npx tsx scripts/preview.ts stop`. Restart with `npx tsx scripts/preview.ts start --fixture`. Do not run Vite canary tests or modify app environment/configuration during a browser transaction rehearsal: they can restart another development server.
+Mode is **live on Devnet**, with an existing configured provider credential and empty preview order storage. Starting the preview creates no order or paid AI request. Web PID72735; worker PID72648. Exact entries/logs are in ignored `.local/osid-preview.json`; logs are `.local/osid-preview-web.log` and `.local/osid-preview-worker.log`.
 
-## Remaining gate and limits
+Stop only these verified processes with `npx tsx scripts/preview.ts stop`; restart with `npx tsx scripts/preview.ts start`. Use `start --fixture` only for explicitly labeled development fixtures. Do not run Vite canary tests or edit app environment/configuration during wallet transactions. Current [read-only preview checks](../evidence/osid-preview.json) pass all eight desktop/mobile route cases, with no page errors or horizontal overflow. Recovery reads the actual Refunded job through direct RPC with zero merchant requests; this creates no order or payment.
 
-The actual live Devnet attempt authenticated but returned HTTP503 before quote/funding because `OPENAI_API_KEY` is absent. [Blocked report](../evidence/osid-rehearsal-devnet-blocked.json). The user was asked once to configure an existing key in ignored `.env`; no paid terms, plan or billing commitment was created. After configuring it, stop the fixture preview, run `npx tsx scripts/osid-rehearse.ts devnet`, verify the actual AI pack and receipts, then start `npx tsx scripts/preview.ts start` for live mode. Never silently fall back to fixtures.
+## Remaining gate and boundaries
 
-Run one worker per storage directory. Files depend on available storage/backups. The program remains upgradeable and unaudited; mock tokens have no monetary value; rent and accidental surplus remain locked. Hashes bind agreement and bytes, not subjective quality, truth, permanence or cryptographic fair exchange. Refunds need an original-buyer transaction. Performance bonds, arbitration and marketplaces are deferred. Remaining transitive dependency advisories and their assessed paths are recorded in the independent review; the tree is not claimed vulnerability-free.
+After the required uninterrupted operating condition is available: stop the managed preview, run `npx tsx scripts/osid-ui-rehearse.ts devnet --review-gate`, inspect the exact new submitted result before approval, verify release/download/restart and the separate API-offline refund, then restart the live preview. Use unique jobs. Never regenerate an uncertain image request or extend a recorded deadline. An unexpired interrupted reviewed job can use the runner's exact `--resume=RUN_ID` path only before any approval signature; it reuses storage and refuses expiry. No completed run is currently claimed for that option.
 
-Implementation commit `19bc4848bb389e41448d7c01b2ff2d217f269093` was pushed normally; the same feature branch carries final hardening/evidence/handoff. Use `git rev-parse HEAD` and `git ls-remote origin refs/heads/integration/osid-v2` to compare its current revision. The default branch was not merged or force-pushed.
+The existing108-second [Devnet fixture walkthrough](../evidence/osid-demo-devnet-fixture.webm) remains accurately labeled, with [source/caption hashes](../evidence/osid-demo-devnet-fixture.json). It is a silent screenshot presentation, not a continuous real-time or Phantom recording. No successful live walkthrough is fabricated.
 
-Historical V1 evidence and its 64-test audit are preserved in [V1 status](HOLDFAST-V1-STATUS.md), [V1 review](HOLDFAST-V1-REVIEW.md), [V1 audit](HOLDFAST-V1-COMPLETION-AUDIT.md) and files without the osid prefix. They do not demonstrate V2 or live AI. [V1 binary preservation](../evidence/osid-baseline-preservation.json).
+One worker owns each storage directory. Files depend on storage/backups. The program is upgradeable and unaudited; mock tokens have no monetary value; rent/surplus remain locked. Refunds require the original buyer's transaction. No permanence, cryptographic fair exchange, arbitration or provider bond is claimed. Remaining transitive advisories and assessed paths are in the independent review.
 
-Official MLH schedule checked November 6: initial submission November 8 at 07:00 Pacific; final at 08:45 Pacific. [Official schedule](https://events.mlh.com/events/15200-solana-hackathon). No entry was submitted.
+The normally pushed feature branch preserves V1 evidence and commit `eca59b5`; no default-branch merge, force push, mainnet spending, production publish or hackathon submission. Compare `git rev-parse HEAD` with `git ls-remote origin refs/heads/integration/osid-v2` for the handoff revision. [V1 binary preservation](../evidence/osid-baseline-preservation.json).
+
+Official MLH schedule checked November 6: November 8 initial 07:00 Pacific, final 08:45 Pacific. [Official schedule](https://events.mlh.com/events/15200-solana-hackathon). Nothing was submitted.

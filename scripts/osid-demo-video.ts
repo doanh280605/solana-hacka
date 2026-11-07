@@ -35,7 +35,7 @@ const scenes=[
   {seconds:12,title:'Only the buyer releases payment.',subtitle:'Download the exact committed files.',body:'A separate transaction releases exactly five tokens. A different one-use signature authorizes the private ZIP. Reload and worker restart preserve access.',image:shot('released'),offset:2360},
   {seconds:12,title:'Then stop the merchant API.',subtitle:'Recovery still talks directly to Solana.',body:`Recorded worker PID ${record.refund.apiOfflineAtDeadline.pid} exited. Health probe: ECONNREFUSED. Merchant requests from the recovery page: ${record.recoveryRequests.length}. Original buyer signs the refund.`,image:shot('recovery-before'),offset:300},
   {seconds:10,title:'The deposit comes back.',subtitle:'Exact amount. Finalized Refunded state.',body:'A separate expired order returns 5,000,000 token units to its original buyer. Merchant balance is unchanged. Refunds require a buyer transaction.',image:shot('refunded-desktop'),offset:370},
-  {seconds:8,title:'AI creates. The buyer decides.',subtitle:'Solana enforces the payment rules.',body:`${fixture?'Live AI verification remains pending a configured provider key. ':''}Hashes bind agreement and bytes. Storage availability still matters. Upgradeable, unaudited prototype; no real USDC value.`,image:shot('landing-desktop'),offset:0},
+  {seconds:8,title:'AI creates. The buyer decides.',subtitle:'Solana enforces the payment rules.',body:`${fixture?'Fixture content does not establish runtime AI. ':''}Hashes bind agreement and bytes. Storage availability still matters. Upgradeable, unaudited prototype; no real USDC value.`,image:shot('landing-desktop'),offset:0},
 ];
 assert.equal(scenes.reduce((sum,scene)=>sum+scene.seconds,0),duration);
 const manifest:unknown[]=[];

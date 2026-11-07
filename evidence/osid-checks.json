@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-11-07T00:17:30.172Z",
-  "finishedAt": "2026-11-07T00:17:44.993Z",
+  "startedAt": "2026-11-07T07:31:08.324Z",
+  "finishedAt": "2026-11-07T07:33:09.059Z",
   "passed": true,
   "checks": [
     {
@@ -13,7 +13,7 @@
         "tsconfig.json"
       ],
       "exitCode": 0,
-      "elapsedMs": 1147,
+      "elapsedMs": 2681,
       "log": "evidence/osid-typecheck-root.txt"
     },
     {
@@ -26,7 +26,7 @@
         "packages/chain/tsconfig.json"
       ],
       "exitCode": 0,
-      "elapsedMs": 528,
+      "elapsedMs": 5318,
       "log": "evidence/osid-typecheck-chain.txt"
     },
     {
@@ -39,7 +39,7 @@
         "apps/worker/tsconfig.json"
       ],
       "exitCode": 0,
-      "elapsedMs": 834,
+      "elapsedMs": 4173,
       "log": "evidence/osid-typecheck-worker.txt"
     },
     {
@@ -52,7 +52,7 @@
         "apps/web/tsconfig.json"
       ],
       "exitCode": 0,
-      "elapsedMs": 890,
+      "elapsedMs": 4501,
       "log": "evidence/osid-typecheck-web.txt"
     },
     {
@@ -73,13 +73,16 @@
         "apps/worker/test/security.test.ts",
         "apps/worker/test/v2-ai.test.ts",
         "apps/worker/test/v2-auth.test.ts",
+        "apps/worker/test/v2-claims.test.ts",
+        "apps/worker/test/v2-live-grounding.test.ts",
         "apps/worker/test/v2-service.test.ts",
         "apps/worker/test/worker.test.ts",
         "apps/web/test/dev-server-security.test.ts",
-        "apps/web/test/previews.test.ts"
+        "apps/web/test/previews.test.ts",
+        "apps/web/test/token-balances.test.ts"
       ],
       "exitCode": 0,
-      "elapsedMs": 8571,
+      "elapsedMs": 96843,
       "log": "evidence/osid-unit-tests.txt"
     },
     {
@@ -90,7 +93,7 @@
         "host-tests"
       ],
       "exitCode": 0,
-      "elapsedMs": 816,
+      "elapsedMs": 845,
       "log": "evidence/osid-rust-tests.txt"
     },
     {
@@ -103,7 +106,7 @@
         "@holdfast/web"
       ],
       "exitCode": 0,
-      "elapsedMs": 2005,
+      "elapsedMs": 6198,
       "log": "evidence/osid-web-build.txt"
     },
     {
@@ -114,7 +117,7 @@
         "--check"
       ],
       "exitCode": 0,
-      "elapsedMs": 19,
+      "elapsedMs": 127,
       "log": "evidence/osid-git-whitespace.txt"
     },
     {
@@ -126,7 +129,7 @@
         "--check"
       ],
       "exitCode": 0,
-      "elapsedMs": 7,
+      "elapsedMs": 35,
       "log": "evidence/osid-git-staged-whitespace.txt"
     }
   ],
@@ -139,17 +142,20 @@
     "apps/worker/src/app.ts": "9c0204f3a5de1a79f9c695aefb37daa962687c4b9a2d1a7064b723aa2a4046e3",
     "apps/worker/src/chain.ts": "eed73337db35383c1f90974baa60ba5601d4701b45d0704c0118c89d2cafc97b",
     "apps/worker/src/config.ts": "c092498de5b817670275f1920e06702f031d5a4b327a7fd5231a1e8bffacdb59",
-    "apps/worker/src/ai.ts": "8367c8708c0a045c0b5ef4cf379be56534fb09b493d5b60223617604af523c34",
+    "apps/worker/src/ai.ts": "4eb682e742dcb15f7104a492e5c861bef5ecc9ef8a3cc1177daac5c2dfa8f6e2",
     "apps/worker/src/auth.ts": "196aa9095b671f81e6c1364ee261818025d727835ba1cb8befa5e3a914b46080",
-    "apps/worker/src/pack.ts": "f8666d5047037de43f0428a1edee74dc9833691fbbb4c5e58d488ad6e120c858",
+    "apps/worker/src/pack.ts": "f649f607becbc0fc80f1fb60259badef7c39af0bb18704547852d65f3e47d3e2",
     "apps/worker/src/v2-routes.ts": "83213e3b1b43216fd82b5f221fd4d86f420741f7ace449e20da046b3d8793ea9",
+    "apps/worker/src/grounding.ts": "31d467ab44ea043dd3b263598f79037dfdc907486210a3551759dff01467699a",
     "apps/worker/src/v2-service.ts": "0a773103f8436177de1d4d4e94978a56785ac1df1a84d65f2698c824bba65a90",
     "apps/worker/src/v2-store.ts": "0ba9f16626bc40774b2a5cedf98cdc6b53108d023ad8fb3ca800de061832733b",
     "apps/worker/src/v2-types.ts": "8d75a25218f9b096eba605e6a7953df9895920f8d09ab575e35351bdb893447c",
-    "apps/web/src/Workspace.tsx": "f1bf6acd9fd9ece937d4688d0c02cc484cda3c8ab2f3a7d788927ed145a578ef",
+    "apps/web/src/Workspace.tsx": "abe4eecea60b72cec804e6df697c9e798fc326f9e1c0abb1fb288ad2f1f0e0aa",
     "apps/web/src/Recovery.tsx": "e075c5cfc590434186a86894e1f611c6ad9950406723b9625ae1ccb2587ba6c6",
     "apps/web/src/commitments.ts": "34f6bd31cf38e8f8b8356f529feacff55191eda3b4514ee294b9b6925d0cc266",
     "apps/web/src/bundle.ts": "85d6060475b183bfc87663562b288c1f6861a7648a93a81cdbb4c2d239615d25",
+    "apps/web/src/ledger.ts": "d3bc077cc47e235f3a73741601fb53a575ea69b65333c6290eab50c42ec05be5",
+    "apps/web/src/token-balances.ts": "7c24c0be81127fe46614b9aad2358ca26bb737ccb3680ae0aaede0ae4aa764ab",
     "apps/web/src/previews.ts": "0c0f376aebf690ae13d393b00ded92f400180a2df7e40692b96d5e9677550285",
     "apps/web/src/bytes.ts": "4518e3770c7e7e679fb8d27785186e3c4b81abf4838a226ec0695b35a6ba1744",
     "apps/web/vite.config.ts": "8d8240f658d9087b9a36e7feeefce77ab38ce3eedb7c4cbd73f3298b75dd8290",
@@ -164,10 +170,12 @@
     "scripts/deploy-buffer.ts": "9534836bcde4d78294b10e511f4424a60fd9bd0e38d97a0bc15d4e91e01b9ec9",
     "scripts/preview.ts": "eb7b05934fe8fa1bf0687349be42743cb874a802b17fcd790ab704b7c77216d7",
     "scripts/runtime.mjs": "dd9f4e6daa7e1f00cad5a5106955a95ffa15bd314506d322de527a94827fac45",
+    "scripts/common.ts": "4aa0193ed98fc17ba3b37dbb4167baccae3dc91760dd6f9572faebe49582cd49",
     "scripts/osid-runtime.ts": "d4dedab2de36b22436ab263afc7600127594368b732d90776a48f1dd240f9131",
     "scripts/osid-rehearse.ts": "af808c6bf52d165727c09af1f07b13d33847bcc7c393cc57cf125e1c6f609abe",
-    "scripts/osid-ui-rehearse.ts": "c6a3e4801eea71964c3b4350288df87bad1c5ac8c77cf4ebeb1b50fbdeaa4d26",
-    "scripts/osid-demo-video.ts": "90a936884e297b9ac6fa0dfac6790d5605f38f5ce3c62ca0914ddf85d4fb6dd7",
+    "scripts/osid-ui-rehearse.ts": "932949a0c40527635f58b163895f3a933810a3c0ae510ab6a36af2b4ec66881a",
+    "scripts/osid-demo-video.ts": "3b96ebf2b8d48fab5a13e8019bbd179b22a2b332f9f73c4a0494bc62ea6c989e",
+    "scripts/osid-refund-rejected.ts": "06f859f006d1c8a8f2d9d7659f14b40783296596a754cf55bfc33196b6198a30",
     "package-lock.json": "3d5a93c33cd510bdac35107745b95b411f7f050bdac4cdfdbeb435d1b26215f2"
   },
   "programSourceSha256": "8e3ca4677ef04444385dedad0ff56d87d24ac633af782df7fac463388792bc5c",

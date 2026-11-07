@@ -50,6 +50,22 @@ export function validInterpretation(value: unknown, brief: string): { productFac
   }
   return { productFacts: data.productFacts as string[], imageDirection: data.imageDirection };
 }
+
+function positiveSellerClauses(brief: string): string[] {
+  return brief.toLowerCase().split(/(?<=[.!?;])\s+|\n/).filter(clause => {
+    // "when not in use" is a condition, not a negated product assertion.
+    const assertion = clause.replace(/\b(?:when|while|if)\s+not\s+in\s+use\b/g, '');
+    return !/\b(?:no|not|never|avoid|without|neither|nor|lack|lacks|lacking|cannot|(?:do|does|did|is|are|was|were|has|have|had|ca|could|wo|would|should|must)n['’]t)\b/.test(assertion)
+      && !NEGATED_BENEFIT_WORDING.test(assertion);
+  });
+}
+function claimWords(value: string): string { return value.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim(); }
+
+// This is deliberately bounded lexical coverage, not general semantic fact checking.
+// A detected benefit requires equality with a complete positive seller clause: qualifiers cannot be dropped.
+const BENEFIT_WORDING_SOURCE = String.raw`sturdy|sturdiness|durable|durability|robust|resilient|resilience|heavy[-\s]?duty|long[-\s]?lasting|shatterproof|break[-\s]?resistant|fresh|freshness|preserve|preserves|preserving|preservation|airtight|leakproof|protect|protects|protective|protection|safe|safer|safety|non[-\s]?toxic|therapeutic|soothing|relaxing|relaxation|calming|antibacterial|hypoallergenic|premium|high[-\s]?quality|superior|reliable|reusable|sustainable|sustainability|eco[-\s]?friendly|keeps?|keeping|ensures?|ensuring|prevents?|preventing|retains?|retaining|maintains?|maintaining|reduces?|reducing|improves?|improving|boosts?|boosting|enhances?|enhancing|seals?|sealing`;
+const BENEFIT_WORDING = new RegExp(String.raw`\b(?:${BENEFIT_WORDING_SOURCE})\b`, 'i');
+const NEGATED_BENEFIT_WORDING = new RegExp(String.raw`\b(?:non|un)[-\s]*(?:${BENEFIT_WORDING_SOURCE})\b`, 'i');
 export function validListing(value: unknown, spec: Specification): Listing {
   if (!value || typeof value !== 'object') throw new HttpError(502, 'AI returned invalid listing copy');
   const data = value as Record<string, unknown>;
@@ -60,14 +76,22 @@ export function validListing(value: unknown, spec: Specification): Listing {
     || data.bullets.some(b => typeof b !== 'string' || !b.trim() || b.length > limits.bulletMax)) throw new HttpError(502, 'AI listing copy did not meet the agreed limits');
   // Reject newly invented numeric claims and named certification/price assertions.
   // Negative instructions such as "no prices or certifications" do not support claims.
-  const source = spec.brief.toLowerCase().split(/(?<=[.!?;])\s+|\n/)
-    .filter(clause => !/\b(?:no|not|never|avoid|without|don't)\b/.test(clause)).join(' ');
+  const sourceClauses = positiveSellerClauses(spec.brief);
+  const source = sourceClauses.join(' ');
   const text = `${data.title} ${data.description} ${(data.bullets as string[]).join(' ')}`;
   const numbers = new Set(source.match(/\d+(?:[.,]\d+)?/g) ?? []);
   const claims = new Set(source.match(/\b(?:certified|certification|organic|waterproof|guaranteed|fda|ce-marked|prices?)\b|[$€£]/g) ?? []);
   const newNumbers = text.match(/\d+(?:[.,]\d+)?/g) ?? [];
   const newClaims = text.toLowerCase().match(/\b(?:certified|certification|organic|waterproof|guaranteed|fda|ce-marked|prices?)\b|[$€£]/g) ?? [];
   if (newNumbers.some(token => !numbers.has(token)) || newClaims.some(token => !claims.has(token))) throw new HttpError(502, 'AI listing copy introduced an unsupported measurable or certification claim');
+  const positiveClaims = sourceClauses.map(claimWords);
+  const statements = [data.title, data.description, ...(data.bullets as string[])].flatMap(part => part.split(/[.!?;\n]+/));
+  for (const statement of statements) {
+    if (BENEFIT_WORDING.test(statement)) {
+      const claim = claimWords(statement);
+      if (!positiveClaims.includes(claim)) throw new HttpError(502, 'AI listing copy introduced an unsupported functional, freshness, durability, health or quality claim');
+    }
+  }
   return { title: data.title, description: data.description, bullets: data.bullets as string[] };
 }
 export interface ImagePack { files: Record<string, Buffer>; previews: Record<string, { bytes: Buffer; manifest: ImageManifest }> }
@@ -100,7 +124,7 @@ export async function validatePack(files: Record<string, Buffer>, listing: Listi
   }
   let copyPassed = true;
   try { validListing(listing, spec); } catch { copyPassed = false; }
-  checks.push({ name: 'Listing fields and limits', passed: copyPassed, detail: 'Nonempty title, description, and five bullets within agreed limits; no new detected numeric/certification claims' });
+  checks.push({ name: 'Listing fields and limits', passed: copyPassed, detail: 'Nonempty title, description, and five bullets within agreed limits; bounded checks for unsupported numbers, certifications and benefit wording' });
   checks.push({ name: 'Payload completeness', passed: Object.keys(files).sort().join(',') === 'hero.webp,listing.json,social-portrait.webp,social-square.webp,social-story.webp',
     detail: 'Four image exports and listing.json exist; validation.json is added after these checks' });
   return { schemaVersion: 2, passed: checks.every(c => c.passed), checks, limitations: PACK_LIMITATIONS };

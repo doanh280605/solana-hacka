@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 2,
+  "at": "2026-11-07T01:34:46.244Z",
+  "runId": "20261107012656640-20912a",
+  "stage": "submitted-review-accepted",
+  "error": "Timed out: finalized release",
+  "jobAddress": "5Fo7ZG6CTgcjW85fPAUt8VJgAxwkz7rdHgnx8JaGztok",
+  "resultHash": "3a36c20f89a47b32c45a2b9fcb0f7f2889c553cd91d1e54aa43e32f1663ab38d",
+  "operatorReview": {
+    "runId": "20261107012656640-20912a",
+    "jobAddress": "5Fo7ZG6CTgcjW85fPAUt8VJgAxwkz7rdHgnx8JaGztok",
+    "resultHash": "3a36c20f89a47b32c45a2b9fcb0f7f2889c553cd91d1e54aa43e32f1663ab38d",
+    "path": ".local/osid-ui-devnet-20261107012656640-20912a/review-decision.json",
+    "state": "accepted",
+    "decision": {
+      "runId": "20261107012656640-20912a",
+      "jobAddress": "5Fo7ZG6CTgcjW85fPAUt8VJgAxwkz7rdHgnx8JaGztok",
+      "resultHash": "3a36c20f89a47b32c45a2b9fcb0f7f2889c553cd91d1e54aa43e32f1663ab38d",
+      "approved": true,
+      "reviewer": "Integration lead and separate independent review agent",
+      "at": "2026-11-07T01:30:16.849Z",
+      "notes": "Both operators inspected the supplied source and AI-edited hero/social exports; jar, black lid, Morning/CEDAR & AMBER/250 g label and single-product identity retained. Copy uses only the five agreed facts, without benefits, wax net-weight or scene claims. Independent finalized submission and canonical manifest/payload/preview/231796-byte stored ZIP checks passed. This is operator test review, not external human quality attestation. Authorize the disposable buyer harness to request its separate exact-result approval transaction and verified download."
+    },
+    "acceptedAt": "2026-11-07T01:30:17.159Z"
+  },
+  "signedTransactions": [
+    {
+      "at": "2026-11-07T01:27:51.282Z",
+      "signature": "Ra8DAHmmmK7RomCCwVySnq73Bjv5okKi8rpdr18TWqAbskGaQtaT1mU9EfU8iHgDLPzY55xdHsb8tQUu2RvStBV",
+      "explorer": "https://explorer.solana.com/tx/Ra8DAHmmmK7RomCCwVySnq73Bjv5okKi8rpdr18TWqAbskGaQtaT1mU9EfU8iHgDLPzY55xdHsb8tQUu2RvStBV?cluster=devnet",
+      "programs": [
+        "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+        "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+        "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY"
+      ]
+    }
+  ],
+  "processes": [
+    {
+      "name": "worker",
+      "pid": 52608,
+      "startedAt": "2026-11-07T01:26:56.954Z",
+      "logFile": ".local/osid-ui-devnet-20261107012656640-20912a/worker.log",
+      "stopRequestedAt": "2026-11-07T01:32:49.879Z",
+      "exit": {
+        "at": "2026-11-07T01:32:49.908Z",
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "name": "vite",
+      "pid": 52651,
+      "startedAt": "2026-11-07T01:26:59.066Z",
+      "logFile": ".local/osid-ui-devnet-20261107012656640-20912a/vite.log",
+      "stopRequestedAt": "2026-11-07T01:32:50.582Z",
+      "exit": {
+        "at": "2026-11-07T01:32:50.595Z",
+        "code": 143,
+        "signal": null
+      }
+    }
+  ],
+  "disposition": "Public RPC cooldown prevented latest-blockhash retrieval before buyer approval signing. No approval transaction or new generation is authorized by this record. Resume the same immutable submitted job with a new authenticated browser session.",
+  "privateArchive": ".local/osid-resume-evidence/20261107012656640-20912a",
+  "originalFiles": [
+    {
+      "originalPath": "evidence/osid-ui-devnet-blocked.json",
+      "sha256": "eec1e88639adbcca92f96ab3a7aa70f854d365b0ff7e1ea091b924ba889db132"
+    },
+    {
+      "originalPath": "evidence/osid-ui-devnet-progress.json",
+      "sha256": "284e4b2ffee8e4aa7eb57585e2db4eb4befefd57c90d0143bbdbfd7a3084f06a"
+    },
+    {
+      "originalPath": "evidence/osid-checks.json",
+      "sha256": "5043cee3b97a4d2638673a071f0aee1d0fe9aff051b6a6c24e6597c14c57759c"
+    },
+    {
+      "originalPath": "evidence/screenshots/osid-ui-devnet-landing-desktop.png",
+      "sha256": "034bc6959d0f96ff8e09b02a037c48bc8efb3e672b70989ffc154aac55ae5b74"
+    },
+    {
+      "originalPath": "evidence/screenshots/osid-ui-devnet-landing-mobile.png",
+      "sha256": "deecf1408a12e98dd7de95fbbf5cde9d710b1da3099116d2350e9c2693e57a0b"
+    },
+    {
+      "originalPath": "evidence/screenshots/osid-ui-devnet-demo-desktop.png",
+      "sha256": "1a4b34e6dcc23096be2cb24b9260b92aa01c73a87c82a4082965f965553e52ae"
+    },
+    {
+      "originalPath": "evidence/screenshots/osid-ui-devnet-workspace-empty.png",
+      "sha256": "59504374359bfb1130174b4b151ffd99edf7ed48afd955313b9cdcacf9f88fce"
+    },
+    {
+      "originalPath": "evidence/screenshots/osid-ui-devnet-agreement.png",
+      "sha256": "e440f4454ebfd04d8c032669a343556fb7cb0fa062f73d425c919d67135b0f14"
+    },
+    {
+      "originalPath": "evidence/screenshots/osid-ui-devnet-review-desktop.png",
+      "sha256": "8d03476ca670fe607f7b43219b7da45f097ced385857fa0698c4aaf762fe2c56"
+    },
+    {
+      "originalPath": "evidence/screenshots/osid-ui-devnet-review-mobile.png",
+      "sha256": "96d12890340f010c24e1cde08b01725bc721adcff829ff3ad8a11f4545124c86"
+    },
+    {
+      "originalPath": "evidence/osid-ui-devnet-workspace.webm",
+      "sha256": "3ce9500fbe2440a79847775a3dc3189f76ac5e1cfa4e3b095538f010be1afbc6"
+    }
+  ]
+}

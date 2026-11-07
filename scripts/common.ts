@@ -8,7 +8,7 @@ import {
   fetchJob, fetchChainTime, explorerUrl,
 } from '@holdfast/chain';
 import { Keypair, sendAndConfirmTransaction, LAMPORTS_PER_SOL } from '@solana/web3.js';
-import { getAccount, getAssociatedTokenAddressSync } from '@solana/spl-token';
+import { unpackAccount, getAssociatedTokenAddressSync } from '@solana/spl-token';
 
 export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const DEVNET_GENESIS = 'EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG';
@@ -48,16 +48,20 @@ export async function send(connection: Connection, transaction: Transaction, sig
 export async function balance(connection: Connection, token: PublicKey): Promise<bigint> {
   const account = await connection.getAccountInfo(token, 'finalized');
   if (!account) return 0n;
-  return (await getAccount(connection, token, 'finalized')).amount;
+  return unpackAccount(token, account).amount;
 }
 export async function balances(connection: Connection, config: PublicConfig, buyer: PublicKey, vault: PublicKey): Promise<{buyer: string; merchant: string; vault: string}> {
   const mint = new PublicKey(config.mint);
-  const [buyerAmount, merchantAmount, vaultAmount] = await Promise.all([
-    balance(connection, getAssociatedTokenAddressSync(mint, buyer)),
-    balance(connection, getAssociatedTokenAddressSync(mint, new PublicKey(config.merchant))),
-    balance(connection, vault),
-  ]);
-  return { buyer: buyerAmount.toString(), merchant: merchantAmount.toString(), vault: vaultAmount.toString() };
+  const addresses=[getAssociatedTokenAddressSync(mint,buyer),getAssociatedTokenAddressSync(mint,new PublicKey(config.merchant)),vault];
+  const accounts=await connection.getMultipleAccountsInfo(addresses,'finalized');
+  if(accounts.length!==addresses.length)throw new Error('Incomplete finalized balance response');
+  const [buyerAmount,merchantAmount,vaultAmount]=accounts.map((account,index)=>{
+    if(!account)return 0n;
+    const decoded=unpackAccount(addresses[index]!,account);
+    if(!decoded.mint.equals(mint))throw new Error('Balance token mint differs from recorded configuration');
+    return decoded.amount;
+  });
+  return { buyer: buyerAmount!.toString(), merchant: merchantAmount!.toString(), vault: vaultAmount!.toString() };
 }
 export async function waitUntilChain(connection: Connection, epochSeconds: number, maxMs = 240_000): Promise<void> {
   const end = Date.now() + maxMs;

@@ -11,7 +11,7 @@ const settings: WorkerSettings = { dataDir: '/unused', orderLifetimeSeconds: 120
   challengeDomain: 'http://localhost:8787', corsOrigins: ['http://localhost:5173'], openaiApiKey: 'server-only-test-key', aiTimeoutMs: 1000 };
 async function request(stage: AiRequest['stage'] = 'specification'): Promise<AiRequest & { identities: ProviderIdentity[] }> {
   const identities: ProviderIdentity[] = [];
-  return { attemptId: 'a'.repeat(32), stage, brief: BRIEF, specification: specification(BRIEF, [BRIEF], 'Warm studio backdrop'),
+  return { attemptId: 'a'.repeat(32), stage, brief: BRIEF, specification: specification(BRIEF, ['Blue ceramic cup', 'curved handle'], 'Warm studio backdrop'),
     input: await smallPng(), inputMediaType: 'image/png', identities, identify: async id => { identities.push(id); } };
 }
 function structured(value: unknown, id = 'resp_fixture'): Response {
@@ -25,7 +25,7 @@ test('runtime Responses requests use strict structured specification/copy schema
     assert.equal((init.headers as Record<string, string>)['X-Client-Request-Id'], 'a'.repeat(32));
     const body = JSON.parse(String(init.body)); calls.push({ url, body });
     if (calls.length === 1) return structured({ productFacts: ['Blue ceramic cup'], imageDirection: 'Preserve the cup and improve studio lighting' });
-    return structured({ title: 'Blue ceramic cup', description: 'Blue ceramic cup with a curved handle.', bullets: ['Blue ceramic cup', 'Curved handle', 'Warm presentation', 'Seller supplied photo', 'Review before approval'] });
+    return structured({ title: 'Blue ceramic cup', description: 'Blue ceramic cup with a curved handle.', bullets: ['Blue ceramic cup', 'Curved handle', 'Blue ceramic cup', 'Curved handle', 'Blue ceramic cup with a curved handle'] });
   }) as typeof fetch;
   const ai = new OpenAiProvider(settings, fetcher); const specRequest = await request();
   assert.equal((await ai.interpret(specRequest)).productFacts[0], 'Blue ceramic cup');
@@ -38,6 +38,13 @@ test('runtime Responses requests use strict structured specification/copy schema
   }
   const input = calls[0]!.body.input as { content: { type: string; image_url?: string }[] }[];
   assert.match(input[0]!.content.find(c => c.type === 'input_image')!.image_url!, /^data:image\/png;base64,/);
+  const listingInput = calls[1]!.body.input as { content: { type: string; text: string }[] }[];
+  assert.equal(calls[0]!.body.temperature, undefined); assert.equal(calls[1]!.body.temperature, 0);
+  assert.equal(listingInput[0]!.content.length, 1);
+  assert.deepEqual(JSON.parse(listingInput[0]!.content[0]!.text), { productFacts: ['Blue ceramic cup', 'curved handle'],
+    copyLimits: { titleMax: 80, descriptionMax: 1200, bulletCount: 5, bulletMax: 180 } });
+  assert.equal(listingInput[0]!.content[0]!.text.includes('studio'), false);
+  assert.equal(listingInput[0]!.content[0]!.text.includes(BRIEF), false);
 });
 
 test('runtime Image Edits sends the original image and explicit identity-preserving prompt, never just a resize', async () => {

@@ -138,7 +138,7 @@ export function WorkspacePage({ wallet }: { wallet: Wallet }) {
       finally { polling = false; }
     };
     void poll();
-    const interval = window.setInterval(() => void poll(), 4000);
+    const interval = window.setInterval(() => void poll(), 12_000);
     return () => { alive = false; window.clearInterval(interval); };
   }, [selected?.jobId, authenticated, config, wallet.address, remember, handleApiError]);
 
