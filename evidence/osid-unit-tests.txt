@@ -1,0 +1,472 @@
+TAP version 13
+# bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+# Subtest: browser verifies all four real worker-produced private previews
+ok 1 - browser verifies all four real worker-produced private previews
+  ---
+  duration_ms: 2.0395
+  type: 'test'
+  ...
+# Subtest: changed preview bytes, byte length and response MIME fail closed
+ok 2 - changed preview bytes, byte length and response MIME fail closed
+  ---
+  duration_ms: 0.564458
+  type: 'test'
+  ...
+# Subtest: changed dimensions cannot be accepted through mutable public preview metadata
+ok 3 - changed dimensions cannot be accepted through mutable public preview metadata
+  ---
+  duration_ms: 0.301375
+  type: 'test'
+  ...
+# Subtest: missing, duplicate, reordered or relabeled preview commitments are rejected
+ok 4 - missing, duplicate, reordered or relabeled preview commitments are rejected
+  ---
+  duration_ms: 0.125
+  type: 'test'
+  ...
+# Subtest: an invalid or animated WebP is rejected even if its hash and size are committed
+ok 5 - an invalid or animated WebP is rejected even if its hash and size are committed
+  ---
+  duration_ms: 0.399708
+  type: 'test'
+  ...
+# bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+# Subtest: real chain adapter requests finalized vault data and decodes legacy SPL mint, authority, balance, and state
+ok 6 - real chain adapter requests finalized vault data and decodes legacy SPL mint, authority, balance, and state
+  ---
+  duration_ms: 2.673209
+  type: 'test'
+  ...
+# Subtest: real chain adapter reads job existence and the Clock sysvar at finalized commitment
+ok 7 - real chain adapter reads job existence and the Clock sysvar at finalized commitment
+  ---
+  duration_ms: 0.615709
+  type: 'test'
+  ...
+# bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+# Subtest: independent review: a funded job waiting for AI capacity runs without browser polling or restart
+ok 8 - independent review: a funded job waiting for AI capacity runs without browser polling or restart
+  ---
+  duration_ms: 2603.483417
+  type: 'test'
+  ...
+# Subtest: independent review: finishing an unfunded quote also wakes a funded job waiting for shared AI capacity
+ok 9 - independent review: finishing an unfunded quote also wakes a funded job waiting for shared AI capacity
+  ---
+  duration_ms: 1062.733458
+  type: 'test'
+  ...
+# Subtest: independent review: preview bytes cannot change under an unchanged submitted result even if mutable preview metadata changes
+ok 10 - independent review: preview bytes cannot change under an unchanged submitted result even if mutable preview metadata changes
+  ---
+  duration_ms: 875.95675
+  type: 'test'
+  ...
+# Subtest: independent review: credentialed config reads permit the trusted origin with query parameters and reject origin lookalikes
+ok 11 - independent review: credentialed config reads permit the trusted origin with query parameters and reject origin lookalikes
+  ---
+  duration_ms: 54.181583
+  type: 'test'
+  ...
+# Subtest: atomicWrite fully replaces durable bytes with private permissions and no temporary residue
+ok 12 - atomicWrite fully replaces durable bytes with private permissions and no temporary residue
+  ---
+  duration_ms: 33.417666
+  type: 'test'
+  ...
+# Subtest: order mutex serializes one order, releases after failure, and permits independent orders
+ok 13 - order mutex serializes one order, releases after failure, and permits independent orders
+  ---
+  duration_ms: 1.569792
+  type: 'test'
+  ...
+# bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+# Subtest: Ed25519 signature verification rejects a different wallet, message, malformed signature, and noncanonical base64
+ok 14 - Ed25519 signature verification rejects a different wallet, message, malformed signature, and noncanonical base64
+  ---
+  duration_ms: 1.968833
+  type: 'test'
+  ...
+# Subtest: challenge binds buyer, order, domain, download purpose, expiry, and fresh nonce
+ok 15 - challenge binds buyer, order, domain, download purpose, expiry, and fresh nonce
+  ---
+  duration_ms: 0.169334
+  type: 'test'
+  ...
+# bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+# Subtest: runtime Responses requests use strict structured specification/copy schemas and persist provider identifiers
+ok 16 - runtime Responses requests use strict structured specification/copy schemas and persist provider identifiers
+  ---
+  duration_ms: 19.672333
+  type: 'test'
+  ...
+# Subtest: runtime Image Edits sends the original image and explicit identity-preserving prompt, never just a resize
+ok 17 - runtime Image Edits sends the original image and explicit identity-preserving prompt, never just a resize
+  ---
+  duration_ms: 1.7185
+  type: 'test'
+  ...
+# Subtest: recorded Responses IDs resume with GET and never issue a new POST
+ok 18 - recorded Responses IDs resume with GET and never issue a new POST
+  ---
+  duration_ms: 1.124834
+  type: 'test'
+  ...
+# Subtest: provider timeouts and server errors retain unknown completion and never blindly repeat chargeable POSTs
+ok 19 - provider timeouts and server errors retain unknown completion and never blindly repeat chargeable POSTs
+  ---
+  duration_ms: 23.489125
+  type: 'test'
+  ...
+# Subtest: missing credentials, unsupported facts, refusals and invalid images fail without inventing usable outputs
+ok 20 - missing credentials, unsupported facts, refusals and invalid images fail without inventing usable outputs
+  ---
+  duration_ms: 696.551125
+  type: 'test'
+  ...
+# Subtest: source image validation accepts PNG/JPEG/WebP and rejects corrupt, oversized or excessive dimensions
+ok 21 - source image validation accepts PNG/JPEG/WebP and rejects corrupt, oversized or excessive dimensions
+  ---
+  duration_ms: 8.297125
+  type: 'test'
+  ...
+# bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+# Subtest: wallet sign-in binds origin, purpose, wallet, nonce and expiry; valid signatures are single use across restart
+ok 22 - wallet sign-in binds origin, purpose, wallet, nonce and expiry; valid signatures are single use across restart
+  ---
+  duration_ms: 282.189
+  type: 'test'
+  ...
+# Subtest: session origin/CSRF and exact buyer ownership protect quotes, history, details and previews; logout revokes the cookie
+ok 23 - session origin/CSRF and exact buyer ownership protect quotes, history, details and previews; logout revokes the cookie
+  ---
+  duration_ms: 447.413291
+  type: 'test'
+  ...
+# Subtest: expired nonce and session fail closed; wallet change rotates the previous session
+ok 24 - expired nonce and session fail closed; wallet change rotates the previous session
+  ---
+  duration_ms: 171.057375
+  type: 'test'
+  ...
+# Subtest: credentialed CORS is restricted to the exact configured origin and exposes no provider credentials
+ok 25 - credentialed CORS is restricted to the exact configured origin and exposes no provider credentials
+  ---
+  duration_ms: 32.910583
+  type: 'test'
+  ...
+# bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+# Subtest: V2 quote commits original input, fixed specification and exact versioned terms before funding
+ok 26 - V2 quote commits original input, fixed specification and exact versioned terms before funding
+  ---
+  duration_ms: 481.516542
+  type: 'test'
+  ...
+# Subtest: multipart V2 accepts a multibyte brief at the character limit and rejects excess characters before AI execution
+ok 27 - multipart V2 accepts a multibyte brief at the character limit and rejects excess characters before AI execution
+  ---
+  duration_ms: 317.54275
+  type: 'test'
+  ...
+# Subtest: mismatched parties, mint, amount, deadline, vault and every V2 commitment reject finalized funding
+ok 28 - mismatched parties, mint, amount, deadline, vault and every V2 commitment reject finalized funding
+  ---
+  duration_ms: 1532.636292
+  type: 'test'
+  ...
+# Subtest: complete pack is durable and byte committed before provider submission; private bundle passes system unzip CRC checks
+ok 29 - complete pack is durable and byte committed before provider submission; private bundle passes system unzip CRC checks
+  ---
+  duration_ms: 1174.600083
+  type: 'test'
+  ...
+# Subtest: preview metadata, file bytes and source mapping must agree with the frozen manifest for review and download
+ok 30 - preview metadata, file bytes and source mapping must agree with the frozen manifest for review and download
+  ---
+  duration_ms: 966.820291
+  type: 'test'
+  ...
+# Subtest: finalized release and exact manifest gate single-use downloads; cross-wallet, replay and restart do not regenerate outputs
+ok 31 - finalized release and exact manifest gate single-use downloads; cross-wallet, replay and restart do not regenerate outputs
+  ---
+  duration_ms: 786.926208
+  type: 'test'
+  ...
+# Subtest: unknown image completion survives restart without a second chargeable attempt; refund remains visible from Funded
+ok 32 - unknown image completion survives restart without a second chargeable attempt; refund remains visible from Funded
+  ---
+  duration_ms: 194.239834
+  type: 'test'
+  ...
+# Subtest: durable pending stage can reconcile a recorded response ID; completed listing is reused after restart
+ok 33 - durable pending stage can reconcile a recorded response ID; completed listing is reused after restart
+  ---
+  duration_ms: 679.422458
+  type: 'test'
+  ...
+# Subtest: missing or tampered committed artifacts and changed onchain result fail closed without regeneration
+ok 34 - missing or tampered committed artifacts and changed onchain result fail closed without regeneration
+  ---
+  duration_ms: 653.515917
+  type: 'test'
+  ...
+# Subtest: submitted packs can refund; stalled funded jobs never generate and expire at the actual chain deadline
+ok 35 - submitted packs can refund; stalled funded jobs never generate and expire at the actual chain deadline
+  ---
+  duration_ms: 710.771
+  type: 'test'
+  ...
+# Subtest: copy guard rejects substring numeric claims and negative instructions; unsafe bundle paths are refused
+ok 36 - copy guard rejects substring numeric claims and negative instructions; unsafe bundle paths are refused
+  ---
+  duration_ms: 0.264
+  type: 'test'
+  ...
+# bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+# Subtest: quote persists one PNG and binds finalized chain time; metadata exposes no private files
+ok 37 - quote persists one PNG and binds finalized chain time; metadata exposes no private files
+  ---
+  duration_ms: 262.306333
+  type: 'test'
+  ...
+# Subtest: upload rejects invalid PNG, oversize data, unsafe dimensions, bad buyer, and unexpected multipart fields
+ok 38 - upload rejects invalid PNG, oversize data, unsafe dimensions, bad buyer, and unexpected multipart fields
+  ---
+  duration_ms: 74.0745
+  type: 'test'
+  ...
+# Subtest: claimed transaction signature never substitutes for a finalized job and deposit
+ok 39 - claimed transaction signature never substitutes for a finalized job and deposit
+  ---
+  duration_ms: 127.881
+  type: 'test'
+  ...
+# Subtest: finalized quote and vault mismatches reject processing; a harmless surplus does not block conversion
+ok 40 - finalized quote and vault mismatches reject processing; a harmless surplus does not block conversion
+  ---
+  duration_ms: 761.753834
+  type: 'test'
+  ...
+# Subtest: real PNG produces persisted original WebP before a visibly watermarked preview is advertised
+ok 41 - real PNG produces persisted original WebP before a visibly watermarked preview is advertised
+  ---
+  duration_ms: 310.516125
+  type: 'test'
+  ...
+# Subtest: private download requires finalized release and original-buyer signature; nonce consumption survives restart
+ok 42 - private download requires finalized release and original-buyer signature; nonce consumption survives restart
+  ---
+  duration_ms: 382.8835
+  type: 'test'
+  ...
+# Subtest: public challenge requests preserve a pending buyer signature and never extend its expiry
+ok 43 - public challenge requests preserve a pending buyer signature and never extend its expiry
+  ---
+  duration_ms: 277.014
+  type: 'test'
+  ...
+# Subtest: expired and cross-order challenges cannot authorize downloads; RPC outage fails closed
+ok 44 - expired and cross-order challenges cannot authorize downloads; RPC outage fails closed
+  ---
+  duration_ms: 622.019959
+  type: 'test'
+  ...
+# Subtest: startup discovers finalized funding without notification and resumes durable conversion
+ok 45 - startup discovers finalized funding without notification and resumes durable conversion
+  ---
+  duration_ms: 204.367667
+  type: 'test'
+  ...
+# Subtest: deterministic stall never converts across restart and reconciles a fixture refund
+ok 46 - deterministic stall never converts across restart and reconciles a fixture refund
+  ---
+  duration_ms: 91.515583
+  type: 'test'
+  ...
+# Subtest: CORS permits configured frontend and exposes no permissive credentialed origin
+ok 47 - CORS permits configured frontend and exposes no permissive credentialed origin
+  ---
+  duration_ms: 14.065041
+  type: 'test'
+  ...
+# bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+# Subtest: job IDs have a canonical non-ambiguous representation and are bound to the buyer
+ok 48 - job IDs have a canonical non-ambiguous representation and are bound to the buyer
+  ---
+  duration_ms: 1.334792
+  type: 'test'
+  ...
+# Subtest: job decoding verifies program ownership, correct PDA, and finalized commitment
+ok 49 - job decoding verifies program ownership, correct PDA, and finalized commitment
+  ---
+  duration_ms: 3.45575
+  type: 'test'
+  ...
+# Subtest: chain time comes from finalized Clock sysvar bytes, with no wall-clock fallback
+ok 50 - chain time comes from finalized Clock sysvar bytes, with no wall-clock fallback
+  ---
+  duration_ms: 0.421459
+  type: 'test'
+  ...
+# Subtest: recovery uses recorded buyer/mint and canonical ATA at exact expiry, without merchant endpoints
+ok 51 - recovery uses recorded buyer/mint and canonical ATA at exact expiry, without merchant endpoints
+  ---
+  duration_ms: 6.588167
+  type: 'test'
+  ...
+# Subtest: early refunds and nonbuyer recovery fail before a transaction is built
+ok 52 - early refunds and nonbuyer recovery fail before a transaction is built
+  ---
+  duration_ms: 2.47625
+  type: 'test'
+  ...
+# Subtest: approval is allowed before expiry and blocked at equality; destination follows recorded merchant
+ok 53 - approval is allowed before expiry and blocked at equality; destination follows recorded merchant
+  ---
+  duration_ms: 2.510333
+  type: 'test'
+  ...
+# Subtest: terminal jobs cannot be approved or refunded again by the shared client
+ok 54 - terminal jobs cannot be approved or refunded again by the shared client
+  ---
+  duration_ms: 2.579708
+  type: 'test'
+  ...
+# bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+# Subtest: SDK preserves the broadcast signature and recovery address when confirmation fails
+ok 55 - SDK preserves the broadcast signature and recovery address when confirmation fails
+  ---
+  duration_ms: 55.567333
+  type: 'test'
+  ...
+# bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+# Subtest: independent review: approval binds the displayed copy and validation bytes to the submitted manifest
+ok 56 - independent review: approval binds the displayed copy and validation bytes to the submitted manifest
+  ---
+  duration_ms: 47.37425
+  type: 'test'
+  ...
+# Subtest: independent review: valid-looking changed specification cannot retain the accepted terms commitment
+ok 57 - independent review: valid-looking changed specification cannot retain the accepted terms commitment
+  ---
+  duration_ms: 10.590875
+  type: 'test'
+  ...
+# Subtest: independent review: another submitted result or a duplicated manifest path cannot be approved
+ok 58 - independent review: another submitted result or a duplicated manifest path cannot be approved
+  ---
+  duration_ms: 6.415458
+  type: 'test'
+  ...
+# Subtest: independent review: downloaded ZIP rejects a valid-CRC substituted payload, hidden file, trailing data or altered directory
+ok 59 - independent review: downloaded ZIP rejects a valid-CRC substituted payload, hidden file, trailing data or altered directory
+  ---
+  duration_ms: 7.235584
+  type: 'test'
+  ...
+# Subtest: independent review: browser refuses substituted preview bytes, dimensions, source roles and animated containers
+ok 60 - independent review: browser refuses substituted preview bytes, dimensions, source roles and animated containers
+  ---
+  duration_ms: 6.458
+  type: 'test'
+  ...
+# Subtest: connections sharing an RPC origin serialize requests and release the queue after failure
+ok 61 - connections sharing an RPC origin serialize requests and release the queue after failure
+  ---
+  duration_ms: 32.099875
+  type: 'test'
+  ...
+# Subtest: 429 retry honors Retry-After and preserves signed transaction bytes and destination
+ok 62 - 429 retry honors Retry-After and preserves signed transaction bytes and destination
+  ---
+  duration_ms: 1.189209
+  type: 'test'
+  ...
+# Subtest: retries are bounded and non-rate-limit failures are returned unchanged
+ok 63 - retries are bounded and non-rate-limit failures are returned unchanged
+  ---
+  duration_ms: 2.417
+  type: 'test'
+  ...
+# Subtest: long server cooldowns fail promptly without oversized timers or new requests
+ok 64 - long server cooldowns fail promptly without oversized timers or new requests
+  ---
+  duration_ms: 0.69625
+  type: 'test'
+  ...
+# Subtest: overflowing cooldown headers cannot poison subsequent healthy requests
+ok 65 - overflowing cooldown headers cannot poison subsequent healthy requests
+  ---
+  duration_ms: 0.297167
+  type: 'test'
+  ...
+# Subtest: invalid pacing values are rejected before any request is sent
+ok 66 - invalid pacing values are rejected before any request is sent
+  ---
+  duration_ms: 0.194417
+  type: 'test'
+  ...
+# bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+# Subtest: canonical JSON sorts by code units, preserves arrays and exact strings, and rejects ambiguous values
+ok 67 - canonical JSON sorts by code units, preserves arrays and exact strings, and rejects ambiguous values
+  ---
+  duration_ms: 2.283917
+  type: 'test'
+  ...
+# Subtest: terms binary encoding matches Rust/Python vector and commits each agreement field
+ok 68 - terms binary encoding matches Rust/Python vector and commits each agreement field
+  ---
+  duration_ms: 3.675417
+  type: 'test'
+  ...
+# Subtest: V2 decoding uses its own layout/PDA and verifies recomputed terms from finalized RPC
+ok 69 - V2 decoding uses its own layout/PDA and verifies recomputed terms from finalized RPC
+  ---
+  duration_ms: 2.905542
+  type: 'test'
+  ...
+# Subtest: decoder rejects unsupported schema, tampered terms, truncation, foreign owner and executable account
+ok 70 - decoder rejects unsupported schema, tampered terms, truncation, foreign owner and executable account
+  ---
+  duration_ms: 4.027333
+  type: 'test'
+  ...
+# Subtest: funding requires trusted provider, exact specification/terms and an unexpired quote
+ok 71 - funding requires trusted provider, exact specification/terms and an unexpired quote
+  ---
+  duration_ms: 3.698083
+  type: 'test'
+  ...
+# Subtest: submission requires recorded provider, Funded state, nonzero hash and time before expiry
+ok 72 - submission requires recorded provider, Funded state, nonzero hash and time before expiry
+  ---
+  duration_ms: 5.718083
+  type: 'test'
+  ...
+# Subtest: approval requires frozen result commitment, original buyer and time strictly before expiry
+ok 73 - approval requires frozen result commitment, original buyer and time strictly before expiry
+  ---
+  duration_ms: 3.621042
+  type: 'test'
+  ...
+# Subtest: independent recovery auto-detects both V2 pending states at equality using recorded mint and buyer ATA
+ok 74 - independent recovery auto-detects both V2 pending states at equality using recorded mint and buyer ATA
+  ---
+  duration_ms: 6.087917
+  type: 'test'
+  ...
+# Subtest: provider transactions expose exact signed broadcast signature before network I/O
+ok 75 - provider transactions expose exact signed broadcast signature before network I/O
+  ---
+  duration_ms: 9.381584
+  type: 'test'
+  ...
+1..75
+# tests 75
+# suites 0
+# pass 75
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8540.214792

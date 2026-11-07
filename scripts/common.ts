@@ -27,6 +27,7 @@ export async function loadConfig(cluster: 'localnet' | 'devnet'): Promise<Public
     rpcUrl: (cluster === 'devnet' ? process.env.DEVNET_RPC_URL : process.env.LOCAL_RPC_URL)
       || (cluster === 'devnet' ? 'https://api.devnet.solana.com' : 'http://127.0.0.1:8899'),
     programId: addresses.program, mint: addresses.mint, merchant: addresses.merchant,
+    ...(addresses.provider ? { provider: addresses.provider } : {}),
     decimals: 6, amount: '5000000', cluster,
   };
 }

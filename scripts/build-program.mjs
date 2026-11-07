@@ -17,12 +17,13 @@ try {
   }
   copyFileSync(path, resolve(root, 'packages/chain/idl/checkout.json'));
   const sha = path => createHash('sha256').update(readFileSync(resolve(root, path))).digest('hex');
-  const provenance = { builtAt: new Date().toISOString(), programId: addresses.program,
+  const isOsid = idl.instructions.some(i => i.name === 'fund_v2');
+  const provenance = { builtAt: new Date().toISOString(), schemaVersion: isOsid ? 2 : 1, programId: addresses.program,
     anchor: versions.anchor, solana: versions.solana, platformTools: 'v1.56', idlSource: 'anchor idl build',
     binarySha256: sha('target/deploy/checkout.so'), sourceSha256: sha('programs/checkout/src/lib.rs'), cargoLockSha256: sha('Cargo.lock'),
   };
   mkdirSync(resolve(root, 'evidence'), { recursive: true });
-  for (const path of ['.local/build.json', 'evidence/build.json']) {
+  for (const path of ['.local/build.json', isOsid ? 'evidence/osid-build.json' : 'evidence/build.json']) {
     writeFileSync(resolve(root, path), JSON.stringify(provenance, null, 2) + '\n');
   }
   console.log('Program compiled; generated IDL synchronized. Run npm run typecheck before deployment.');

@@ -1,0 +1,16 @@
+{
+  "at": "2026-11-06T23:23:24.192Z",
+  "cluster": "localnet",
+  "genesis": "9Gf7whJU7e2ri5aQBWz3Ph4JmHTuWz7vd4emCmKbHGUq",
+  "programId": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+  "configAddress": "ARLoYWnSHF5jnQzCZRZXZ8AtJyfK5BxikMC1xKeBk6h8",
+  "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+  "mintLabel": "Mock USDC (six decimals; test tokens only)",
+  "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+  "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+  "executable": true,
+  "binarySha256": "b59f0a228e24782e869316201faf17c4e39a7111082065fc42a51d418122e2a0",
+  "onchainArtifactMatch": true,
+  "deploymentOutput": "Existing executable deployment retained.",
+  "initialize": "Already initialized"
+}

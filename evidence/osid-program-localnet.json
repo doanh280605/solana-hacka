@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 2,
+  "at": "2026-11-06T23:21:26.319Z",
+  "genesis": "9Gf7whJU7e2ri5aQBWz3Ph4JmHTuWz7vd4emCmKbHGUq",
+  "config": {
+    "rpcUrl": "http://127.0.0.1:8899",
+    "programId": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+    "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+    "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+    "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+    "decimals": 6,
+    "amount": "5000000",
+    "cluster": "localnet"
+  },
+  "binarySha256": "b59f0a228e24782e869316201faf17c4e39a7111082065fc42a51d418122e2a0",
+  "serialExecution": true,
+  "results": [
+    {
+      "suite": "v1",
+      "log": "evidence/osid-program-v1-localnet.tap",
+      "exitCode": 0,
+      "tests": 17,
+      "passed": 17
+    },
+    {
+      "suite": "v2",
+      "log": "evidence/osid-program-v2-localnet.tap",
+      "exitCode": 0,
+      "tests": 11,
+      "passed": 11
+    },
+    {
+      "suite": "review-v1",
+      "log": "evidence/osid-program-review-v1-localnet.tap",
+      "exitCode": 0,
+      "tests": 11,
+      "passed": 11
+    }
+  ],
+  "passed": true
+}

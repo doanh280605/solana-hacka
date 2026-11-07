@@ -1,42 +1,39 @@
-# Holdfast — draft submission
+# osid — submission draft
 
-## Event and deadlines
+## Product
 
-Verified November 6, 2026 against the [MLH event schedule](https://events.mlh.com/events/15200-solana-hackathon): hacking starts November 6 at 9:00 a.m. Pacific; initial submission November 8 at 7:00 a.m. Pacific; final submission November 8 at 8:45 a.m. Pacific. The [MLH Challenges portal](https://www.mlh.com/events/solana-hackathon) currently reports submissions open and a closing timestamp of November 8 at 18:00 UTC (10 a.m. Pacific), which conflicts with the schedule. Evidence: `evidence/event-portal.json`. Keep the earlier 7:00/8:45 deadlines until organizers clarify. The public portal identifies `/events/solana-hackathon/submissions/new`; the logged-in submission form is unverified. Target a recorded demo and saved draft Saturday, November 7, by 8 p.m. Pacific.
+**Name:** osid
 
-Track: DeFi, for refundable stablecoin payments. Best Beginner is conditional: the event describes teams with more than half first-time hackers; ask organizers whether first-time Solana builders qualify when they have prior hackathon experience. Do not assert eligibility before confirmation.
+**Tagline:** Approve the work. Then release the payment.
 
-## Submission copy
+**Source:** [doanh280605/solana-hacka](https://github.com/doanh280605/solana-hacka), implementation branch `integration/osid-v2`. The verified Holdfast V1 baseline remains commit `eca59b5beb295e9d02fe3f57249b62be09b458f1`.
 
-**Name:** Holdfast
+**Problem:** Small sellers need useful product images and listing copy, but paying an automated service before seeing its work leaves them dependent on the service's refund promise.
 
-**Source:** [github.com/doanh280605/solana-hacka](https://github.com/doanh280605/solana-hacka), public repository; default branch `main`.
+**What it does:** Upload a product photograph and factual brief. Review an AI-interpreted specification with fixed deliverables, price and deadlines. Deposit five mock USDC into Solana escrow. The service edits the source photograph, creates three social exports and grounded listing copy, validates the pack and saves a private ZIP. The provider submits an immutable manifest commitment. The buyer reviews the work and explicitly approves that exact result to release payment. If the buyer has not approved by the chain deadline, the original wallet can refund directly from Solana, including with the API stopped.
 
-**Tagline:** Pay for digital work with a way to get your money back.
+**Deliverables:** One 1600×1600 WebP hero; 1080×1080, 1080×1350 and 1080×1920 social exports; title up to 80 characters, description up to 1200 and five bullets up to 180 each; validation report, canonical manifest and seven-file ZIP. Watermarked review previews are separately bound to the result commitment.
 
-**Problem:** A small automated merchant can charge a buyer and then fail to deliver. A refund promise is weak when the merchant's server is offline.
+**Why AI:** The running worker has a server-side OpenAI adapter for structured specification interpretation, source-photo editing and listing copy. It treats the seller brief as untrusted data and forbids invented specifications, prices, certifications and unsupported claims. Deterministic resizing derives the social exports from the AI edit. AI output still needs human review. **Live verification is currently pending credentials; fixture tests must not be described as live AI.**
 
-**What it does:** A buyer uploads a PNG and deposits five mock USDC into a Solana program vault. The worker verifies finalized funding, converts the file, and saves the original before showing a watermarked preview. Only the buyer can approve payment to the recorded merchant before expiry. If the job stalls or approval never happens, the buyer can recover the deposit at the chain deadline using a separate recovery page, even with the merchant API stopped.
+**Why Solana:** Additive V2 accounts enforce the parties, mint, exact integer amount, quote and execution deadlines, input/specification commitments, dedicated provider submission, buyer approval of the frozen result and original-buyer timeout refund. Funded and Submitted both permit refunds at expiry. Retained Released/Refunded records prevent replay. The recovery route uses trusted compiled configuration and direct RPC without application authentication or merchant API access.
 
-**Why Solana:** The vault, buyer consent, recipient, integer token amount, deadline and permanent terminal state are enforced together on chain. The recovery client reads the program directly and sends a buyer-signed refund without asking the merchant for permission. The UI shows buyer, merchant and vault balances and links real transactions.
+**Implementation:** Anchor/Rust escrow, TypeScript client and versioned IDL, React/Vite landing/demo/workspace/recovery, Fastify worker, signed wallet sessions, durable attempts and private artifacts, deterministic validation and ZIP creation, independent single-use download signatures. V1 instructions and account layouts remain compatible. Provider keys stay server-side; buyer and upgrade-authority keys never enter the worker.
 
-**Implementation:** Rust/Anchor program, legacy SPL Token mock stablecoin, TypeScript client, React/Vite checkout and recovery page, Node/Fastify worker, sharp PNG-to-WebP conversion, durable local storage, and expiring single-use Ed25519 download challenges.
+**What is distinctive:** A focused seller workflow joins explicit measurable commitments, buyer review, exact settlement and API-independent recovery. This is not a claim to be the first AI payment, escrow or agent marketplace on Solana.
 
-**Trust and limitations:** The program secures payment rules; conversion and delivery still depend on the merchant and durable storage. The demo token has a disposable mint authority and no monetary value. The deployed program remains upgradeable by the disposable deployment wallet. This is a hackathon prototype, not an audited production payment system. Job/vault rent is retained to preserve replay protection; accidental extra vault tokens remain locked. Use one worker process per storage directory.
+## Evidence and limits
 
-**Evidence:** [Deployed program](https://explorer.solana.com/address/7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY?cluster=devnet), [browser payment release](https://explorer.solana.com/tx/2KoexF5XBk6g66r1rHvSTh9XW71hTycDB5ngYGiwPh4FwaBvpZch5XkHhWbgzpPLQgq8kgJPxWT5en3mDHcBUMoJ?cluster=devnet), [browser API-offline refund](https://explorer.solana.com/tx/Yf3vqNYDdueKTapA9T8TPSANAWJxmSuydXsEPNJKDh3MVaz1h9NdmSnPMWdzLvWt86Kx9a7NWxh3pTrnXhTg9Ah?cluster=devnet). All three Devnet rehearsals pass, including real PNG conversion, persisted original, signed private download, restart/reload recovery and exact five-token settlement. [Full status and balance evidence](STATUS.md). The browser uses an injected disposable test wallet; the Phantom extension was not manually verified.
+Use [current status](STATUS.md), [completion audit](COMPLETION-AUDIT.md), [independent review](OSID-REVIEW.md) and the new `evidence/osid-*` records for actual results. Files without the osid prefix and the [V1 submission](HOLDFAST-V1-SUBMISSION.md) are historical; they do not establish V2 or live AI. [Demo script](DEMO.md).
 
-**Learning / challenges:** Learned PDA-controlled SPL token custody, atomic settlement, finalized chain reconciliation, independent expiry recovery, and signed digital delivery. The build required aligning the Anchor compiler, SBF toolchain, generated IDL and TypeScript ABI. Edit this paragraph with the participant's own learning experience before submission.
+Mock USDC has no monetary value. This is an upgradeable, unaudited Devnet prototype. Hashes bind agreement and artifact bytes; they do not prove subjective quality, factual accuracy or cryptographic fair exchange. Files depend on storage availability. There is no arbitration, automatic refund, provider bond, autonomous spending or general marketplace. Run one worker per storage directory. Program/vault rent and accidental surplus remain locked. Phantom-extension behavior is unverified when evidence uses the injected test wallet.
 
-**AI disclosure:** OpenAI Codex coordinated the build, delegated program/worker/frontend work, generated and reviewed code, ran verification, and drafted documentation. The frontend-design skill supplied UI guidance. Participant must review this description and add any other AI tools actually used. No AI service is part of the PNG conversion product.
+## AI-use disclosure
 
-## Participant actions before submission
+OpenAI Codex coordinated implementation, used separate frontend/service/protocol agents and an independent review agent, generated and reviewed code, ran tests and drafted documentation. The frontend-design skill informed visual design. The assistant image-generation tool created the clearly labeled synthetic sample candle photographs; those assets are not worker runtime AI evidence. The application's separate OpenAI provider adapter performs specification, image-edit and copy tasks when configured. Fixture mode performs no live AI. The participant should review this disclosure and add any other tools actually used.
 
-The [MLH standard rules](https://github.com/MLH/mlh-policies/blob/main/standard-hackathon-rules.md) allow AI assistance with disclosure. Their digital-event section requests a public demo video no longer than two minutes, beginning with the hackathon name; code and video must remain public for prize eligibility. Event-specific organizer instructions take precedence.
+## Schedule and participant actions
 
-1. Confirm registration and team details in your MLH account; inspect the actual logged-in submission fields.
-2. Review the verified Devnet links above, the short demo script, and the [113.92-second captioned Devnet recording](../evidence/demo-devnet-draft.mp4). The recording is silent and discloses its injected wallet and accelerated checkout.
-3. Review/edit the final <=2 minute demo. The prepared recording already opens with the hackathon name; add personal narration if desired. Keep its Devnet, mock-token and test-wallet disclosures.
-4. Source publication is done: the user authorized the push to the public repository linked above. Publish the final video through the participant's account. Final MLH submission remains the participant's action.
-5. Submit initial entry by Sunday 7:00 a.m. Pacific and final updates by 8:45 a.m.; verify the portal marks the entry submitted.
-6. Confirm Best Beginner eligibility with organizers if entering that track.
+Official MLH schedule checked November 6, 2026: initial submission Sunday November 8 at 07:00 Pacific; final submission at 08:45 Pacific. [Official schedule](https://events.mlh.com/events/15200-solana-hackathon). Use these earlier times if another portal disagrees. Target the final demo and draft on Saturday evening; deferred bond work must not delay required verification.
+
+Before submitting: configure and verify live AI; confirm the final V2 evidence and branch commit; review a public demo of no more than two minutes with the event name and accurate mode/network/wallet disclosures; supply registration/team details and participant learning notes; confirm track eligibility and organizer-specific requirements. Source push is authorized, but publishing the video, merging to the default branch, deploying production and submitting the entry are outside this implementation authorization. Nothing has been submitted.

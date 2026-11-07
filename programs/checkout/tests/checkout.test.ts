@@ -12,6 +12,7 @@ import {
   createMint,
   createTransferCheckedInstruction,
   getAccount,
+  getMint,
   getOrCreateAssociatedTokenAccount,
   mintTo,
   TOKEN_PROGRAM_ID,
@@ -43,7 +44,8 @@ test("live checkout: balances, binding, replay protection, consent and expiry", 
     "Set CHECKOUT_TEST_ALLOW_DEVNET=1 explicitly to run against Devnet",
   );
   const payer = await keypair(process.env.ANCHOR_WALLET ?? ".local/keys/deployer.json");
-  const mintSigner = await keypair(process.env.CHECKOUT_MINT_KEYPAIR ?? ".local/keys/mint.json");
+  const mintSigner = process.env.CHECKOUT_TEST_MINT ? null
+    : await keypair(process.env.CHECKOUT_MINT_KEYPAIR ?? ".local/keys/mint.json");
   const connection = new Connection(url, "confirmed");
   // Never send this disposable-token suite to mainnet through a custom RPC.
   if (!/localhost|127\.0\.0\.1/.test(new URL(url).hostname)) {
@@ -61,7 +63,7 @@ test("live checkout: balances, binding, replay protection, consent and expiry", 
   const deployed = await connection.getAccountInfo(programId);
   assert(deployed?.executable, "checkout must be deployed, executable and built from this source");
   assert(deployed.owner.equals(LOADER), "initializer requires an upgradeable deployment");
-  const mint = mintSigner.publicKey;
+  const mint = process.env.CHECKOUT_TEST_MINT ? new PublicKey(process.env.CHECKOUT_TEST_MINT) : mintSigner!.publicKey;
   const buyer = Keypair.generate();
   const merchant = Keypair.generate();
   const attacker = Keypair.generate();
@@ -77,8 +79,12 @@ test("live checkout: balances, binding, replay protection, consent and expiry", 
     ),
   );
   if (!(await connection.getAccountInfo(mint))) {
+    assert(mintSigner, "CHECKOUT_TEST_MINT must already exist; creating a mint requires its real keypair");
     await createMint(connection, payer, payer.publicKey, null, 6, mintSigner);
   }
+  const mintInfo = await getMint(connection, mint);
+  assert.equal(mintInfo.decimals, 6, "test mint must use six decimals");
+  assert(mintInfo.mintAuthority?.equals(payer.publicKey), "test payer must control the existing mock mint authority");
   const wrongMint = await createMint(connection, payer, payer.publicKey, null, 6);
   const wrongDecimalsMint = await createMint(connection, payer, payer.publicKey, null, 9);
   const buyerToken = (await getOrCreateAssociatedTokenAccount(connection, payer, mint, buyer.publicKey)).address;

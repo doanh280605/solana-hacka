@@ -62,6 +62,9 @@ export interface ChainGateway {
   readJob(address: string): Promise<Job | null>;
   readVault(address: string): Promise<VaultSnapshot | null>;
   publicKeyBytes(address: string): Uint8Array;
+  deriveJobV2?(buyer: string, jobId: string): string;
+  validateProviderSigner?(): Promise<void>;
+  submitResult?(jobAddress: string, resultHash: string, persistSigned: (transaction: string, signature: string) => Promise<void>, signedTransaction?: string): Promise<string>;
 }
 
 export interface WorkerSettings {
@@ -70,6 +73,17 @@ export interface WorkerSettings {
   challengeLifetimeSeconds: number;
   challengeDomain: string;
   corsOrigins: string[];
+  aiMode?: 'live' | 'fixture';
+  openaiApiKey?: string;
+  openaiTextModel?: string;
+  openaiImageModel?: string;
+  aiTimeoutMs?: number;
+  quoteLifetimeSeconds?: number;
+  executionLifetimeSeconds?: number;
+  sessionLifetimeSeconds?: number;
+  allowRehearsalStall?: boolean;
+  maxQuotesPerHour?: number;
+  maxConcurrentGenerations?: number;
 }
 
 export const TOKEN_PROGRAM = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA';

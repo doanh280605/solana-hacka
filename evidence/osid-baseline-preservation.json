@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 2,
+  "baselineCommit": "eca59b5beb295e9d02fe3f57249b62be09b458f1",
+  "description": "Historical Holdfast V1 fallback, not osid V2 proof",
+  "binarySha256": "b187779fb9d59c03ed25703d293906cca2612d83ef5896e47c585ef24e0da350",
+  "ignoredLocalBinary": ".local/fallback/holdfast-v1-checkout.so",
+  "source": "Verified baseline source remains in Git history; historical evidence files were preserved.",
+  "newABI": "Additive V2; existing V1 instructions/accounts unchanged."
+}

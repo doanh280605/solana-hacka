@@ -1,0 +1,79 @@
+TAP version 13
+# bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+# Subtest: osid V2 live escrow: immutable commitments, provider submission, exact buyer settlement and both refunds
+    # Subtest: funding rejects invalid amount/deadlines, expired quote and zero commitments
+    ok 1 - funding rejects invalid amount/deadlines, expired quote and zero commitments
+      ---
+      duration_ms: 65.686708
+      type: 'test'
+      ...
+    # Subtest: funding binds exact specification/input/amount/provider/merchant and canonical mint/accounts
+    ok 2 - funding binds exact specification/input/amount/provider/merchant and canonical mint/accounts
+      ---
+      duration_ms: 83.953792
+      type: 'test'
+      ...
+    # Subtest: funding is exact, records immutable commitments and cannot be replayed
+    ok 3 - funding is exact, records immutable commitments and cannot be replayed
+      ---
+      duration_ms: 12.643708
+      type: 'test'
+      ...
+    # Subtest: approval before submission, unauthorized provider, empty submission and early refund reject
+    ok 4 - approval before submission, unauthorized provider, empty submission and early refund reject
+      ---
+      duration_ms: 32.122666
+      type: 'test'
+      ...
+    # Subtest: submission freezes the result and cannot grant buyer/merchant payment privileges
+    ok 5 - submission freezes the result and cannot grant buyer/merchant payment privileges
+      ---
+      duration_ms: 68.633416
+      type: 'test'
+      ...
+    # Subtest: exact approval pays recorded merchant only; surplus and terminal record remain
+    ok 6 - exact approval pays recorded merchant only; surplus and terminal record remain
+      ---
+      duration_ms: 32.224958
+      type: 'test'
+      ...
+    # Subtest: both pending states reject early refund and wrong original buyer
+    ok 7 - both pending states reject early refund and wrong original buyer
+      ---
+      duration_ms: 32.628709
+      type: 'test'
+      ...
+    # Subtest: expiry prevents late provider submission and late buyer approval
+    ok 8 - expiry prevents late provider submission and late buyer approval
+      ---
+      duration_ms: 44.973709
+      type: 'test'
+      ...
+    # Subtest: funded refund returns exact payment and is terminal
+    ok 9 - funded refund returns exact payment and is terminal
+      ---
+      duration_ms: 51.557083
+      type: 'test'
+      ...
+    # Subtest: submitted refund returns exact payment and is terminal
+    ok 10 - submitted refund returns exact payment and is terminal
+      ---
+      duration_ms: 37.605166
+      type: 'test'
+      ...
+    1..10
+ok 1 - osid V2 live escrow: immutable commitments, provider submission, exact buyer settlement and both refunds
+  ---
+  duration_ms: 28030.690416
+  type: 'test'
+  ...
+# {"version":2,"program":"7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY","mint":"4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C","isolatedBuyer":"GtxuwMDR2pJVjpF2j7sDMGYhsuAJZNZEwLuiPxmkRLiq","isolatedMerchant":"2SVcDz62vnVjRxmtPdrP9HD2dweMLqFq5sPJ734jgYfF","isolatedProvider":"ESvBmrJde2keBzb5xYsTYsP9BMKBtVXUYGELAUnpah9C","release":"HAtm65iBvxv4aC9HKykaj7pFjtXLLKoFahz3ry7Ephkk","fundedRefund":"EUfPPxUXqSN8gB7JX9SU2Dk8nh7vkXKZKKeQLdZirLCi","submittedRefund":"HwxPQoK25nvkH8qQDkKiSc7vyt2cf85nn9NXcuANQxT2","signatures":{"fund":"4mLye9m21aJX7BxDJhs1roYdsCHpmeS6wLCTD7av6hf7M2Qq5vTHVCUD2PKKKnLm82sQs2TcEHu3veyysG9x8hKA","submit":"2GH7r96oM89GXvTthY4thUWoeNTMPFYvMCMmxgCcZg7gUG1RZ32f5eHVLDjz5FhJzn95n6qs8e4bmxyTB8EPrDG6","approve":"idqFGc426njhzygsJmL92Q52veE1M7yywxX6P2QiW9gDzvtRXiYVc3q6gv9Gg3vt4VyZHmxZozckZrXizwK7uYX","fundRefund":"43cNHKYfK4bPLsPzTu5azYMCWWhggZgg4nMf8H22auwPFxhZG5ynjErRnVBUwSsheZbc522sofTw97YxPt3ShLjA","fundSubmittedRefund":"qWRNigvG3bofEK5dKqrzd7H72VNGWZRx2q1Zsq5qzNEW1mcinA9JkZLn8FSKWcBYoM1M4MXfRvCNK1WDXHL26eL","submitRefund":"5JABNdcaPq3SUa9W1NYJv5BnfJUNCrepQyynxT7z25knE5oKAt6FD6eixDASdq27AArqKYoj7Urjap4CCmWFyexb","fundedRefund":"4DKxSx38mearufYaXQFRHxaYTBGyVZWzyLsdiYGv8Pk5LzReESNbSH4ccsGuuLJhuyWx59mQjDpfD3FjC4gBTmt2","submittedRefund":"3sH9sVrWK3TS85tXY7CE7Ps85wLFtZNuPAXMd3Qt4gutMhBu3AmjjZTt8TeKNNbTGeFrWhjyyNdDkp5zaxGpXws"}}
+1..1
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 28806.538083

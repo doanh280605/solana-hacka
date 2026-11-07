@@ -3,6 +3,10 @@ import Fastify, { type FastifyInstance } from 'fastify';
 import { HttpError } from './errors.js';
 import { WorkerService } from './service.js';
 import { MAX_UPLOAD_BYTES, type ChainGateway, type WorkerSettings } from './types.js';
+import { WalletAuth } from './auth.js';
+import { ProductService } from './v2-service.js';
+import { registerV2Routes } from './v2-routes.js';
+import type { AiProvider } from './ai.js';
 
 function objectBody(value: unknown): Record<string, unknown> {
   if (!value || typeof value !== 'object' || Array.isArray(value)) throw new HttpError(400, 'Request body must be a JSON object');
@@ -12,15 +16,19 @@ function objectBody(value: unknown): Record<string, unknown> {
 export interface WorkerApp {
   app: FastifyInstance;
   service: WorkerService;
+  productService: ProductService;
 }
 
 export async function createWorker(options: {
   chain: ChainGateway;
   settings: WorkerSettings;
   logger?: boolean;
+  ai?: AiProvider;
 }): Promise<WorkerApp> {
   const app = Fastify({ logger: options.logger ?? true, bodyLimit: MAX_UPLOAD_BYTES + 65536 });
   const service = new WorkerService(options.chain, options.settings, (error, message) => app.log.error({ err: error }, message));
+  const productService = new ProductService(options.chain, options.settings, (error, message) => app.log.error({ err: error }, message), options.ai);
+  const auth = new WalletAuth(options.chain, options.settings);
   await app.register(multipart, {
     limits: { fileSize: MAX_UPLOAD_BYTES, files: 1, fields: 2, parts: 3, fieldSize: 128 },
     throwFileSizeLimit: true,
@@ -35,6 +43,10 @@ export async function createWorker(options: {
       reply.header('Vary', 'Origin');
       reply.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
       reply.header('Access-Control-Allow-Headers', 'Content-Type');
+      if (request.url.split('?')[0] === '/api/config' || request.url.startsWith('/api/v2/') || request.url.startsWith('/api/auth/')) {
+        reply.header('Access-Control-Allow-Credentials', 'true');
+        reply.header('Access-Control-Allow-Headers', 'Content-Type, X-Osid-CSRF');
+      }
       reply.header('Access-Control-Max-Age', '600');
     }
   });
@@ -52,6 +64,7 @@ export async function createWorker(options: {
 
   app.get('/health', async () => ({ ok: true }));
   app.get('/api/config', async () => options.chain.config);
+  registerV2Routes(app, auth, productService);
 
   app.post('/api/orders', async (request, reply) => {
     if (!request.isMultipart()) throw new HttpError(415, 'Upload buyer, mode, and one PNG as multipart form data');
@@ -100,7 +113,9 @@ export async function createWorker(options: {
     reply.header('Content-Disposition', `attachment; filename="holdfast-${request.params.jobId}.webp"`);
     return reply.type('image/webp').send(bytes);
   });
-  app.addHook('onClose', async () => service.close());
+  app.addHook('onClose', async () => { await Promise.all([service.close(), productService.close()]); });
+  await auth.initialize();
   await service.initialize();
-  return { app, service };
+  await productService.initialize();
+  return { app, service, productService };
 }

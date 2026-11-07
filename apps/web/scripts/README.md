@@ -1,4 +1,18 @@
-# Draft recordings
+# Browser evidence and draft recordings
+
+For osid V2, use the lead-owned `scripts/osid-ui-rehearse.ts` harness. It checks the landing page, labeled demo, sign-in, versioned workspace, buyer approval, manifest-verified ZIP and API-offline recovery. Run shared-wallet rehearsals sequentially:
+
+```sh
+npx tsx scripts/osid-ui-rehearse.ts localnet --fixture --smoke
+npx tsx scripts/osid-ui-rehearse.ts localnet --fixture
+npx tsx scripts/osid-ui-rehearse.ts devnet
+```
+
+Fixture runs are explicitly labeled and do not prove live AI. Live runs require existing server-side AI credentials. The injected test-wallet harness is separate from actual Phantom extension testing. See root setup/evidence documentation for current prerequisites and output paths.
+
+The renderer and commands below describe historical **Holdfast V1** recordings. They are preserved as fallback evidence and do not verify osid V2. Do not relabel those videos or transaction records as V2.
+
+## Historical V1 draft recordings
 
 The browser harness records real transactions with a disposable wallet injected only by the Node test process. It never puts the private key in the browser. A passing run writes `evidence/ui-<cluster>.json`, screenshots and the raw checkout/recovery videos. The Phantom extension remains a separate manual check.
 

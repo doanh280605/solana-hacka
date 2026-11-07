@@ -10,6 +10,6 @@
     "@solana/web3.js": "1.98.4",
     "@solana/spl-token": "0.4.14",
     "buffer": "6.0.3",
-    "bn.js": "5.2.2"
+    "bn.js": "5.2.5"
   }
 }
