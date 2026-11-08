@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 2,
+  "at": "2026-11-07T19:51:53.172Z",
+  "observations": [
+    "Previously accepted live result expired after an RPC interruption",
+    "20261107093706674-b1ccb0 quote expired before any funding signature",
+    "During 20261107170326313-63ea60 short local reads/waits spanned large wall-clock gaps; image completion became uncertain despite a temporary sleep assertion"
+  ],
+  "cause": "Observed host/execution scheduling delay; exact cause not established.",
+  "temporaryAssertion": {
+    "pid": 43131,
+    "entry": "/usr/bin/caffeinate",
+    "arguments": [
+      "-i",
+      "-s",
+      "-t",
+      "21600"
+    ],
+    "startedAt": "2026-11-07T17:02:38.617Z",
+    "purpose": "Temporary osid verification idle/system sleep assertion; automatic six-hour limit"
+  },
+  "request": "User asked asynchronously to keep the Mac awake, lid open and online for an uninterrupted10minutes before another paid generation run.",
+  "generationRetryPolicy": "No new chargeable attempts while waiting for that required operating condition; uncertain image attempt retained for reconciliation."
+}

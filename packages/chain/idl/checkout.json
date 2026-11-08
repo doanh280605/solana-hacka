@@ -46,6 +46,54 @@
       "args": []
     },
     {
+      "name": "approve_v2",
+      "discriminator": [
+        25,
+        109,
+        235,
+        212,
+        242,
+        64,
+        202,
+        253
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "signer": true
+        },
+        {
+          "name": "job",
+          "writable": true
+        },
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "merchant_token",
+          "writable": true
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "result_hash",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        }
+      ]
+    },
+    {
       "name": "fund",
       "discriminator": [
         218,
@@ -114,6 +162,112 @@
         {
           "name": "expires_at",
           "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "fund_v2",
+      "docs": [
+        "Additive V2 funding: V1 accounts and instruction encodings remain unchanged."
+      ],
+      "discriminator": [
+        73,
+        84,
+        71,
+        79,
+        241,
+        21,
+        68,
+        30
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "merchant"
+        },
+        {
+          "name": "provider"
+        },
+        {
+          "name": "config"
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "buyer_token",
+          "writable": true
+        },
+        {
+          "name": "merchant_token"
+        },
+        {
+          "name": "job",
+          "writable": true
+        },
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "system_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "job_id",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "expires_at",
+          "type": "i64"
+        },
+        {
+          "name": "quote_expires_at",
+          "type": "i64"
+        },
+        {
+          "name": "input_hash",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "spec_hash",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "terms_hash",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
         }
       ]
     },
@@ -195,6 +349,81 @@
         }
       ],
       "args": []
+    },
+    {
+      "name": "refund_v2",
+      "discriminator": [
+        31,
+        65,
+        178,
+        189,
+        90,
+        76,
+        189,
+        145
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "signer": true
+        },
+        {
+          "name": "job",
+          "writable": true
+        },
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "buyer_token",
+          "writable": true
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "submit_v2",
+      "docs": [
+        "A single immutable manifest commitment. This does not certify AI quality."
+      ],
+      "discriminator": [
+        118,
+        232,
+        110,
+        199,
+        201,
+        65,
+        201,
+        253
+      ],
+      "accounts": [
+        {
+          "name": "provider",
+          "signer": true
+        },
+        {
+          "name": "job",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "result_hash",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        }
+      ]
     }
   ],
   "accounts": [
@@ -222,6 +451,19 @@
         180,
         202,
         80
+      ]
+    },
+    {
+      "name": "JobV2",
+      "discriminator": [
+        229,
+        9,
+        65,
+        241,
+        0,
+        64,
+        233,
+        230
       ]
     }
   ],
@@ -285,6 +527,51 @@
       "code": 6011,
       "name": "UnsafeVault",
       "msg": "A vault must not have a delegate or alternate close authority"
+    },
+    {
+      "code": 6012,
+      "name": "UnauthorizedProvider",
+      "msg": "Only the recorded provider may submit a result"
+    },
+    {
+      "code": 6013,
+      "name": "EmptyCommitment",
+      "msg": "Commitments must be nonzero SHA-256 hashes"
+    },
+    {
+      "code": 6014,
+      "name": "TermsMismatch",
+      "msg": "Terms commitment does not match the bound V2 job fields"
+    },
+    {
+      "code": 6015,
+      "name": "QuoteExpired",
+      "msg": "The funding quote has expired"
+    },
+    {
+      "code": 6016,
+      "name": "AlreadySubmitted",
+      "msg": "The provider has already submitted or this job is terminal"
+    },
+    {
+      "code": 6017,
+      "name": "NotSubmitted",
+      "msg": "The provider must submit a result before buyer approval"
+    },
+    {
+      "code": 6018,
+      "name": "ResultMismatch",
+      "msg": "Approval must bind the exact submitted result commitment"
+    },
+    {
+      "code": 6019,
+      "name": "InvalidVersion",
+      "msg": "Unsupported job schema version"
+    },
+    {
+      "code": 6020,
+      "name": "InvalidProvider",
+      "msg": "Provider public key must be nonzero"
     }
   ],
   "types": [
@@ -371,6 +658,134 @@
         "variants": [
           {
             "name": "Funded"
+          },
+          {
+            "name": "Released"
+          },
+          {
+            "name": "Refunded"
+          }
+        ]
+      }
+    },
+    {
+      "name": "JobV2",
+      "docs": [
+        "Separate account/discriminator, layout and state enum preserve all V1 bytes."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "schema_version",
+            "type": "u16"
+          },
+          {
+            "name": "buyer",
+            "type": "pubkey"
+          },
+          {
+            "name": "merchant",
+            "type": "pubkey"
+          },
+          {
+            "name": "provider",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "job_id",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "expires_at",
+            "type": "i64"
+          },
+          {
+            "name": "quote_expires_at",
+            "type": "i64"
+          },
+          {
+            "name": "input_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "spec_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "terms_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "result_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "submitted_at",
+            "type": "i64"
+          },
+          {
+            "name": "state",
+            "type": {
+              "defined": {
+                "name": "JobV2State"
+              }
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "vault_bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "JobV2State",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Funded"
+          },
+          {
+            "name": "Submitted"
           },
           {
             "name": "Released"

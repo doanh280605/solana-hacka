@@ -1,0 +1,15 @@
+
+> @holdfast/web@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 287 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.82 kB │ gzip:   0.43 kB
+dist/assets/index-Dw9Ip2qC.css   38.37 kB │ gzip:   8.24 kB
+dist/assets/index-Bsolg3Aj.js    80.55 kB │ gzip:  25.89 kB
+dist/assets/react-Bo3Ei6Pf.js   184.62 kB │ gzip:  58.18 kB
+dist/assets/solana-BD0MfaLc.js  401.09 kB │ gzip: 115.54 kB
+✓ built in 903ms

@@ -12,11 +12,13 @@ export function base58(bytes) {
   for (const byte of bytes) { if (byte !== 0) break; result = '1' + result; }
   return result;
 }
-export function ensureKeys() {
+export function ensureKeys(roles = ['deployer', 'program', 'mint', 'merchant', 'buyer', 'attacker', 'provider', 'osidbuyer', 'osidattacker']) {
   const directory = resolve(root, '.local/keys');
   mkdirSync(directory, { recursive: true, mode: 0o700 });
-  const addresses = {};
-  for (const role of ['deployer', 'program', 'mint', 'merchant', 'buyer', 'attacker']) {
+  const addressFile = resolve(root, '.local/addresses.json');
+  const addresses = existsSync(addressFile) ? JSON.parse(readFileSync(addressFile, 'utf8')) : {};
+  for (const role of roles) {
+    if (!/^[a-z]+$/.test(role)) throw new Error('Invalid disposable key role');
     const path = resolve(directory, `${role}.json`);
     if (!existsSync(path)) {
       const { privateKey, publicKey } = generateKeyPairSync('ed25519');

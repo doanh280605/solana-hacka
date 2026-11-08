@@ -8,6 +8,9 @@ export function validateConfig(value: unknown): PublicConfig {
   for (const field of ['programId', 'mint', 'merchant'] as const) {
     try { new PublicKey(config[field]); } catch { throw new Error(`Invalid public ${field} configuration.`); }
   }
+  if (config.provider) {
+    try { new PublicKey(config.provider); } catch { throw new Error('Invalid public provider configuration.'); }
+  }
   const rpc = new URL(config.rpcUrl);
   if (!['http:', 'https:'].includes(rpc.protocol)) throw new Error('RPC must use HTTP or HTTPS.');
   if (config.cluster !== 'localnet' && config.cluster !== 'devnet') throw new Error('Use localnet or Devnet test configuration.');
@@ -22,6 +25,7 @@ export function compiledConfig(): { config: PublicConfig | null; error: string |
       programId: import.meta.env.VITE_PROGRAM_ID,
       mint: import.meta.env.VITE_MINT,
       merchant: import.meta.env.VITE_MERCHANT,
+      provider: import.meta.env.VITE_PROVIDER || undefined,
       cluster: import.meta.env.VITE_CLUSTER || 'devnet',
       decimals: 6,
       amount: '5000000',

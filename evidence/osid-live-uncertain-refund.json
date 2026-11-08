@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 2,
+  "startedAt": "2026-11-07T19:50:15.161Z",
+  "config": {
+    "rpcUrl": "https://api.devnet.solana.com",
+    "programId": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+    "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+    "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+    "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+    "decimals": 6,
+    "amount": "5000000",
+    "cluster": "devnet"
+  },
+  "source": "evidence/osid-live-ai-uncertain.json",
+  "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+  "passed": true,
+  "scope": "Original buyer timeout refund of an immutable Funded or Submitted live-AI test job rejected before payment approval.",
+  "transport": "Direct Solana SDK/RPC. Health probes below only establish that both merchant listeners are offline; refund authorization uses no merchant request or application session.",
+  "genesis": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+  "initialJob": {
+    "address": "5oR36HSynnnPycoTm6SwwySSu3jQzsmBfZnpjMgGExwW",
+    "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+    "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+    "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+    "jobId": "b410ef80cfe50604235c4bf031ecf1eb3324c43e552496c891430ce1135d11f4",
+    "amount": "5000000",
+    "expiresAt": 1794072821,
+    "state": "Funded",
+    "vault": "6owyref7BDRzS4H8ofhWfw3VQQSXXGoz7uP96joUhZgu",
+    "version": 2,
+    "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+    "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+    "specHash": "24be884133c5091b1bc82f5f35710b45efe2404873755397a147cafbe2c0cbab",
+    "termsHash": "1242b722ec3d0d3da693d7cfd4f89798a4e56617ac5cbf7460d943e03c4245ac",
+    "resultHash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "quoteExpiresAt": 1794071621,
+    "submittedAt": 0
+  },
+  "apiOfflineBefore": {
+    "at": "2026-11-07T19:50:16.054Z",
+    "probes": [
+      {
+        "url": "http://127.0.0.1:18790/health",
+        "result": "ECONNREFUSED"
+      },
+      {
+        "url": "http://127.0.0.1:8787/health",
+        "result": "ECONNREFUSED"
+      }
+    ]
+  },
+  "chainTimeBeforeRefund": 1794081016,
+  "apiOfflineAtDeadline": {
+    "at": "2026-11-07T19:50:16.761Z",
+    "probes": [
+      {
+        "url": "http://127.0.0.1:18790/health",
+        "result": "ECONNREFUSED"
+      },
+      {
+        "url": "http://127.0.0.1:8787/health",
+        "result": "ECONNREFUSED"
+      }
+    ]
+  },
+  "before": {
+    "buyer": "90000000",
+    "merchant": "25000000",
+    "vault": "5000000"
+  },
+  "refund": {
+    "signature": "ukGFPXFXXG2Es13gPveqvTFsm7bB3inLR15Kk6WZoE893MtZKJSMMyKqdVfuf73n8QyZrk6g9Ba6QoAmLWHKVFy",
+    "explorer": "https://explorer.solana.com/tx/ukGFPXFXXG2Es13gPveqvTFsm7bB3inLR15Kk6WZoE893MtZKJSMMyKqdVfuf73n8QyZrk6g9Ba6QoAmLWHKVFy?cluster=devnet"
+  },
+  "refundedJob": {
+    "address": "5oR36HSynnnPycoTm6SwwySSu3jQzsmBfZnpjMgGExwW",
+    "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+    "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+    "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+    "jobId": "b410ef80cfe50604235c4bf031ecf1eb3324c43e552496c891430ce1135d11f4",
+    "amount": "5000000",
+    "expiresAt": 1794072821,
+    "state": "Refunded",
+    "vault": "6owyref7BDRzS4H8ofhWfw3VQQSXXGoz7uP96joUhZgu",
+    "version": 2,
+    "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+    "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+    "specHash": "24be884133c5091b1bc82f5f35710b45efe2404873755397a147cafbe2c0cbab",
+    "termsHash": "1242b722ec3d0d3da693d7cfd4f89798a4e56617ac5cbf7460d943e03c4245ac",
+    "resultHash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "quoteExpiresAt": 1794071621,
+    "submittedAt": 0
+  },
+  "after": {
+    "buyer": "95000000",
+    "merchant": "25000000",
+    "vault": "0"
+  },
+  "apiOfflineAfter": {
+    "at": "2026-11-07T19:50:25.011Z",
+    "probes": [
+      {
+        "url": "http://127.0.0.1:18790/health",
+        "result": "ECONNREFUSED"
+      },
+      {
+        "url": "http://127.0.0.1:8787/health",
+        "result": "ECONNREFUSED"
+      }
+    ]
+  },
+  "finishedAt": "2026-11-07T19:50:25.011Z"
+}

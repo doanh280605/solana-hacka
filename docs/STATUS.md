@@ -1,52 +1,61 @@
-# Execution status
+# osid execution status
 
-Updated November 6, 2026. **All three technical gates pass. Devnet payment release and refund with the merchant API offline are verified.**
+Updated November 08, 2026. Branch `integration/osid-v2`, based on verified Holdfast V1 `eca59b5`.
 
-Source: [public GitHub repository](https://github.com/doanh280605/solana-hacka), default branch `main`. Local integration branch: `integration/holdfast`.
+**Core goal incomplete: the live AI quote-to-approved-download gate has not passed.** Credentials are configured. Real runtime specification, listing and image-edit requests are verified, and one complete pack passed content/integrity review. RPC interruption prevented its approval before signing, then its immutable deadline passed. Later host/execution delays expired an unfunded quote and left a separate image attempt uncertain. The user was asked to keep the Mac awake, lid open and online for an uninterrupted ten minutes before another paid attempt. No fixture is counted as live AI.
 
-## Delivered
+## Implemented and checked
 
-Rust/Anchor checkout, generated-IDL TypeScript client, durable PNG-to-WebP merchant, wallet checkout and independent recovery route; pinned npm/Cargo/tool versions, example config, exact setup commands, focused tests, repeatable rehearsals and submission materials. Shared interfaces preceded the delegated program/worker/frontend implementations; fresh review followed local settlement. [Interface](INTERFACES.md), [review](REVIEW.md), [completion audit](COMPLETION-AUDIT.md), [setup](../README.md).
-
-| Gate / deliverable | Verified evidence |
+| Gate | Actual evidence |
 | --- | --- |
-| Build and deployment | [Build provenance](../evidence/build.json), [Devnet deployment](../evidence/deployment-devnet.json): finalized executable and exact onchain bytecode match. The interrupted upload reused one funded buffer; [resumption journal](../evidence/deployment-devnet-buffer.json). |
-| Safety and regression tests | **64 tests passed:** 17 local program tests, 11 fresh-review tests, 31 client/worker tests, five Rust tests. [Program TAP](../evidence/program-localnet.tap), [review TAP](../evidence/review-localnet.tap), [refreshed checks](../evidence/checks.json). All typechecks and the production Devnet web build pass. |
-| Devnet client money paths | [Client verification](../evidence/verify-devnet.json): finalized Released and Refunded jobs, exact 5,000,000-unit transfers, retained terminal records, signatures and separately recorded SOL fees. |
-| Devnet purchase and API-offline refund | [HTTP rehearsal](../evidence/rehearsal-devnet.json): real PNG/WebP, original persisted before approval, buyer-signed download, second-wallet/replay denial, identical file after restart; API process exited and port refused connections before, at and after refund, with zero merchant HTTP calls during refund. |
-| Devnet browser flow | [Browser evidence](../evidence/ui-devnet.json): actual signed funding/approval/refund, download after backend restart and page reload, zero browser errors and zero merchant requests during independent recovery; desktop/mobile screenshots and full recordings. |
-| Reuse | [Small wallet-client example](../packages/chain/README.md), typechecked and covered by a confirmation-failure regression. Funding, approval and direct refund remain separate buyer actions; the existing program is reused. |
-| Demo and submission materials | [113.92-second Devnet demo](../evidence/demo-devnet-draft.mp4), [source hashes and labels](../evidence/demo-devnet-draft.json), [two-minute script](DEMO.md), [submission copy and AI disclosure](SUBMISSION.md). |
+| Product | osid landing, clearly labeled no-wallet sample, signed wallet sessions, integrated workspace, exact-result buyer approval, verified private ZIP and independent V1/V2 recovery. |
+| Pack | 1600×1600 hero; social exports at 1080×1080, 1080×1350 and 1080×1920; title 80 / description 1200 / five bullets 180; validation, manifest and seven-file ZIP. Four review previews are separately committed. |
+| Checks | All nine aggregate gates pass: 105 unit,10 Rust, four typechecks, production build and whitespace. [Report](../evidence/osid-checks.json). Final login-smoke harness changes separately pass root typecheck; [source/check provenance](../evidence/osid-final-source.json). |
+| Wallet login | Native SIWS with explicit `solana:devnet`, strict returned account/public-key/message/signature verification, fallback only when native is absent, safe unused-nonce migration and network guidance. Seven real HTTP/browser login cases pass using disposable injected wallets, including restore/logout, cancellation and tampered output. [Report](../evidence/osid-wallet-auth.json). Actual Phantom retry is pending. |
+| Actual local program | 39 passed:17 V1,11 V2,11 independent cases. [Report](../evidence/osid-program-localnet.json). Program source is unchanged since these checks. |
+| Deployment | Devnet finalized upgrade, exact 467120-byte executable SHA-256 `b59f0a228e24782e869316201faf17c4e39a7111082065fc42a51d418122e2a0`, correct genesis/config, unchanged V1 layouts/terminal decoding. [Deployment](../evidence/osid-deployment-devnet.json). |
+| Local application | Full HTTP/browser fixture purchase, exact settlement, private verified repeated download, auth/download replay and other-wallet denial, restart persistence, actual API-stopped refund. [HTTP](../evidence/osid-rehearsal-localnet-fixture.json), [browser](../evidence/osid-ui-localnet-fixture.json). |
+| Devnet application | V2 fixture fund/submit/approve, exact 5,000,000-unit merchant release, identical438,609-byte manifest-verified ZIP after restart/reload; separate refund with API exited before expiry, connection refused before/at/after, zero recovery merchant requests. [Fixture browser report](../evidence/osid-ui-devnet-fixture.json). |
+| Runtime AI | Actual OpenAI interpretation/copy/source-image edits with persisted request/response identifiers; no fixture fallback. [Provider access](../evidence/osid-provider-access.json), [accepted result and RPC interruption](../evidence/osid-live-ui-rpc-interruption.json), [expiry](../evidence/osid-live-ui-rpc-expired.json). No live Released/download success claimed. |
+| Independent review | Authorization, settlement, recovery, AI attempts, auth, storage, complete ZIP/preview binding, dependencies, process handling, Vite private-file boundary and actual live content reviewed. Material code findings resolved; required live lifecycle remains pending. [Review](OSID-REVIEW.md). |
 
-## Public Devnet evidence
+Browser money actions used a disposable injected test-wallet harness. **Actual Phantom extension behavior is unverified.** Agent/operator content review is not external human quality attestation. Hashes bind terms and bytes, not subjective quality or truth.
 
-Program: [`7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY`](https://explorer.solana.com/address/7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY?cluster=devnet).
+## Live attempts and reconciled deposits
 
-Mock mint: [`4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C`](https://explorer.solana.com/address/4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C?cluster=devnet), six decimals and no real monetary value.
+| Attempt | Outcome | Refund evidence |
+| --- | --- | --- |
+| First real pack | Image identity/integrity passed; review rejected invented durability/freshness benefits. Frozen Submitted result retained. [Record](../evidence/osid-live-ai-rejected.json). | [Original-buyer Submitted refund](../evidence/osid-live-rejected-refund.json). |
+| Second real pack | Review rejected invented wax net weight and photographic-direction leakage. Frozen Submitted result retained. [Record](../evidence/osid-live-ai-rejected-2.json). | [Submitted refund](../evidence/osid-live-rejected-refund-2.json). |
+| Third | Conservative grammar/measurement-clause false positive on factual connecting prose; failed before image/submission. [Record](../evidence/osid-live-ai-rejected-3.json). | [Funded refund](../evidence/osid-live-rejected-refund-3.json); post-read failure reconciled using its original finalized signature, no replacement transaction. |
+| Fourth | Exact fact copy, product identity, all artifacts/previews and231,796-byte stored ZIP accepted. RPC cooldown blocked approval before signing; deadline subsequently passed. | [Expired Submitted refund](../evidence/osid-live-interrupted-refund.json). |
+| Fifth | Quote expired during observed execution delay before any recorded funding signature. No funded purchase or result claimed. [Record](../evidence/osid-live-unfunded-expired.json). | None required by the recorded run. |
+| Sixth | Live spec/copy completed; image completion uncertain with no result/artifacts. Attempt retained, no blind regeneration. [Record](../evidence/osid-live-ai-uncertain.json). | [Funded refund](../evidence/osid-live-uncertain-refund.json). |
 
-- Browser [payment release](https://explorer.solana.com/tx/2KoexF5XBk6g66r1rHvSTh9XW71hTycDB5ngYGiwPh4FwaBvpZch5XkHhWbgzpPLQgq8kgJPxWT5en3mDHcBUMoJ?cluster=devnet).
-- Browser [API-offline refund](https://explorer.solana.com/tx/Yf3vqNYDdueKTapA9T8TPSANAWJxmSuydXsEPNJKDh3MVaz1h9NdmSnPMWdzLvWt86Kx9a7NWxh3pTrnXhTg9Ah?cluster=devnet).
-- [Client transactions and fees](../evidence/verify-devnet.json), [HTTP transactions and process proof](../evidence/rehearsal-devnet.json), [browser jobs and signatures](../evidence/ui-devnet.json).
+**All five funded live attempts are Refunded, with exact 5,000,000-unit buyer returns and unchanged merchant balances.** Deterministic validation did not authorize unsupported content. New live copy requests exclude the raw brief/photo/image direction; exact fact phrases and whole measurement subjects are checked. A worked example and model-scoped temperature 0 align generation with this conservative grammar. Historical frozen delivery verifies original bytes without applying a later editorial policy.
 
-The browser's actual token balances below are **buyer / vault / merchant**, in mock USDC. SOL fees and account rent are separate.
+Actual accepted-but-expired pack: [desktop](../evidence/screenshots/osid-live-accepted-expired-review-desktop.png), [mobile](../evidence/screenshots/osid-live-accepted-expired-review-mobile.png). These are actual runtime AI previews, not proof of release/download. [Observed host-delay record](../evidence/osid-host-delay.json). The exact cause of wall-clock gaps is unproven; temporary sleep assertions did not establish uninterrupted execution.
 
-| Path | Before funding | Funded | Settled |
-| --- | --- | --- | --- |
-| Approve | 85 / 0 / 15 | 80 / 5 / 15 | 80 / 0 / 20 |
-| Timeout refund | 80 / 0 / 20 | 75 / 5 / 20 | 80 / 0 / 20 |
+## Local preview
 
-The first client attempt released normally, then hit an RPC 429 before funding its refund job. [Historical terminal release](../evidence/verify-devnet-first-attempt.json). Request pacing and bounded cooldown handling were added, reviewed and regression-tested; the subsequent full client, HTTP and browser runs passed. No stranded funded deposit is known from these runs.
+- Landing: http://localhost:5173/
+- Labeled sample: http://localhost:5173/demo
+- Workspace: http://localhost:5173/app
+- Independent recovery: http://localhost:5173/recover
+- Worker: http://localhost:8787/health
 
-## Scope and remaining participant actions
+Mode is **live on Devnet**, with an existing configured provider credential and empty preview order storage. Starting the preview creates no order or paid AI request. The tested login repair was loaded November 8 at 08:43 UTC: web PID54544; worker PID54460. Exact entries/logs are in ignored `.local/osid-preview.json`; logs are `.local/osid-preview-web.log` and `.local/osid-preview-worker.log`.
 
-**No technical blocker remains.** The five Devnet SOL arrived and deployment funding is resolved; [current network/balance observation](../evidence/devnet-status.json). The scripts used disposable wallets and explicitly labeled mock USDC.
+Stop only these verified processes with `npx tsx scripts/preview.ts stop`; restart with `npx tsx scripts/preview.ts start`. Use `start --fixture` only for explicitly labeled development fixtures. Do not run Vite canary tests or edit app environment/configuration during wallet transactions. The prior [read-only preview checks](../evidence/osid-preview.json) passed all eight desktop/mobile route cases, with no page errors or horizontal overflow and zero recovery merchant requests. The current login smoke separately verifies the repaired native/fallback paths and captures desktop/mobile sign-in with no new orders, AI calls or money actions.
 
-Browser signing used an injected disposable test wallet, with private signing confined to Node. Actual Phantom extension approval/reconnect remains a manual check. The Devnet browser recovery opened after its 75-second deadline, so this run proves after-expiry recovery; the local browser run and boundary tests cover early-refund gating.
+## Remaining gate and boundaries
 
-The video is silent and explicitly labels Devnet, injected wallet, mock tokens and checkout playback at 3.80x; recovery remains at 1x. Its captions identify the saved original and the actual API exit/refused port/zero requests. Review it, personalize the learning/AI disclosure and optionally add narration before publishing/submitting the final version. The participant owns MLH login, team/registration confirmation, final video publication and the actual submission.
+After the required uninterrupted operating condition is available: stop the managed preview, run `npx tsx scripts/osid-ui-rehearse.ts devnet --review-gate`, inspect the exact new submitted result before approval, verify release/download/restart and the separate API-offline refund, then restart the live preview. Use unique jobs. Never regenerate an uncertain image request or extend a recorded deadline. An unexpired interrupted reviewed job can use the runner's exact `--resume=RUN_ID` path only before any approval signature; it reuses storage and refuses expiry. No completed run is currently claimed for that option.
 
-Keep the earlier published schedule: initial Sunday November 8 at **7:00 a.m. Pacific**, final **8:45 a.m. Pacific**. The portal observation lists 10:00 a.m.; organizer clarification is needed before relying on that later time. DeFi is the target track; Best Beginner eligibility remains conditional.
+The existing108-second [Devnet fixture walkthrough](../evidence/osid-demo-devnet-fixture.webm) remains accurately labeled, with [source/caption hashes](../evidence/osid-demo-devnet-fixture.json). It is a silent screenshot presentation, not a continuous real-time or Phantom recording. No successful live walkthrough is fabricated.
 
-Known prototype limits: upgradeable program, centrally minted mock token, merchant/storage-dependent delivery, one worker per storage directory, retained job/vault rent and locked accidental surplus. Local explorer links in historical artifacts need the local ledger; use the Devnet links above for public proof.
+One worker owns each storage directory. Files depend on storage/backups. The program is upgradeable and unaudited; mock tokens have no monetary value; rent/surplus remain locked. Refunds require the original buyer's transaction. No permanence, cryptographic fair exchange, arbitration or provider bond is claimed. Remaining transitive advisories and assessed paths are in the independent review.
 
-All owned Devnet worker/Vite processes have terminal exits and their ports refuse connections. [Cleanup observation](../evidence/cleanup-devnet.json). Disposable keys and private rehearsal files remain ignored under `.local/`.
+The normally pushed feature branch preserves V1 evidence and commit `eca59b5`; no default-branch merge, force push, mainnet spending, production publish or hackathon submission. Compare `git rev-parse HEAD` with `git ls-remote origin refs/heads/integration/osid-v2` for the handoff revision. [V1 binary preservation](../evidence/osid-baseline-preservation.json).
+
+Official MLH schedule checked November 6: November 8 initial 07:00 Pacific, final 08:45 Pacific. [Official schedule](https://events.mlh.com/events/15200-solana-hackathon). Nothing was submitted.

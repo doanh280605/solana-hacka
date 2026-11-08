@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 2,
+  "runId": "20261107170326313-63ea60",
+  "startedAt": "2026-11-07T17:03:26.317Z",
+  "config": {
+    "rpcUrl": "https://api.devnet.solana.com",
+    "programId": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+    "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+    "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+    "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+    "decimals": 6,
+    "amount": "5000000",
+    "cluster": "devnet"
+  },
+  "aiMode": "live",
+  "reviewGateEnabled": true,
+  "executionSeconds": 1800,
+  "wallet": "Disposable injected test-wallet harness. Phantom extension not verified.",
+  "privateKeysInBrowser": false,
+  "scope": "V2 browser quote/fund/review/approve/private download/reload; API-offline direct refund.",
+  "screenshots": [
+    "evidence/screenshots/osid-ui-devnet-landing-desktop.png",
+    "evidence/screenshots/osid-ui-devnet-landing-mobile.png",
+    "evidence/screenshots/osid-ui-devnet-demo-desktop.png",
+    "evidence/screenshots/osid-ui-devnet-workspace-empty.png",
+    "evidence/screenshots/osid-ui-devnet-agreement.png"
+  ],
+  "videos": [
+    "evidence/osid-ui-devnet-workspace.webm"
+  ],
+  "errors": [],
+  "recoveryRequests": [],
+  "signedTransactions": [
+    {
+      "at": "2026-11-07T17:04:02.150Z",
+      "signature": "2EpnwRMXqULtFrbwVz4FyM8u2A2CJwhCXjg6eFVvcWAd9zA2gH7x9wB4FVAUcWF1nGnY9ARwhBrLeKzpFcbp9rTN",
+      "explorer": "https://explorer.solana.com/tx/2EpnwRMXqULtFrbwVz4FyM8u2A2CJwhCXjg6eFVvcWAd9zA2gH7x9wB4FVAUcWF1nGnY9ARwhBrLeKzpFcbp9rTN?cluster=devnet",
+      "programs": [
+        "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+        "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+        "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY"
+      ]
+    }
+  ],
+  "signedMessages": [
+    {
+      "at": "2026-11-07T17:03:36.695Z",
+      "purpose": "login"
+    }
+  ],
+  "processes": [
+    {
+      "name": "worker",
+      "pid": 44179,
+      "startedAt": "2026-11-07T17:03:26.877Z",
+      "logFile": ".local/osid-ui-devnet-20261107170326313-63ea60/worker.log",
+      "stopRequestedAt": "2026-11-07T17:46:28.966Z",
+      "exit": {
+        "at": "2026-11-07T17:46:28.979Z",
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "name": "vite",
+      "pid": 44270,
+      "startedAt": "2026-11-07T17:03:31.255Z",
+      "logFile": ".local/osid-ui-devnet-20261107170326313-63ea60/vite.log",
+      "stopRequestedAt": "2026-11-07T17:46:29.670Z",
+      "exit": {
+        "at": "2026-11-07T17:46:29.677Z",
+        "code": 143,
+        "signal": null
+      }
+    }
+  ],
+  "passed": false,
+  "genesis": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+  "stage": "funded-via-wallet",
+  "release": {
+    "quote": {
+      "version": 2,
+      "jobId": "b410ef80cfe50604235c4bf031ecf1eb3324c43e552496c891430ce1135d11f4",
+      "jobAddress": "5oR36HSynnnPycoTm6SwwySSu3jQzsmBfZnpjMgGExwW",
+      "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "amount": "5000000",
+      "expiresAt": 1794072821,
+      "quoteExpiresAt": 1794071621,
+      "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+      "specHash": "24be884133c5091b1bc82f5f35710b45efe2404873755397a147cafbe2c0cbab",
+      "termsHash": "1242b722ec3d0d3da693d7cfd4f89798a4e56617ac5cbf7460d943e03c4245ac",
+      "specification": {
+        "schemaVersion": 2,
+        "service": "product-listing-pack",
+        "brief": "Morning candle. Cedar and amber scent. 250 g amber glass jar with black lid and cream Morning label. Preserve the exact product and label. Set it in a clean warm studio. Do not invent product facts, prices, burn time, certifications or safety claims.",
+        "productFacts": [
+          "Morning candle",
+          "Cedar and amber scent",
+          "250 g amber glass jar",
+          "black lid",
+          "cream Morning label"
+        ],
+        "imageDirection": "Product is centered in the image on a flat gray surface with a clean, warm-toned studio background. The original product shape, the amber glass jar, black lid, and cream Morning label are preserved exactly as shown.",
+        "deliverables": {
+          "hero": {
+            "width": 1600,
+            "height": 1600,
+            "format": "webp"
+          },
+          "social": [
+            {
+              "name": "square",
+              "width": 1080,
+              "height": 1080,
+              "format": "webp"
+            },
+            {
+              "name": "portrait",
+              "width": 1080,
+              "height": 1350,
+              "format": "webp"
+            },
+            {
+              "name": "story",
+              "width": 1080,
+              "height": 1920,
+              "format": "webp"
+            }
+          ],
+          "copy": {
+            "titleMax": 80,
+            "descriptionMax": 1200,
+            "bulletCount": 5,
+            "bulletMax": 180
+          }
+        },
+        "acceptanceChecks": [
+          "Four WebP images at the agreed dimensions",
+          "Title 1–80 characters; description 1–1200 characters",
+          "Exactly five nonempty bullets, each at most 180 characters",
+          "Six payload files with SHA-256 hashes in a versioned manifest",
+          "Validation report and manifest included in the downloadable ZIP"
+        ],
+        "limitations": [
+          "Automated checks verify dimensions, fields and artifact bytes; they do not prove aesthetic quality or factual correctness.",
+          "Review product identity, text, and every image before approving payment.",
+          "Files depend on service storage availability. Refunds require an explicit buyer transaction after the deadline."
+        ]
+      },
+      "aiMode": "live",
+      "mode": "normal",
+      "status": "quoted",
+      "attempts": [
+        {
+          "id": "2e8e2e2701e2b8fae2c63ecca8e0c840",
+          "stage": "specification",
+          "startedAt": 1794071017,
+          "state": "completed",
+          "provider": "openai",
+          "completedAt": 1794071022,
+          "requestId": "req_95a05705e73b405995daeb6a2a024982",
+          "providerId": "resp_0a4867baad26e76b006aef59ea9a5487d0be531871bb4ef67d"
+        }
+      ]
+    },
+    "before": {
+      "buyer": "95000000",
+      "merchant": "25000000",
+      "vault": "0"
+    },
+    "afterFund": {
+      "buyer": "90000000",
+      "merchant": "25000000",
+      "vault": "5000000"
+    },
+    "fundedJob": {
+      "address": "5oR36HSynnnPycoTm6SwwySSu3jQzsmBfZnpjMgGExwW",
+      "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+      "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+      "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+      "jobId": "b410ef80cfe50604235c4bf031ecf1eb3324c43e552496c891430ce1135d11f4",
+      "amount": "5000000",
+      "expiresAt": 1794072821,
+      "state": "Funded",
+      "vault": "6owyref7BDRzS4H8ofhWfw3VQQSXXGoz7uP96joUhZgu",
+      "version": 2,
+      "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+      "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+      "specHash": "24be884133c5091b1bc82f5f35710b45efe2404873755397a147cafbe2c0cbab",
+      "termsHash": "1242b722ec3d0d3da693d7cfd4f89798a4e56617ac5cbf7460d943e03c4245ac",
+      "resultHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "quoteExpiresAt": 1794071621,
+      "submittedAt": 0
+    }
+  },
+  "error": "Generation failed before approval: GENERATION NEEDS ATTENTION\nThe pack could not be completed.\n\nA provider attempt needs reconciliation. It will not be regenerated automatically; a refund becomes available at the deadline\n\nRefund available Nov 7, 2026, 9:33 AM.\n\n29:29 until refund eligibility. Keep this order’s recovery link."
+}

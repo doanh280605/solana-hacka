@@ -1,0 +1,18 @@
+{
+  "builtAt": "2026-11-06T23:16:52.102608Z",
+  "schemaVersion": 2,
+  "programId": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+  "anchor": "0.31.1",
+  "solana": "2.1.0",
+  "platformTools": "v1.56",
+  "idlSource": "anchor idl build",
+  "binarySha256": "b59f0a228e24782e869316201faf17c4e39a7111082065fc42a51d418122e2a0",
+  "sourceSha256": "8e3ca4677ef04444385dedad0ff56d87d24ac633af782df7fac463388792bc5c",
+  "cargoLockSha256": "4222b585d2341a34168cb7ba06607aca76fd365cba0e70b0b2a2591344c8a4b1",
+  "idlSha256": "72f39509db55892d8c44f28aea1c6365e2d525fd0e008ae869eae31bda629e80",
+  "buildCommand": "anchor build --no-idl -- --tools-version v1.56 -- -Zbuild-std=std,panic_abort --locked",
+  "idlCommand": "anchor idl build --out target/idl/checkout.json --out-ts target/types/checkout.ts -- --locked --offline",
+  "buildLog": ".local/osid-protocol-sbf.log",
+  "idlLog": ".local/osid-protocol-idl.log",
+  "toolchainNote": "Same installed toolchains; isolated /private/tmp/osid-protocol-rustup used after iCloud evicted project tool metadata."
+}

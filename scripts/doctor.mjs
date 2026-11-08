@@ -28,5 +28,5 @@ try {
   check('Devnet RPC', response.ok && value.result === 'EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG', JSON.stringify(value));
 } catch (error) { check('Devnet RPC', false, error.cause?.code || error.message); }
 mkdirSync(resolve(root, 'evidence'), { recursive: true });
-writeFileSync(resolve(root, 'evidence/doctor.json'), JSON.stringify({ at: new Date().toISOString(), checks }, null, 2) + '\n');
+writeFileSync(resolve(root, process.argv.includes('--osid') ? 'evidence/osid-doctor.json' : 'evidence/doctor.json'), JSON.stringify({ at: new Date().toISOString(), checks }, null, 2) + '\n');
 if (checks.some(c => !c.ok)) process.exitCode = 1;

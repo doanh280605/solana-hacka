@@ -1,0 +1,12 @@
+{
+  "at": "2026-11-06T23:49:03.963Z",
+  "genesis": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+  "programId": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+  "deployer": "C7WiJfYa9epa1Bdt92txtWXVtHFErQXN23CE2Fyiz4SW",
+  "binaryBytes": 467120,
+  "deployerLamports": 2873603840,
+  "minimumUpgradeLamports": 2855642040,
+  "fundingReady": true,
+  "note": "Read-only upgrade rent observation plus optional explicitly requested free Devnet faucet. No deployment/paid tokens.",
+  "action": "Run local gates before Devnet upgrade."
+}

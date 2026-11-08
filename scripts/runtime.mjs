@@ -25,7 +25,8 @@ export function capture(command, args) {
   return result.stdout.trim();
 }
 export function syncProgramIdentity() {
-  const addresses = ensureKeys();
+  // Compiling a program requires its identity, not buyer or mint private keys.
+  const addresses = ensureKeys(['program']);
   const source = resolve(root, 'programs/checkout/src/lib.rs');
   if (!existsSync(source)) throw new Error('Program source is missing.');
   const original = readFileSync(source, 'utf8');
@@ -49,6 +50,7 @@ export function publicConfig(cluster, addresses, rpcUrl) {
   return {
     rpcUrl: rpcUrl || (cluster === 'devnet' ? 'https://api.devnet.solana.com' : 'http://127.0.0.1:8899'),
     programId: addresses.program, mint: addresses.mint, merchant: addresses.merchant,
+    ...(addresses.provider ? { provider: addresses.provider } : {}),
     decimals: 6, amount: '5000000', cluster,
   };
 }
@@ -59,11 +61,19 @@ export function writeRuntimeConfig(config) {
     `RPC_URL=${config.rpcUrl}`, `PROGRAM_ID=${config.programId}`, `MINT=${config.mint}`,
     `MERCHANT=${config.merchant}`, `CLUSTER=${config.cluster}`, 'WORKER_PORT=8787',
     `WORKER_DATA_DIR=.local/worker-${config.cluster}`, 'ORDER_LIFETIME_SECONDS=120',
+    ...(config.provider ? [`PROVIDER=${config.provider}`, 'PROVIDER_KEYPAIR_PATH=.local/keys/provider.json'] : []),
+    'OSID_ORDER_LIFETIME_SECONDS=1800', 'OSID_QUOTE_LIFETIME_SECONDS=600',
     'CORS_ORIGINS=http://localhost:5173,http://localhost:4173',
   ];
-  writeFileSync(resolve(root, '.env'), lines.join('\n') + '\n');
+  // Deployment must not erase provider credentials or custom server settings.
+  const envPath = resolve(root, '.env');
+  const managed = new Set(lines.map(line => line.split('=', 1)[0]));
+  const retained = existsSync(envPath) ? readFileSync(envPath, 'utf8').split('\n')
+    .filter(line => line.trim() && !managed.has(line.split('=', 1)[0])) : [];
+  writeFileSync(envPath, [...lines, ...retained].join('\n') + '\n', { mode: 0o600 });
   writeFileSync(resolve(root, 'apps/web/.env.local'), [
     `VITE_RPC_URL=${config.rpcUrl}`, `VITE_PROGRAM_ID=${config.programId}`, `VITE_MINT=${config.mint}`,
     `VITE_MERCHANT=${config.merchant}`, `VITE_CLUSTER=${config.cluster}`, 'VITE_WORKER_URL=http://localhost:8787',
+    ...(config.provider ? [`VITE_PROVIDER=${config.provider}`] : []),
   ].join('\n') + '\n');
 }

@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 2,
+  "at": "2026-11-07T17:03:24.173Z",
+  "runId": "20261107093706674-b1ccb0",
+  "error": "Timed out: fund button enabled",
+  "quote": {
+    "version": 2,
+    "jobId": "49fb22c3d3ce2869ebc1852bdc9b1277d0a2818128d6ac02df3d955692e4846d",
+    "jobAddress": "BxL6WUuwVBYYKHMeRUeks21SsmLFXyS1PK1B9KxBLMRL",
+    "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+    "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+    "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+    "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+    "amount": "5000000",
+    "expiresAt": 1794046047,
+    "quoteExpiresAt": 1794044847,
+    "inputHash": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+    "specHash": "3836d1b40017ba0a7aed72918c6a8f1f73c637a40c65f2f2c9bcbc0f432809ce",
+    "termsHash": "4b4e25f8674d141ea54d07a28b673040cc24c703e0378d50ccd2c60241c74896",
+    "specification": {
+      "schemaVersion": 2,
+      "service": "product-listing-pack",
+      "brief": "Morning candle. Cedar and amber scent. 250 g amber glass jar with black lid and cream Morning label. Preserve the exact product and label. Set it in a clean warm studio. Do not invent product facts, prices, burn time, certifications or safety claims.",
+      "productFacts": [
+        "Morning candle",
+        "Cedar and amber scent",
+        "250 g amber glass jar",
+        "black lid",
+        "cream Morning label"
+      ],
+      "imageDirection": "Professional product hero edit of the candle preserving the exact product and label, shot front-facing with the amber glass jar and black lid clearly visible. The cream Morning label is legible. The candle is set in a clean warm studio environment with balanced, soft lighting to enhance the warm tones of the amber glass and cream label. The product shape, proportions, and packaging are intact and prominent against a neutral surface and softly textured light gray background.",
+      "deliverables": {
+        "hero": {
+          "width": 1600,
+          "height": 1600,
+          "format": "webp"
+        },
+        "social": [
+          {
+            "name": "square",
+            "width": 1080,
+            "height": 1080,
+            "format": "webp"
+          },
+          {
+            "name": "portrait",
+            "width": 1080,
+            "height": 1350,
+            "format": "webp"
+          },
+          {
+            "name": "story",
+            "width": 1080,
+            "height": 1920,
+            "format": "webp"
+          }
+        ],
+        "copy": {
+          "titleMax": 80,
+          "descriptionMax": 1200,
+          "bulletCount": 5,
+          "bulletMax": 180
+        }
+      },
+      "acceptanceChecks": [
+        "Four WebP images at the agreed dimensions",
+        "Title 1–80 characters; description 1–1200 characters",
+        "Exactly five nonempty bullets, each at most 180 characters",
+        "Six payload files with SHA-256 hashes in a versioned manifest",
+        "Validation report and manifest included in the downloadable ZIP"
+      ],
+      "limitations": [
+        "Automated checks verify dimensions, fields and artifact bytes; they do not prove aesthetic quality or factual correctness.",
+        "Review product identity, text, and every image before approving payment.",
+        "Files depend on service storage availability. Refunds require an explicit buyer transaction after the deadline."
+      ]
+    },
+    "aiMode": "live",
+    "mode": "normal",
+    "status": "quoted",
+    "attempts": [
+      {
+        "id": "6918a3aa83533a0a9d131dd948ca5f7e",
+        "stage": "specification",
+        "startedAt": 1794044241,
+        "state": "completed",
+        "provider": "openai",
+        "completedAt": 1794044247,
+        "requestId": "req_03db6a4c50454b37924e1a35ca8342f0",
+        "providerId": "resp_0bca3c337024a0a0006aeef153915887d083e123754b27eeb2"
+      }
+    ]
+  },
+  "signedTransactions": [],
+  "processes": [
+    {
+      "name": "worker",
+      "pid": 20400,
+      "startedAt": "2026-11-07T09:37:07.041Z",
+      "logFile": ".local/osid-ui-devnet-20261107093706674-b1ccb0/worker.log",
+      "stopRequestedAt": "2026-11-07T12:05:01.685Z",
+      "exit": {
+        "at": "2026-11-07T12:05:01.737Z",
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "name": "vite",
+      "pid": 20486,
+      "startedAt": "2026-11-07T09:37:10.578Z",
+      "logFile": ".local/osid-ui-devnet-20261107093706674-b1ccb0/vite.log",
+      "stopRequestedAt": "2026-11-07T12:05:02.390Z",
+      "exit": {
+        "at": "2026-11-07T12:05:02.418Z",
+        "code": 143,
+        "signal": null
+      }
+    }
+  ],
+  "disposition": "Quote expired during observed host/execution delays before any recorded wallet funding signature. No funded purchase, result submission, approval or download is claimed. Task-owned temporary caffeinate assertion enabled before the next attempt.",
+  "privateArchive": ".local/osid-unfunded-evidence/20261107093706674-b1ccb0",
+  "originalFiles": [
+    {
+      "originalPath": "evidence/osid-ui-devnet-blocked.json",
+      "sha256": "461f644b1b7c561b31b18630fa6b3267f975b333d4adf7941bfd8573427a546e"
+    },
+    {
+      "originalPath": "evidence/osid-ui-devnet-progress.json",
+      "sha256": "f996357df64f71b7c4830f2db6214be960d45139b668e694a9507646430ea77f"
+    },
+    {
+      "originalPath": "evidence/screenshots/osid-ui-devnet-landing-desktop.png",
+      "sha256": "034bc6959d0f96ff8e09b02a037c48bc8efb3e672b70989ffc154aac55ae5b74"
+    },
+    {
+      "originalPath": "evidence/screenshots/osid-ui-devnet-landing-mobile.png",
+      "sha256": "deecf1408a12e98dd7de95fbbf5cde9d710b1da3099116d2350e9c2693e57a0b"
+    },
+    {
+      "originalPath": "evidence/screenshots/osid-ui-devnet-demo-desktop.png",
+      "sha256": "2a76dca9776ae68d9dc4f6646eb33a6874dba81dbde13145618a38d8a0165a3e"
+    },
+    {
+      "originalPath": "evidence/screenshots/osid-ui-devnet-workspace-empty.png",
+      "sha256": "59504374359bfb1130174b4b151ffd99edf7ed48afd955313b9cdcacf9f88fce"
+    },
+    {
+      "originalPath": "evidence/screenshots/osid-ui-devnet-agreement.png",
+      "sha256": "61b6c5fb3d6557d347692719ffeda3f169b36b6ac7d98f4da07343f0c8499d2f"
+    },
+    {
+      "originalPath": "evidence/osid-ui-devnet-workspace.webm",
+      "sha256": "9c4361ae6fc6993e3de10f27bf1ec12718b203160312f7aa2e6c2d34cd36dccc"
+    }
+  ]
+}

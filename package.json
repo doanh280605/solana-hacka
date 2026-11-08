@@ -1,6 +1,6 @@
 {
-  "name": "holdfast-checkout",
-  "version": "0.1.0",
+  "name": "osid",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "workspaces": [
@@ -26,14 +26,20 @@
     "dev:web": "npm run dev --workspace @holdfast/web",
     "build": "npm run build --workspace @holdfast/web",
     "typecheck": "tsc --noEmit -p tsconfig.json && npm run typecheck --workspaces --if-present",
-    "test": "node --import tsx --test packages/chain/test/*.test.ts apps/worker/test/*.test.ts",
+    "test": "node --import tsx --test packages/chain/test/*.test.ts apps/worker/test/*.test.ts apps/web/test/*.test.ts",
     "test:program": "node --import tsx --test programs/checkout/tests/checkout.test.ts",
     "test:review": "node --import tsx --test programs/checkout/tests/review.test.ts",
     "test:rust": "node scripts/program-tooling.mjs host-tests",
     "verify:local": "tsx scripts/verify.ts localnet",
     "verify:devnet": "tsx scripts/verify.ts devnet",
     "rehearse:local": "tsx scripts/rehearse.ts localnet",
-    "rehearse:devnet": "tsx scripts/rehearse.ts devnet"
+    "rehearse:devnet": "tsx scripts/rehearse.ts devnet",
+    "test:program:v2": "node --import tsx --test programs/checkout/tests/osid-v2.test.ts",
+    "rehearse:osid:local": "tsx scripts/osid-rehearse.ts localnet",
+    "rehearse:osid:devnet": "tsx scripts/osid-rehearse.ts devnet",
+    "ui:osid:local": "tsx scripts/osid-ui-rehearse.ts localnet",
+    "ui:osid:devnet": "tsx scripts/osid-ui-rehearse.ts devnet",
+    "check:osid": "node scripts/checks.mjs --osid"
   },
   "devDependencies": {
     "@types/bn.js": "5.2.0",

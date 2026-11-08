@@ -61,6 +61,7 @@ export function loaderWrite(buffer: PublicKey, authority: PublicKey, offset: num
 export async function resumeProgramBuffer(options: {
   rpcUrl: string; cluster: 'localnet' | 'devnet'; address: PublicKey;
   authority: Keypair; artifactPath: string;
+  evidencePrefix?: '' | 'osid-';
 }): Promise<{ address: string; initialMissingChunks: number; initialMismatchedBytes: number; artifactSha256: string; verified: boolean; transactions: string[] }> {
   let retryAfterMs = 10_000;
   let nextRequestAt = 0;
@@ -90,13 +91,14 @@ export async function resumeProgramBuffer(options: {
   if (options.cluster === 'devnet' && genesis !== DEVNET_GENESIS) throw new Error('Resume RPC is not Devnet.');
   if (options.cluster === 'localnet' && !['localhost', '127.0.0.1', '[::1]'].includes(new URL(options.rpcUrl).hostname)) throw new Error('Local resume requires a loopback RPC.');
   const artifact = await readFile(options.artifactPath);
+  const evidencePrefix = options.evidencePrefix ?? '';
   const before = requireBuffer(await rpc('read buffer', () => connection.getAccountInfo(options.address, 'confirmed')), options.authority.publicKey, artifact);
   const chunks = missingChunks(before, artifact);
   const initialMismatchedBytes = artifact.reduce((sum, byte, index) => sum + Number(before[index] !== byte), 0);
   const artifactSha256 = createHash('sha256').update(artifact).digest('hex');
   let priorConfirmedWriteSignatures: string[] = [];
   try {
-    const previous = JSON.parse(await readFile(resolve(ROOT, `evidence/deployment-${options.cluster}-buffer.json`), 'utf8'));
+    const previous = JSON.parse(await readFile(resolve(ROOT, `evidence/${evidencePrefix}deployment-${options.cluster}-buffer.json`), 'utf8'));
     if (previous.address === options.address.toBase58() && previous.artifactSha256 === artifactSha256) {
       priorConfirmedWriteSignatures = [...new Set<string>([
         ...(previous.priorConfirmedWriteSignatures ?? []),
@@ -117,8 +119,8 @@ export async function resumeProgramBuffer(options: {
       sentChunks: journal.length, confirmedChunks: journal.filter(item => item.confirmed).length,
       priorConfirmedWriteSignatures,
       writeIntervalMs: WRITE_INTERVAL_MS, journal };
-    await writeFile(resolve(ROOT, `.local/deployment-${options.cluster}-buffer.json`), JSON.stringify(evidence, null, 2) + '\n');
-    await writeEvidence(`deployment-${options.cluster}-buffer`, evidence);
+    await writeFile(resolve(ROOT, `.local/${evidencePrefix}deployment-${options.cluster}-buffer.json`), JSON.stringify(evidence, null, 2) + '\n');
+    await writeEvidence(`${evidencePrefix}deployment-${options.cluster}-buffer`, evidence);
   }
   await checkpoint('Validated existing buffer; preparing missing writes');
   console.log(`Resuming buffer ${result.address}: ${initialMismatchedBytes} differing bytes across ${chunks.length} chunks; no new buffer allocation.`);

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 2,
+  "at": "2026-11-07T00:57:59.603Z",
+  "apiOrigin": "https://api.openai.com/v1",
+  "credentialValueIncluded": false,
+  "mode": "live",
+  "textModel": "gpt-4.1-mini",
+  "imageModel": "gpt-image-1.5",
+  "readOnlyModelsCheck": {
+    "status": 200,
+    "bothSelectedModelsListed": true
+  },
+  "scope": "Sanitized validated runtime configuration. Same root .env and configuration loader used by the live worker. Actual attempts and outputs are in the browser evidence; model listing alone is not generation proof."
+}

@@ -1,17 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { PublicKey, fetchChainTime, fetchJob, getConnection, type Connection, type Job, type PublicConfig } from '@holdfast/chain';
+import { fetchTokenBalances, type BalanceTarget } from './token-balances';
 
 const tokenProgram = new PublicKey('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA');
 const associatedProgram = new PublicKey('ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL');
 
 function associatedAddress(owner: string, mint: string): PublicKey {
   return PublicKey.findProgramAddressSync([new PublicKey(owner).toBytes(), tokenProgram.toBytes(), new PublicKey(mint).toBytes()], associatedProgram)[0];
-}
-
-async function tokenBalance(connection: Connection, address: PublicKey): Promise<string> {
-  const account = await connection.getAccountInfo(address, 'finalized');
-  if (!account) return '0';
-  return (await connection.getTokenAccountBalance(address, 'finalized')).value.amount;
 }
 
 export type Balances = { buyer: string | null; merchant: string | null; vault: string | null };
@@ -42,23 +37,26 @@ export function useLedger(config: PublicConfig | null, address: string | null, b
       const owner = currentJob?.buyer || buyer;
       const merchant = currentJob?.merchant || config.merchant;
       const mint = currentJob?.mint || config.mint;
-      const [buyerBalance, merchantBalance, vaultBalance] = await Promise.all([
-        owner ? tokenBalance(connection, associatedAddress(owner, mint)) : Promise.resolve(null),
-        tokenBalance(connection, associatedAddress(merchant, mint)),
-        currentJob ? tokenBalance(connection, new PublicKey(currentJob.vault)) : Promise.resolve('0'),
-      ]);
+      const targets: (BalanceTarget & { label: keyof Balances })[] = [
+        ...(owner ? [{ address: associatedAddress(owner, mint), mint, authority: owner, label: 'buyer' as const }] : []),
+        { address: associatedAddress(merchant, mint), mint, authority: merchant, label: 'merchant' },
+        ...(currentJob ? [{ address: new PublicKey(currentJob.vault), mint, authority: currentJob.address, label: 'vault' as const }] : []),
+      ];
+      const amounts = await fetchTokenBalances(connection, targets);
+      const nextBalances: Balances = { buyer: null, merchant: null, vault: '0' };
+      targets.forEach((target, index) => { nextBalances[target.label] = amounts[index]!; });
       if (generation !== epoch.current) return;
-      setChainTime(now); setJob(currentJob); setBalances({ buyer: buyerBalance, merchant: merchantBalance, vault: vaultBalance }); setError(null);
+      setChainTime(now); setJob(currentJob); setBalances(nextBalances); setError(null);
     } catch (reason) { if (generation === epoch.current) setError(reason instanceof Error ? reason.message : String(reason)); }
     finally { refreshing.current = false; if (generation === epoch.current) setLoading(false); }
   }, [connection, config, address, buyer]);
 
   useEffect(() => {
     epoch.current += 1;
-    refreshing.current = false;
-    setJob(null); setChainTime(null); setBalances({ buyer: null, merchant: null, vault: null });
+    // Preserve the in-flight guard across wallet/job changes; stale reads are discarded by epoch.
+    setLoading(false); setJob(null); setChainTime(null); setBalances({ buyer: null, merchant: null, vault: null });
     void refresh();
-    const interval = window.setInterval(() => void refresh(), 3000);
+    const interval = window.setInterval(() => void refresh(), 15_000);
     return () => { epoch.current += 1; window.clearInterval(interval); };
   }, [refresh]);
 

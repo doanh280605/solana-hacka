@@ -1,0 +1,90 @@
+TAP version 13
+# bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+# Subtest: adversarial review: submitted rollback and real-chain download authorization
+    # Subtest: submitted insufficient-funds CPI failure rolls back job, vault, buyer rent and token balances
+    ok 1 - submitted insufficient-funds CPI failure rolls back job, vault, buyer rent and token balances
+      ---
+      duration_ms: 513.868875
+      type: 'test'
+      ...
+    # Subtest: approve followed by refund in one submitted transaction reverts the successful transfer too
+    ok 2 - approve followed by refund in one submitted transaction reverts the successful transfer too
+      ---
+      duration_ms: 491.092417
+      type: 'test'
+      ...
+    # Subtest: submitted wrong-signer and wrong-destination approvals fail without mutation
+    ok 3 - submitted wrong-signer and wrong-destination approvals fail without mutation
+      ---
+      duration_ms: 1001.66675
+      type: 'test'
+      ...
+    # Subtest: released job rejects a submitted replay
+    ok 4 - released job rejects a submitted replay
+      ---
+      duration_ms: 1042.242125
+      type: 'test'
+      ...
+    # Subtest: late approval and refund followed by approve are submitted and roll back correctly
+    ok 5 - late approval and refund followed by approve are submitted and roll back correctly
+      ---
+      duration_ms: 888.646125
+      type: 'test'
+      ...
+    # Subtest: refunded job rejects a submitted competing approval and replay
+    ok 6 - refunded job rejects a submitted competing approval and replay
+      ---
+      duration_ms: 1029.223375
+      type: 'test'
+      ...
+    # Subtest: actual finalized chain funding produces a durable WebP; download stays locked before release
+    ok 7 - actual finalized chain funding produces a durable WebP; download stays locked before release
+      ---
+      duration_ms: 31.323209
+      type: 'test'
+      ...
+    # Subtest: wrong wallet cannot issue or forge a private download on a real Released purchase
+    ok 8 - wrong wallet cannot issue or forge a private download on a real Released purchase
+      ---
+      duration_ms: 25.77875
+      type: 'test'
+      ...
+    # Subtest: unauthenticated issuance preserves the pending buyer challenge and its original expiry
+    ok 9 - unauthenticated issuance preserves the pending buyer challenge and its original expiry
+      ---
+      duration_ms: 94.242666
+      type: 'test'
+      ...
+    # Subtest: one signed nonce grants one download and consumption persists through a real worker restart
+    ok 10 - one signed nonce grants one download and consumption persists through a real worker restart
+      ---
+      duration_ms: 104.741708
+      type: 'test'
+      ...
+    1..10
+ok 1 - adversarial review: submitted rollback and real-chain download authorization
+  ---
+  duration_ms: 47836.905375
+  type: 'test'
+  ...
+# {"rejectedOnLedger":"4CXGsEi4Zgq5sBCo6zj4qjhj5SbUULWN9kTpKcTmqrQRbV9wvo3Nz6242NsrpsRDxXpV3P7HTTuh8Fvsj3vdextL","error":{"InstructionError":[0,{"Custom":1}]},"feeLamports":10000}
+# {"rejectedOnLedger":"3atipbLTvaSs2H34VEcvfmCRxiaqw8z2Ug2cb8hBF8GmEHB4zWH2ieRRBxogwZk5M5xtXrQCpt5XL15XsRQBDq2t","error":{"InstructionError":[1,{"Custom":6003}]},"feeLamports":10000}
+# {"rejectedOnLedger":"5SBAnHDUDtbeHh9fzfWnfxLPU7QonuJvnFpsrf9obedUy5L597UqymMmvsjtpW3chFNq6m1krXiK5tQ6Ee62iWGu","error":{"InstructionError":[0,{"Custom":6002}]},"feeLamports":10000}
+# {"rejectedOnLedger":"4Sb2N3u3pGQ68ju5xEU23Zj54o55akcHWX1qhXCGfRfjwULedwnRmyHVRnjaqeujDg2Dg7zjEN2UrmL2kuAKCkzT","error":{"InstructionError":[0,{"Custom":6007}]},"feeLamports":10000}
+# {"rejectedOnLedger":"cKuemGCQE3rJSMW3BoBdC7BBdMGN1SkJwPyAyyhbcakQn3Eff2Z5nq5Xj5bCuLva8GHdrzgYZ73TK9Y4kqHkr1h","error":{"InstructionError":[0,{"Custom":6003}]},"feeLamports":10000}
+# {"rejectedOnLedger":"3aD6neCBLJvWNT9AyzR3bCPqHAdHLRy1QcyZHZe5617W9iR6ak3qKipMBmJf5KCKtXo5J7MUE6VLcR3noKaDme1J","error":{"InstructionError":[0,{"Custom":0}]},"feeLamports":10000}
+# {"rejectedOnLedger":"3wNLUwmPTvNxu1J5qQD76zpitepMyc5FFBevYkyhfGDstYXddhEtiCpBrToHZmFDrscojninPKj17HHnM43aePmg","error":{"InstructionError":[0,{"Custom":6004}]},"feeLamports":10000}
+# {"rejectedOnLedger":"yHBSQL2SKU9ftPmEQRqDSkkDX2nKVYZFBUQx6SBm2bcoagUactdZjaSdkitHAgETMPR7cVsQuPr6a3RxEJwhoaN","error":{"InstructionError":[1,{"Custom":6003}]},"feeLamports":10000}
+# {"rejectedOnLedger":"3X2Z57fucSJhXcuuNyfkGwvXT3KxrrduyC2w3Z7nKKdCpJ4cLBg9FGUcuYnCe6x8Avq7tLeGeyMTHhBftjRbruuf","error":{"InstructionError":[0,{"Custom":6003}]},"feeLamports":10000}
+# {"rejectedOnLedger":"5A75gbyrSQs6FPN1vor68Ag7uQBQDspvM3p9wS4rSxpUGgzwaQvxRmEfGggcBH5whsd5o1aJQePnQFDetzm9d2oV","error":{"InstructionError":[0,{"Custom":6003}]},"feeLamports":10000}
+# RESOLVED R1: repeated public issuance preserves the pending nonce/message/expiry; the original buyer signature succeeds once.
+# {"program":"7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY","mint":"4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C","genesis":"9Gf7whJU7e2ri5aQBWz3Ph4JmHTuWz7vd4emCmKbHGUq","isolatedBuyer":"3hYCcMSVcpRTooVGYyys4bFqpTU9jxnnGwEKQjKA9hXh","isolatedMerchant":"AcjWLu4xUP1ZS1fmgh1A5DqGHma7z7Xk2ESWpWXRv51F","releaseJob":"M5zd4AivL7LawYsw2YxjHP6kCiyrpqY56PCNzHk6vsu","refundJob":"8RtS4Bp6KYssLgJrU1S5nYH6DvkyVZGQsmYwhQPu32YT","privateDownloadJob":"GecYbi6gFgfpuUPUwAuc4UhwotLdKEQ5ErsDRfmcfd4R"}
+1..1
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 48274.322875

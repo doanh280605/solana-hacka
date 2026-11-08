@@ -4,7 +4,7 @@ import { loadConfiguration } from './config.js';
 
 async function main(): Promise<void> {
   const { config, settings, host, port } = loadConfiguration();
-  const { app } = await createWorker({ chain: createChainGateway(config), settings });
+  const { app } = await createWorker({ chain: createChainGateway(config, { providerKeypairPath: process.env.PROVIDER_KEYPAIR_PATH }), settings });
   const stop = async (): Promise<void> => {
     try { await app.close(); }
     catch (error) { app.log.error(error); process.exitCode = 1; }

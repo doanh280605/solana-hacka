@@ -1,0 +1,71 @@
+{
+  "verifiedAt": "2026-11-06T23:42:44.536649Z",
+  "command": "CARGO_NET_OFFLINE=true CARGO_TARGET_DIR=/private/tmp/osid-protocol-host-target npm run check:osid",
+  "exitCode": 0,
+  "aggregatePassed": true,
+  "checks": [
+    {
+      "name": "typecheck-root",
+      "exitCode": 0,
+      "elapsedMs": 1084,
+      "log": "evidence/osid-typecheck-root.txt"
+    },
+    {
+      "name": "typecheck-chain",
+      "exitCode": 0,
+      "elapsedMs": 557,
+      "log": "evidence/osid-typecheck-chain.txt"
+    },
+    {
+      "name": "typecheck-worker",
+      "exitCode": 0,
+      "elapsedMs": 857,
+      "log": "evidence/osid-typecheck-worker.txt"
+    },
+    {
+      "name": "typecheck-web",
+      "exitCode": 0,
+      "elapsedMs": 952,
+      "log": "evidence/osid-typecheck-web.txt"
+    },
+    {
+      "name": "unit-tests",
+      "exitCode": 0,
+      "elapsedMs": 8453,
+      "log": "evidence/osid-unit-tests.txt"
+    },
+    {
+      "name": "rust-tests",
+      "exitCode": 0,
+      "elapsedMs": 865,
+      "log": "evidence/osid-rust-tests.txt"
+    },
+    {
+      "name": "web-build",
+      "exitCode": 0,
+      "elapsedMs": 2119,
+      "log": "evidence/osid-web-build.txt"
+    },
+    {
+      "name": "git-whitespace",
+      "exitCode": 0,
+      "elapsedMs": 38,
+      "log": "evidence/osid-git-whitespace.txt"
+    },
+    {
+      "name": "git-staged-whitespace",
+      "exitCode": 0,
+      "elapsedMs": 7,
+      "log": "evidence/osid-git-staged-whitespace.txt"
+    }
+  ],
+  "cargoIndexSymlink": "/Users/Doanh/Documents/Projects/solana-hacka/.tools/cargo/registry/index",
+  "cargoIndexTarget": "/private/tmp/osid-cargo-index-final",
+  "cacheRestoredFrom": "/Users/Doanh/Documents/Projects/solana-hacka/.tools/cargo/registry/index-v1-evicted",
+  "cacheMetadataFiles": 469,
+  "cacheManifestSha256": "0915c02d7d5e1636f0ae5af543e079ce56c714384599a7c2327911013c7498e2",
+  "allLockedRegistryVersionsPresent": true,
+  "cargoLockSha256": "4222b585d2341a34168cb7ba06607aca76fd365cba0e70b0b2a2591344c8a4b1",
+  "sourceSha256": "8e3ca4677ef04444385dedad0ff56d87d24ac633af782df7fac463388792bc5c",
+  "note": "Only local cache metadata restored from preserved hydrated copies. Existing evicted metadata left intact. No source/IDL/deploy/chain mutations."
+}

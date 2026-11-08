@@ -1,37 +1,64 @@
 import { workerUrl } from './config';
-import type { Order } from './types';
+import type { Purchase } from './types';
+
+export class ApiError extends Error {
+  constructor(message: string, public status: number, public code?: string) { super(message); }
+}
+
+let csrfToken: string | null = null;
+export function setCsrfToken(value: string | null) { csrfToken = value; }
+
+export async function apiResponse(path: string, options: RequestInit = {}): Promise<Response> {
+  const headers = new Headers(options.headers);
+  if (options.method && !['GET', 'HEAD'].includes(options.method) && csrfToken) headers.set('X-Osid-CSRF', csrfToken);
+  const response = await fetch(`${workerUrl}${path}`, { ...options, headers, credentials: 'include', cache: 'no-store' });
+  if (!response.ok) {
+    const data = await response.json().catch(() => null) as { error?: string; message?: string; code?: string } | null;
+    throw new ApiError(data?.error || data?.message || `Service returned HTTP ${response.status}.`, response.status, data?.code);
+  }
+  return response;
+}
 
 export async function request<T>(path: string, options?: RequestInit): Promise<T> {
-  const response = await fetch(`${workerUrl}${path}`, { ...options, cache: 'no-store' });
-  if (!response.ok) {
-    const data = await response.json().catch(() => null) as { error?: string; message?: string } | null;
-    throw new Error(data?.message || data?.error || `Merchant API returned HTTP ${response.status}.`);
-  }
-  return response.json() as Promise<T>;
+  return (await apiResponse(path, options)).json() as Promise<T>;
 }
 
 export function post<T>(path: string, data: unknown): Promise<T> {
   return request<T>(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
 }
 
-const storageKey = 'holdfast.orders.v1';
+const storageKey = 'osid.orders.v2';
+const legacyKey = 'holdfast.orders.v1';
 
-export function savedOrders(buyer: string): Order[] {
+function isPurchase(value: unknown): value is Purchase {
+  if (!value || typeof value !== 'object') return false;
+  const record = value as Purchase;
+  return typeof record.buyer === 'string' && /^[a-f0-9]{64}$/.test(record.jobId) && typeof record.jobAddress === 'string' && typeof record.amount === 'string' && Number.isSafeInteger(record.expiresAt);
+}
+
+export function savedOrders(buyer: string): Purchase[] {
   try {
-    const records: unknown = JSON.parse(localStorage.getItem(storageKey) || '[]');
-    if (!Array.isArray(records)) return [];
-    return records.filter((order): order is Order => !!order && order.buyer === buyer && /^[a-f0-9]{64}$/.test(order.jobId) && typeof order.jobAddress === 'string');
+    const current: unknown = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    const legacy: unknown = JSON.parse(localStorage.getItem(legacyKey) || '[]');
+    const records = [...(Array.isArray(current) ? current : []), ...(Array.isArray(legacy) ? legacy : [])];
+    return records.filter(isPurchase).filter((order, index, all) => order.buyer === buyer && all.findIndex((item) => item.jobAddress === order.jobAddress) === index);
   } catch { return []; }
 }
 
-export function persistOrder(order: Order): void {
+export function persistOrder(order: Purchase): void {
   try {
     const raw: unknown = JSON.parse(localStorage.getItem(storageKey) || '[]');
-    const records: Order[] = Array.isArray(raw) ? raw : [];
-    localStorage.setItem(storageKey, JSON.stringify([order, ...records.filter((item) => item.jobId !== order.jobId)].slice(0, 24)));
-  } catch { /* The recovery address remains visible if browser storage is disabled. */ }
+    const records = Array.isArray(raw) ? raw.filter(isPurchase) : [];
+    // Only public recovery metadata is saved. Photos, briefs, copy and credentials stay out of localStorage.
+    const { version, jobId, jobAddress, buyer, merchant, mint, amount, expiresAt, mode, status } = order;
+    const record: Purchase = { version, jobId, jobAddress, buyer, merchant, mint, amount, expiresAt, mode, status };
+    localStorage.setItem(storageKey, JSON.stringify([record, ...records.filter((item) => item.jobAddress !== order.jobAddress)].slice(0, 40)));
+  } catch { /* The recovery address also remains visible in the payment receipt. */ }
 }
 
-export function previewSource(order: Order): string {
-  return new URL(order.previewUrl || `/api/orders/${order.jobId}/preview`, `${workerUrl}/`).toString();
+export function previewPath(jobId: string, name: string, source: string): string {
+  const expected = `/api/v2/orders/${jobId}/preview/${encodeURIComponent(name)}`;
+  const url = new URL(source, `${workerUrl}/`);
+  if (url.origin !== new URL(workerUrl).origin || url.pathname !== expected || url.search || url.hash) throw new Error('Unexpected private preview location.');
+  return expected;
 }

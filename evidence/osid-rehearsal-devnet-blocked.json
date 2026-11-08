@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 2,
+  "runId": "20261107001035992-53c832",
+  "startedAt": "2026-11-07T00:10:35.993Z",
+  "cluster": "devnet",
+  "config": {
+    "rpcUrl": "https://api.devnet.solana.com",
+    "programId": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+    "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+    "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+    "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+    "decimals": 6,
+    "amount": "5000000",
+    "cluster": "devnet"
+  },
+  "aiMode": "live",
+  "scope": "Runtime OpenAI specification, source image edit and listing generation through HTTP service; real V2 settlement and private delivery.",
+  "dataDirectory": ".local/osid-rehearsal-devnet-20261107001035992-53c832",
+  "buyer": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+  "processes": [
+    {
+      "name": "worker",
+      "pid": 40873,
+      "startedAt": "2026-11-07T00:10:36.238Z",
+      "logFile": ".local/osid-rehearsal-devnet-20261107001035992-53c832/worker.log",
+      "stopRequestedAt": "2026-11-07T00:10:38.487Z",
+      "exit": {
+        "at": "2026-11-07T00:10:38.496Z",
+        "code": 0,
+        "signal": null
+      }
+    }
+  ],
+  "passed": false,
+  "genesis": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+  "login": {
+    "wallet": "8fDP7yQJoWRtPBVXujmDp28o9DMyBfHL1wMPzztNCJDZ",
+    "expiresAt": 1794013838,
+    "replayRejected": true,
+    "httpOnly": true,
+    "sameSite": "Lax"
+  },
+  "input": {
+    "sha256": "a9ff0453fe754a0a72d04fa6fa9b026e7b4fad5a5f2d23013d6964649909c0b4",
+    "bytes": 942185,
+    "source": "Labeled sample product image"
+  },
+  "stage": "authenticated-before-quote",
+  "error": "HTTP 503 /api/v2/orders: {\"error\":\"Live AI is not configured. Configure OPENAI_API_KEY on the worker; try the labeled sample demo\"}",
+  "finishedAt": "2026-11-07T00:10:38.486Z"
+}

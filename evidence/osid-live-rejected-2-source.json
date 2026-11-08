@@ -1,0 +1,181 @@
+{
+  "startedAt": "2026-11-07T01:07:45.561Z",
+  "finishedAt": "2026-11-07T01:08:02.121Z",
+  "passed": true,
+  "checks": [
+    {
+      "name": "typecheck-root",
+      "command": [
+        "/Users/Doanh/.nvm/versions/node/v22.21.1/bin/node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit",
+        "-p",
+        "tsconfig.json"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 1104,
+      "log": "evidence/osid-typecheck-root.txt"
+    },
+    {
+      "name": "typecheck-chain",
+      "command": [
+        "/Users/Doanh/.nvm/versions/node/v22.21.1/bin/node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit",
+        "-p",
+        "packages/chain/tsconfig.json"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 533,
+      "log": "evidence/osid-typecheck-chain.txt"
+    },
+    {
+      "name": "typecheck-worker",
+      "command": [
+        "/Users/Doanh/.nvm/versions/node/v22.21.1/bin/node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit",
+        "-p",
+        "apps/worker/tsconfig.json"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 879,
+      "log": "evidence/osid-typecheck-worker.txt"
+    },
+    {
+      "name": "typecheck-web",
+      "command": [
+        "/Users/Doanh/.nvm/versions/node/v22.21.1/bin/node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit",
+        "-p",
+        "apps/web/tsconfig.json"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 915,
+      "log": "evidence/osid-typecheck-web.txt"
+    },
+    {
+      "name": "unit-tests",
+      "command": [
+        "/Users/Doanh/.nvm/versions/node/v22.21.1/bin/node",
+        "--import",
+        "tsx",
+        "--test",
+        "packages/chain/test/chain.test.ts",
+        "packages/chain/test/example.test.ts",
+        "packages/chain/test/osid-review.test.ts",
+        "packages/chain/test/rpc.test.ts",
+        "packages/chain/test/v2.test.ts",
+        "apps/worker/test/chain.test.ts",
+        "apps/worker/test/osid-review.test.ts",
+        "apps/worker/test/persistence.test.ts",
+        "apps/worker/test/security.test.ts",
+        "apps/worker/test/v2-ai.test.ts",
+        "apps/worker/test/v2-auth.test.ts",
+        "apps/worker/test/v2-claims.test.ts",
+        "apps/worker/test/v2-service.test.ts",
+        "apps/worker/test/worker.test.ts",
+        "apps/web/test/dev-server-security.test.ts",
+        "apps/web/test/previews.test.ts"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 9815,
+      "log": "evidence/osid-unit-tests.txt"
+    },
+    {
+      "name": "rust-tests",
+      "command": [
+        "/Users/Doanh/.nvm/versions/node/v22.21.1/bin/node",
+        "scripts/program-tooling.mjs",
+        "host-tests"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 1214,
+      "log": "evidence/osid-rust-tests.txt"
+    },
+    {
+      "name": "web-build",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "@holdfast/web"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 2064,
+      "log": "evidence/osid-web-build.txt"
+    },
+    {
+      "name": "git-whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 26,
+      "log": "evidence/osid-git-whitespace.txt"
+    },
+    {
+      "name": "git-staged-whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 7,
+      "log": "evidence/osid-git-staged-whitespace.txt"
+    }
+  ],
+  "sourceSha256": {
+    "programs/checkout/src/lib.rs": "8e3ca4677ef04444385dedad0ff56d87d24ac633af782df7fac463388792bc5c",
+    "packages/chain/src/index.ts": "5fc4e05f2ac70b6cb9046b63c376e2c09c4287e282e3ea961ddc19fa062a3d98",
+    "packages/chain/src/commitments.ts": "10239940185093bb682dc0b11506a60daaec9e1100b92e92e0dc43f51a438cfa",
+    "packages/chain/src/rpc.ts": "f780d3f97bb45f4cededbd5a324008954e2d330ba8b4026cee1aa184d2c2b096",
+    "packages/chain/idl/checkout.json": "72f39509db55892d8c44f28aea1c6365e2d525fd0e008ae869eae31bda629e80",
+    "apps/worker/src/app.ts": "9c0204f3a5de1a79f9c695aefb37daa962687c4b9a2d1a7064b723aa2a4046e3",
+    "apps/worker/src/chain.ts": "eed73337db35383c1f90974baa60ba5601d4701b45d0704c0118c89d2cafc97b",
+    "apps/worker/src/config.ts": "c092498de5b817670275f1920e06702f031d5a4b327a7fd5231a1e8bffacdb59",
+    "apps/worker/src/ai.ts": "191f362716d550837278b074856e15ffd1a4514f416708e0b96729f75272bdb3",
+    "apps/worker/src/auth.ts": "196aa9095b671f81e6c1364ee261818025d727835ba1cb8befa5e3a914b46080",
+    "apps/worker/src/pack.ts": "f649f607becbc0fc80f1fb60259badef7c39af0bb18704547852d65f3e47d3e2",
+    "apps/worker/src/v2-routes.ts": "83213e3b1b43216fd82b5f221fd4d86f420741f7ace449e20da046b3d8793ea9",
+    "apps/worker/src/v2-service.ts": "0a773103f8436177de1d4d4e94978a56785ac1df1a84d65f2698c824bba65a90",
+    "apps/worker/src/v2-store.ts": "0ba9f16626bc40774b2a5cedf98cdc6b53108d023ad8fb3ca800de061832733b",
+    "apps/worker/src/v2-types.ts": "8d75a25218f9b096eba605e6a7953df9895920f8d09ab575e35351bdb893447c",
+    "apps/web/src/Workspace.tsx": "f1bf6acd9fd9ece937d4688d0c02cc484cda3c8ab2f3a7d788927ed145a578ef",
+    "apps/web/src/Recovery.tsx": "e075c5cfc590434186a86894e1f611c6ad9950406723b9625ae1ccb2587ba6c6",
+    "apps/web/src/commitments.ts": "34f6bd31cf38e8f8b8356f529feacff55191eda3b4514ee294b9b6925d0cc266",
+    "apps/web/src/bundle.ts": "85d6060475b183bfc87663562b288c1f6861a7648a93a81cdbb4c2d239615d25",
+    "apps/web/src/previews.ts": "0c0f376aebf690ae13d393b00ded92f400180a2df7e40692b96d5e9677550285",
+    "apps/web/src/bytes.ts": "4518e3770c7e7e679fb8d27785186e3c4b81abf4838a226ec0695b35a6ba1744",
+    "apps/web/vite.config.ts": "8d8240f658d9087b9a36e7feeefce77ab38ce3eedb7c4cbd73f3298b75dd8290",
+    "apps/web/dev-security.ts": "4ebec298ddb2a21d583af70c0ab2d626b3bdcfce9bbb86ece0148a4f761ed14b",
+    "apps/web/test/dev-server-security.test.ts": "338d92633dfcd0b5cbfa3211f247ad86c17cd13e08cf9906f6ab6059d71ad0cb",
+    "apps/web/src/App.tsx": "3892004dc9f5b1b6bd6008133b1acf351b9ca17e4d0b457f54ef8539eb11c6f7",
+    "apps/web/src/api.ts": "b4acc80a318c83a65b84a6f668de14848b5263c77338e760f2cdc789398da840",
+    "apps/web/src/config.ts": "72a78fd94576800503b6b76560a10797163b59c430ce9f7b16979030d00cfea3",
+    "apps/web/src/session.ts": "013c12c81807f2f81ab1cdfa60e8cfbd6469d45197a7c00aa05be8bd9d1ae4fe",
+    "apps/web/src/wallet.ts": "d7dc5a9e2467562851492a0c91336595c63eba8270eaa5aa659f04ceaed3b95d",
+    "scripts/deploy.ts": "efd5b52ac0bd4550994de27231d9003d1b24768456a73093d50612887f3f256a",
+    "scripts/deploy-buffer.ts": "9534836bcde4d78294b10e511f4424a60fd9bd0e38d97a0bc15d4e91e01b9ec9",
+    "scripts/preview.ts": "eb7b05934fe8fa1bf0687349be42743cb874a802b17fcd790ab704b7c77216d7",
+    "scripts/runtime.mjs": "dd9f4e6daa7e1f00cad5a5106955a95ffa15bd314506d322de527a94827fac45",
+    "scripts/osid-runtime.ts": "d4dedab2de36b22436ab263afc7600127594368b732d90776a48f1dd240f9131",
+    "scripts/osid-rehearse.ts": "af808c6bf52d165727c09af1f07b13d33847bcc7c393cc57cf125e1c6f609abe",
+    "scripts/osid-ui-rehearse.ts": "18a30e4d8692a7917d654b32f5599fa81bbce9267b2668026cd95ce64e4014f2",
+    "scripts/osid-demo-video.ts": "90a936884e297b9ac6fa0dfac6790d5605f38f5ce3c62ca0914ddf85d4fb6dd7",
+    "scripts/osid-refund-rejected.ts": "676923999ca1c3c274c465c6eef33ef273c76f562103bb3664230203b4cffbb3",
+    "package-lock.json": "3d5a93c33cd510bdac35107745b95b411f7f050bdac4cdfdbeb435d1b26215f2"
+  },
+  "programSourceSha256": "8e3ca4677ef04444385dedad0ff56d87d24ac633af782df7fac463388792bc5c",
+  "workerServiceSha256": "bcb6d15482d05aa5f4dca4391996dd2c9dae7ff98964860494421969da9d25bc",
+  "chainClientSha256": "5fc4e05f2ac70b6cb9046b63c376e2c09c4287e282e3ea961ddc19fa062a3d98",
+  "rpcTransportSha256": "f780d3f97bb45f4cededbd5a324008954e2d330ba8b4026cee1aa184d2c2b096",
+  "npmLockSha256": "3d5a93c33cd510bdac35107745b95b411f7f050bdac4cdfdbeb435d1b26215f2",
+  "note": "These checks do not establish deployment or live token movement. Consult program TAP and per-cluster rehearsal evidence."
+}

@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 2,
+  "at": "2026-11-07T20:03:18.495Z",
+  "aiMode": "live",
+  "preview": {
+    "at": "2026-11-07T19:53:17.634Z",
+    "aiMode": "live",
+    "web": {
+      "pid": 72735,
+      "entry": "/Users/Doanh/Documents/Projects/solana-hacka/node_modules/vite/bin/vite.js",
+      "url": "http://localhost:5173/"
+    },
+    "worker": {
+      "pid": 72648,
+      "entry": "/Users/Doanh/Documents/Projects/solana-hacka/apps/worker/src/index.ts",
+      "url": "http://localhost:8787/health"
+    },
+    "logs": [
+      "/Users/Doanh/Documents/Projects/solana-hacka/.local/osid-preview-worker.log",
+      "/Users/Doanh/Documents/Projects/solana-hacka/.local/osid-preview-web.log"
+    ]
+  },
+  "service": {
+    "service": "product-listing-pack",
+    "aiMode": "live",
+    "liveConfigured": true,
+    "rehearsalStallEnabled": false
+  },
+  "config": {
+    "rpcUrl": "https://api.devnet.solana.com",
+    "programId": "7cW6fScgHCAWBo9YDQEhuS6brFjssJSmomRN11Xa9iKY",
+    "mint": "4jMjhk5ZyqnED6BtbQwiqNmcuzMJmti83nEPsceUtN7C",
+    "merchant": "2NMQLxp6Jn6ut9Hp6nLNoGwTSpdHxbPfoRw1wHAAB9zs",
+    "provider": "HJAT6vPXb6Qda763xmEPfchTQyYRtq8PcTL4mJauZEDQ",
+    "decimals": 6,
+    "amount": "5000000",
+    "cluster": "devnet"
+  },
+  "scope": "Read-only managed-preview desktop/mobile rendering and direct recovery inspection. No wallet, order, AI generation or token action.",
+  "routes": [
+    {
+      "name": "landing",
+      "url": "http://localhost:5173/",
+      "size": "desktop",
+      "h1": "Approve the work.\nThen release\nthe payment.",
+      "dimensions": {
+        "viewport": 1440,
+        "content": 1440
+      },
+      "screenshot": "evidence/screenshots/osid-preview-landing-desktop.png"
+    },
+    {
+      "name": "demo",
+      "url": "http://localhost:5173/demo",
+      "size": "desktop",
+      "h1": "Take a look.\nThen take the lead.",
+      "dimensions": {
+        "viewport": 1440,
+        "content": 1440
+      },
+      "screenshot": "evidence/screenshots/osid-preview-demo-desktop.png"
+    },
+    {
+      "name": "workspace",
+      "url": "http://localhost:5173/app",
+      "size": "desktop",
+      "h1": "Make a little\nmore of it.",
+      "dimensions": {
+        "viewport": 1440,
+        "content": 1440
+      },
+      "screenshot": "evidence/screenshots/osid-preview-workspace-desktop.png"
+    },
+    {
+      "name": "recovery",
+      "url": "http://localhost:5173/recover?job=5oR36HSynnnPycoTm6SwwySSu3jQzsmBfZnpjMgGExwW",
+      "size": "desktop",
+      "h1": "Your deposit.\nYour way back.",
+      "dimensions": {
+        "viewport": 1440,
+        "content": 1440
+      },
+      "chainState": "REFUNDED",
+      "screenshot": "evidence/screenshots/osid-preview-recovery-desktop.png"
+    },
+    {
+      "name": "landing",
+      "url": "http://localhost:5173/",
+      "size": "mobile",
+      "h1": "Approve the work.\nThen release the payment.",
+      "dimensions": {
+        "viewport": 390,
+        "content": 390
+      },
+      "screenshot": "evidence/screenshots/osid-preview-landing-mobile.png"
+    },
+    {
+      "name": "demo",
+      "url": "http://localhost:5173/demo",
+      "size": "mobile",
+      "h1": "Take a look.\nThen take the lead.",
+      "dimensions": {
+        "viewport": 390,
+        "content": 390
+      },
+      "screenshot": "evidence/screenshots/osid-preview-demo-mobile.png"
+    },
+    {
+      "name": "workspace",
+      "url": "http://localhost:5173/app",
+      "size": "mobile",
+      "h1": "Make a little\nmore of it.",
+      "dimensions": {
+        "viewport": 390,
+        "content": 390
+      },
+      "screenshot": "evidence/screenshots/osid-preview-workspace-mobile.png"
+    },
+    {
+      "name": "recovery",
+      "url": "http://localhost:5173/recover?job=5oR36HSynnnPycoTm6SwwySSu3jQzsmBfZnpjMgGExwW",
+      "size": "mobile",
+      "h1": "Your deposit.\nYour way back.",
+      "dimensions": {
+        "viewport": 390,
+        "content": 390
+      },
+      "chainState": "REFUNDED",
+      "screenshot": "evidence/screenshots/osid-preview-recovery-mobile.png"
+    }
+  ],
+  "pageErrors": [],
+  "recoveryRequests": [],
+  "passed": true,
+  "finishedAt": "2026-11-07T20:04:05.416Z"
+}
