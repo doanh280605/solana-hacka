@@ -1,25 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ApiError, post, request, setCsrfToken } from './api';
 import { errorMessage } from './config';
+import { signInChallenge, signInErrorMessage } from './sign-in';
+export { validateSignInMessage } from './sign-in';
 import type { Session } from './types';
 import type { useWallet } from './wallet';
 
 type Wallet = ReturnType<typeof useWallet>;
 export function encodeSignature(signature: Uint8Array): string { return btoa(String.fromCharCode(...signature)); }
-
-export function validateSignInMessage(message: string, wallet: string, nonce: string, expiresAt: number, cluster: string): void {
-  const lines = message.split('\n');
-  const expected = [
-    `${window.location.host} wants you to sign in with your Solana account:`, wallet, '',
-    'Sign in to osid (no payment authorization)', '', `URI: ${window.location.origin}/app`,
-    'Version: 1', `Chain ID: ${cluster}`, `Nonce: ${nonce}`,
-  ];
-  if (lines.length !== 11 || expected.some((line, index) => lines[index] !== line)) throw new Error('The sign-in request does not match this site, wallet or purpose.');
-  const issuedAt = Date.parse(lines[9].replace(/^Issued At: /, ''));
-  const expiration = Date.parse(lines[10].replace(/^Expiration Time: /, ''));
-  const now = Date.now();
-  if (!lines[9].startsWith('Issued At: ') || !lines[10].startsWith('Expiration Time: ') || !Number.isFinite(issuedAt) || !Number.isFinite(expiration) || expiration <= now || issuedAt > now + 60_000 || expiration <= issuedAt || expiration - issuedAt > 15 * 60_000 || Math.abs(expiration / 1000 - expiresAt) > 1) throw new Error('The sign-in request has invalid or expired timestamps.');
-}
 
 // Only /app mounts this hook. Recovery never initializes authentication.
 export function useSession(wallet: Wallet, cluster: string) {
@@ -64,21 +52,19 @@ export function useSession(wallet: Wallet, cluster: string) {
   }, [session]);
 
   const signIn = useCallback(async () => {
-    if (!wallet.address || !wallet.provider?.signMessage) { setError('Connect a wallet with message-signing support.'); return; }
+    if (!wallet.address || !wallet.provider || (typeof wallet.provider.signIn !== 'function' && typeof wallet.provider.signMessage !== 'function')) { setError('Connect a wallet with sign-in or message-signing support.'); return; }
     const epoch = generation.current;
     const address = wallet.address;
     setBusy(true); setError(null);
     try {
       const challenge = await post<{ nonce: string; message: string; expiresAt: number }>('/api/auth/nonce', { wallet: address });
-      validateSignInMessage(challenge.message, address, challenge.nonce, challenge.expiresAt, cluster);
+      const signature = await signInChallenge(wallet.provider, challenge, address, cluster, { isCurrent: () => generation.current === epoch });
       if (wallet.provider.publicKey?.toString() !== address || generation.current !== epoch) throw new Error('Wallet changed. Sign in again.');
-      const signed = await wallet.provider.signMessage(new TextEncoder().encode(challenge.message), 'utf8');
-      if (wallet.provider.publicKey?.toString() !== address || generation.current !== epoch) throw new Error('Wallet changed. Sign in again.');
-      const value = await post<Session>('/api/auth/verify', { wallet: address, nonce: challenge.nonce, signature: encodeSignature(signed.signature) });
+      const value = await post<Session>('/api/auth/verify', { wallet: address, nonce: challenge.nonce, signature: encodeSignature(signature) });
       if (generation.current !== epoch) return;
       if (value.wallet !== address || value.expiresAt * 1000 <= Date.now() || !value.csrfToken) throw new Error('Invalid session response.');
       current.current = value; setSession(value); setCsrfToken(value.csrfToken);
-    } catch (reason) { if (generation.current === epoch) setError(errorMessage(reason)); }
+    } catch (reason) { if (generation.current === epoch) setError(signInErrorMessage(reason, cluster, errorMessage(reason))); }
     finally { if (generation.current === epoch) setBusy(false); }
   }, [wallet.address, wallet.provider, cluster]);
 

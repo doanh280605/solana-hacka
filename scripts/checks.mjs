@@ -51,10 +51,10 @@ const sourcePaths = [
   'apps/web/src/ledger.ts', 'apps/web/src/token-balances.ts',
   'apps/web/src/previews.ts', 'apps/web/src/bytes.ts',
   'apps/web/vite.config.ts', 'apps/web/dev-security.ts', 'apps/web/test/dev-server-security.test.ts',
-  'apps/web/src/App.tsx', 'apps/web/src/api.ts', 'apps/web/src/config.ts', 'apps/web/src/session.ts', 'apps/web/src/wallet.ts',
+  'apps/web/src/App.tsx', 'apps/web/src/api.ts', 'apps/web/src/config.ts', 'apps/web/src/session.ts', 'apps/web/src/sign-in.ts', 'apps/web/src/types.ts', 'apps/web/src/wallet.ts',
   'scripts/deploy.ts', 'scripts/deploy-buffer.ts', 'scripts/preview.ts', 'scripts/runtime.mjs', 'scripts/common.ts',
   'scripts/osid-runtime.ts', 'scripts/osid-rehearse.ts', 'scripts/osid-ui-rehearse.ts', 'scripts/osid-demo-video.ts',
-  'scripts/osid-refund-rejected.ts',
+  'scripts/osid-refund-rejected.ts', 'scripts/osid-wallet-auth-smoke.ts',
   'package-lock.json',
 ];
 const sourceSha256 = Object.fromEntries(await Promise.all(sourcePaths.map(async path => [path, await digest(path)])));

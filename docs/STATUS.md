@@ -1,6 +1,6 @@
 # osid execution status
 
-Updated November 07, 2026, 19:55 UTC. Branch `integration/osid-v2`, based on verified Holdfast V1 `eca59b5`.
+Updated November 08, 2026. Branch `integration/osid-v2`, based on verified Holdfast V1 `eca59b5`.
 
 **Core goal incomplete: the live AI quote-to-approved-download gate has not passed.** Credentials are configured. Real runtime specification, listing and image-edit requests are verified, and one complete pack passed content/integrity review. RPC interruption prevented its approval before signing, then its immutable deadline passed. Later host/execution delays expired an unfunded quote and left a separate image attempt uncertain. The user was asked to keep the Mac awake, lid open and online for an uninterrupted ten minutes before another paid attempt. No fixture is counted as live AI.
 
@@ -10,7 +10,8 @@ Updated November 07, 2026, 19:55 UTC. Branch `integration/osid-v2`, based on ver
 | --- | --- |
 | Product | osid landing, clearly labeled no-wallet sample, signed wallet sessions, integrated workspace, exact-result buyer approval, verified private ZIP and independent V1/V2 recovery. |
 | Pack | 1600×1600 hero; social exports at 1080×1080, 1080×1350 and 1080×1920; title 80 / description 1200 / five bullets 180; validation, manifest and seven-file ZIP. Four review previews are separately committed. |
-| Checks | All nine aggregate gates pass: 90 unit,10 Rust, four typechecks, production build and whitespace. [Report](../evidence/osid-checks.json). Latest cleanup-only CLI extensions also passed root typecheck; [source/check provenance](../evidence/osid-final-source.json). |
+| Checks | All nine aggregate gates pass: 105 unit,10 Rust, four typechecks, production build and whitespace. [Report](../evidence/osid-checks.json). Final login-smoke harness changes separately pass root typecheck; [source/check provenance](../evidence/osid-final-source.json). |
+| Wallet login | Native SIWS with explicit `solana:devnet`, strict returned account/public-key/message/signature verification, fallback only when native is absent, safe unused-nonce migration and network guidance. Seven real HTTP/browser login cases pass using disposable injected wallets, including restore/logout, cancellation and tampered output. [Report](../evidence/osid-wallet-auth.json). Actual Phantom retry is pending. |
 | Actual local program | 39 passed:17 V1,11 V2,11 independent cases. [Report](../evidence/osid-program-localnet.json). Program source is unchanged since these checks. |
 | Deployment | Devnet finalized upgrade, exact 467120-byte executable SHA-256 `b59f0a228e24782e869316201faf17c4e39a7111082065fc42a51d418122e2a0`, correct genesis/config, unchanged V1 layouts/terminal decoding. [Deployment](../evidence/osid-deployment-devnet.json). |
 | Local application | Full HTTP/browser fixture purchase, exact settlement, private verified repeated download, auth/download replay and other-wallet denial, restart persistence, actual API-stopped refund. [HTTP](../evidence/osid-rehearsal-localnet-fixture.json), [browser](../evidence/osid-ui-localnet-fixture.json). |
@@ -43,9 +44,9 @@ Actual accepted-but-expired pack: [desktop](../evidence/screenshots/osid-live-ac
 - Independent recovery: http://localhost:5173/recover
 - Worker: http://localhost:8787/health
 
-Mode is **live on Devnet**, with an existing configured provider credential and empty preview order storage. Starting the preview creates no order or paid AI request. Web PID72735; worker PID72648. Exact entries/logs are in ignored `.local/osid-preview.json`; logs are `.local/osid-preview-web.log` and `.local/osid-preview-worker.log`.
+Mode is **live on Devnet**, with an existing configured provider credential and empty preview order storage. Starting the preview creates no order or paid AI request. The tested login repair was loaded November 8 at 08:43 UTC: web PID54544; worker PID54460. Exact entries/logs are in ignored `.local/osid-preview.json`; logs are `.local/osid-preview-web.log` and `.local/osid-preview-worker.log`.
 
-Stop only these verified processes with `npx tsx scripts/preview.ts stop`; restart with `npx tsx scripts/preview.ts start`. Use `start --fixture` only for explicitly labeled development fixtures. Do not run Vite canary tests or edit app environment/configuration during wallet transactions. Current [read-only preview checks](../evidence/osid-preview.json) pass all eight desktop/mobile route cases, with no page errors or horizontal overflow. Recovery reads the actual Refunded job through direct RPC with zero merchant requests; this creates no order or payment.
+Stop only these verified processes with `npx tsx scripts/preview.ts stop`; restart with `npx tsx scripts/preview.ts start`. Use `start --fixture` only for explicitly labeled development fixtures. Do not run Vite canary tests or edit app environment/configuration during wallet transactions. The prior [read-only preview checks](../evidence/osid-preview.json) passed all eight desktop/mobile route cases, with no page errors or horizontal overflow and zero recovery merchant requests. The current login smoke separately verifies the repaired native/fallback paths and captures desktop/mobile sign-in with no new orders, AI calls or money actions.
 
 ## Remaining gate and boundaries
 

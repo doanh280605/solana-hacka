@@ -12,6 +12,7 @@ interface Session { wallet: string; origin: string; tokenHash: string; csrfToken
 interface State { version: 2; nonces: Nonce[]; sessions: Session[] }
 export interface PublicSession { wallet: string; expiresAt: number; csrfToken: string }
 export const SESSION_COOKIE = 'osid_session';
+const NONCE_LIFETIME_SECONDS = 300;
 export class WalletAuth {
   private state: State = { version: 2, nonces: [], sessions: [] };
   private readonly locks = new OrderLocks();
@@ -32,7 +33,34 @@ export class WalletAuth {
       }
       this.state = parsed;
     } catch (error) { if (!isMissing(error)) throw error; }
+    this.retireIncompatibleNonces();
     await this.persist();
+  }
+  private message(challenge: Pick<Nonce, 'wallet' | 'origin' | 'nonce' | 'expiresAt'>): string {
+    const chainId = this.chain.config.cluster === 'devnet' ? 'solana:devnet' : 'localnet';
+    return [
+      `${new URL(challenge.origin).host} wants you to sign in with your Solana account:`, challenge.wallet, '',
+      'Sign in to osid (no payment authorization)', '', `URI: ${challenge.origin}/app`, 'Version: 1',
+      `Chain ID: ${chainId}`, `Nonce: ${challenge.nonce}`,
+      `Issued At: ${new Date((challenge.expiresAt - NONCE_LIFETIME_SECONDS) * 1000).toISOString()}`,
+      `Expiration Time: ${new Date(challenge.expiresAt * 1000).toISOString()}`,
+    ].join('\n');
+  }
+  private retireIncompatibleNonces(wallet?: string, origin?: string): boolean {
+    const now = Math.floor(Date.now() / 1000);
+    let retired = false;
+    for (const challenge of this.state.nonces) {
+      if (challenge.used || challenge.expiresAt <= now || (wallet !== undefined && challenge.wallet !== wallet)
+        || (origin !== undefined && challenge.origin !== origin)) continue;
+      let compatible = false;
+      try { compatible = challenge.message === this.message(challenge); } catch { /* Invalid stored dates/origins cannot be reused. */ }
+      if (!compatible) {
+        // Retain the original signed bytes and expiry; retirement never changes a session or order.
+        challenge.used = true;
+        retired = true;
+      }
+    }
+    return retired;
   }
   private async persist(): Promise<void> {
     const now = Math.floor(Date.now() / 1000);
@@ -60,17 +88,13 @@ export class WalletAuth {
     this.rate(`nonce-wallet:${wallet}`, 10);
     return this.locks.run('auth', async () => {
       const now = Math.floor(Date.now() / 1000);
+      if (this.retireIncompatibleNonces(wallet, origin)) await this.persist();
       const active = this.state.nonces.find(n => n.wallet === wallet && n.origin === origin && !n.used && n.expiresAt > now);
       if (active) return { nonce: active.nonce, message: active.message, expiresAt: active.expiresAt };
       if (this.state.nonces.filter(n => n.expiresAt > now).length >= 1000) throw new HttpError(429, 'Sign-in capacity reached; retry shortly');
       const nonce = randomBytes(32).toString('hex');
-      const expiresAt = now + 300;
-      const message = [
-        `${new URL(origin).host} wants you to sign in with your Solana account:`, wallet, '',
-        'Sign in to osid (no payment authorization)', '', `URI: ${origin}/app`, 'Version: 1',
-        `Chain ID: ${this.chain.config.cluster}`, `Nonce: ${nonce}`,
-        `Issued At: ${new Date(now * 1000).toISOString()}`, `Expiration Time: ${new Date(expiresAt * 1000).toISOString()}`,
-      ].join('\n');
+      const expiresAt = now + NONCE_LIFETIME_SECONDS;
+      const message = this.message({ wallet, origin, nonce, expiresAt });
       this.state.nonces.push({ wallet, nonce, origin, message, expiresAt, used: false });
       await this.persist();
       return { nonce, message, expiresAt };

@@ -57,6 +57,9 @@ export type Order = Purchase & {
   submissionSignature?: string;
 };
 export type Session = { wallet: string; expiresAt: number; csrfToken: string };
+export type SignInChallenge = { nonce: string; message: string; expiresAt: number };
+export type NativeSignInInput = { domain: string; address: string; statement: string; uri: string; version: '1'; chainId: 'solana:devnet' | 'localnet'; nonce: string; issuedAt: string; expirationTime: string };
+export type NativeSignInOutput = { account: { address: string; publicKey: Uint8Array }; signedMessage: Uint8Array; signature: Uint8Array; signatureType?: string };
 
 export type InjectedWallet = {
   publicKey: PublicKey | null;
@@ -65,6 +68,7 @@ export type InjectedWallet = {
   disconnect(): Promise<void>;
   signTransaction?: (transaction: Transaction) => Promise<Transaction>;
   signAndSendTransaction?: (transaction: Transaction) => Promise<{ signature: string }>;
+  signIn?: (input: NativeSignInInput) => Promise<NativeSignInOutput>;
   signMessage?: (message: Uint8Array, encoding?: string) => Promise<{ signature: Uint8Array }>;
   on?: (event: string, callback: (...args: unknown[]) => void) => void;
   removeListener?: (event: string, callback: (...args: unknown[]) => void) => void;

@@ -1,0 +1,84 @@
+{
+  "startedAt": "2026-11-08T08:47:11.635Z",
+  "passed": true,
+  "cases": [
+    {
+      "mode": "native",
+      "passed": true,
+      "verifies": 1,
+      "signatures": 1,
+      "transports": [
+        "native"
+      ],
+      "noTransactions": true,
+      "sessionRestoredAfterReload": true
+    },
+    {
+      "mode": "fallback",
+      "passed": true,
+      "verifies": 1,
+      "signatures": 1,
+      "transports": [
+        "fallback"
+      ],
+      "noTransactions": true,
+      "sessionRestoredAfterReload": true
+    },
+    {
+      "mode": "network",
+      "passed": true,
+      "verifies": 0,
+      "signatures": 0,
+      "transports": [],
+      "noTransactions": true,
+      "noFallback": true
+    },
+    {
+      "mode": "cancel",
+      "passed": true,
+      "verifies": 0,
+      "signatures": 0,
+      "transports": [],
+      "noTransactions": true,
+      "noFallback": true
+    },
+    {
+      "mode": "message",
+      "passed": true,
+      "verifies": 0,
+      "signatures": 1,
+      "transports": [
+        "native"
+      ],
+      "noTransactions": true,
+      "noFallback": true
+    },
+    {
+      "mode": "account",
+      "passed": true,
+      "verifies": 0,
+      "signatures": 1,
+      "transports": [
+        "native"
+      ],
+      "noTransactions": true,
+      "noFallback": true
+    },
+    {
+      "mode": "signature",
+      "passed": true,
+      "verifies": 0,
+      "signatures": 1,
+      "transports": [
+        "native"
+      ],
+      "noTransactions": true,
+      "noFallback": true
+    }
+  ],
+  "errors": [],
+  "wallet": "Disposable injected wallet; actual Phantom extension requires a human confirmation.",
+  "scope": "Devnet-configured HTTP/browser login only; no orders, AI requests or token transactions.",
+  "privateKeysInBrowser": false,
+  "finishedAt": "2026-11-08T08:47:15.244Z"
+}

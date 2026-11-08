@@ -8,7 +8,7 @@ The pack contains one AI-edited 1600 × 1600 hero, social exports at 1080 × 108
 
 This is a Devnet prototype using a disposable six-decimal SPL mock token. It has no real USDC value. Hashes bind agreed terms and artifact bytes; they do not prove subjective AI quality, factual correctness or permanent file availability.
 
-Current verification: **90 unit, 10 Rust and 39 actual local-program tests pass**, with typechecks, production build, Devnet settlement/recovery and independent review. Runtime AI has produced real specifications, edited images and copy. **A successful live AI approval/download remains unverified** after RPC interruptions and large host/execution delays. All five funded live attempts were refunded; an uncertain image attempt is preserved without regeneration. Credentials are configured. The managed preview is http://localhost:5173/ in live mode on Devnet; [status](docs/STATUS.md) records evidence, current limitations and process instructions.
+Current verification: **105 unit, 10 Rust and 39 actual local-program tests pass**, with typechecks, production build, Devnet settlement/recovery and independent review. Seven browser login cases cover native SIWS, fallback, session restore/logout and rejected wallet output; actual Phantom confirmation remains pending. Runtime AI has produced real specifications, edited images and copy. **A successful live AI approval/download remains unverified** after RPC interruptions and large host/execution delays. All five funded live attempts were refunded; an uncertain image attempt is preserved without regeneration. Credentials are configured. The managed preview is http://localhost:5173/ in live mode on Devnet; [status](docs/STATUS.md) records evidence, current limitations and process instructions.
 
 ## Start
 
@@ -89,6 +89,10 @@ Connect a Phantom-compatible wallet configured for the same network. Sign-in req
 ```sh
 npm run fund:wallet -- localnet YOUR_WALLET_PUBLIC_KEY
 ```
+
+For the managed Devnet preview, set Phantom to **Settings → Developer Settings → Testnet Mode → Solana Devnet**, then reload `/app`. Connecting does not switch the wallet's selected network. Login prefers native Sign-In With Solana with `solana:devnet`; wallets without that method use the same server-bound challenge through message signing. A rejected native request is never retried through another method. Login cannot authorize a payment. [Phantom network instructions](https://help.phantom.com/articles/use-testnets-in-phantom-5997313271699).
+
+With the managed preview running, `npx tsx scripts/osid-wallet-auth-smoke.ts` verifies login through disposable injected wallets. It blocks order creation, provider requests and money actions; it does not establish Phantom-extension behavior. [Login evidence](evidence/osid-wallet-auth.json).
 
 Upload a PNG/JPEG/WebP of at most 5 MiB and 4096 × 4096 pixels, enter a 20–2000-character brief, review the exact quote/specification, then fund. Quote validity is 10 minutes; the separate execution/refund deadline is 30 minutes after quoting. Funding, payment approval, download authorization and refunds are separate wallet confirmations.
 

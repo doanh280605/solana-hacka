@@ -1,6 +1,6 @@
 # osid implementation and handoff
 
-Updated November 07, 2026, 19:55 UTC. Branch `integration/osid-v2`; clean baseline `eca59b5beb295e9d02fe3f57249b62be09b458f1`. The user's osid scope supersedes the original completed Holdfast goal. Preserve historical evidence, keys, ledgers and unrelated changes.
+Updated November 08, 2026. Branch `integration/osid-v2`; clean baseline `eca59b5beb295e9d02fe3f57249b62be09b458f1`. The user's osid scope supersedes the original completed Holdfast goal. Preserve historical evidence, keys, ledgers and unrelated changes.
 
 ## Checklist
 
@@ -10,7 +10,8 @@ Updated November 07, 2026, 19:55 UTC. Branch `integration/osid-v2`; clean baseli
 - [x] Service agent owns apps/worker: runtime AI, interpreted specifications/quotes, durable attempts/private artifacts/ZIP, auth and delivery.
 - [x] Protocol agent owns programs/checkout and packages/chain: additive V2, SDK/IDL and tests, unchanged V1 ABI.
 - [x] Lead owns root config/lock/scripts, deployment, integration/evidence and docs; serialized stateful chain operations.
-- [x]90 unit +10 Rust, four typechecks/build/all nine aggregate gates;39 actual local-program tests.
+- [x]105 unit +10 Rust, four typechecks/build/all nine aggregate gates;39 actual local-program tests.
+- [x] Native SIWS compatibility repair; seven login-only HTTP/browser cases pass, independent review complete. Actual Phantom confirmation remains pending.
 - [x] Local/Devnet fixture quote-to-download, restart persistence and API-offline browser refund with zero merchant requests.
 - [x] Devnet upgrade/config/genesis/complete bytecode hash and V1 compatibility independently verified.
 - [x] Actual live OpenAI spec/copy/image edits, immutable submissions and independently reviewed accepted output.
@@ -41,6 +42,10 @@ Managed live preview: http://localhost:5173/ plus /demo,/app,/recover; API 8787.
 Local validator uses isolated `.local/ledger-osid-v2`; do not reset historical ledgers/keys. Project Cargo registry metadata was restored as real files with469 preserved-byte matches. Aggregate command: `CARGO_NET_OFFLINE=true CARGO_TARGET_DIR=/private/tmp/osid-protocol-host-target npm run check:osid`. Current source changes after that aggregate are cleanup-only CLI extensions, separately root-typechecked; rerun appropriate checks if new source changes occur.
 
 ## Required continuation
+
+November 8 wallet integration repair: actual Phantom connected successfully but rejected the SIWS-shaped `signMessage` request with a chain-ID mismatch. The official specification accepts both bare/prefixed Devnet names; the selected wallet network is not observable from the screenshot, so neither a wallet-setting mismatch nor alias comparison has been proven. Lead agreed the coordinated interface in INTERFACES.md: explicit `solana:devnet` (`localnet` unchanged), feature-detected native `signIn` with exact stored-challenge verification, and actionable network guidance. Frontend agent owns browser changes/tests; service agent owns challenge issuance/migration/tests; lead owns integration, docs, preview process management and normal push. Do not bypass a wallet rejection or remove network binding. Actual Phantom success still needs the user's wallet confirmation; do not describe an injected-wallet regression as extension verification.
+
+The repair passed 105 unit/10 Rust tests, all four typechecks and production build. Preview was stopped for the isolated Vite canary, then restored with the same storage. `npx tsx scripts/osid-wallet-auth-smoke.ts` passed all seven login cases with real ephemeral Ed25519 signatures and HTTP sessions, no browser errors, and no order/AI/money actions. Native and absent-feature fallback login both restore after reload and invalidate the server session on logout; network rejection, cancellation, changed message/account and invalid signature never create a session or fall back. First harness-only serialization/cancel-copy assertion failures are preserved privately; no application defect was hidden by them. Public deployment of a demo website is now authorized by the user after fixing sign-in; no site has been published, no paid infrastructure commitment is authorized, and hackathon submission remains a participant action.
 
 When the user confirms uninterrupted host availability: stop only the managed preview; run `npx tsx scripts/osid-ui-rehearse.ts devnet --review-gate` with normal 1800-second deadline. Use a fresh job; never rebind an expired result or retry an uncertain image. The independent reviewer may inspect actual new bytes/images/copy and the lead's recorded finalized Submitted snapshot, then atomically write its private decision bound to the exact run/job/hash before expiry. This is agent test review, not external human attestation. Fresh independent RPC receipt checks follow terminal settlement. Buyer keys remain in Node callbacks, never browser/worker.
 
